@@ -10,15 +10,15 @@
 
 ### Inspiracion de referentes en el mercado:
 
-https://www.universomascota.com.ar/
+https://www.universomascota.com.ar/ (El diseño que tiene el carrito, el estilo del sitio es amigable)
 
-https://www.puppis.com.ar/
+https://www.puppis.com.ar/ (El nav que tiene el sitio es interesante, llama la atencion).
 
-https://www.natural-life.com.ar/
+https://www.natural-life.com.ar/    (Parece interesante el como dividieron la autenticacion del citio, pd:lastima los colores del sitio)
 
-https://centropet.com/
+https://centropet.com/ (La parte de "Comprar por animal", fue muy interesante como pusieron las fotos de las mascotas, es llamativo")
 
-https://www.catycan.com/
+https://www.catycan.com/ (Los colores y el diseño del sitio, y la parte del footer donde tiene una seccion de consultas)
 
 
 ## Integrantes: 
