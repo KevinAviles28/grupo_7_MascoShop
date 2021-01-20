@@ -35,6 +35,7 @@ Me presento mi nombre es Michel Varela, tengo 25 años, estudiante de programaci
 - Michel Varela
 - Kevin Aviles Bejarano
 - Jonas Sayago
-Soy jonas tengo 25 años, soy un fan de las tecnologias 
+
+Hola, soy Jonas Sayago tengo 25 años, soy un fan de las tecnologias y actualmente estoy estudiando programacion web full stack por la fundacion formar, espero poder enforcarme en el front-end y poder desempeñarme en este mismo como freelance.
 
 - Alexis Arzamedia
