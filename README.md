@@ -40,3 +40,6 @@ Desde mascoshop.com entregamos cada semana cientos de productos a hogares con ma
   Hola, soy Jonas Sayago tengo 25 años, soy un fan de las tecnologias y actualmente estoy estudiando programacion web full stack por la fundacion formar, espero poder enforcarme en el front-end y poder desempeñarme en este mismo como freelance.
 
 - Alexis Arzamedia
+
+  Buenas, me presento mi nombre es Arzamendia Alexis, en este momento estoy estudiando en el curso programación web full stack, cuando termine el curso quisiera un trabajo acorde a esto ya que el ambiente es muy bueno y hay mucho compañerismo. 
+
