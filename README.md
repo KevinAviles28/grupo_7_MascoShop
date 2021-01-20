@@ -31,4 +31,6 @@ Desde mascoshop.com entregamos cada semana cientos de productos a hogares con ma
 - Michel Varela
 - Kevin Aviles Bejarano
 - Jonas Sayago
+Soy jonas tengo 25 años, soy un fan de las tecnologias 
+
 - Alexis Arzamedia
