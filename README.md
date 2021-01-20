@@ -26,14 +26,15 @@ En Mascoshop sabemos lo importante que es tu mascota para vos. Vive, duerme, jue
 Porque amamos a los animales tanto como vos, ponemos a tu alcance todo lo que tu fiel amigo necesita, haciéndote ahorrar tiempo para que compartas con él lo que más le gusta: tu compañía.
 Desde mascoshop.com entregamos cada semana cientos de productos a hogares con mascotas. Llevamos hasta tu puerta todo para tu mascota: alimentos balanceados, accesorios, golosinas, juguetes y mucho más, siendo el pet shop online más completo del país.
 
-### Descripción Integrantes del equipo
-
-Me presento mi nombre es Michel Varela, tengo 25 años, estudiante de programación web full stack, a futuro quiero especializarme como back-end, y mis hobbies son, hacer acrobacia aerea, andar en bicicleta y viajar.
-
-
 ## Integrantes: 
 - Michel Varela
+
+    Me presento mi nombre es Michel Varela, tengo 25 años, estudiante de programación web full stack, a futuro quiero especializarme como back-end, y mis hobbies son, hacer acrobacia aerea, andar en bicicleta y viajar.
+
 - Kevin Aviles Bejarano
+
+    Mi nombre es Kevin Aviles, tengo 20 años, en este momento estoy estudiando en el curso de programación web full stack, en un futuro no tan lejano quisiera conseguir un trabajo de programador, lo que más me gusta hacer es practicar en un juego de estrategia real (rts). 
+    
 - Jonas Sayago
 
   Hola, soy Jonas Sayago tengo 25 años, soy un fan de las tecnologias y actualmente estoy estudiando programacion web full stack por la fundacion formar, espero poder enforcarme en el front-end y poder desempeñarme en este mismo como freelance.
