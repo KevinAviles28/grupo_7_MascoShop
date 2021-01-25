@@ -26,11 +26,11 @@ En Mascoshop sabemos lo importante que es tu mascota para vos. Vive, duerme, jue
 Porque amamos a los animales tanto como vos, ponemos a tu alcance todo lo que tu fiel amigo necesita, haciéndote ahorrar tiempo para que compartas con él lo que más le gusta: tu compañía.
 Desde mascoshop.com entregamos cada semana cientos de productos a hogares con mascotas. Llevamos hasta tu puerta todo para tu mascota: alimentos balanceados, accesorios, golosinas, juguetes y mucho más, siendo el pet shop online más completo del país.
 
-### LINK DE TRELLO: 
+### Link de Trello: 
 
 https://trello.com/b/So4yBLx3/proyecto-integrador-grupo-7-mascoshop
 
-### RETROSPECTIVA
+### Retrospectiva
 
 ## Integrantes: 
 - Michel Varela
