@@ -30,7 +30,6 @@ Desde mascoshop.com entregamos cada semana cientos de productos a hogares con ma
 
 https://trello.com/b/So4yBLx3/proyecto-integrador-grupo-7-mascoshop
 
-### Retrospectiva
 
 ## Integrantes: 
 - Michel Varela
