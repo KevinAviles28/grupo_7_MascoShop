@@ -19,3 +19,6 @@
 
 ## Hacer menos:
     -Undefined;
+
+# Minutas:
+    -Cambio de horarios para las reuniones: Nuevo Horario 10:30 am
