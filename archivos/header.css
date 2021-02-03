@@ -1,0 +1,267 @@
+*{
+    margin:0 auto;
+    box-sizing: border-box;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+} 
+a{
+    text-decoration: none;
+    color: white;
+    
+}
+a:hover{    
+    color: #e9c496;
+}
+p{
+    color: white;
+}
+header {
+    background-color: #944e6c;
+}
+header .logo img{
+    width: 100%;
+}
+header nav{
+  /*  position: fixed; */
+  height: 35px;
+}
+header nav button i{/* ICONO DEL NAV */
+    font-size: 30px;
+}
+/* header nav ul{
+    text-align: left;
+} */
+ header nav #lista{
+    background-color: white ;/*  #e9c496 */
+    
+}
+/*  */
+header nav #lista ul{
+    width: 200px;
+    background-color:white;/* :#e9c496 */
+    border-radius: 20px;
+} 
+header nav #lista ul li a{
+    color :black
+}
+header nav #lista ul li ul{
+    background-color:white ;/* #944e6c */
+}
+header nav #lista ul li:not(:last-child){
+    border-bottom: 3px solid #433d3c;
+}
+header .search-container{/* CONTENEDOR DEL BUSCADOR */
+    padding: 0;
+    height: 40px;
+   /* header nav button.burger:focus{
+  outline: 1px solid white;
+}
+
+ */
+ 
+}
+header .input-search{/* TODO EL BUSCADOR */
+    display: flex;
+    background-color: white;
+    justify-content: space-around;
+    border: 1px solid #433d3c;
+    border-radius: 20px;
+    height: 85%;  
+    
+}
+header .input-search button{          /* BOTON DEL BUSCADOR */
+    width: 10%; 
+    background-color: white;
+    border:none;
+    margin-left: 15px;
+   
+
+}
+header .input-search button:focus{
+    outline: 0px solid white;
+}
+
+header .input-search input{ /* TEXTO DEL BUSCADOR */
+    border: none;
+    width: 80%; 
+     text-align: center;  
+     border-radius:20px;                     /* sacar fondo */
+}
+header .input-search input:focus{
+    outline: 0px solid white;
+
+}
+
+
+header .perfil a{   /* Link PERFIL */
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    text-align: center
+}
+header .carrito a{  /* Link CARRITO */
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    text-align: center
+}
+header .perfil i,.carrito i{/* ICONO CARRITO Y PERFIL */
+    font-size: 25px;
+}
+/* FIN DEL HEADER */
+
+/* footer */
+footer .caja1{
+    border-bottom: 1px solid black;
+}
+footer article.formulario{
+    display: none;
+}
+footer article ul{
+     text-align: center;
+     padding-left: 0;
+}
+footer article ul.enLinea{
+    display: flex;
+    font-size: 25px;
+}
+footer article a{
+    color:black;
+}
+/* Fin Footer */
+
+
+
+
+@media(min-width:426px){
+    
+    /* inicio nav */
+    header .barra{
+        order: 2; 
+        height: 100px;
+        width: 700px;
+        display: flex;
+        align-items: center;
+    }
+    header nav{
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    header nav #lista{
+        border-radius: 20px;
+        
+    }
+    header nav #lista ul{
+        width: 100%;
+        background-color: white;
+    }
+    
+    header nav #lista ul li a{
+        padding-right: 20px;
+        padding-left: 20px;
+        color:#433d3c ;
+    }
+    header nav #lista ul li:not(:last-child){
+        border-bottom: none;
+    }
+    header nav #lista ul li:first-child ul li{
+        border-bottom: 2px solid  #e9c496;
+    }
+    /* inicio buscador */
+     header .search-container{
+         margin-top: 15px;
+    }
+    header .input-search{
+        height: 100%;
+    }
+    header .perfil{
+        margin-top: 10px;
+    }
+    header .carrito{
+        margin-top: 10px;
+    }
+   
+    footer h5{
+        text-align: center;
+    }
+   
+}
+
+@media(min-width:769px){
+    header .input-search{
+        margin-top: 30px;
+    }
+    header .perfil{
+        display: flex;
+        align-items: center;
+        
+    }
+    header .perfil a{
+        display: inline;
+        width: 80%;
+    }
+    header .perfil a i,header .carrito a i{
+        margin-right: 9px;
+    }
+    header .carrito{
+        display: flex;
+        align-items: center;
+        margin-top: 2px;
+    }
+    header .carrito a{
+        display: inline;
+        width: 80%;
+    }
+
+    footer .caja1{
+        border-right: 1px solid black;
+        border-bottom: none;
+    }
+    footer article{
+        height: 100%;
+    }
+    footer article ul li{
+        padding-bottom: 10px;
+    }
+    footer .servicios{
+        margin-left: 11px;
+        margin-right: 11px;
+    }
+    footer .caja2 .formulario{
+        display: block;
+        border-right: none ;
+    }
+    footer article.formulario form input{
+        margin-bottom: 15px;
+    }
+    footer article.formulario form textarea{
+        height: 100px;
+        width: 100%;
+    }
+    footer .servicios-container  {
+        height: 60px;
+        width: 100%;
+        
+    }
+    footer .servicios-container article {
+        height: 60%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    footer .servicios-container ul li a{
+        font-size: 25px;
+        padding: 15px;
+    }
+    footer .servicios-container h5,footer .servicios-container p{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    footer .servicios-container article ul{
+        font-size: 15px;
+        margin-bottom: 0;
+    }
+    
+}
