@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %> 
+<body>
+    <%- include('partials/header') %> 
+    <main class="container">
+        <h2 class="my-3">Formulario carga de productos</h2>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <select class="form-select mb-3">
+                        <option selected>Categoria</option>
+                        <option value="1">Perros</option>
+                        <option value="2">Gatos</option>
+                        <option value="3">Aves</option>
+                        <option value="3">Peces</option>
+                        <option value="3">Roedores</option>
+                        <option value="3">Reptiles</option>
+                    </select>
+                    <select class="form-select mb-3">
+                        <option selected>Sub-categoria</option>
+                        <option value="1">Accesorios</option>
+                        <option value="2">Alimentos</option>
+                    </select>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="producto" placeholder="Nombre del producto">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="precio" placeholder="Precio">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="stock" placeholder="Stock disponible">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label" style="color: white;">Cargar imagen</label>
+                        <input type="file" class="form-control" id="seleccionArchivos"  name="img">
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button type="reset" class="btn btn-danger mb-3">Cancelar</button>
+                        <button type="submit" class="btn btn-primary mb-3">Confirmar carga</button>
+                    </div>
+                </form>
+            </div>
+            <div class="view-imagen text-center col-12 col-lg-6">
+                <img class="mb-3" id="imagenPrevisualizacion" alt="img-view">
+                <form action="">
+                    <button type="reset" class="btn btn-danger mb-3">Eliminar imagen</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <%- include('partials/footer') %> 
+    <%- include('partials/scripts') %> 
+</body>
+</html>

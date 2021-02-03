@@ -6,52 +6,40 @@
 }
 
 body{
+    padding: 5px;
     background-color: var(--colorOscuro);
-    padding: 1px;
 }
 
-form{
-    padding: 10px;
+h2{
     border-radius: 20px;
+    background-color: var(--colorVioleta);
 }
-
-.form-check{
-    padding: 10px 60px 10px 0px;
-    border-radius: 20px;
-}
-
-.sesion {
+.sesion{
     background-color: var(--colorRosa);
+    margin: 1px;
     border-radius: 20px;
-    margin: 10px;
-}
-.sesion h2{
-    border-radius: 20px;
+    margin-top: 40px;
+
 }
 
 .pagos{
     background-color: var(--colorRosa);
+    margin: 5px;
     border-radius: 20px;
-    margin: 10px;
-    justify-content: center;
+    padding: 5px;
+
 }
 
 .lista{
     background-color: var(--colorRosa);
+    margin: 5px;
     border-radius: 20px;
+    padding: 5px;
 }
 
-.lista button{
-    height: 40px;
-}
-
-.compras{
-    padding: 1px;
-}
-
-.listadecompras{
+.variable.container p{
+    background-color: var(--colorVioleta);
     border-radius: 20px;
-    
 }
 
 

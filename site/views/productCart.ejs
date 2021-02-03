@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %> 
+<body>
+    <%- include('partials/header') %> 
+    <main>
+        <div class="sesion container">
+            <div class="text-center py-1 w-100"><h2>Iniciar Sesion</h2></div>
+        
+            <form>
+                <div class="row mb-3">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail3">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputPassword3" class="col-sm-2 col-form-label">Contraseña</label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword3">
+                  </div>
+                </div>
+                <fieldset class="row mb-3">
+        
+        
+                <button type="submit" class="btn btn-primary">Ingresar</button>
+              </form>
+            </div>
+        
+            <div class="pagos border border-dark">   
+            <div class="text-center py-2 w-100"><h2>Metodo de Pago</h2></div>
+        
+        
+        <div class="form-check container ">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+          <label class="form-check-label" for="flexRadioDefault1">
+             Efectivo <i class="far fa-money-bill-alt"></i>
+          </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Tarjeta Credito o Debito <i class="fas fa-credit-card"></i>
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Punto de Pago <i class="fas fa-map-marker-alt"></i>
+            </label>
+          </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
+            Transferencia Bancaria <i class="fas fa-exchange-alt"></i>
+          </label>
+        </div>
+        </div>
+        
+        <div class="container"> 
+         <div class="lista row text-center " > 
+             <div><h2>Lista de compras</h2></div>  
+        
+            <div class="compras col-12  col-lg-4 d-flex text-center align-items-center">
+            <img src="./D_NQ_NP_672055-MLA40413452294_012020-O.webp" style="width: 10%" alt=""><p>Royal Canin Blue</p><p>$1750</p><button class="btn btn-danger ml-auto"><p>Eliminar</p></button>
+        </div>
+        <div class="compras col-12  col-lg-4 d-flex text-center align-items-center">
+            <img src="./D_NQ_NP_868768-MLA31025813207_062019-O.webp" style="width: 10%" alt=""><p>Royal Canin Green</p><p>$1550</p><button class="btn btn-danger ml-auto"><p>Eliminar</p></button>
+        
+        </div>
+        <div class="compras col-12  col-lg-4 d-flex text-center align-items-center">
+            <img src="./D_NQ_NP_992158-MLA32040915931_092019-O.webp" style="width: 10%" alt=""><p>Perfomance Junior</p><p>$1350</p><button class="btn btn-danger"><p>Eliminar</p></button>
+        
+        </div>    
+          <div class="variable container"><p>Total = variable</p></div>
+         </div>
+        </div>
+        </main>
+        <%- include('partials/footer') %>
+        <%- include('partials/scripts') %>  
+    </body>
+    </html>
