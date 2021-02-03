@@ -1,0 +1,57 @@
+:root{
+    --colorOscuro: #433d3c;
+    --colorVioleta: #944e6c;
+    --colorRosa: #e9c496;
+    --colorVerde: #83a95c;
+}
+
+body{
+    background-color: var(--colorOscuro);
+    padding: 1px;
+}
+
+form{
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.form-check{
+    padding: 10px 60px 10px 0px;
+    border-radius: 20px;
+}
+
+.sesion {
+    background-color: var(--colorRosa);
+    border-radius: 20px;
+    margin: 10px;
+}
+.sesion h2{
+    border-radius: 20px;
+}
+
+.pagos{
+    background-color: var(--colorRosa);
+    border-radius: 20px;
+    margin: 10px;
+    justify-content: center;
+}
+
+.lista{
+    background-color: var(--colorRosa);
+    border-radius: 20px;
+}
+
+.lista button{
+    height: 40px;
+}
+
+.compras{
+    padding: 1px;
+}
+
+.listadecompras{
+    border-radius: 20px;
+    
+}
+
+
