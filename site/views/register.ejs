@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %> 
+<body>
+    <header class="rgtrs container-fluid">
+        <div class="row">
+            <img src="/images/mascoshop_logo.png" alt="" class="my-3 col-6 col-md-3 col-lg-2">
+        <div class="publicidad d-flex align-items-center col-6 col-lg-4">
+            <span>¡ Todo lo que tu mejor amigo necesita <i class="fas fa-paw"></i>! </span>
+        </div>
+        </div>
+    </header>
+    
+    <main class="register container my-5 py-3">
+        <h2>Registro</h2>
+        <form action="" method="">
+            <div class="mb-3">
+                <input type="text" name="name" placeholder="Nombre" class="form-control">
+            </div>
+            <div class="mb-3">
+                <input type="text" name="apellido" placeholder="Apellido" class="form-control">
+            </div>
+            <div class="mb-3">
+                <input type="email" name="email" placeholder="Email" class="form-control">
+            </div>
+            <div class="mb-3">
+                <input type="password" name="passUno" placeholder="Contraseña" class="form-control">
+            </div>
+            <div class="mb-3">
+                <input type="password" name="passDos" placeholder="Repetir contraseña" class="form-control">
+            </div>
+            <select class="mb-3 form-select" aria-label="Default select example">
+                <option selected>Seleccione su país</option>
+                <option value="1">Argentina</option>
+                <option value="2">Brasil</option>
+                <option value="3">Chile</option>
+                <option value="4">Bolivia</option>
+                <option value="5">Venezuela</option>
+                <option value="6">Peru</option>
+                <option value="7">México</option>
+            </select>
+            
+            <div class="botones d-flex justify-content-end">
+                <button type="submit" class="mx-3 btn btn-primary">Registrarme</button>
+                <button type="reset" class="btn btn-danger">Cancelar</button>
+            </div>
+            
+        </form>
+    </main>
+    
+    
+    
+    <%- include('partials/scripts') %> 
+    
+</body>
+</html>
