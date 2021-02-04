@@ -74,6 +74,7 @@ main .product-relacionados section{
 
 main .product-relacionados section article{
     background-color: white;
+    border-radius: 5px;
 }
 
 main .product-relacionados section article .contenido{
