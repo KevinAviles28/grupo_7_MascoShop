@@ -76,6 +76,13 @@ header .botones a i{
 }
 /* header */
 
+/* Banner */
+.banner{
+    display: none;
+    padding: 0px;
+} 
+/* Banner */
+
 /* productos */
 .productHome{
     margin: 20px 20px;
@@ -171,6 +178,15 @@ footer .contactanos ul li a i{
     header .buscador form .icon{
         top:37px;
     }
+    .banner{
+        display: flex;
+        margin: 15px 0;
+    } 
+
+     .banner img{
+        height: 366px;
+
+    }
 
 }
 @media(min-width:1025px){
@@ -181,4 +197,5 @@ footer .contactanos ul li a i{
     header .buscador form .icon{
         top:50px;
     }
+    
 }
