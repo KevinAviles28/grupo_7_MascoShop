@@ -102,6 +102,10 @@ main section article{
     padding: 10px;
 }
 
+main section article:hover{
+    transform: scale(1.1);
+}
+
 main section article img{
     background-color: white;
     border-radius: 5px 5px 0 0;
