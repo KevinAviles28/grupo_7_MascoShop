@@ -1,11 +1,4 @@
-:root{
-    --colorOscuro: #433d3c;
-    --colorVioleta: #944e6c;
-    --colorRosa: #e9c496;
-    --colorVerde: #83a95c;
-}
-
-body{
+/* body{
     padding: 5px;
     background-color: var(--colorOscuro);
 }
@@ -13,7 +6,7 @@ body{
 h2{
     border-radius: 20px;
     background-color: var(--colorVioleta);
-}
+} */
 .sesion{
     background-color: var(--colorRosa);
     margin: 1px;

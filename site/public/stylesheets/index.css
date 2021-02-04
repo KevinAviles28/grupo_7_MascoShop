@@ -17,6 +17,23 @@
 body{
     background-color: var(--colorAzul);
 }
+
+li{
+    list-style: none;    
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+h5{
+    color: white;
+    font-size: 2rem;
+    margin:20px 0;
+}
+.nstrs{
+    color:white;
+}
+/* header */
 header {
     background-color: var(--colorRojo);
 }
@@ -57,26 +74,58 @@ header .botones a i{
     font-size: 1.2rem;
     padding-right: 5px;
 }
+/* header */
+
+/* productos */
+.productHome{
+    margin: 20px 20px;
+    color: white;
+}
+
+main{
+    background-color: var(--colorOscuro);
+    color: white;
+}
+
+main section{
+    margin: 10px 0;
+}
+
+main section article{
+    padding: 10px;
+}
+
+main section article img{
+    background-color: white;
+    border-radius: 5px 5px 0 0;
+}
+
+main section article .contenido{
+    background-color: white;
+    color: var(--colorOscuro);
+    border-top: 1px solid var(--colorOscuro);
+    padding: 10px 10px 5px;
+    border-radius: 0 0 5px 5px;
+}
+
+main section article .contenido p{
+    font-size: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+main section article .contenido p span{
+    color: var(--ColorVerde);
+    font-size: 1rem;
+    padding-left: 5px;
+}
+/* productos */
 
 
-/* Footer */
+/* footer */
 footer{
     background-color: var(--colorRojo);
-}
-li{
-    list-style: none;    
-}
-a{
-    text-decoration: none;
-    color: white;
-}
-h5{
-    color: white;
-    font-size: 2rem;
-    margin:20px 0;
-}
-p{
-    color:white;
 }
 
 footer .caja1 ul li a i{
@@ -113,6 +162,7 @@ footer .caja1 ul li a i{
 footer .contactanos ul li a i{
     font-size: 2rem;
 }
+
 @media(min-width:769px){
     header .buscador{
         padding-top: 30px;
