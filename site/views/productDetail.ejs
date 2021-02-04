@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %> 
+<body>
+    <%- include('partials/header') %>
+
+    <main class="productDetail container my-5">
+        <div class="row">
+          <div class="ruta-producto my-3 col-12">
+            <nav class="btn-group">
+              <a class="btn btn-primary" href="#"><i class="fas fa-home"></i></a>
+              <a class="btn btn-outline-success" href="#">Categoría</a>
+              <a class="btn btn-outline-success" href="#">Sub-categoría</a>
+              <a class="btn btn-outline-success" href="#">Producto</a>
+            </nav>
+          </div>
+        </div>
+        
+        <!-- product detail -->
+        <div class="producto my-3 container">
+          <div class="row">
+            <div class="col-12">
+              <h2 class="my-3">Detalle del producto: producto</h2>
+            </div>
+            <div class="img my-3 col-12 col-lg-6">
+              
+              <div id="carouselExampleControls" class="carousel carousel-dark slide">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="image/dogui.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="image/dogui3.png" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="image/dogui3.png" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </a>
+              </div>
+              
+            </div>
+            <article class="my-3 col-12 col-lg-6">
+              <h2>Nombre del producto</h2>
+              <h4>50% OFF</h4>
+              <h3>$1000</h3>
+              <form action="" class="text-center">
+                <button class="mb-3 w-100 btn btn-success">Agregar a favoritos <i class="fas fa-star"></i></button>
+                <button class="mb-3 w-100 btn btn-primary">Agregar al carrito <i class="fas fa-shopping-cart"></i></button>
+              </form>
+              <div class="medios-de-pago">
+                <img src="image/medios-pago.png" alt="medios-de-pago" class="w-100">
+              </div>
+              <div class="description">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quisquam voluptatem sed voluptates accusantium commodi fuga rerum similique assumenda quis.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <!-- /product detail -->
+        
+        <!-- product relacionados -->
+        <div class="product-relacionados container">
+          <div class="row my-3">
+            <h2 class="my-3 col-12">Productos relacionados</h2>
+            <section class="my-3 col-12 col-md-6 col-lg-4 col-xl-3">
+              <article>
+                <img src="image/dogui.jpg" alt="" class="w-100 h-">
+                <div class="contenido">
+                  <h3>Nombre del producto</h3>
+                  <p>$1000 <span>/ 50% OFF</span></p>
+                </div>
+              </article>
+            </section>
+            <section class="my-3 col-12 col-md-6 col-lg-4 col-xl-3">
+              <article>
+                <img src="image/dogui.jpg" alt="" class="w-100">
+                <div class="contenido">
+                  <h3>Nombre del producto</h3>
+                  <p>$1000 <span>/ 50% OFF</span></p>
+                </div>
+              </article>
+            </section>
+            <section class="my-3 col-12 col-md-6 col-lg-4 col-xl-3">
+              <article>
+                <img src="image/dogui.jpg" alt="" class="w-100">
+                <div class="contenido">
+                  <h3>Nombre del producto</h3>
+                  <p>$1000 <span>/ 50% OFF</span></p>
+                </div>
+              </article>
+            </section>
+            <section class="my-3 col-12 col-md-6 col-lg-4 col-xl-3">
+              <article>
+                <img src="image/dogui.jpg" alt="" class="w-100">
+                <div class="contenido">
+                  <h3>Nombre del producto</h3>
+                  <p>$1000 <span>/ 50% OFF</span></p>
+                </div>
+              </article>
+            </section>
+          </div>
+        </div>
+      </main>
+    
+    <%- include('partials/footer') %>
+    <%- include('partials/scripts') %> 
+    
+</body>
+</html>

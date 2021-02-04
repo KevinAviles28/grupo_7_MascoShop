@@ -3,12 +3,15 @@ module.exports={
         res.render('index');
         
     },
-    carrito:(req,res)=>{
+    productCart:(req,res)=>{
         res.render('productCart');
         
     },
-    product:(req,res)=>{
+    productAdd:(req,res)=>{
         res.render('productAdd');
         
+    },
+    productDetail:(req,res)=>{
+        res.render('productDetail');
     }
 }

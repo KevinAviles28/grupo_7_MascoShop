@@ -1,0 +1,89 @@
+:root{
+    --colorOscuro: #212529;
+    --colorAzul: #111d5e;
+    --colorRojo: #c70039;
+    --colorNaranja: #f37121;
+    --colorAmarillo: #c0e218;
+    --ColorVerde: #39b54a;
+}
+
+.productDetail{
+    padding: 20px 10px;
+}
+
+main .ruta-producto{
+    height: 50px;
+    border-bottom: 1px solid var(--colorAzul);
+}
+
+main .ruta-producto nav a{
+    font-size: 0.7rem;
+    color: white;
+}
+
+main .ruta-producto nav a i{
+    font-size: 1rem;
+}
+
+/* product detail */
+main .producto{
+    background-color: var(--colorOscuro);
+}
+
+main .producto h2{
+    color: white;
+}
+
+main .producto .img{
+    background-color: white;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.carousel-item{
+    transition: none;
+}
+
+main .producto .medios-de-pago{
+    display: none;
+}
+
+main .producto .description{
+    color: white;
+}
+
+/* product-relacionados */
+main .product-relacionados{
+    border-top: 1px solid var(--colorAzul);
+}
+
+main .product-relacionados .row{
+    background-color: var(--colorNaranja);
+}
+
+main .product-relacionados h2{
+    color: white;
+}
+
+main .product-relacionados section{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 5px;
+}
+
+main .product-relacionados section article{
+    background-color: white;
+}
+
+main .product-relacionados section article .contenido{
+    border-top: 1px solid var(--colorVioleta);
+}
+
+main .product-relacionados section article .contenido p{
+    color: var(--colorVerde);
+}
+
+main .product-relacionados section article .contenido p span{
+    color: var(--ColorVerde);
+}
