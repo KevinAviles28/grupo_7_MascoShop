@@ -16,34 +16,7 @@ body{
     background-color: var(--colorOscuro);
 }
 
-header{
-    background-color: var(--colorVioleta);
-}
 
-/* header .publi{
-    display: none;
-} */
-
-header .input-busq{
-    position: relative;
-}
-
-header .input-busq .icon{
-    position: absolute;
-    top: 7px;
-    right: 10px;
-    padding-left: 7px;
-    border-left: 1px solid #000;
-    background-color: white;
-}
-
-header .nav li a{
-    color: white;
-}
-
-header .nav li ul li a{
-    color: #000;
-}
 
 main h2{
     color: white;

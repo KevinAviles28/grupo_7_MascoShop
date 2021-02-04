@@ -1,267 +1,134 @@
 *{
-    margin:0 auto;
     box-sizing: border-box;
+    margin: 0;
     padding: 0;
-    text-decoration: none;
-    list-style: none;
-} 
+    font-family: 'Open Sans', sans-serif;
+}
+
+:root{
+    --colorOscuro: #212529;
+    --colorAzul: #111d5e;
+    --colorRojo: #c70039;
+    --colorNaranja: #f37121;
+    --colorAmarillo: #c0e218;
+    --ColorVerde: #39b54a;
+}
+
+body{
+    background-color: var(--colorAzul);
+}
+header {
+    background-color: var(--colorRojo);
+}
+a:hover{
+    color: var(--colorNaranja);
+}
+header .publicidad{
+    color: white;
+}
+header .buscador{
+    position:relative;
+
+}
+header .buscador form input{
+ height: 40px; 
+ width: 100%;  
+ border: none;
+ border-radius: 5px;
+ 
+}
+header .buscador form input:focus{
+    outline: 1px solid white;
+   
+}
+header .buscador form .icon{
+    position: absolute;
+    top:8px;
+    right: 17px;
+    background-color: white;
+    border-left: 1px solid black;
+    padding-left: 5px;
+}
+
+header .buscador form .icon:focus{
+    outline: 1px solid white;
+}
+header .botones a i{
+    font-size: 1.2rem;
+    padding-right: 5px;
+}
+
+
+/* Footer */
+footer{
+    background-color: var(--colorRojo);
+}
+li{
+    list-style: none;    
+}
 a{
     text-decoration: none;
     color: white;
-    
 }
-a:hover{    
-    color: #e9c496;
+h5{
+    color: white;
+    font-size: 2rem;
+    margin:20px 0;
 }
 p{
-    color: white;
+    color:white;
 }
-header {
-    background-color: #944e6c;
+
+footer .caja1 ul li a i{
+    padding-right: 5px;
 }
-header .logo img{
+footer .caja2 form input{
     width: 100%;
+    margin:20px 0;
 }
-header nav{
-  /*  position: fixed; */
-  height: 35px;
+footer .caja2 form textarea{
+    width: 100%;
+    resize: none;
+    height: 200px;
+    padding:5px;
 }
-header nav button i{/* ICONO DEL NAV */
-    font-size: 30px;
+footer .caja2 form textarea:focus{
+    outline: 1px solid white;
 }
-/* header nav ul{
-    text-align: left;
-} */
- header nav #lista{
-    background-color: white ;/*  #e9c496 */
+footer .contactanos ul,
+footer .caja1 ul{
+    padding-inline-start: 0;
+}
+footer .copy{
+    border-top:1px solid white;
     
 }
-/*  */
-header nav #lista ul{
-    width: 200px;
-    background-color:white;/* :#e9c496 */
-    border-radius: 20px;
-} 
-header nav #lista ul li a{
-    color :black
+footer .copy p{
+    margin-bottom:  0;
+    margin:10px 0;
 }
-header nav #lista ul li ul{
-    background-color:white ;/* #944e6c */
+footer .caja1 ul li a i{
+    font-size: 1.3rem;
 }
-header nav #lista ul li:not(:last-child){
-    border-bottom: 3px solid #433d3c;
+footer .contactanos ul li a i{
+    font-size: 2rem;
 }
-header .search-container{/* CONTENEDOR DEL BUSCADOR */
-    padding: 0;
-    height: 40px;
-   /* header nav button.burger:focus{
-  outline: 1px solid white;
-}
-
- */
- 
-}
-header .input-search{/* TODO EL BUSCADOR */
-    display: flex;
-    background-color: white;
-    justify-content: space-around;
-    border: 1px solid #433d3c;
-    border-radius: 20px;
-    height: 85%;  
-    
-}
-header .input-search button{          /* BOTON DEL BUSCADOR */
-    width: 10%; 
-    background-color: white;
-    border:none;
-    margin-left: 15px;
-   
-
-}
-header .input-search button:focus{
-    outline: 0px solid white;
-}
-
-header .input-search input{ /* TEXTO DEL BUSCADOR */
-    border: none;
-    width: 80%; 
-     text-align: center;  
-     border-radius:20px;                     /* sacar fondo */
-}
-header .input-search input:focus{
-    outline: 0px solid white;
-
-}
-
-
-header .perfil a{   /* Link PERFIL */
-    height: 50px;
-    display: flex;
-    flex-direction: column;
-    text-align: center
-}
-header .carrito a{  /* Link CARRITO */
-    height: 50px;
-    display: flex;
-    flex-direction: column;
-    text-align: center
-}
-header .perfil i,.carrito i{/* ICONO CARRITO Y PERFIL */
-    font-size: 25px;
-}
-/* FIN DEL HEADER */
-
-/* footer */
-footer .caja1{
-    border-bottom: 1px solid black;
-}
-footer article.formulario{
-    display: none;
-}
-footer article ul{
-     text-align: center;
-     padding-left: 0;
-}
-footer article ul.enLinea{
-    display: flex;
-    font-size: 25px;
-}
-footer article a{
-    color:black;
-}
-/* Fin Footer */
-
-
-
-
-@media(min-width:426px){
-    
-    /* inicio nav */
-    header .barra{
-        order: 2; 
-        height: 100px;
-        width: 700px;
-        display: flex;
-        align-items: center;
-    }
-    header nav{
-        width: 100%;
-        display: flex;
-        align-items: center;
-    }
-    header nav #lista{
-        border-radius: 20px;
-        
-    }
-    header nav #lista ul{
-        width: 100%;
-        background-color: white;
-    }
-    
-    header nav #lista ul li a{
-        padding-right: 20px;
-        padding-left: 20px;
-        color:#433d3c ;
-    }
-    header nav #lista ul li:not(:last-child){
-        border-bottom: none;
-    }
-    header nav #lista ul li:first-child ul li{
-        border-bottom: 2px solid  #e9c496;
-    }
-    /* inicio buscador */
-     header .search-container{
-         margin-top: 15px;
-    }
-    header .input-search{
-        height: 100%;
-    }
-    header .perfil{
-        margin-top: 10px;
-    }
-    header .carrito{
-        margin-top: 10px;
-    }
-   
-    footer h5{
-        text-align: center;
-    }
-   
-}
-
 @media(min-width:769px){
-    header .input-search{
-        margin-top: 30px;
-    }
-    header .perfil{
-        display: flex;
-        align-items: center;
+    header .buscador{
+        padding-top: 30px;
         
     }
-    header .perfil a{
-        display: inline;
-        width: 80%;
-    }
-    header .perfil a i,header .carrito a i{
-        margin-right: 9px;
-    }
-    header .carrito{
-        display: flex;
-        align-items: center;
-        margin-top: 2px;
-    }
-    header .carrito a{
-        display: inline;
-        width: 80%;
+    header .buscador form .icon{
+        top:37px;
     }
 
-    footer .caja1{
-        border-right: 1px solid black;
-        border-bottom: none;
-    }
-    footer article{
-        height: 100%;
-    }
-    footer article ul li{
-        padding-bottom: 10px;
-    }
-    footer .servicios{
-        margin-left: 11px;
-        margin-right: 11px;
-    }
-    footer .caja2 .formulario{
-        display: block;
-        border-right: none ;
-    }
-    footer article.formulario form input{
-        margin-bottom: 15px;
-    }
-    footer article.formulario form textarea{
-        height: 100px;
-        width: 100%;
-    }
-    footer .servicios-container  {
-        height: 60px;
-        width: 100%;
+}
+@media(min-width:1025px){
+    header .buscador{
+        padding-top: 42px;
         
     }
-    footer .servicios-container article {
-        height: 60%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    header .buscador form .icon{
+        top:50px;
     }
-    footer .servicios-container ul li a{
-        font-size: 25px;
-        padding: 15px;
-    }
-    footer .servicios-container h5,footer .servicios-container p{
-        margin-left: 0;
-        margin-right: 0;
-    }
-    footer .servicios-container article ul{
-        font-size: 15px;
-        margin-bottom: 0;
-    }
-    
 }
