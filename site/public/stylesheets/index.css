@@ -155,7 +155,8 @@ footer .contactanos ul,
 footer .caja1 ul{
     padding-inline-start: 0;
 }
-footer .copy{
+footer .copy,
+footer .contactanos{
     border-top:1px solid white;
     
 }
