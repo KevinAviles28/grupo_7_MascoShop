@@ -1,38 +1,73 @@
-/* body{
-    padding: 5px;
+:root{
+    --colorOscuro: #212529;
+    --colorAzul: #111d5e;
+    --colorRojo: #c70039;
+    --colorNaranja: #f37121;
+    --colorAmarillo: #c0e218;
+    --ColorVerde: #39b54a;
+}
+
+main .crt{
+    background-color: var(--colorNaranja);
+}
+
+
+
+main .crt h2,
+.crt .total,
+.mdp h2{
+    background-color: var(--colorAzul);
+    width: 100%;
+    border-radius: 5px;
+    height: 50px;
+    text-align: center;
+    padding-top: 10px;
+    margin-top: 20px;
+    font-size: 1.3rem;
+}
+
+main .carrito-compras section .cont-img{
+    width: 100%;
+    background-color: white;
+    border-radius: 5px 5px 0px 0px;
+}
+
+main .carrito-compras section .cont-img img{
+    width: 100%;
+}
+
+main .carrito-compras section .cont-carrito{
+    background-color: white;
+    border-radius: 0px 0px 5px 5px;
+    color: black;
+    padding: 10px;
+}
+
+main .carrito-compras section .cont-carrito form input{
+    width: 50px;
+    border: none;
+    border-radius: 5px;
     background-color: var(--colorOscuro);
-}
-
-h2{
-    border-radius: 20px;
-    background-color: var(--colorVioleta);
-} */
-.sesion{
-    background-color: var(--colorRosa);
-    margin: 1px;
-    border-radius: 20px;
-    margin-top: 40px;
-
-}
-
-.pagos{
-    background-color: var(--colorRosa);
-    margin: 5px;
-    border-radius: 20px;
-    padding: 5px;
-
-}
-
-.lista{
-    background-color: var(--colorRosa);
-    margin: 5px;
-    border-radius: 20px;
-    padding: 5px;
-}
-
-.variable.container p{
-    background-color: var(--colorVioleta);
-    border-radius: 20px;
+    color: white;
 }
 
 
+.mdp{
+    background-color: var(--colorNaranja);
+    padding: 20px 12px;
+
+}
+
+.mdp form{
+    padding-left: 20px;
+}
+
+.mdp form label{
+    color: black;
+}
+
+.mdp form label i{
+    font-size: 1.3rem;
+    margin-right: 5px;
+    color: white;
+}

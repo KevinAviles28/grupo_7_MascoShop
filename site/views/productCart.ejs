@@ -2,81 +2,127 @@
 <html lang="es">
 <%- include('partials/head') %> 
 <body>
-    <%- include('partials/header') %> 
-    <main>
-        <div class="sesion container">
-            <div class="text-center py-1 w-100"><h2>Iniciar Sesion</h2></div>
-        
-            <form>
-                <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                  <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail3">
-                  </div>
+  <%- include('partials/header') %> 
+  <main class="container my-5 py-5">
+    <div class="row">
+      
+      
+      <!-- Carrito de compras -->
+      <div class="crt col-12 ">
+        <h2>Tu Carrito de Compras</h2>
+          
+        <div class="carrito-compras row d-flex justify-content-around">
+          <section class="col-12 col-md-5 col-lg-3">
+            <div class="cont-img"><img src="/images/dogui.jpg" alt=""></div>
+            <div class="cont-carrito">
+              <p>Nombre del producto</p>
+              <span>$1000</span>
+              <form action="" class="d-flex justify-content-between">
+                <div class="d-flex">
+                  <button class="btn btn-warning"><i class="fas fa-plus"></i></button>
+                  <input type="text">
+                  <button class="btn btn-warning"><i class="fas fa-minus"></i></button>
                 </div>
-                <div class="row mb-3">
-                  <label for="inputPassword3" class="col-sm-2 col-form-label">Contraseña</label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword3">
-                  </div>
-                </div>
-                <fieldset class="row mb-3">
-        
-        
-                <button type="submit" class="btn btn-primary">Ingresar</button>
-              </form>
+                <button class="btn btn-danger" type="reset"><i class="fas fa-window-close"></i></button>
+            </form>
             </div>
-        
-            <div class="pagos border border-dark">   
-            <div class="text-center py-2 w-100"><h2>Metodo de Pago</h2></div>
-        
-        
-        <div class="form-check container ">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+          </section>
+          <section class="col-12 col-md-5 col-lg-3">
+            <div class="cont-img"><img src="/images/dogui.jpg" alt=""></div>
+            <div class="cont-carrito">
+              <p>Nombre del producto</p>
+              <span>$1000</span>
+              <form action="" class="d-flex justify-content-between">
+                <div class="d-flex">
+                  <button class="btn btn-warning"><i class="fas fa-plus"></i></button>
+                  <input type="text">
+                  <button class="btn btn-warning"><i class="fas fa-minus"></i></button>
+                </div>
+                <button class="btn btn-danger" type="reset"><i class="fas fa-window-close"></i></button>
+            </form>
+            </div>
+          </section>
+          <section class="col-12 col-md-5 col-lg-3">
+            <div class="cont-img"><img src="/images/dogui.jpg" alt=""></div>
+            <div class="cont-carrito">
+              <p>Nombre del producto</p>
+              <span>$1000</span>
+              <form action="" class="d-flex justify-content-between">
+                <div class="d-flex">
+                  <button class="btn btn-warning"><i class="fas fa-plus"></i></button>
+                  <input type="text">
+                  <button class="btn btn-warning"><i class="fas fa-minus"></i></button>
+                </div>
+                <button class="btn btn-danger" type="reset"><i class="fas fa-window-close"></i></button>
+            </form>
+            </div>
+          </section>
+          <section class="col-12 col-md-5 col-lg-3">
+            <div class="cont-img"><img src="/images/dogui.jpg" alt=""></div>
+            <div class="cont-carrito">
+              <p>Nombre del producto</p>
+              <span>$1000</span>
+              <form action="" class="d-flex justify-content-between">
+                <div class="d-flex">
+                  <button class="btn btn-warning"><i class="fas fa-plus"></i></button>
+                  <input type="text">
+                  <button class="btn btn-warning"><i class="fas fa-minus"></i></button>
+                </div>
+                <button class="btn btn-danger" type="reset"><i class="fas fa-window-close"></i></button>
+            </form>
+            </div>
+          </section>
+
+        </div>
+                  <div class="total">
+            Total = Variable
+
+          </div>
+      </div>
+      
+      
+      
+      <!-- Medio de pagos  -->
+      <div class="mdp col-12">
+        <h2>Medios de pago</h2>
+        <form action="">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pago" id="flexRadioDefault1">
           <label class="form-check-label" for="flexRadioDefault1">
-             Efectivo <i class="far fa-money-bill-alt"></i>
+            <i class="far fa-money-bill-alt"></i>Efectivo
+            
           </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-              Tarjeta Credito o Debito <i class="fas fa-credit-card"></i>
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-              Punto de Pago <i class="fas fa-map-marker-alt"></i>
-            </label>
-          </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+          <input class="form-check-input" type="radio" name="pago" id="flexRadioDefault2" checked>
           <label class="form-check-label" for="flexRadioDefault2">
-            Transferencia Bancaria <i class="fas fa-exchange-alt"></i>
+            <i class="fas fa-credit-card"></i>Tarjeta
+            
           </label>
         </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pago" id="flexRadioDefault2" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
+            <i class="fas fa-exchange-alt"></i>Tranferencia
+            
+          </label>
         </div>
-        
-        <div class="container"> 
-         <div class="lista row text-center " > 
-             <div><h2>Lista de compras</h2></div>  
-        
-            <div class="compras col-12  col-lg-4 d-flex text-center align-items-center">
-            <img src="./D_NQ_NP_672055-MLA40413452294_012020-O.webp" style="width: 10%" alt=""><p>Royal Canin Blue</p><p>$1750</p><button class="btn btn-danger ml-auto"><p>Eliminar</p></button>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="pago" id="flexRadioDefault2" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
+            <i class="fas fa-map-marker-alt"></i>Punto de pago 
+            
+            
+          </label>
         </div>
-        <div class="compras col-12  col-lg-4 d-flex text-center align-items-center">
-            <img src="./D_NQ_NP_868768-MLA31025813207_062019-O.webp" style="width: 10%" alt=""><p>Royal Canin Green</p><p>$1550</p><button class="btn btn-danger ml-auto"><p>Eliminar</p></button>
-        
-        </div>
-        <div class="compras col-12  col-lg-4 d-flex text-center align-items-center">
-            <img src="./D_NQ_NP_992158-MLA32040915931_092019-O.webp" style="width: 10%" alt=""><p>Perfomance Junior</p><p>$1350</p><button class="btn btn-danger"><p>Eliminar</p></button>
-        
-        </div>    
-          <div class="variable container"><p>Total = variable</p></div>
-         </div>
-        </div>
-        </main>
-        <%- include('partials/footer') %>
-        <%- include('partials/scripts') %>  
-    </body>
-    </html>
+      </form>
+      </div>
+      
+      
+      
+    </div>
+  </main>
+  <%- include('partials/footer') %>
+  <%- include('partials/scripts') %>  
+</body>
+</html>
