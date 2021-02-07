@@ -27,6 +27,8 @@ a{
     color: white;
 }
 
+/* banner */
+
 .banner{
     display: none;
     padding: 0;
@@ -35,12 +37,44 @@ a{
 .banner img{
     height: 300px;
 }
+/* fin del banner */
+
+.indexh2{
+    color: white;
+}
 
 main.index{
     background-color: var(--colorOscuro);
 }
 
-@media(min-width:426px){
+main.index section article{
+    /* border: 1px solid white; */
+    margin: 10px 0;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    padding: 20px 0;
+}
+
+main.index section article:hover{
+    transform: scale(1,1);
+}
+
+main.index section article p{
+    font-size: 2rem;
+}
+
+main.index section article .off{
+    position: absolute;
+    bottom: 98px;
+    left: 0;
+    width: 150px;
+}
+
+@media(min-width:769px){
     .banner{
         display: block;
     }
