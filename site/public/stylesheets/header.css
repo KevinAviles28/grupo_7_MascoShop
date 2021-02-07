@@ -12,6 +12,7 @@
     --colorNaranja: #f37121;
     --colorAmarillo: #c0e218;
     --ColorVerde: #39b54a;
+    --ColorGrisClaro: rgba(255,255,255,.55);
 }
 
 body{

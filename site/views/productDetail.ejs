@@ -4,25 +4,28 @@
 <body>
     <%- include('partials/header') %>
 
-    <main class="productDetail container my-5">
-        <div class="row">
-          <div class="ruta-producto my-3 col-12">
-            <nav class="btn-group">
-              <a class="btn btn-primary" href="/"><i class="fas fa-home"></i></a>
-              <a class="btn btn-outline-success" href="#">Categoría</a>
-              <a class="btn btn-outline-success" href="#">Sub-categoría</a>
-              <a class="btn btn-outline-success" href="#">Producto</a>
-            </nav>
-          </div>
+    <!-- ruta-producto -->
+    <div class="ruta-producto my-3 container-fluid">
+      <div class="row">
+        <div class="col-12">
+            <ul>
+              <li><a href="/">Volver a la pagina de inicio</a></li>
+              <li><a href="">Categoria</a><i class="fas fa-chevron-right"></i></li>
+              <li><a href="">Subcategoria</a><i class="fas fa-chevron-right"></i></li>
+              <li><a href="">Nombre del producto</a></li>
+            </ul>
         </div>
+      </div>
+    </div>
+    
+
+    <main class="product-detail container my-3">
         
         <!-- product detail -->
-        <div class="producto my-3 container">
+        <div class="producto my-3">
           <div class="row">
-            <div class="col-12">
-              <h2 class="my-3">Detalle del producto: producto</h2>
-            </div>
-            <div class="img my-3 col-12 col-lg-6">
+            <!-- img -->
+            <div class="img col-12 col-lg-6">
               
               <div id="carouselExampleControls" class="carousel carousel-dark slide">
                 <div class="carousel-inner">
@@ -41,9 +44,9 @@
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
                 </a>
-              </div>
-              
+              </div>   
             </div>
+            <!-- img -->
             <article class="my-3 col-12 col-lg-6">
               <h2>Nombre del producto</h2>
               <h4>50% OFF</h4>
@@ -64,7 +67,7 @@
         <!-- /product detail -->
         
         <!-- product relacionados -->
-        <div class="product-relacionados container">
+        <div class="product-relacionados">
           <div class="row my-3">
             <h2 class="my-3 col-12">Productos relacionados</h2>
             <section class="my-3 col-12 col-md-6 col-lg-4 col-xl-3">

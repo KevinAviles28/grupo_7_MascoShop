@@ -12,6 +12,7 @@
     --colorNaranja: #f37121;
     --colorAmarillo: #c0e218;
     --ColorVerde: #39b54a;
+    --ColorGrisClaro: rgba(255,255,255,.55);
 }
 
 body{
@@ -48,29 +49,45 @@ main.index{
 }
 
 main.index section article{
-    /* border: 1px solid white; */
     margin: 10px 0;
-    border-radius: 10px;
-    position: relative;
+    border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
-    padding: 20px 0;
+    background-color: var(--ColorGrisClaro);
 }
 
 main.index section article:hover{
-    transform: scale(1,1);
+    transform: scale(1.1);
 }
 
-main.index section article p{
+main.index section article .product-img{
+    border: 1px solid white;
+    position: relative;
+}
+
+main.index section article .product-cont{
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 0 0 5px 5px;
+    padding-bottom: 10px;
+}
+
+main.index section article .product-cont a{
+    color: white;
+    background-color: var(--colorNaranja);
+    border-color: var(--colorNaranja);
+}
+
+main.index section article .product-cont p{
     font-size: 2rem;
 }
 
-main.index section article .off{
+main.index section article .product-img .off{
     position: absolute;
-    bottom: 98px;
-    left: 0;
+    top: 0;
+    right: 0;
     width: 150px;
 }
 

@@ -28,30 +28,36 @@ a{
     color: white;
 }
 
-/* ruta-producto */
-.ruta-producto ul{
-    display: flex;
-    flex-wrap: wrap;
+footer{
+    background-color: var(--colorNaranja);
+}
+
+footer h3{
+    color: white;
+    font-weight: bold;
+}
+
+footer ul{
+    padding-inline-start: 0;
+}
+
+footer .categoria li,
+footer .nosotros li{
+    list-style: circle;
+}
+
+footer .dejanos-consulta form textarea{
+    height: 200px;
+    resize: none;
+}
+
+footer .redes-sociales ul li a i{
+    font-size: 2rem;
+}
+
+footer .copy{
+    border: 1px solid white;
+    padding: 5px;
     color: white;
 }
 
-.ruta-producto ul li,
-.ruta-producto ul li i{
-    margin: 0 5px;
-}
-
-.ruta-producto ul li:first-child{
-    border-right: 2px solid white;
-    padding-right:10px;
-}
-
-.ruta-producto ul li i{
-    margin-left: 10px;
-}
-
-/* product detail */
-main.product-detail{
-    background-color: var(--colorOscuro);
-}
-
-main.product-detail .producto
