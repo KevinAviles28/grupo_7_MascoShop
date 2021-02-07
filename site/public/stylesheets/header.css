@@ -1,0 +1,99 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+:root{
+    --colorOscuro: #212529;
+    --colorAzul: #111d5e;
+    --colorRojo: #c70039;
+    --colorNaranja: #f37121;
+    --colorAmarillo: #c0e218;
+    --ColorVerde: #39b54a;
+}
+
+body{
+    background-color: var(--colorAzul);
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+/* header */
+header{
+    background-color: var(--colorNaranja);
+}
+
+header .txt span{
+    color: white;
+}
+
+header .perritos{
+    display: none;
+}
+
+header .buscador{
+    position: relative;
+}
+
+header .buscador .form-control{
+    border-radius: 50px;
+}
+
+header .buscador form button{
+    position: absolute;
+    top: 0;
+    right: 12px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    color: white;
+    padding-left: 11px;
+    font-size: 0.9rem;
+}
+/* fin del header */
+
+@media(min-width:426px){/* tablet */
+    header .perritos{
+        display: inline-block;
+        margin-top: 33px;
+        padding-left: 0;
+    }
+    
+    header .perritos :last-child{
+        display: none;
+    }
+
+    header .perritos img{
+        width: 50px;
+    }
+}
+
+@media(min-width:769px){/* desktop */
+    header .perritos{
+        padding-left: 45px;
+        margin-top: 7px;
+    }
+
+    header .perritos :last-child{
+        display: inline-block;
+    }
+
+    header .perritos img{
+        width: 90px;
+    }
+}
+
+@media(min-width:1025px){
+    header .perritos{
+        margin-top: 20px;
+    }
+}

@@ -5,7 +5,7 @@
   <%- include('partials/header') %>
   
   <!-- Banner -->
-  <div class="container-fluid">
+  <div class="banner container-fluid">
   <div class="row">
     <div  id="carouselExampleIndicators" class="banner carousel carousel-dark slide col-lg-12" data-bs-ride="carousel">
         <ol class="carousel-indicators">
@@ -18,6 +18,12 @@
           </div>
           <div class="carousel-item">
             <img src="/images/publi2.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="/images/publi3.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="/images/publi4.jpg" class="d-block w-100" alt="...">
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
@@ -34,9 +40,12 @@
 <!-- Banner -->
 
   <!-- productos destacados -->
-  <h2 class="productHome">Productos destacados</h2>
-  <main class="container my-3">
+  <main class="index container my-5">
+    <h2 class="p-4">Productos destacados</h2>
           <div class="row my-3">
+            <section class="col-12">
+              <img src="/images/huellasdog.jpg" alt="" class="w-100">
+            </section>
               <section class="col-12 col-md-6 col-lg-4 col-xl-3">
                   <a href="">
                     <article>
@@ -58,6 +67,9 @@
                         </div>
                     </article>
                   </a>
+              </section>
+              <section class="col-12">
+                <img src="/images/huellascat.png" alt="" class="w-100">
               </section>
               <section class="col-12 col-md-6 col-lg-4 col-xl-3">
                 <a href="">
@@ -86,8 +98,8 @@
   <!-- productos destacados -->
 
   <!-- buscados recientemente -->
-  <h2 class="productHome">Buscados recientemente</h2>
-  <main class="container my-3">
+  <!-- <main class="index container my-5">
+    <h2 class="p-4">Buscados recientemente</h2>
           <div class="row my-3">
               <section class="col-12 col-md-6 col-lg-4 col-xl-3">
                   <a href="">
@@ -134,7 +146,7 @@
                   </a>
               </section>
           </div>
-  </main>
+  </main> -->
   <!-- buscados recientemente -->
   
   <%- include('partials/footer') %>
