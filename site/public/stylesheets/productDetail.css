@@ -75,6 +75,7 @@ main.product-detail .producto article{
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 }
 
 /* product/relacionados */
@@ -129,7 +130,17 @@ main.product-detail .product-relacionados section article .product-img .off{
     }
 }
 
+@media(min-width:769px){
+    main.product-detail .producto .product-img-move .discount{
+        width: 200px;
+    }
+}
+
 @media(min-width:1025px){/* escritorio xl */
+    main.product-detail .producto .product-img-move .discount{
+        width: 250px;
+    }
+
     main.product-detail .producto article .medios-de-pago{
         height: 95px;
     }

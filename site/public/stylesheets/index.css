@@ -68,6 +68,10 @@ main.index section article .product-img{
     height: 300px;
 }
 
+main.index section article .product-img img{
+    height: 100%;
+}
+
 main.index section article .product-cont{
     width: 100%;
     border: 1px solid white;

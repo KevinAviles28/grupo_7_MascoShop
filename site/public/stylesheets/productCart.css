@@ -5,6 +5,7 @@
     --colorNaranja: #f37121;
     --colorAmarillo: #c0e218;
     --ColorVerde: #39b54a;
+    --ColorGrisClaro: rgba(255,255,255,.55);
 }
 
 main .crt{
@@ -24,11 +25,12 @@ main .crt h2,
     padding-top: 10px;
     margin-top: 20px;
     font-size: 1.3rem;
+    color: white;
 }
 
 main .carrito-compras section .cont-img{
     width: 100%;
-    background-color: white;
+    background-color: var(--ColorGrisClaro);
     border-radius: 5px 5px 0px 0px;
 }
 
