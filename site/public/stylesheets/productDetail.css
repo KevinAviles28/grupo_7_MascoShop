@@ -54,4 +54,78 @@ main.product-detail{
     background-color: var(--colorOscuro);
 }
 
-main.product-detail .producto
+main.product-detail .producto .product-img-move{
+    position: relative;
+}
+
+main.product-detail .producto .product-img-move .carousel-item{
+    transition: none;
+}
+
+main.product-detail .producto .product-img-move .discount{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+}
+
+main.product-detail .producto article{
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* product/relacionados */
+main.product-detail .product-relacionados section article{
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--ColorGrisClaro);
+}
+
+main.product-detail .product-relacionados section article:hover{
+    transform: scale(1.1);
+}
+
+main.product-detail .product-relacionados section article .product-img{
+    border: 1px solid white;
+    position: relative;
+}
+
+main.product-detail .product-relacionados section article .product-cont{
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 0 0 5px 5px;
+    padding-bottom: 10px;
+}
+
+main.product-detail .product-relacionados section article .product-cont a{
+    color: white;
+    background-color: var(--colorNaranja);
+    border-color: var(--colorNaranja);
+}
+
+main.product-detail .product-relacionados section article .product-cont p{
+    font-size: 2rem;
+}
+
+main.product-detail .product-relacionados section article .product-img .off{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+}
+
+@media(min-width:376px){
+    main.product-detail .producto .product-img-move .discount{
+        top: 3px;
+        right: 50px;
+    }
+}
+
+
+

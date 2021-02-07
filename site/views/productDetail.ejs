@@ -2,116 +2,140 @@
 <html lang="es">
 <%- include('partials/head') %> 
 <body>
-    <%- include('partials/header') %>
-
-    <!-- ruta-producto -->
-    <div class="ruta-producto my-3 container-fluid">
-      <div class="row">
-        <div class="col-12">
-            <ul>
-              <li><a href="/">Volver a la pagina de inicio</a></li>
-              <li><a href="">Categoria</a><i class="fas fa-chevron-right"></i></li>
-              <li><a href="">Subcategoria</a><i class="fas fa-chevron-right"></i></li>
-              <li><a href="">Nombre del producto</a></li>
-            </ul>
-        </div>
+  <%- include('partials/header') %>
+  
+  <!-- ruta-producto -->
+  <div class="ruta-producto my-3 container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <ul>
+          <li><a href="/">Volver a la pagina de inicio</a></li>
+          <li><a href="">Categoria</a><i class="fas fa-chevron-right"></i></li>
+          <li><a href="">Subcategoria</a><i class="fas fa-chevron-right"></i></li>
+          <li><a href="">Nombre del producto</a></li>
+        </ul>
       </div>
     </div>
+  </div>
+  
+  
+  <main class="product-detail container my-3">
     
-
-    <main class="product-detail container my-3">
-        
-        <!-- product detail -->
-        <div class="producto my-3">
-          <div class="row">
-            <!-- img -->
-            <div class="img col-12 col-lg-6">
-              
-              <div id="carouselExampleControls" class="carousel carousel-dark slide">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="/images/upper.png" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="/images/dogui.jpg" class="d-block w-100" alt="...">
-                  </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </a>
-              </div>   
+    <!-- product detail -->
+    <div class="producto my-3">
+      <div class="row">
+        <!-- img -->
+        <div class="product-img-move col-12 col-md-6 col-lg-6">
+          
+          <div id="carouselExampleControls" class="carousel carousel-dark slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="/images/upper.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="/images/dogui.jpg" class="d-block w-100" alt="...">
+              </div>
             </div>
-            <!-- img -->
-            <article class="my-3 col-12 col-lg-6">
-              <h2>Nombre del producto</h2>
-              <h4>50% OFF</h4>
-              <h3>$1000</h3>
-              <form action="" class="text-center">
-                <button class="mb-3 w-100 btn btn-success">Agregar a favoritos <i class="fas fa-star"></i></button>
-                <button class="mb-3 w-100 btn btn-primary">Agregar al carrito <i class="fas fa-shopping-cart"></i></button>
-              </form>
-              <div class="medios-de-pago">
-                <img src="image/medios-pago.png" alt="medios-de-pago" class="w-100">
-              </div>
-              <div class="description">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quisquam voluptatem sed voluptates accusantium commodi fuga rerum similique assumenda quis.</p>
-              </div>
-            </article>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </a>
           </div>
-        </div>
-        <!-- /product detail -->
-        
-        <!-- product relacionados -->
-        <div class="product-relacionados">
-          <div class="row my-3">
-            <h2 class="my-3 col-12">Productos relacionados</h2>
-            <section class="my-3 col-12 col-md-6 col-lg-4 col-xl-3">
-              <article>
-                <img src="/images/dogui.jpg" alt="" class="w-100 h-">
-                <div class="contenido">
-                  <h3>Nombre del producto</h3>
-                  <p>$1000 <span>/ 50% OFF</span></p>
-                </div>
-              </article>
-            </section>
-            <section class="my-3 col-12 col-md-6 col-lg-4 col-xl-3">
-              <article>
-                <img src="/images/dogui.jpg" alt="" class="w-100">
-                <div class="contenido">
-                  <h3>Nombre del producto</h3>
-                  <p>$1000 <span>/ 50% OFF</span></p>
-                </div>
-              </article>
-            </section>
-            <section class="my-3 col-12 col-md-6 col-lg-4 col-xl-3">
-              <article>
-                <img src="/images/upper.png" alt="" class="w-100">
-                <div class="contenido">
-                  <h3>Nombre del producto</h3>
-                  <p>$1000 <span>/ 50% OFF</span></p>
-                </div>
-              </article>
-            </section>
-            <section class="my-3 col-12 col-md-6 col-lg-4 col-xl-3">
-              <article>
-                <img src="/images/upper.png" alt="" class="w-100">
-                <div class="contenido">
-                  <h3>Nombre del producto</h3>
-                  <p>$1000 <span>/ 50% OFF</span></p>
-                </div>
-              </article>
-            </section>
+          <div class="discount"><img src="/images/descuento10.png" alt="" class="w-100"></div>
+        </div> 
+        <!-- img -->
+        <article class="my-3 col-12 col-md-6 col-lg-6">
+          <h2>Nombre del producto</h2>
+          <h3>$1000</h3>
+          <form action="" class="text-center">
+            <button class="mb-3 w-100 btn btn-success">Agregar a favoritos <i class="fas fa-star"></i></button>
+            <button class="mb-3 w-100 btn btn-primary">Agregar al carrito <i class="fas fa-shopping-cart"></i></button>
+          </form>
+          <div class="d-flex">
+            <img src="images/md-pago.png" alt="medios-de-pago" class="w-50">
+            <img src="images/medios-de-pago.jpg" alt="medios-de-pago" class="w-50">
           </div>
-        </div>
-      </main>
-    
-    <%- include('partials/footer') %>
-    <%- include('partials/scripts') %> 
-    
+          <div class="my-3">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quisquam voluptatem sed voluptates accusantium commodi fuga rerum similique assumenda quis.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+  <!-- /product detail -->  
+  
+  
+  
+  <!-- product relacionados -->
+  <div class="product-relacionados">
+    <h2>Productos relacionados</h2>
+    <div class="row my-3">
+      <section class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <a href="">
+          <article>
+            <div class="product-img">
+              <img src="/images/dogui.jpg" alt="" class="w-100">
+              <div class="off"><img src="/images/descuento15.png" alt="" class="w-100"></div>
+            </div>
+            <div class="product-cont">
+              <p>$1000</p>
+              <a href="" class="btn btn-warning">AGREGAR AL CARRITO</a>
+            </div>
+          </article>
+        </a>
+      </section>
+      <section class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <a href="">
+          <article>
+            <div class="product-img">
+              <img src="/images/dogui.jpg" alt="" class="w-100">
+              <div class="off"><img src="/images/descuento15.png" alt="" class="w-100"></div>
+            </div>
+            <div class="product-cont">
+              <p>$1000</p>
+              <a href="" class="btn btn-warning">AGREGAR AL CARRITO</a>
+            </div>
+          </article>
+        </a>
+      </section>
+      <section class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <a href="">
+          <article>
+            <div class="product-img">
+              <img src="/images/dogui.jpg" alt="" class="w-100">
+              <div class="off"><img src="/images/15-de-descuento.png" alt="" class="w-100"></div>
+            </div>
+            <div class="product-cont">
+              <p>$1000</p>
+              <a href="" class="btn btn-warning">AGREGAR AL CARRITO</a>
+            </div>
+          </article>
+        </a>
+      </section>
+      <section class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <a href="">
+          <article>
+            <div class="product-img">
+              <img src="/images/dogui.jpg" alt="" class="w-100">
+              <div class="off"><img src="/images/descuento10.png" alt="" class="w-100"></div>
+            </div>
+            <div class="product-cont">
+              <p>$1000</p>
+              <a href="" class="btn btn-warning">AGREGAR AL CARRITO</a>
+            </div>
+          </article>
+        </a>
+      </section>
+    </div>
+  </div>
+</main>
+
+<%- include('partials/footer') %>
+<%- include('partials/scripts') %> 
+
 </body>
 </html>
