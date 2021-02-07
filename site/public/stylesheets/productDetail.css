@@ -59,7 +59,7 @@ main.product-detail .producto .product-img-move{
 }
 
 main.product-detail .producto .product-img-move .carousel-item{
-    transition: none;
+    transition: none;/* reparar */
 }
 
 main.product-detail .producto .product-img-move .discount{
@@ -73,7 +73,8 @@ main.product-detail .producto article{
     color: white;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* product/relacionados */
@@ -94,6 +95,7 @@ main.product-detail .product-relacionados section article:hover{
 main.product-detail .product-relacionados section article .product-img{
     border: 1px solid white;
     position: relative;
+    height: 300px;
 }
 
 main.product-detail .product-relacionados section article .product-cont{
@@ -120,10 +122,16 @@ main.product-detail .product-relacionados section article .product-img .off{
     width: 150px;
 }
 
-@media(min-width:376px){
+@media(min-width:376px){/* mobile large */
     main.product-detail .producto .product-img-move .discount{
         top: 3px;
         right: 50px;
+    }
+}
+
+@media(min-width:1025px){/* escritorio xl */
+    main.product-detail .producto article .medios-de-pago{
+        height: 95px;
     }
 }
 

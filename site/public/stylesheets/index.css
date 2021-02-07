@@ -65,6 +65,7 @@ main.index section article:hover{
 main.index section article .product-img{
     border: 1px solid white;
     position: relative;
+    height: 300px;
 }
 
 main.index section article .product-cont{
