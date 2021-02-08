@@ -6,3 +6,32 @@
     --colorAmarillo: #c0e218;
     --ColorVerde: #39b54a;
 }
+
+main.register form .botones{
+    display: flex;
+    flex-direction: column; 
+}
+
+main.register .boton-dos{
+    display: flex;
+    flex-direction: column;
+}
+
+main.register .form-check label{
+    color: white;
+}
+
+@media(min-width:769px){
+    main.register form .botones{
+        flex-direction: row;
+        justify-content: space-between;   
+    }
+    
+    main.register .boton-dos{
+        flex-direction: row;
+    }
+    
+    main.register .boton-dos a{
+        margin-left: 10px;
+    }
+}
