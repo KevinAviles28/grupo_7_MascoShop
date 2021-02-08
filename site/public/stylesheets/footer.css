@@ -46,6 +46,11 @@ footer .nosotros li{
     list-style: circle;
 }
 
+footer .card{
+    background-color: var(--colorOscuro);
+    color: white;
+}
+
 footer .dejanos-consulta form textarea{
     height: 200px;
     resize: none;
