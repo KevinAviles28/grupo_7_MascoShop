@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+:root{
+    --colorOscuro: #212529;
+    --colorAzul: #111d5e;
+    --colorRojo: #c70039;
+    --colorNaranja: #f37121;
+    --colorAmarillo: #c0e218;
+    --ColorVerde: #39b54a;
+    --ColorGrisClaro: rgba(255,255,255,.55);
+}
+
+body{
+    background-color: var(--colorAzul);
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}

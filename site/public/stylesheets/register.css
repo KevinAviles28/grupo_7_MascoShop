@@ -1,8 +1,1 @@
-:root{
-    --colorOscuro: #212529;
-    --colorAzul: #111d5e;
-    --colorRojo: #c70039;
-    --colorNaranja: #f37121;
-    --colorAmarillo: #c0e218;
-    --ColorVerde: #39b54a;
-}
+@import "generales.css";
