@@ -12,12 +12,23 @@
 }
 /* fin del banner */
 
-.indexh2{
-    color: white;
+main.index{
+    /* background-color: var(--colorOscuro); */
 }
 
-main.index{
-    background-color: var(--colorOscuro);
+main.index .imagenes-compra,
+main.index .instructivo-compra{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+main.index h2{
+    margin: 20px 0;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--colorNaranja);
+    color: var(--colorNaranja);
+    font-size: 1rem;
 }
 
 main.index section article{
@@ -68,8 +79,64 @@ main.index section article .product-img .off{
     width: 150px;
 }
 
+main.index .instructivo-compra{
+    border-bottom: 1px solid var(--ColorGris-oscuro);
+}
+
+main.index .instructivo-compra article{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+main.index .instructivo-compra article img{
+    width: 100%;
+}
+
+main.index .instructivo-compra article p{
+    color: var(--ColorGris-oscuro);
+    text-align: center;
+}
+
+main.index .publi-footer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main.index .publi-footer a{
+    width: 100%;
+    padding: 5px;  
+}
+
+main.index .publi-footer a img{
+    width: 100%;  
+}
+
+@media(min-width:426px){
+    main.index .instructivo-compra article{
+        width: 33%;
+    }
+
+    main.index .publi-footer a{
+        width: 33%;
+    }
+    
+    main.index .publi-footer a img{
+        width: 100%;  
+    }
+}
+
 @media(min-width:769px){
     .banner{
         display: block;
+    }
+
+    main.index .imagenes-compra a{
+        width: 25%;
+    }
+
+    main.index .imagenes-compra a img{
+        width: 100%;
     }
 }

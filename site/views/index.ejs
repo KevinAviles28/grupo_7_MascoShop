@@ -38,13 +38,22 @@
   <!-- Banner -->
   
   <!-- productos destacados -->
-  <h2 class="indexh2 m-3">Destacados</h2>
-  <main class="index container my-5">
+  
+  <main class="index container my-3">
+
+    <div class="imagenes-compra">
+      <a href=""><img src="/images/md-pago.png" alt=""></a>
+      <a href=""><img src="/images/medios-de-pago.jpg" alt=""></a>
+      <a href=""><img src="/images/delivery.jpg" alt=""></a>
+      <a href=""><img src="/images/consultas.jpg" alt=""></a>
+    </div>
+    
+    
+    <h2>Productos destacados</h2>
+    
     
     <div class="row my-3">
-      <section class="py-5 col-12 col-md-6 col-lg-4 col-xl-3">
-        <img src="/images/dog.png" alt="" class="w-100">
-      </section>
+      
       <section class="col-12 col-md-6 col-lg-4 col-xl-3">
         <a href="/productDetail">
           <article>
@@ -88,11 +97,33 @@
         </a>
       </section>
     </div>
+
+    <div class="instructivo-compra">
+      <article>
+        <img src="/images/inst-carrito.png" alt="">
+        <p>Agregá a tu carrito los productos que necesitas.</p>
+      </article>
+      <article>
+        <img src="/images/inst-pagos.png" alt="">
+        <p>Elegí el medio de pago que desees y aprovechá nuestras promos.</p>
+      </article>
+      <article>
+        <img src="/images/inst-pedido.png" alt="">
+        <p>Recibí tu pedido o coordiná un punto de retiro.</p>
+      </article> 
+    </div>
+
+    <div class="publi-footer my-3">
+      <a href=""><img src="/images/publi-footer.jpg" alt=""></a>
+      <a href=""><img src="/images/publi-2-footer.jpg" alt=""></a>
+      <a href=""><img src="/images/publi-3-footer.jpg" alt=""></a> 
+    </div>
+
   </main>
   <!-- productos destacados -->
   
   <!-- buscados recientemente -->
-  <main class="index container my-5">
+  <!-- <main class="index container my-5">
     
     <div class="row my-3">
       <section class="py-5 col-12 col-md-6 col-lg-4 col-xl-3">
@@ -141,7 +172,7 @@
         </a>
       </section>
     </div>
-  </main>
+  </main> -->
   <!-- buscados recientemente -->
   
   <%- include('partials/footer') %>

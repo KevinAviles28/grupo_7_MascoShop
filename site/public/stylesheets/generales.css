@@ -7,6 +7,7 @@
 
 :root{
     --colorOscuro: #212529;
+    --ColorGris-oscuro: #666666;
     --colorAzul: #111d5e;
     --colorRojo: #c70039;
     --colorNaranja: #f37121;
@@ -16,7 +17,7 @@
 }
 
 body{
-    background-color: var(--colorAzul);
+    background-color: var(--colorOscuro);
 }
 
 li{
