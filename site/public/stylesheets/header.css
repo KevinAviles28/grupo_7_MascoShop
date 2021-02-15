@@ -34,6 +34,18 @@ header .buscador form button{
 }
 /* fin del header */
 
+/* banner */
+
+.banner{
+    display: none;
+    padding: 0;
+}
+
+.banner img{
+    height: 300px;
+}
+/* fin del banner */
+
 @media(min-width:426px){/* tablet */
     header .perritos{
         display: inline-block;
@@ -62,6 +74,10 @@ header .buscador form button{
 
     header .perritos img{
         width: 90px;
+    }
+
+    .banner{
+        display: block;
     }
 }
 

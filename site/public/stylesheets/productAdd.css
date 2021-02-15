@@ -4,20 +4,3 @@ main h2{
     color: white;
 }
 
-main .view-imagen img{
-    width: 100%;
-}
-
-@media(min-width: 769px){
-    main .view-imagen{
-        background-color: white;
-        height: 340px;
-        border: 5px solid rgba(0, 0, 0, 0.2);
-        border-radius: 5px;
-    }
-
-    main .view-imagen img{
-        width: auto;
-        height: 100%;
-    }
-}

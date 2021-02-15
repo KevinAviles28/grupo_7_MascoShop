@@ -1,23 +1,7 @@
 @import "generales.css";
 
-/* banner */
-
-.banner{
-    display: none;
-    padding: 0;
-}
-
-.banner img{
-    height: 300px;
-}
-/* fin del banner */
-
-main.index{
-    /* background-color: var(--colorOscuro); */
-}
-
-main.index .imagenes-compra,
-main.index .instructivo-compra{
+.imagenes-compra,
+.instructivo-compra{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -31,112 +15,93 @@ main.index h2{
     font-size: 1rem;
 }
 
-main.index section article{
-    margin: 10px 0;
-    border-radius: 5px;
+/* productos destacados */
+main.index section a figure{
+    padding: 5px;
+    margin: 0;
+    border: 1px solid var(--ColorGris-oscuro);
+    position: relative;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    background-color: var(--ColorGrisClaro);
 }
 
-main.index section article:hover{
-    transform: scale(1.1);
-}
-
-main.index section article .product-img{
-    border: 1px solid white;
-    position: relative;
-    height: 300px;
-}
-
-main.index section article .product-img img{
-    height: 100%;
-}
-
-main.index section article .product-cont{
-    width: 100%;
-    border: 1px solid white;
-    border-radius: 0 0 5px 5px;
-    padding-bottom: 10px;
-}
-
-main.index section article .product-cont a{
-    color: white;
-    background-color: var(--colorNaranja);
-    border-color: var(--colorNaranja);
-}
-
-main.index section article .product-cont p{
-    font-size: 2rem;
-}
-
-main.index section article .product-img .off{
+main.index section a figure .descuento{
+    width: 200px;
     position: absolute;
     top: 0;
-    right: 0;
-    width: 150px;
+    right: -40px;
 }
 
-main.index .instructivo-compra{
+main.index section a .precio-producto{
+    border: 1px solid var(--ColorGris-oscuro);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    box-shadow: 0px 10px 10px -6px #000;
+}
+
+/* productos destacados */
+
+.instructivo-compra{
     border-bottom: 1px solid var(--ColorGris-oscuro);
 }
 
-main.index .instructivo-compra article{
+.instructivo-compra article{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
 }
 
-main.index .instructivo-compra article img{
+.instructivo-compra article img{
     width: 100%;
 }
 
-main.index .instructivo-compra article p{
+.instructivo-compra article p{
     color: var(--ColorGris-oscuro);
     text-align: center;
 }
 
-main.index .publi-footer{
+.publi-footer{
     display: flex;
     flex-wrap: wrap;
 }
 
-main.index .publi-footer a{
+.publi-footer a{
     width: 100%;
     padding: 5px;  
 }
 
-main.index .publi-footer a img{
+.publi-footer a img{
     width: 100%;  
 }
 
 @media(min-width:426px){
-    main.index .instructivo-compra article{
+    .instructivo-compra article{
         width: 33%;
     }
 
-    main.index .publi-footer a{
+    .publi-footer a{
         width: 33%;
     }
     
-    main.index .publi-footer a img{
+    .publi-footer a img{
         width: 100%;  
     }
 }
 
 @media(min-width:769px){
-    .banner{
-        display: block;
-    }
 
-    main.index .imagenes-compra a{
+    .imagenes-compra a{
         width: 25%;
     }
 
-    main.index .imagenes-compra a img{
+    .imagenes-compra a img{
         width: 100%;
     }
 }
