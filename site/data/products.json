@@ -1,1 +1,57 @@
-[]
+[
+  {
+    "id": 1,
+    "category": "peces",
+    "subcategory": "accesorios",
+    "producto": "Acuario, 123 litros",
+    "precio": "20000 ",
+    "stock": "2 ",
+    "state": "In-sale ",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
+    "img": "img-1613401425094.jpg"
+  },
+  {
+    "id": 2,
+    "category": "gatos",
+    "subcategory": "alimentos",
+    "producto": "Agility Cats Premium, alimento para gatos",
+    "precio": "800",
+    "stock": "20",
+    "state": "In-sale",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "img": "img-1613401505130.png"
+  },
+  {
+    "id": 3,
+    "category": "peces",
+    "subcategory": "alimentos",
+    "producto": "Marine Flakes, alimento para peces",
+    "precio": "500",
+    "stock": "50",
+    "state": "In-sale",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "img": "img-1613401674449.png"
+  },
+  {
+    "id": 4,
+    "category": "perros",
+    "subcategory": "accesorios",
+    "producto": "Casa para perros Beware",
+    "precio": "15000",
+    "stock": "5",
+    "state": "In-sale",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "img": "img-1613401741764.png"
+  },
+  {
+    "id": 5,
+    "category": "gatos",
+    "subcategory": "accesorios",
+    "producto": "asdsad",
+    "precio": "12",
+    "stock": "20",
+    "state": "In-sale",
+    "description": "asddasdsadasad",
+    "img": "img-1613408064985.jpg"
+  }
+]

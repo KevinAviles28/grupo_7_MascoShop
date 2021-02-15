@@ -19,12 +19,19 @@ main.product-detail .ruta-producto ul li{
 main.product-detail .ruta-producto ul li a{
     color: var(--colorNaranja);
     font-size: 0.9rem;
+    text-transform: uppercase;
 }
 /* ruta producto */
 
 /* product detail */
 main.product-detail .producto article h3,
 main.product-detail .producto .descript{
+    color: white;
+}
+
+main.product-detail .producto article h2,
+main.product-detail .producto article h5{
+    text-transform: uppercase;
     color: white;
 }
 
