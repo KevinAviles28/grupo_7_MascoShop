@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const data = require('../data/dataproducts');
 
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
 module.exports = {
     
     productCart:(req,res)=>{
@@ -52,7 +54,7 @@ module.exports = {
             }
         })
         
-        res.render('productDetail',{product,productRelacionados});
+        res.render('productDetail',{product,productRelacionados,toThousand});
     },
     productEdit:(req,res)=>{
         let product = data.find(element => element.id === +req.params.id);
@@ -102,7 +104,7 @@ module.exports = {
 
         let products = data;
 
-        res.render('allProducts',{products});
+        res.render('allProducts',{products,toThousand});
     }
 
 }

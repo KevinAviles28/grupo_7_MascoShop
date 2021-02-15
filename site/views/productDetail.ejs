@@ -49,7 +49,7 @@
         <article class="my-3 col-12 col-md-6 col-lg-6">
           <h2><%= product.name %> </h2>
           <h5>stock disponible: <%= product.stock %> </h5>
-          <h3>$<%= product.precio %> </h3>
+          <h3>$<%= toThousand(product.precio) %> </h3>
           <form action="" class="text-center">
             <button class="mb-3 w-100 btn btn-success">Agregar a favoritos <i class="fas fa-star"></i></button>
             <button class="mb-3 w-100 btn btn-primary">Agregar al carrito <i class="fas fa-shopping-cart"></i></button>
@@ -67,7 +67,7 @@
       </div>
     </div>
   </div>
-  <!-- /product detail -->  
+  <!-- product detail -->  
   
   
   
@@ -79,7 +79,7 @@
       
     <% productRelacionados.forEach(element=>{ %> 
     <section class="col-12 col-md-6 col-lg-4 col-xl-3">
-      <a href="#">
+      <a href="/products/productDetail/<%= element.id %>">
           <figure>
             <img src="/images/productos/<%= element.img %>" alt="" class="w-100">
             <h5><%= element.name %> </h5>
@@ -89,7 +89,7 @@
           </figure>
           <div class="precio-producto">
             <h5>PRECIO LISTA</h5>
-            <p>$<%= element.precio %> </p>
+            <p>$<%= toThousand(element.precio) %> </p>
           </div>
       </a>
     </section>
