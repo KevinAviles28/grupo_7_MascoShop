@@ -15,10 +15,10 @@
 
     <div class="ruta-producto my-3">
       <ul>
-        <li><a href="">Volver a la pagina de inicio |</a></li>
+        <li><a href="/">Volver a la pagina de inicio |</a></li>
         <li><a href=""><%= product.category %> <i class="fas fa-arrow-circle-right"></i></a></li>
         <li><a href=""><%= product.subcategory %> <i class="fas fa-arrow-circle-right"></i></a></li>
-        <li><a href=""><%= product.producto %> </a></li>
+        <li><a href=""><%= product.name %> </a></li>
       </ul>
     </div>
     
@@ -47,7 +47,7 @@
       </div> 
         <!-- img -->
         <article class="my-3 col-12 col-md-6 col-lg-6">
-          <h2><%= product.producto %> </h2>
+          <h2><%= product.name %> </h2>
           <h5>stock disponible: <%= product.stock %> </h5>
           <h3>$<%= product.precio %> </h3>
           <form action="" class="text-center">
@@ -77,58 +77,23 @@
 
     <h2>Productos relacionados</h2>
       
+    <% productRelacionados.forEach(element=>{ %> 
     <section class="col-12 col-md-6 col-lg-4 col-xl-3">
       <a href="#">
           <figure>
-            <img src="/images/productos/cama-lana-combi-cueva.png" alt="" class="w-100">
-            <h5>CAMA LANA COMBI CUEVA</h5>
-            <div class="descuento"><img src="/images/descuento-15.png" alt="" class="w-100"></div>   
+            <img src="/images/productos/<%= element.img %>" alt="" class="w-100">
+            <h5><%= element.name %> </h5>
+            <% if(element.discount != 0){ %> 
+            <div class="descuento"><img src="/images/descuento-<%= element.discount %>.png" alt="" class="w-100"></div>
+            <% } %>    
           </figure>
           <div class="precio-producto">
             <h5>PRECIO LISTA</h5>
-            <p>$5544</p>
+            <p>$<%= element.precio %> </p>
           </div>
       </a>
     </section>
-    <section class="col-12 col-md-6 col-lg-4 col-xl-3">
-      <a href="#">
-          <figure>
-            <img src="/images/productos/cama-lana-combi-cueva.png" alt="" class="w-100">
-            <h5>CAMA LANA COMBI CUEVA</h5>
-            <div class="descuento"><img src="/images/descuento-15.png" alt="" class="w-100"></div>   
-          </figure>
-          <div class="precio-producto">
-            <h5>PRECIO LISTA</h5>
-            <p>$5544</p>
-          </div>
-      </a>
-    </section>
-    <section class="col-12 col-md-6 col-lg-4 col-xl-3">
-      <a href="#">
-          <figure>
-            <img src="/images/productos/cama-lana-combi-cueva.png" alt="" class="w-100">
-            <h5>CAMA LANA COMBI CUEVA</h5>
-            <div class="descuento"><img src="/images/descuento-15.png" alt="" class="w-100"></div>   
-          </figure>
-          <div class="precio-producto">
-            <h5>PRECIO LISTA</h5>
-            <p>$5544</p>
-          </div>
-      </a>
-    </section>
-    <section class="col-12 col-md-6 col-lg-4 col-xl-3">
-      <a href="#">
-          <figure>
-            <img src="/images/productos/cama-lana-combi-cueva.png" alt="" class="w-100">
-            <h5>CAMA LANA COMBI CUEVA</h5>
-            <div class="descuento"><img src="/images/descuento-15.png" alt="" class="w-100"></div>   
-          </figure>
-          <div class="precio-producto">
-            <h5>PRECIO LISTA</h5>
-            <p>$5544</p>
-          </div>
-      </a>
-    </section>
+    <% }) %> 
     
   </div>
   <!-- productos relacionados -->

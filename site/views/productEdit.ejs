@@ -23,7 +23,7 @@
                         <option value="alimentos">Alimentos</option>
                     </select>
                     <div class="mb-3">
-                        <input type="text" class="form-control" name="producto" placeholder="Nombre del producto" value="<%= product.producto %>">
+                        <input type="text" class="form-control" name="name" placeholder="Nombre del producto" value="<%= product.producto %>">
                     </div>
                     <div class="mb-3">
                         <input type="text" class="form-control" name="precio" placeholder="Precio" value="<%= product.precio %> ">
@@ -32,7 +32,7 @@
                         <input type="text" class="form-control" name="stock" placeholder="Stock disponible" value="<%= product.stock %> ">
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" name="state" placeholder="In-sale or Normal" value="<%= product.state %> ">
+                        <input type="text" class="form-control" name="discount" placeholder="0,15,30,50" value="<%= product.discount %> ">
                     </div>
                     <div class="mb-3">
                         <textarea name="description" placeholder="Descripcion"  class="form-control"><%= product.description %> </textarea>

@@ -20,9 +20,9 @@ router.put('/productEdit/:id',processEdit);
 /* product edit */
 
 /* product delete */
-
+router.delete('/productDelete/:id',productDelete);
 /* product delete */
 
-router.get('/allProducts',allProducts)/* listado de productos */
+router.get('/allProducts',allProducts)/* listado de productos totales */
 
 module.exports = router

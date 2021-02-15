@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 const data = require('../data/dataproducts');
 
 module.exports = {
@@ -12,7 +13,7 @@ module.exports = {
         
     },
     processProduct:(req,res)=>{
-        const {category,subcategory,producto,precio,stock,state,description} = req.body;
+        const {category,subcategory,name,precio,stock,discount,description} = req.body;
 
         let lastId = 0;
 
@@ -26,24 +27,32 @@ module.exports = {
             id: +lastId + 1,
             category: category,
             subcategory: subcategory,
-            producto: producto,
-            precio: precio,
-            stock: stock,
-            state: state,
-            description: description,
+            name: name,
+            precio: +precio,
+            stock: +stock,
+            discount: +discount,
+            description: description.trim(),
             img: req.files[0].filename
         }
 
         data.push(newProduct);
         fs.writeFileSync('./data/products.json',JSON.stringify(data,null,2),'utf-8');
 
-        res.redirect('/products/productAdd');
+        res.redirect('/products/allProducts');
 
     },
     productDetail:(req,res)=>{
         let product = data.find(element => element.id === +req.params.id);
+
+        let productRelacionados = []
+
+        data.forEach(element=>{
+            if(product.category == element.category){
+                return productRelacionados.push(element);
+            }
+        })
         
-        res.render('productDetail',{product});
+        res.render('productDetail',{product,productRelacionados});
     },
     productEdit:(req,res)=>{
         let product = data.find(element => element.id === +req.params.id);
@@ -51,17 +60,17 @@ module.exports = {
         res.render('productEdit',{product});
     },
     processEdit:(req,res)=>{
-        const {category,subcategory,producto,precio,stock,state,description} = req.body;
+        const {category,subcategory,name,precio,stock,discount,description} = req.body;
 
         data.forEach(element=>{
             if(element.id == req.params.id){
                 element.id = element.id;
                 element.category = category;
                 element.subcategory = subcategory;
-                element.producto = producto;
-                element.precio = precio;
-                element.stock = stock;
-                element.state = state;
+                element.name = name;
+                element.precio = +precio;
+                element.stock = +stock;
+                element.discount = +discount;
                 element.description = description;
                 element.img = element.img;
             }
@@ -72,8 +81,28 @@ module.exports = {
 
         res.redirect('/products/productAdd');
     },
+    productDelete:(req,res)=>{
+        data.forEach(element=>{
+            if(element.id == req.params.id){
+
+                if(fs.existsSync(path.join('public','images','productos',element.img))){
+                    fs.unlinkSync(path.join('public','images','productos',element.img))
+                }
+
+                let idEliminado = data.indexOf(element);
+                data.splice(idEliminado,1);
+            }
+        });
+
+        fs.writeFileSync('./data/products.json',JSON.stringify(data,null,2),'utf-8');
+
+        res.redirect('/products/allProducts')
+    },
     allProducts:(req,res)=>{
-        res.render('allProducts');
+
+        let products = data;
+
+        res.render('allProducts',{products});
     }
 
 }

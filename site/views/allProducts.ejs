@@ -19,59 +19,29 @@
     <!-- productos destacados -->
     <div class="row my-3">
       
+      <% products.forEach(element=>{ %> 
       <section class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <a href="#">
+        <a href="/products/productDetail/<%= element.id %>">
             <figure>
-              <img src="/images/productos/acuario_123_litros.jpg" alt="" class="w-100">
-              <h5>CAMA LANA COMBI CUEVA</h5>
-              <div class="descuento"><img src="/images/descuento-15.png" alt="" class="w-100"></div>   
+              <img src="/images/productos/<%= element.img %> " alt="" class="w-100">
+              <h5><%= element.name %> </h5>
+              <% if(element.discount != 0){ %> 
+              <div class="descuento"><img src="/images/descuento-<%= element.discount %>.png" alt="" class="w-100"></div>
+              <% } %>    
             </figure>
             <div class="precio-producto">
-              <h5>PRECIO LISTA</h5>
-              <p>$5544</p>
+              <h5 style="color: #f37121;">PRECIO LISTA</h5>
+              <p>$<%= element.precio %> </p>
             </div>
         </a>
+        <form action="/products/productDelete/<%= element.id %>?_method=DELETE" method="POST" class="d-flex flex-column align-items-center my-3">
+          <button type="submit" class="btn btn-danger">Eliminar producto</button>
+          <a href="/products/productEdit/<%= element.id %>" class="btn btn-success my-3">Editar producto</a>
+        </form>
+        
       </section>
-      <section class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <a href="#">
-            <figure>
-              <img src="/images/productos/cama-lana-combi-cueva.png" alt="" class="w-100">
-              <h5>CAMA LANA COMBI CUEVA</h5>
-              <div class="descuento"><img src="/images/descuento-15.png" alt="" class="w-100"></div>   
-            </figure>
-            <div class="precio-producto">
-              <h5>PRECIO LISTA</h5>
-              <p>$5544</p>
-            </div>
-        </a>
-      </section>
-      <section class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <a href="#">
-            <figure>
-              <img src="/images/productos/cama-lana-combi-cueva.png" alt="" class="w-100">
-              <h5>CAMA LANA COMBI CUEVA</h5>
-              <div class="descuento"><img src="/images/descuento-15.png" alt="" class="w-100"></div>   
-            </figure>
-            <div class="precio-producto">
-              <h5>PRECIO LISTA</h5>
-              <p>$5544</p>
-            </div>
-        </a>
-      </section>
-      <section class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <a href="#">
-            <figure>
-              <img src="/images/productos/cama-lana-combi-cueva.png" alt="" class="w-100">
-              <h5>CAMA LANA COMBI CUEVA</h5>
-              <div class="descuento"><img src="/images/descuento-15.png" alt="" class="w-100"></div>   
-            </figure>
-            <div class="precio-producto">
-              <h5>PRECIO LISTA</h5>
-              <p>$5544</p>
-            </div>
-        </a>
-      </section>
-      
+      <% }) %> 
+
     </div>
     <!-- productos destacados -->
 
@@ -97,7 +67,7 @@
     </div>
 
   </main>
-  <!-- productos destacados -->
+  
   
   <%- include('partials/footer') %>
   <%- include('partials/scripts') %> 

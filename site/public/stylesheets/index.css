@@ -26,6 +26,11 @@ main.index section a figure{
     flex-direction: column;
     align-items: center;
     text-align: center;
+    height: 350px;
+}
+
+main.index section a figure img{
+    height: 80%;
 }
 
 main.index section a figure .descuento{
@@ -33,6 +38,10 @@ main.index section a figure .descuento{
     position: absolute;
     top: 0;
     right: -40px;
+}
+
+main.index section a figure h5{
+    text-transform: uppercase;
 }
 
 main.index section a .precio-producto{
@@ -44,6 +53,7 @@ main.index section a .precio-producto{
     padding-top: 10px;
     box-shadow: 0px 10px 10px -6px #000;
 }
+
 
 /* productos destacados */
 

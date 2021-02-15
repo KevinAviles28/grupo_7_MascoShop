@@ -73,6 +73,15 @@ main.product-detail .product-relacionados section a figure{
     flex-direction: column;
     align-items: center;
     text-align: center;
+    height: 350px;
+}
+
+main.product-detail section a figure img{
+    height: 80%;
+}
+
+main.product-detail section a figure h5{
+    text-transform: uppercase;
 }
 
 main.product-detail .product-relacionados section a figure .descuento{
