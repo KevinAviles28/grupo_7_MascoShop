@@ -49,6 +49,9 @@
         <article class="my-3 col-12 col-md-6 col-lg-6">
           <h2><%= product.name %> </h2>
           <h5>stock disponible: <%= product.stock %> </h5>
+          <% if(product.discount != 0){ %> 
+          <h2><%= product.discount %>% OFF</h2>
+          <% } %> 
           <h3>$<%= toThousand(product.precio) %> </h3>
           <form action="" class="text-center">
             <button class="mb-3 w-100 btn btn-success">Agregar a favoritos <i class="fas fa-star"></i></button>
@@ -78,7 +81,7 @@
     <h2>Productos relacionados</h2>
       
     <% productRelacionados.forEach(element=>{ %> 
-    <section class="col-12 col-md-6 col-lg-4 col-xl-3">
+    <section class="my-3 col-12 col-md-6 col-lg-4 col-xl-3">
       <a href="/products/productDetail/<%= element.id %>">
           <figure>
             <img src="/images/productos/<%= element.img %>" alt="" class="w-100">
