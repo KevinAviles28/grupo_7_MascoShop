@@ -1,122 +1,100 @@
 @import "generales.css";
 
-/* ruta-producto */
-.ruta-producto ul{
-    display: flex;
-    flex-wrap: wrap;
-    color: white;
+/* ruta producto */
+main.product-detail .ruta-producto{
+    border-bottom: 1px solid var(--colorNaranja);
 }
 
-.ruta-producto ul li,
-.ruta-producto ul li i{
+main.product-detail .ruta-producto ul{
+    display: flex;
+    flex-wrap: wrap;
+    padding-inline-start: 0;
+    margin-bottom: 5px;
+}
+
+main.product-detail .ruta-producto ul li{
     margin: 0 5px;
 }
 
-.ruta-producto ul li:first-child{
-    border-right: 2px solid white;
-    padding-right:10px;
+main.product-detail .ruta-producto ul li a{
+    color: var(--colorNaranja);
+    font-size: 0.9rem;
+}
+/* ruta producto */
+
+/* product detail */
+main.product-detail .producto article h3,
+main.product-detail .producto .descript{
+    color: white;
 }
 
-.ruta-producto ul li i{
-    margin-left: 10px;
+main.product-detail .medios-de-pago{
+    background-color: whitesmoke;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+main.product-detail .medios-de-pago img{
+    width: 100%;
+}
+
+main.product-detail .producto .descript h2{
+    border: 1px solid var(--ColorGris-oscuro);
+    border-top: none;
+    padding: 5px;
 }
 
 /* product detail */
-main.product-detail{
-    background-color: var(--colorOscuro);
+
+main.product-detail .product-relacionados h2{
+    margin: 20px 0;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--colorNaranja);
+    color: var(--colorNaranja);
+    font-size: 1rem;
 }
 
-main.product-detail .producto .product-img-move{
+/* productos relacionados */
+main.product-detail .product-relacionados section a figure{
+    padding: 5px;
+    margin: 0;
+    border: 1px solid var(--ColorGris-oscuro);
     position: relative;
-}
-
-main.product-detail .producto .product-img-move .carousel-item{
-    transition: none;/* reparar */
-}
-
-main.product-detail .producto .product-img-move .discount{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 150px;
-}
-
-main.product-detail .producto article{
-    color: white;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-}
-
-/* product/relacionados */
-main.product-detail .product-relacionados section article{
-    margin: 10px 0;
-    border-radius: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     text-align: center;
-    background-color: var(--ColorGrisClaro);
 }
 
-main.product-detail .product-relacionados section article:hover{
-    transform: scale(1.1);
-}
-
-main.product-detail .product-relacionados section article .product-img{
-    border: 1px solid white;
-    position: relative;
-    height: 300px;
-}
-
-main.product-detail .product-relacionados section article .product-cont{
-    width: 100%;
-    border: 1px solid white;
-    border-radius: 0 0 5px 5px;
-    padding-bottom: 10px;
-}
-
-main.product-detail .product-relacionados section article .product-cont a{
-    color: white;
-    background-color: var(--colorNaranja);
-    border-color: var(--colorNaranja);
-}
-
-main.product-detail .product-relacionados section article .product-cont p{
-    font-size: 2rem;
-}
-
-main.product-detail .product-relacionados section article .product-img .off{
+main.product-detail .product-relacionados section a figure .descuento{
+    width: 200px;
     position: absolute;
     top: 0;
-    right: 0;
-    width: 150px;
+    right: -40px;
 }
 
-@media(min-width:376px){/* mobile large */
-    main.product-detail .producto .product-img-move .discount{
-        top: 3px;
-        right: 50px;
+main.product-detail .product-relacionados section a .precio-producto{
+    border: 1px solid var(--ColorGris-oscuro);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    box-shadow: 0px 10px 10px -6px #000;
+}
+
+/* productos relacionados */
+
+@media(min-width:426px){
+    main.product-detail .medios-de-pago img{
+        width: 30%;
     }
 }
 
-@media(min-width:769px){
-    main.product-detail .producto .product-img-move .discount{
-        width: 200px;
-    }
-}
 
-@media(min-width:1025px){/* escritorio xl */
-    main.product-detail .producto .product-img-move .discount{
-        width: 250px;
-    }
 
-    main.product-detail .producto article .medios-de-pago{
-        height: 95px;
-    }
-}
 
 
 

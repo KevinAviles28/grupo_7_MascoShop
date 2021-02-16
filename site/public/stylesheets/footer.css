@@ -2,30 +2,22 @@
 
 footer{
     background-color: var(--colorNaranja);
+    padding-top: 20px;
 }
 
 footer h3{
     color: white;
-    font-weight: bold;
 }
 
-footer ul{
-    padding-inline-start: 0;
+footer .consultas{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
-footer .categoria li,
-footer .nosotros li{
-    list-style: circle;
-}
-
-footer .card{
-    background-color: var(--colorOscuro);
-    color: white;
-}
-
-footer .dejanos-consulta form textarea{
-    height: 200px;
+footer .consultas textarea{
     resize: none;
+    height: 200px;
 }
 
 footer .redes-sociales ul li a i{
