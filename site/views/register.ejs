@@ -19,37 +19,46 @@
     
     <main class="register container my-5 py-3">
         <h2>Registro</h2>
-        <form action="" method="">
+        <form action="" method="POST">
             <div class="mb-3">
-                <input type="text" name="name" placeholder="Nombre" class="form-control">
+                <input type="text" name="name" placeholder="Nombre" class="form-control" value="<%= (typeof old != 'undefined' && old.name) ? old.name : ""%>" >
+                 <span class="text-danger"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %>  </span>
             </div>
             <div class="mb-3">
-                <input type="text" name="apellido" placeholder="Apellido" class="form-control">
+                <input type="text" name="apellido" placeholder="Apellido" class="form-control"  value="<%= (typeof old != 'undefined' && old.apellido) ? old.apellido : ""%>" >
+                <span class="text-danger"><%= (typeof errores != 'undefined' && errores.apellido) ? errores.apellido.msg : "" %>  </span>
             </div>
             <div class="mb-3">
-                <input type="email" name="email" placeholder="Email" class="form-control">
+                <input type="email" name="email" placeholder="Email" class="form-control"  value="<%= (typeof old != 'undefined' && old.email) ? old.email : ""%>" >
+                <span class="text-danger"><%= (typeof errores != 'undefined' && errores.email) ? errores.email.msg : "" %>  </span>
             </div>
             <div class="mb-3">
                 <input type="password" name="passUno" placeholder="Contraseña" class="form-control">
+                <span class="text-danger"><%= (typeof errores != 'undefined' && errores.passUno) ? errores.passUno.msg : "" %>  </span>
             </div>
             <div class="mb-3">
                 <input type="password" name="passDos" placeholder="Repetir contraseña" class="form-control">
+                <span class="text-danger"><%= (typeof errores != 'undefined' && errores.passDos) ? errores.passDos.msg : "" %>  </span>
             </div>
-            <select class="mb-3 form-select" aria-label="Default select example">
+            <select class="mb-3 form-select" name="pais" aria-label="Default select example">
                 <option selected>Seleccione su país</option>
-                <option value="1">Argentina</option>
-                <option value="2">Brasil</option>
-                <option value="3">Chile</option>
-                <option value="4">Bolivia</option>
-                <option value="5">Venezuela</option>
-                <option value="6">Peru</option>
-                <option value="7">México</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Brasil">Brasil</option>
+                <option value="Chile">Chile</option>
+                <option value="Bolivia">Bolivia</option>
+                <option value="Venezuela">Venezuela</option>
+                <option value="Peru">Peru</option>
+                <option value="Mexico">México</option>
             </select>
             
-            <div class="botones d-flex justify-content-end">
-                <button type="submit" class="mx-3 btn btn-primary">Registrarme</button>
-                <button type="reset" class="btn btn-danger">Cancelar</button>
-            </div>
+            <div class="botones">
+                
+                <div class="boton-dos">
+                    <button type="submit" class="mb-3 btn btn-primary">Registrarme</button>
+                </div>
+                
+                <a href="/" class="mb-3 btn btn-danger">Cancelar</a>
+                
             
         </form>
     </main>

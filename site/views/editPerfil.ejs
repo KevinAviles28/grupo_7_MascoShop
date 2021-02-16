@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head') %> 
+    <body>
+      <%- include('partials/header') %>
+      
+     <h1>Editar Perfil</h1>
+     
+     <form action="/users/edit/<%= userNew.id %>?_method=PUT " method="POST">
+       
+        
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" placeholder="nombre" name="nombre" value="<%= userNew.username %> ">
+              <label for="modelo">Nombre</label>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control"  placeholder="apellido" name="apellido" value="<%= userNew.apellido %> ">
+              <label for="modelo">Apellido</label>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="form-floating mb-3">
+              <input type="text"class="form-control" placeholder="email" name="email" value="<%= userNew.email %> ">
+              <label for="anio">Email</label>
+            </div>
+          </div>
+
+        </div>
+      
+        <div class="d-grid gap-2">
+          <button class="btn btn-success" type="submit">Guardar los cambios</button>
+        </div>
+      
+       
+        </form>
+
+
+      <%- include('partials/footer') %>
+      <%- include('partials/scripts') %> 
+      
+    </body>
+    </html>

@@ -19,12 +19,14 @@
     
     <main class="register container my-5 py-3">
         <h2>Login</h2>
-        <form action="" method="">
+        <form action="" method="POST">
             <div class="mb-3">
-                <input type="email" name="email" placeholder="Email" class="form-control">
+                <input type="email" name="email" placeholder="Email" class="form-control"  value="<%= (typeof old != 'undefined' && old.email) ? old.email : ""%>">
+                <span class="text-danger"><%= (typeof errores != 'undefined' && errores.email) ? errores.email.msg : "" %>  </span>
             </div>
             <div class="mb-3">
                 <input type="password" name="pass" placeholder="Contraseña" class="form-control">
+                <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pass) ? errores.pass.msg : "" %>  </span>
             </div>
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -46,6 +48,7 @@
             </div>
             
         </form>
+        
     </main>
     
     

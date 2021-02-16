@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head') %> 
+    <body>
+      <%- include('partials/header') %>
+      
+     <h1>Perfil</h1>
+     <ul>
+       <li>Nombre: <%= userNew.username %>  </li>
+       <li>Apellido:<%= userNew.apellido %></li>
+       <li>Email:<%= userNew.email%></li>
+     </ul>
+     <form action="/users/delete/<%=userNew.id%>?_method=DELETE" method="POST">
+      <button class="btn btn-primary mx-3" type="submit">Eliminar cuenta</button>
+     </form>
+     
+     <a class="btn btn-primary mx-3" href="/users/edit">Editar datos</a>
+     <a class="btn btn-primary mx-3" href="/users/logout">Cerrar Sessión</a>
+      <%- include('partials/footer') %>
+      <%- include('partials/scripts') %> 
+      
+    </body>
+    </html>

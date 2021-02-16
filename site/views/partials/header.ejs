@@ -19,6 +19,9 @@
         </div>
         <div class="botones my-3 d-flex justify-content-end">
             <a class="btn btn-primary mx-3" href="/users/login"><i class="fas fa-user-circle"></i> Mi cuenta</a> 
+            <% if (typeof userNew != 'undefined') { %><!-- si user, osea si se inicio sesion -->
+              <a class="btn btn-primary mx-3" href="/users/perfil"><i class="fas fa-user-circle"></i> Mi perfil</a>  
+            <% } %>
             <a class="btn btn-success" href="/products/productCart"><i class="fas fa-shopping-cart"></i> Mi carrito</a> 
         </div>
 

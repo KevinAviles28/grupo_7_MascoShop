@@ -3,8 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const session=require('express-session');
 /* RUTAS */
+var usuarioCheck=require('./middlewares/usuarioCheck');
 var indexRouter = require('./routes/indexRouter');
 var usersRouter = require('./routes/usersRouter');
 var productsRouter = require('./routes/productsRouter');
@@ -24,6 +25,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret:"mascoshop el mejor"
+}));
+
+ app.use(usuarioCheck) 
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
