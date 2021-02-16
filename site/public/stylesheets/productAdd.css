@@ -1,6 +1,11 @@
 @import "generales.css";
 
-main h2{
+main.carga-productos h2{
     color: white;
+}
+
+main.carga-productos form textarea{
+    resize: none;
+    height: 200px;
 }
 

@@ -15,10 +15,10 @@
 
     <div class="ruta-producto my-3">
       <ul>
-        <li><a href="">Volver a la pagina de inicio |</a></li>
-        <li><a href="">Perros <i class="fas fa-arrow-circle-right"></i></a></li>
-        <li><a href="">Accesorios <i class="fas fa-arrow-circle-right"></i></a></li>
-        <li><a href="">Cama lana combi cueva</a></li>
+        <li><a href="/">Volver a la pagina de inicio |</a></li>
+        <li><a href=""><%= product.category %> <i class="fas fa-arrow-circle-right"></i></a></li>
+        <li><a href=""><%= product.subcategory %> <i class="fas fa-arrow-circle-right"></i></a></li>
+        <li><a href=""><%= product.name %> </a></li>
       </ul>
     </div>
     
@@ -31,7 +31,7 @@
           <div id="carouselExampleControls" class="carousel carousel-ligth slide">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="/images/productos/cama-lana-combi-cueva.png" class="d-block w-100" alt="...">
+                <img src="/images/productos/<%= product.img %> " class="d-block w-100" alt="...">
               </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -47,8 +47,12 @@
       </div> 
         <!-- img -->
         <article class="my-3 col-12 col-md-6 col-lg-6">
-          <h2>Cama lana combi cueva</h2>
-          <h3>$5544</h3>
+          <h2><%= product.name %> </h2>
+          <h5>stock disponible: <%= product.stock %> </h5>
+          <% if(product.discount != 0){ %> 
+          <h2><%= product.discount %>% OFF</h2>
+          <% } %> 
+          <h3>$<%= toThousand(product.precio) %> </h3>
           <form action="" class="text-center">
             <button class="mb-3 w-100 btn btn-success">Agregar a favoritos <i class="fas fa-star"></i></button>
             <button class="mb-3 w-100 btn btn-primary">Agregar al carrito <i class="fas fa-shopping-cart"></i></button>
@@ -61,12 +65,12 @@
         </div>
         <div class="descript my-3 col-12">
           <h2>Descripcion</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias qui esse ad rem inventore reprehenderit et dolorum atque quas ut facilis, hic aperiam eius at illum pariatur, sed quam ullam voluptate laboriosam repellendus voluptatibus sunt odit. Illo unde tempora maiores dicta aspernatur suscipit asperiores, amet, veritatis at temporibus aut saepe vitae nesciunt! Labore, quo a. Numquam nihil pariatur nulla recusandae voluptatibus nostrum ex sit quam explicabo nemo iusto esse nobis, nam hic rerum placeat, saepe obcaecati. Ipsa exercitationem dolore, amet rerum delectus nostrum et repudiandae in adipisci illo facere incidunt magni modi iste vitae quos nisi officia corrupti. Doloremque, nemo!</p>
+          <p><%= product.description %> </p>
         </div>
       </div>
     </div>
   </div>
-  <!-- /product detail -->  
+  <!-- product detail -->  
   
   
   
@@ -76,58 +80,23 @@
 
     <h2>Productos relacionados</h2>
       
-    <section class="col-12 col-md-6 col-lg-4 col-xl-3">
-      <a href="#">
+    <% productRelacionados.forEach(element=>{ %> 
+    <section class="my-3 col-12 col-md-6 col-lg-4 col-xl-3">
+      <a href="/products/productDetail/<%= element.id %>">
           <figure>
-            <img src="/images/productos/cama-lana-combi-cueva.png" alt="" class="w-100">
-            <h5>CAMA LANA COMBI CUEVA</h5>
-            <div class="descuento"><img src="/images/descuento-15.png" alt="" class="w-100"></div>   
+            <img src="/images/productos/<%= element.img %>" alt="" class="w-100">
+            <h5><%= element.name %> </h5>
+            <% if(element.discount != 0){ %> 
+            <div class="descuento"><img src="/images/descuento-<%= element.discount %>.png" alt="" class="w-100"></div>
+            <% } %>    
           </figure>
           <div class="precio-producto">
             <h5>PRECIO LISTA</h5>
-            <p>$5544</p>
+            <p>$<%= toThousand(element.precio) %> </p>
           </div>
       </a>
     </section>
-    <section class="col-12 col-md-6 col-lg-4 col-xl-3">
-      <a href="#">
-          <figure>
-            <img src="/images/productos/cama-lana-combi-cueva.png" alt="" class="w-100">
-            <h5>CAMA LANA COMBI CUEVA</h5>
-            <div class="descuento"><img src="/images/descuento-15.png" alt="" class="w-100"></div>   
-          </figure>
-          <div class="precio-producto">
-            <h5>PRECIO LISTA</h5>
-            <p>$5544</p>
-          </div>
-      </a>
-    </section>
-    <section class="col-12 col-md-6 col-lg-4 col-xl-3">
-      <a href="#">
-          <figure>
-            <img src="/images/productos/cama-lana-combi-cueva.png" alt="" class="w-100">
-            <h5>CAMA LANA COMBI CUEVA</h5>
-            <div class="descuento"><img src="/images/descuento-15.png" alt="" class="w-100"></div>   
-          </figure>
-          <div class="precio-producto">
-            <h5>PRECIO LISTA</h5>
-            <p>$5544</p>
-          </div>
-      </a>
-    </section>
-    <section class="col-12 col-md-6 col-lg-4 col-xl-3">
-      <a href="#">
-          <figure>
-            <img src="/images/productos/cama-lana-combi-cueva.png" alt="" class="w-100">
-            <h5>CAMA LANA COMBI CUEVA</h5>
-            <div class="descuento"><img src="/images/descuento-15.png" alt="" class="w-100"></div>   
-          </figure>
-          <div class="precio-producto">
-            <h5>PRECIO LISTA</h5>
-            <p>$5544</p>
-          </div>
-      </a>
-    </section>
+    <% }) %> 
     
   </div>
   <!-- productos relacionados -->
