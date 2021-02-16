@@ -81,7 +81,7 @@ module.exports = {
 
         fs.writeFileSync('./data/products.json',JSON.stringify(data,null,2),'utf-8');
 
-        res.redirect('/products/productAdd');
+        res.redirect('/products/allProducts');
     },
     productDelete:(req,res)=>{
         data.forEach(element=>{
