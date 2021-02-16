@@ -1,141 +1,140 @@
 <header class="container-fluid">
-    <div class="row">
-
-        <div class="my-3 col-6 col-md-3 col-lg-2"><a href="/"><img src="/images/mascoshop_logo.png" alt="" class="w-100" ></a></div>
-        <div class="txt d-flex align-items-center justify-content-center col-6 col-lg-4 col-xl-4">
-            <span>¡ Todo lo que tu mejor amigo necesita <i class="fas fa-paw"></i> ! </span>
-        </div>
-        <div class="perritos col-3 col-lg-6 col-xl-6 text-center">
-          <img src="/images/header/6275beb2b1ee9e8b6e3165f64bce0893-secuencia-de-perro-corriendo-7-by-vexels.png" alt="">
-          <img src="/images/header/b11541a04df1cd433b41d24302527553-secuencia-de-perro-corriendo-by-vexels.png" alt="">
-          <img src="/images/header/be3eddba5705a321e4f69e930cdabc5b-secuencia-de-perro-corriendo-1-by-vexels.png" alt="">
-          <img src="/images/header/d62201989552ef4beacf49d9b5a7e1a3-secuencia-de-perro-corriendo-4-by-vexels.png" alt="">
-        </div>
-        <div class="buscador col-12">
-            <form action="/search" method="GET">
-                <input class="form-control" type="search" name="busqueda" placeholder="Busca productos, accesorios y alimentos"><button type="submit" class="btn btn-warning"><i class="fas fa-search"></i></button>
-         
-            </form>
-        </div>
-        <div class="botones my-3 d-flex justify-content-end">
-            <a class="btn btn-primary mx-3" href="/users/login"><i class="fas fa-user-circle"></i> Mi cuenta</a> 
-            <% if (typeof userNew != 'undefined') { %><!-- si user, osea si se inicio sesion -->
-              <a class="btn btn-primary mx-3" href="/users/perfil"><i class="fas fa-user-circle"></i> Mi perfil</a>  
-            <% } %>
-            <a class="btn btn-success" href="/products/productCart"><i class="fas fa-shopping-cart"></i> Mi carrito</a> 
-        </div>
-
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="">Mascoshop</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Perros
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <li><a class="dropdown-item" href="#">Alimentos</a></li>
-                          <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                          
-                        </ul>
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Gatos
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Alimentos</a></li>
-                            <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                        </ul>
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Aves
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Alimentos</a></li>
-                            <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                        </ul>
-                      </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Peces
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Alimentos</a></li>
-                        <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Roedores
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Alimentos</a></li>
-                        <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Reptiles
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Alimentos</a></li>
-                        <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Ofertas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#footer">Nosotros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Preg Frecuentes</a>
-                </li>
+  <div class="row">
+    
+    <div class="my-3 col-6 col-md-3 col-lg-2"><a href="/"><img src="/images/mascoshop_logo.png" alt="" class="w-100" ></a></div>
+    <div class="txt d-flex align-items-center justify-content-center col-6 col-lg-4 col-xl-4">
+      <span>¡ Todo lo que tu mejor amigo necesita <i class="fas fa-paw"></i> ! </span>
+    </div>
+    <div class="perritos col-3 col-lg-6 col-xl-6 text-center">
+      <img src="/images/header/6275beb2b1ee9e8b6e3165f64bce0893-secuencia-de-perro-corriendo-7-by-vexels.png" alt="">
+      <img src="/images/header/b11541a04df1cd433b41d24302527553-secuencia-de-perro-corriendo-by-vexels.png" alt="">
+      <img src="/images/header/be3eddba5705a321e4f69e930cdabc5b-secuencia-de-perro-corriendo-1-by-vexels.png" alt="">
+      <img src="/images/header/d62201989552ef4beacf49d9b5a7e1a3-secuencia-de-perro-corriendo-4-by-vexels.png" alt="">
+    </div>
+    <div class="buscador col-12">
+      <form action="/search" method="GET">
+        <input class="form-control" type="search" name="busqueda" placeholder="Busca productos, accesorios y alimentos"><button type="submit" class="btn btn-warning"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+    
+    <div class="botones my-3 d-flex justify-content-end">
+      <a class="btn btn-primary mx-3" href="/users/login"><i class="fas fa-user-circle"></i> Mi cuenta</a> 
+      <% if (typeof userNew != 'undefined') { %><!-- si user, osea si se inicio sesion -->
+        <a class="btn btn-primary mx-3" href="/users/perfil"><i class="fas fa-user-circle"></i> Mi perfil</a>  
+        <% } %>
+        <a class="btn btn-success" href="/products/productCart"><i class="fas fa-shopping-cart"></i> Mi carrito</a> 
+      </div>
+      
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="">Mascoshop</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Perros
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">Alimentos</a></li>
+                  <li><a class="dropdown-item" href="#">Accesorios</a></li>
                 </ul>
-              </div>
-            </div>
-          </nav>
-
-
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Gatos
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">Alimentos</a></li>
+                  <li><a class="dropdown-item" href="#">Accesorios</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Aves
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">Alimentos</a></li>
+                  <li><a class="dropdown-item" href="#">Accesorios</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Peces
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">Alimentos</a></li>
+                  <li><a class="dropdown-item" href="#">Accesorios</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Roedores
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">Alimentos</a></li>
+                  <li><a class="dropdown-item" href="#">Accesorios</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Reptiles
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">Alimentos</a></li>
+                  <li><a class="dropdown-item" href="#">Accesorios</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Ofertas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#footer">Nosotros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Preg Frecuentes</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      
     </div>
-
-</header>
-
-<!-- Banner -->
-<div class="banner container-fluid">
-  <div  id="carouselExampleIndicators" class="banner carousel carousel-dark slide col-lg-12" data-bs-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="/images/publi.jpg" class="d-block w-100" alt="...">
+    
+  </header>
+  
+  <!-- Banner -->
+  <div class="banner container-fluid">
+    <div  id="carouselExampleIndicators" class="banner carousel carousel-dark slide col-lg-12" data-bs-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="/images/publi.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="/images/publi2.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="/images/publi3.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="/images/publi4.jpg" class="d-block w-100" alt="...">
+        </div>
       </div>
-      <div class="carousel-item">
-        <img src="/images/publi2.png" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="/images/publi3.jpg" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="/images/publi4.jpg" class="d-block w-100" alt="...">
-      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </a>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </a>
   </div>
-</div>
-<!-- Banner -->
+  <!-- Banner -->

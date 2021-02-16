@@ -5,7 +5,7 @@
   <%- include('partials/header') %>
   
   <main class="index container my-3">
-
+    
     <div class="imagenes-compra">
       <a href=""><img src="/images/md-pago.png" alt=""></a>
       <a href=""><img src="/images/medios-de-pago.jpg" alt=""></a>
@@ -20,57 +20,57 @@
     <div class="row my-3">
       
       <% products.forEach(element=>{ %> 
-      <section class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <a href="/products/productDetail/<%= element.id %>">
+        <section class="col-12 col-md-6 col-lg-4 col-xl-3">
+          <a href="/products/productDetail/<%= element.id %>">
             <figure>
               <img src="/images/productos/<%= element.img %> " alt="" class="w-100">
               <h5><%= element.name %> </h5>
               <% if(element.discount != 0){ %> 
-              <div class="descuento"><img src="/images/descuento-<%= element.discount %>.png" alt="" class="w-100"></div>
-              <% } %>    
-            </figure>
-            <div class="precio-producto">
-              <h5 style="color: #f37121;">PRECIO LISTA</h5>
-              <p>$<%= toThousand(element.precio) %> </p>
-            </div>
-        </a>
-        <form action="/products/productDelete/<%= element.id %>?_method=DELETE" method="POST" class="d-flex flex-column align-items-center my-3">
-          <button type="submit" class="btn btn-danger">Eliminar producto</button>
-          <a href="/products/productEdit/<%= element.id %>" class="btn btn-success my-3">Editar producto</a>
-        </form>
+                <div class="descuento"><img src="/images/descuento-<%= element.discount %>.png" alt="" class="w-100"></div>
+                <% } %>    
+              </figure>
+              <div class="precio-producto">
+                <h5 style="color: #f37121;">PRECIO LISTA</h5>
+                <p>$<%= toThousand(element.precio) %> </p>
+              </div>
+            </a>
+            <form action="/products/productDelete/<%= element.id %>?_method=DELETE" method="POST" class="d-flex flex-column align-items-center my-3">
+              <button type="submit" class="btn btn-danger">Eliminar producto</button>
+              <a href="/products/productEdit/<%= element.id %>" class="btn btn-success my-3">Editar producto</a>
+            </form>
+            
+          </section>
+          <% }) %> 
+          
+        </div>
+        <!-- productos destacados -->
         
-      </section>
-      <% }) %> 
-
-    </div>
-    <!-- productos destacados -->
-
-    <div class="instructivo-compra">
-      <article>
-        <img src="/images/inst-carrito.png" alt="">
-        <p>Agregá a tu carrito los productos que necesitas.</p>
-      </article>
-      <article>
-        <img src="/images/inst-pagos.png" alt="">
-        <p>Elegí el medio de pago que desees y aprovechá nuestras promos.</p>
-      </article>
-      <article>
-        <img src="/images/inst-pedido.png" alt="">
-        <p>Recibí tu pedido o coordiná un punto de retiro.</p>
-      </article> 
-    </div>
-
-    <div class="publi-footer my-3">
-      <a href=""><img src="/images/publi-footer.jpg" alt=""></a>
-      <a href=""><img src="/images/publi-2-footer.jpg" alt=""></a>
-      <a href=""><img src="/images/publi-3-footer.jpg" alt=""></a> 
-    </div>
-
-  </main>
-  
-  
-  <%- include('partials/footer') %>
-  <%- include('partials/scripts') %> 
-  
-</body>
-</html>
+        <div class="instructivo-compra">
+          <article>
+            <img src="/images/inst-carrito.png" alt="">
+            <p>Agregá a tu carrito los productos que necesitas.</p>
+          </article>
+          <article>
+            <img src="/images/inst-pagos.png" alt="">
+            <p>Elegí el medio de pago que desees y aprovechá nuestras promos.</p>
+          </article>
+          <article>
+            <img src="/images/inst-pedido.png" alt="">
+            <p>Recibí tu pedido o coordiná un punto de retiro.</p>
+          </article> 
+        </div>
+        
+        <div class="publi-footer my-3">
+          <a href=""><img src="/images/publi-footer.jpg" alt=""></a>
+          <a href=""><img src="/images/publi-2-footer.jpg" alt=""></a>
+          <a href=""><img src="/images/publi-3-footer.jpg" alt=""></a> 
+        </div>
+        
+      </main>
+      
+      
+      <%- include('partials/footer') %>
+      <%- include('partials/scripts') %> 
+      
+    </body>
+    </html>

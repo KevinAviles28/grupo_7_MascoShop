@@ -12,7 +12,7 @@ module.exports={
                 return products.push(element);
             }
         })
-
+        
         res.render('index',{products,toThousand});
         
     },
@@ -20,7 +20,7 @@ module.exports={
         const search = data.filter(element=>{
             return element.name.toLowerCase().includes(req.query.busqueda.toLowerCase().trim());
         })
-
+        
         res.render('search',{search,toThousand});
     }
 }
