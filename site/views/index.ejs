@@ -19,59 +19,21 @@
     <!-- productos destacados -->
     <div class="row my-3">
       
-      <section class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <a href="#">
+      <% products.forEach(element=>{ %> 
+      <section class="my-3 col-12 col-md-6 col-lg-4 col-xl-3">
+        <a href="/products/productDetail/<%= element.id %>">
             <figure>
-              <img src="/images/productos/cama-lana-combi-cueva.png" alt="" class="w-100">
-              <h5>CAMA LANA COMBI CUEVA</h5>
-              <div class="descuento"><img src="/images/descuento-15.png" alt="" class="w-100"></div>   
+              <img src="/images/productos/<%= element.img %>" alt="" class="w-100">
+              <h5><%= element.name %> </h5>
+              <div class="descuento"><img src="/images/descuento-<%= element.discount %>.png" alt="" class="w-100"></div>   
             </figure>
             <div class="precio-producto">
               <h5>PRECIO LISTA</h5>
-              <p>$5544</p>
+              <p>$<%= toThousand(element.precio) %> </p>
             </div>
         </a>
       </section>
-      <section class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <a href="#">
-            <figure>
-              <img src="/images/productos/cama-lana-combi-cueva.png" alt="" class="w-100">
-              <h5>CAMA LANA COMBI CUEVA</h5>
-              <div class="descuento"><img src="/images/descuento-15.png" alt="" class="w-100"></div>   
-            </figure>
-            <div class="precio-producto">
-              <h5>PRECIO LISTA</h5>
-              <p>$5544</p>
-            </div>
-        </a>
-      </section>
-      <section class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <a href="#">
-            <figure>
-              <img src="/images/productos/cama-lana-combi-cueva.png" alt="" class="w-100">
-              <h5>CAMA LANA COMBI CUEVA</h5>
-              <div class="descuento"><img src="/images/descuento-15.png" alt="" class="w-100"></div>   
-            </figure>
-            <div class="precio-producto">
-              <h5>PRECIO LISTA</h5>
-              <p>$5544</p>
-            </div>
-        </a>
-      </section>
-      <section class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <a href="#">
-            <figure>
-              <img src="/images/productos/cama-lana-combi-cueva.png" alt="" class="w-100">
-              <h5>CAMA LANA COMBI CUEVA</h5>
-              <div class="descuento"><img src="/images/descuento-15.png" alt="" class="w-100"></div>   
-            </figure>
-            <div class="precio-producto">
-              <h5>PRECIO LISTA</h5>
-              <p>$5544</p>
-            </div>
-        </a>
-      </section>
-      
+      <% }) %> 
     </div>
     <!-- productos destacados -->
 
