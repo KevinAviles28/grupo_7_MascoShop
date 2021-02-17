@@ -98,7 +98,7 @@ module.exports = {
         
         fs.writeFileSync('./data/products.json',JSON.stringify(data,null,2),'utf-8');
         
-        res.redirect('/products/allProducts')
+        res.redirect('/products/allProducts');
     },
     allProducts:(req,res)=>{
         
@@ -114,7 +114,7 @@ module.exports = {
             if(element.category == req.params.category){
                 return result.push(element);
             }
-        })
+        });
 
         res.render('productCategory',{result,toThousand});
     },
@@ -126,13 +126,32 @@ module.exports = {
             if(element.subcategory == req.params.subcategory){
                 return result.push(element);
             }
-        })
+        });
 
         res.render('productSubcategory',{result,toThousand});
     },
-    productnav:(req,res)=>{
+    productNav:(req,res)=>{
 
-        let perro = [];
-        let gato = []
+        let result=[];
+
+        data.forEach(element=>{
+            if(element.category == req.params.category && element.subcategory == req.params.subcategory){
+                return result.push(element);
+            }
+        });
+
+        res.render('productNav',{result,toThousand});
+    },
+    productOfertas:(req,res)=>{
+        
+        let products = [];
+        
+        data.forEach(element=>{
+            if(element.discount != 0){
+                return products.push(element);
+            }
+        })
+        
+        res.render('productOfertas',{products,toThousand});
     }
 }
