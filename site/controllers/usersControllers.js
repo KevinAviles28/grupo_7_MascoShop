@@ -8,7 +8,7 @@ module.exports = {
     /* pagina registro */
     register:(req,res)=>{
         res.render('register');
-    },  /* cosa nueva */
+    },  /* cosa nueva */ /* otra cosa */
     /* proceso de registro */
     processRegister:(req,res)=>{ /* si no esta vacio   osea , si hay errores */
         const errores=validationResult(req);
