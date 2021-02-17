@@ -105,6 +105,34 @@ module.exports = {
         let products = data;
         
         res.render('allProducts',{products,toThousand});
+    },
+    productCategory:(req,res)=>{
+
+        let result = [];
+
+        data.forEach(element=>{
+            if(element.category == req.params.category){
+                return result.push(element);
+            }
+        })
+
+        res.render('productCategory',{result,toThousand});
+    },
+    productSubcategory:(req,res)=>{
+
+        let result = [];
+
+        data.forEach(element=>{
+            if(element.subcategory == req.params.subcategory){
+                return result.push(element);
+            }
+        })
+
+        res.render('productSubcategory',{result,toThousand});
+    },
+    productnav:(req,res)=>{
+
+        let perro = [];
+        let gato = []
     }
-    
 }
