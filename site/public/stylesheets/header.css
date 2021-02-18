@@ -32,8 +32,9 @@ header .buscador form button{
     padding-left: 11px;
     font-size: 0.9rem;
 }
-header .botones ul {
-    padding-inline-start: 0;
+
+header .boton-user i{
+    font-size: 1.1rem;
 }
 /* fin del header */
 
