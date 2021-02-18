@@ -31,7 +31,7 @@
               </figure>
               <div class="precio-producto">
                 <h5 style="color: #f37121;">PRECIO LISTA</h5>
-                <p>$<%= toThousand(element.precio) %> </p>
+                <p>$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %> </p>
               </div>
             </a>
             <form action="/products/productDelete/<%= element.id %>?_method=DELETE" method="POST" class="d-flex flex-column align-items-center my-3">

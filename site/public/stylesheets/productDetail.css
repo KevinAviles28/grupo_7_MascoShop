@@ -36,6 +36,12 @@ main.product-detail .producto article h5{
     color: white;
 }
 
+main.product-detail .producto article h3 span{
+    font-size: 1.5rem;
+    text-decoration: line-through;
+    margin-left: 20px;
+}
+
 main.product-detail .medios-de-pago{
     background-color: whitesmoke;
     display: flex;
