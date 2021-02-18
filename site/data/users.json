@@ -1,3 +1,26 @@
 [
- 
+  {
+    "id": 2,
+    "name": "michel",
+    "apellido": "varela",
+    "email": "michel@gmail.com",
+    "pass": "$2b$12$V31VmFy6eEaG1iRRCH51NuvM4xT8y2VBph8dHr4lpSjoydE3v9EIi",
+    "pais": "Argentina"
+  },
+  {
+    "id": 3,
+    "name": "Prueba",
+    "apellido": "asdasd",
+    "email": "kevin85192381@gmail.com",
+    "pass": "$2b$12$MFWs7xazrUTgd8OtTzKnJ.KbBdlZk1I.Q2uygKDbZHgBanxtZNDwe",
+    "pais": "Venezuela"
+  },
+  {
+    "id": 4,
+    "name": "kevin",
+    "apellido": "aviles",
+    "email": "bejarano.a.kevin@gmail.com",
+    "pass": "$2b$12$d7hkbwB3RBMoOQ5AqGHxIOnf0JhZoEbCcqLSOGY27wS11C7zM3Hoa",
+    "pais": "Bolivia"
+  }
 ]

@@ -32,6 +32,9 @@ header .buscador form button{
     padding-left: 11px;
     font-size: 0.9rem;
 }
+header .botones ul {
+    padding-inline-start: 0;
+}
 /* fin del header */
 
 /* banner */
