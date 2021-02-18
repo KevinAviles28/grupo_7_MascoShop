@@ -18,10 +18,27 @@
     </div>
     
     <div class="botones my-3 d-flex justify-content-end">
-      <a class="btn btn-primary mx-3" href="/users/login"><i class="fas fa-user-circle"></i> Mi cuenta</a> 
-      <% if (typeof userNew != 'undefined') { %><!-- si user, osea si se inicio sesion -->
-        <a class="btn btn-primary mx-3" href="/users/perfil"><i class="fas fa-user-circle"></i> Mi perfil</a>  
-        <% } %>
+      <ul>
+        <li class="nav-item dropdown ">
+          <% if (typeof userNew != 'undefined') { %>
+            <a class="nav-link dropdown-toggle btn btn-primary" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= userNew.username %> <!-- nombre de usuario -->
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/users/perfil">Mi Perfil</a></li>
+              <li><a class="dropdown-item" href="/users/logout">Cerrar sessión</a></li>
+          <% }else{ %>
+            <a class="nav-link dropdown-toggle btn btn-primary " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Mi perfil
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/users/login">Iniciar sesion</a></li>
+              <li><a class="dropdown-item" href="/users/register">Registrarme</a></li>
+          <% } %>
+
+          </ul>
+        </li>
+      </ul>
         <a class="btn btn-success" href="/products/productCart"><i class="fas fa-shopping-cart"></i> Mi carrito</a> 
       </div>
       
@@ -112,6 +129,8 @@
       <ol class="carousel-indicators">
         <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
         <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></li>
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
