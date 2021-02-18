@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const {productCart,productDetail,productAdd,processProduct,productEdit,processEdit,productDelete,allProducts} = require('../controllers/productsControllers');
+const {productCart,productDetail,productAdd,processProduct,productEdit,processEdit,productDelete,allProducts,productCategory,productSubcategory,productNav,productOfertas} = require('../controllers/productsControllers');
 
 /* middlewares */
 const upload = require('../middlewares/multer');
@@ -23,6 +23,12 @@ router.put('/productEdit/:id',processEdit);
 router.delete('/productDelete/:id',productDelete);
 /* product delete */
 
-router.get('/allProducts',allProducts)/* listado de productos totales */
+/* listado de productos totales, por category y subcategory */
+router.get('/allProducts',allProducts)
+router.get('/productCategory/:category',productCategory);
+router.get('/productSubcategory/:subcategory',productSubcategory);
 
-module.exports = router
+router.get('/productNav/:category/:subcategory',productNav);
+router.get('/productOfertas',productOfertas);
+
+module.exports = router;

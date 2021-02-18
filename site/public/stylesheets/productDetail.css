@@ -16,7 +16,8 @@ main.product-detail .ruta-producto ul li{
     margin: 0 5px;
 }
 
-main.product-detail .ruta-producto ul li a{
+main.product-detail .ruta-producto ul li a,
+main.product-detail .ruta-producto ul li{
     color: var(--colorNaranja);
     font-size: 0.9rem;
     text-transform: uppercase;
