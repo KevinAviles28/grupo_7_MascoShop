@@ -75,5 +75,170 @@
     "discount": 0,
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     "img": "img-1613428690185.png"
+  },
+  {
+    "id": 8,
+    "category": "reptiles",
+    "subcategory": "alimentos",
+    "name": "Zoo Med",
+    "precio": 500,
+    "stock": 50,
+    "discount": 0,
+    "description": "Alimentos completo para iguanas",
+    "img": "img-1613698304897.jpg"
+  },
+  {
+    "id": 9,
+    "category": "reptiles",
+    "subcategory": "alimentos",
+    "name": "Turtle Food",
+    "precio": 300,
+    "stock": 100,
+    "discount": 15,
+    "description": "Alimento completo tortugas marinas.",
+    "img": "img-1613698411244.png"
+  },
+  {
+    "id": 10,
+    "category": "roedores",
+    "subcategory": "accesorios",
+    "name": "Jaula 2 pisos, Fun Show",
+    "precio": 1350,
+    "stock": 30,
+    "discount": 15,
+    "description": "Jaula completa 2 pisos para roedores.",
+    "img": "img-1613698563966.png"
+  },
+  {
+    "id": 11,
+    "category": "roedores",
+    "subcategory": "accesorios",
+    "name": "Jaula Básica, Croker",
+    "precio": 1000,
+    "stock": 30,
+    "discount": 15,
+    "description": "Jaula básica completa marca Croker",
+    "img": "img-1613698655608.png"
+  },
+  {
+    "id": 12,
+    "category": "roedores",
+    "subcategory": "accesorios",
+    "name": "Jaula Completa Stocker",
+    "precio": 1200,
+    "stock": 50,
+    "discount": 30,
+    "description": "Jaula completa marca Stocker",
+    "img": "img-1613698789363.png"
+  },
+  {
+    "id": 13,
+    "category": "reptiles",
+    "subcategory": "alimentos",
+    "name": "Hervibor",
+    "precio": 600,
+    "stock": 100,
+    "discount": 0,
+    "description": "Alimento completo tortugas",
+    "img": "img-1613698870552.png"
+  },
+  {
+    "id": 14,
+    "category": "roedores",
+    "subcategory": "alimentos",
+    "name": "Gran Amor",
+    "precio": 500,
+    "stock": 100,
+    "discount": 15,
+    "description": "Alimentos con vitaminas para tus roedores.",
+    "img": "img-1613698924376.png"
+  },
+  {
+    "id": 15,
+    "category": "roedores",
+    "subcategory": "alimentos",
+    "name": "Crunipic",
+    "precio": 300,
+    "stock": 50,
+    "discount": 0,
+    "description": "Alimentos completo para tus roedores marca Crunipic",
+    "img": "img-1613699006026.png"
+  },
+  {
+    "id": 16,
+    "category": "aves",
+    "subcategory": "alimentos",
+    "name": "Menu",
+    "precio": 800,
+    "stock": 100,
+    "discount": 0,
+    "description": "Alimentos para aves",
+    "img": "img-1613699322934.jpg"
+  },
+  {
+    "id": 17,
+    "category": "aves",
+    "subcategory": "alimentos",
+    "name": "Mazuri",
+    "precio": 500,
+    "stock": 100,
+    "discount": 0,
+    "description": "Alimento para todo tipo de aves",
+    "img": "img-1613699413256.jpg"
+  },
+  {
+    "id": 18,
+    "category": "aves",
+    "subcategory": "alimentos",
+    "name": "Menu",
+    "precio": 800,
+    "stock": 100,
+    "discount": 15,
+    "description": "Alimento completo para tus aves.",
+    "img": "img-1613701149353.JPG"
+  },
+  {
+    "id": 19,
+    "category": "reptiles",
+    "subcategory": "accesorios",
+    "name": "Terrario 25x40",
+    "precio": 2000,
+    "stock": 20,
+    "discount": 0,
+    "description": "Terrario Completo",
+    "img": "img-1613701510994.jpg"
+  },
+  {
+    "id": 20,
+    "category": "reptiles",
+    "subcategory": "accesorios",
+    "name": "Terrario 50x60",
+    "precio": 3000,
+    "stock": 30,
+    "discount": 0,
+    "description": "Terrario 50x60",
+    "img": "img-1613701650882.jpg"
+  },
+  {
+    "id": 21,
+    "category": "reptiles",
+    "subcategory": "accesorios",
+    "name": "Terrario 1m 60cm",
+    "precio": 4500,
+    "stock": 50,
+    "discount": 0,
+    "description": "Terrario completo",
+    "img": "img-1613701855881.jpg"
+  },
+  {
+    "id": 22,
+    "category": "peces",
+    "subcategory": "accesorios",
+    "name": "Pecera de Hogar",
+    "precio": 1000,
+    "stock": 100,
+    "discount": 15,
+    "description": "Pecera completa de Hogar",
+    "img": "img-1613702049047.png"
   }
 ]
