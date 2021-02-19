@@ -52,7 +52,7 @@
           <% if(product.discount != 0){ %> 
             <h2><%= product.discount %>% OFF</h2>
             <% } %> 
-            <h3>$<%= toThousand(product.precio) %> </h3>
+            <h3>$<%= toThousand(product.precio - parseInt(product.precio * product.discount / 100)) %> <span><i class="fas fa-tags"></i>$<%= toThousand(product.precio) %> </span></h3>
             <form action="" class="text-center">
               <button class="mb-3 w-100 btn btn-success">Agregar a favoritos <i class="fas fa-star"></i></button>
               <button class="mb-3 w-100 btn btn-primary">Agregar al carrito <i class="fas fa-shopping-cart"></i></button>
@@ -91,8 +91,8 @@
                 <% } %>    
               </figure>
               <div class="precio-producto">
-                <h5>PRECIO LISTA</h5>
-                <p>$<%= toThousand(element.precio) %> </p>
+                <h5 style="color: #f37121;">PRECIO LISTA</h5>
+                <p>$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
               </div>
             </a>
           </section>
@@ -118,9 +118,9 @@
         </div>
         
         <div class="publi-footer my-3">
-          <a href=""><img src="/images/publi-footer.jpg" alt=""></a>
-          <a href=""><img src="/images/publi-2-footer.jpg" alt=""></a>
-          <a href=""><img src="/images/publi-3-footer.jpg" alt=""></a> 
+          <div><img src="/images/publi-footer.jpg" alt=""></div>
+          <div><img src="/images/publi-2-footer.jpg" alt=""></div>
+          <div><img src="/images/publi-3-footer.jpg" alt=""></div> 
         </div>
       </main>
       

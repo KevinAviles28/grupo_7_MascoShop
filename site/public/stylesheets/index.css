@@ -82,12 +82,12 @@ main.index section a .precio-producto{
     flex-wrap: wrap;
 }
 
-.publi-footer a{
+.publi-footer div{
     width: 100%;
     padding: 5px;  
 }
 
-.publi-footer a img{
+.publi-footer div img{
     width: 100%;  
 }
 
@@ -96,11 +96,11 @@ main.index section a .precio-producto{
         width: 33%;
     }
 
-    .publi-footer a{
+    .publi-footer div{
         width: 33%;
     }
     
-    .publi-footer a img{
+    .publi-footer div img{
         width: 100%;  
     }
 }
