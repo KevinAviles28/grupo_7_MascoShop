@@ -88,7 +88,8 @@ module.exports = {
                         id:result.id,
                         username: result.name,
                         apellido: result.apellido,
-                        email: result.email
+                        email: result.email,
+                        pais:result.pais
                     }
                     
                     return res.redirect('/')
@@ -123,21 +124,22 @@ module.exports = {
     
     /* formulario de editar cuenta */
     editarPerfil:(req,res)=>{
-        const{nombre,apellido,email}=req.body;
+        const{nombre,apellido,email,pais}=req.body;
         
         users_db.forEach(user => {
             if(user.id === Number(req.params.id)){
-                user.name = nombre;
-                user.apellido = apellido;
-                user.email = email;
+                user.name = nombre.trim(),
+                user.apellido = apellido.trim(),
+                user.email = email.trim(),
+                user.pais=pais.trim()
 
             
             }
         });
         
         fs.writeFileSync('./data/users.json',JSON.stringify(users_db,null,2));
-        
-        res.redirect('/');
+        req.session.destroy();
+        res.redirect('/users/login');
     },
     cerrarSession:(req,res)=>{ /* cerrar sesion */
         req.session.destroy();

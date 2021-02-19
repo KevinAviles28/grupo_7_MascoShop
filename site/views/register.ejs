@@ -50,7 +50,7 @@
                 <option value="Peru">Peru</option>
                 <option value="Mexico">México</option>
             </select>
-            
+            <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pais) ? errores.pais.msg : "" %>  </span>
             <div class="botones">
                 
                 <div class="boton-dos">
