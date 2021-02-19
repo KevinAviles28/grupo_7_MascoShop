@@ -51,8 +51,12 @@
                 <option value="Mexico">México</option>
             </select>
             <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pais) ? errores.pais.msg : "" %>  </span>
+            <div class="mb-3">
+                <input type="text" name="codigo" placeholder="Codigo secreto" class="form-control">
+                <span class="text-white bg-dark">"No importa si no completa el codigo secreto, solo es para miembros de la empresa :D"</span>
+            </div>
+            
             <div class="botones">
-                
                 <div class="boton-dos">
                     <button type="submit" class="mb-3 btn btn-primary">Registrarme</button>
                 </div>

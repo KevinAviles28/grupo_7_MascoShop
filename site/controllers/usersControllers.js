@@ -12,7 +12,7 @@ module.exports = {
     /* proceso de registro */
     processRegister:(req,res)=>{ /* si no esta vacio   osea , si hay errores */
         const errores=validationResult(req);
-        /* res.send(errores.mapped()) */
+       /*   res.send(errores.mapped())  */
         if(!errores.isEmpty()){
             return res.render('register',{
                 errores : errores.mapped(),/* convierte el valor del array en el valor de errors */
@@ -21,15 +21,19 @@ module.exports = {
             })
         }else{
             
-            const{name,apellido,email,passUno,pais}=req.body;
-            
+            const{name,apellido,email,passUno,pais,codigo}=req.body;
+            let category;
             let lastID=0;
             users_db.forEach(user => {
                 if(user.id > lastID){                               
                     lastID = user.id
                 }
             });
-            
+            if(codigo!='aguanteElGrupo7'){
+                category="Usuario"
+            }else{
+                category="Admin"
+            }
             let hashPass=bcrypt.hashSync(passUno,12)
             let newUser={
                 id: +lastID+1,
@@ -37,7 +41,8 @@ module.exports = {
                 apellido,
                 email,
                 pass:hashPass,
-                pais
+                pais,
+                category
             }
             
             users_db.push(newUser);
@@ -64,7 +69,7 @@ module.exports = {
                 title:'Mascoshop login'
             })
         }else{
-            /*   const{email}=req.body
+              const{email}=req.body
             let result=users_db.find(user=>user.email==email);
             
             if(result){
@@ -72,31 +77,12 @@ module.exports = {
                     id:result.id,
                     username: result.name,
                     apellido: result.apellido,
-                    email: result.email
+                    email: result.email,
+                    pais:result.pais,
+                    category:result.category
                 }
                 return res.redirect('/')
             }
-            */
-            
-            const{email,pass}=req.body;
-            let result=users_db.find(user=>user.email==email.trim());
-            if(result){
-                if(bcrypt.compareSync(pass.trim(),result.pass)){
-                    
-                    req.session.userNew={
-                        
-                        id:result.id,
-                        username: result.name,
-                        apellido: result.apellido,
-                        email: result.email,
-                        pais:result.pais
-                    }
-                    
-                    return res.redirect('/')
-                    
-                }
-            }
-            res.render('login',{error: "Credenciales invalidas"})  
         }
     },  
     /* perfil */

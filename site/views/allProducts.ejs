@@ -17,10 +17,10 @@
     <h2>Nuestros productos</h2>
     
     <!-- productos destacados -->
-    <div class="row my-3">
+    <div class="row my-4">
       
       <% products.forEach(element=>{ %> 
-        <section class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <section class="col-12 col-md-6 col-lg-4 col-xl-3 my-3">
           <a href="/products/productDetail/<%= element.id %>">
             <figure>
               <img src="/images/productos/<%= element.img %> " alt="" class="w-100">
@@ -34,10 +34,13 @@
                 <p>$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %> </p>
               </div>
             </a>
-            <form action="/products/productDelete/<%= element.id %>?_method=DELETE" method="POST" class="d-flex flex-column align-items-center my-3">
-              <button type="submit" class="btn btn-danger">Eliminar producto</button>
-              <a href="/products/productEdit/<%= element.id %>" class="btn btn-success my-3">Editar producto</a>
-            </form>
+            <% if (userNew.category==="Admin") { %>
+              <form action="/products/productDelete/<%= element.id %>?_method=DELETE" method="POST" class="d-flex flex-column align-items-center my-3">
+                <button type="submit" class="btn btn-danger">Eliminar producto</button>
+                <a href="/products/productEdit/<%= element.id %>" class="btn btn-success my-3">Editar producto</a>
+              </form>
+            <% } %>
+            
             
           </section>
           <% }) %> 

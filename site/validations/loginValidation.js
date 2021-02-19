@@ -20,8 +20,8 @@ module.exports=[ /* esto es una array que va a estar chequeando si todo es corre
   check('pass')
   .notEmpty().withMessage('La contraseña es requerida'),
 
- /*  body('pass').custom((value,{req})=>{
-    let result=users_db.find(user=>user.email===req.params.email);
+   body('pass').custom((value,{req})=>{
+    let result=users_db.find(user=>user.email===req.body.email);
     if(result){
       if(bcrypt.compareSync(value.trim(),result.pass)){
         return true
@@ -29,7 +29,7 @@ module.exports=[ /* esto es una array que va a estar chequeando si todo es corre
         return false
       }
     }
-  }).withMessage('Contraseña invalida') */
+  }).withMessage('Contraseña invalida, vuelva a intentarlo') 
   
   
 ]
