@@ -22,5 +22,10 @@ module.exports={
         })
         
         res.render('search',{search,toThousand});
+    },
+    nosotros:(req,res)=>{
+        res.render('sobreNosotros',{
+            title:'Sobre nosotros'
+        })
     }
 }

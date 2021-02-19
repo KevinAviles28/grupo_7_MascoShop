@@ -1,0 +1,12 @@
+@import "generales.css";
+
+
+h1.elTitulazo{
+    color: white;
+}
+.laTarjeta{
+    border-top: 2px solid var(--colorNaranja) ;
+}
+/* .laTarjeta p{
+    font-size: 20px;
+} */

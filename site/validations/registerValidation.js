@@ -32,6 +32,13 @@ module.exports = [
             return true;
         }
         
-    }).withMessage('Las contraseñas no coinciden, intentelo de nuevo')
+    }).withMessage('Las contraseñas no coinciden, intentelo de nuevo'),
+    body('pais').custom(value=>{
+        if(value==='Seleccione su país'){
+            return false;
+        }else{
+            return true;
+        }
+    }).withMessage('Por favor seleccione un pais')
     
 ]
