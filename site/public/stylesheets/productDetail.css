@@ -83,11 +83,17 @@ main.product-detail .product-relacionados section a figure{
     height: 350px;
 }
 
-main.product-detail section a figure img{
+main.product-detail .product-relacionados section a figure img{
     height: 80%;
+    padding: 20px;
+    background-color: white;
 }
 
-main.product-detail section a figure h5{
+main.product-detail .product-relacionados section a figure .descuento img{
+    background-color: rgba(0, 0, 0, 0.0);
+}
+
+main.product-detail .product-relacionados section a figure h5{
     text-transform: uppercase;
 }
 
