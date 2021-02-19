@@ -20,7 +20,7 @@ module.exports = {
                 title:'Mascoshop registro'
             })
         }else{
-        
+            
             const{name,apellido,email,passUno,pais}=req.body;
             
             let lastID=0;
@@ -56,7 +56,7 @@ module.exports = {
     /* proceso login */
     processLogin:(req,res)=>{
         const errores=validationResult(req);
-          /*  res.send(errores.mapped())   */
+        /*  res.send(errores.mapped())   */
         if(!errores.isEmpty()){
             return res.render('login',{
                 errores : errores.mapped(),/* convierte el valor del array en el valor de errors */
@@ -64,9 +64,9 @@ module.exports = {
                 title:'Mascoshop login'
             })
         }else{
-          /*   const{email}=req.body
+            /*   const{email}=req.body
             let result=users_db.find(user=>user.email==email);
-
+            
             if(result){
                 req.session.userNew={      
                     id:result.id,
@@ -76,7 +76,7 @@ module.exports = {
                 }
                 return res.redirect('/')
             }
- */
+            */
             
             const{email,pass}=req.body;
             let result=users_db.find(user=>user.email==email.trim());
@@ -84,7 +84,7 @@ module.exports = {
                 if(bcrypt.compareSync(pass.trim(),result.pass)){
                     
                     req.session.userNew={
-                      
+                        
                         id:result.id,
                         username: result.name,
                         apellido: result.apellido,
@@ -132,8 +132,8 @@ module.exports = {
                 user.apellido = apellido.trim(),
                 user.email = email.trim(),
                 user.pais=pais.trim()
-
-            
+                
+                
             }
         });
         
