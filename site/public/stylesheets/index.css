@@ -31,6 +31,8 @@ main.index section a figure{
 
 main.index section a figure img{
     height: 80%;
+    padding: 20px;
+    background-color: white;
 }
 
 main.index section a figure .descuento{
@@ -38,6 +40,10 @@ main.index section a figure .descuento{
     position: absolute;
     top: 0;
     right: -40px;
+}
+
+main.index section a figure .descuento img{
+    background-color: rgba(0, 0, 0, 0.0);
 }
 
 main.index section a figure h5{
