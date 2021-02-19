@@ -179,7 +179,7 @@
     "id": 17,
     "category": "gatos",
     "subcategory": "alimentos",
-    "name": "PURINA PRO PLAN, PARA ADULTos",
+    "name": "PURINA PRO PLAN, PARA adultos",
     "precio": 450,
     "stock": 20,
     "discount": 0,
@@ -210,7 +210,7 @@
   },
   {
     "id": 20,
-    "category": "Categoria",
+    "category": "gatos",
     "subcategory": "Sub-categoria",
     "name": "purina gati, alimento para gatos",
     "precio": 350,
