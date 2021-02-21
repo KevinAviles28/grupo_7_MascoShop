@@ -36,6 +36,20 @@ main.product-detail .producto article h5{
     color: white;
 }
 
+main.product-detail .producto .borde-producto{
+    border: 1px solid white;
+    padding: 5px
+}
+
+main.product-detail .producto .borde-producto .fondo-producto{
+    background-color: whitesmoke;
+    
+}
+
+main.product-detail .producto .borde-producto .fondo-producto img{
+    padding: 20px;
+}
+
 main.product-detail .producto article h3 span{
     font-size: 1.5rem;
     text-decoration: line-through;
@@ -98,15 +112,19 @@ main.product-detail .product-relacionados section a figure h5{
 }
 
 main.product-detail .product-relacionados section a figure .descuento{
-    width: 150px;
+    width: 75px;
+    height: 75px;
+    padding-top: 10px;
     position: absolute;
     top: 0;
     right: 0;
     background-color: #00a3da;
+    border-radius: 50%;
 }
 
 main.product-detail .product-relacionados section a figure .descuento span{
     font-size: 1.2rem;
+    font-weight: bold;
     color: white;
 }
 
