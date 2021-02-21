@@ -36,14 +36,17 @@ main.index section a figure img{
 }
 
 main.index section a figure .descuento{
-    width: 200px;
+    width: 150px;
     position: absolute;
     top: 0;
-    right: -40px;
+    right: 0;
+    background-color: #00a3da;
 }
 
-main.index section a figure .descuento img{
-    background-color: rgba(0, 0, 0, 0.0);
+main.index section a figure .descuento span{
+    font-size: 1.2rem;
+    color: white;
+    
 }
 
 main.index section a figure h5{

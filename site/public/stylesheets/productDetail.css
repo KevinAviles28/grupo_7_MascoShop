@@ -98,10 +98,16 @@ main.product-detail .product-relacionados section a figure h5{
 }
 
 main.product-detail .product-relacionados section a figure .descuento{
-    width: 200px;
+    width: 150px;
     position: absolute;
     top: 0;
-    right: -40px;
+    right: 0;
+    background-color: #00a3da;
+}
+
+main.product-detail .product-relacionados section a figure .descuento span{
+    font-size: 1.2rem;
+    color: white;
 }
 
 main.product-detail .product-relacionados section a .precio-producto{
