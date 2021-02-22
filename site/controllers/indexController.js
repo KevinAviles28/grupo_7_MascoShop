@@ -17,7 +17,10 @@ module.exports={
     },
     search:(req,res)=>{
         const search = data.filter(element=>{
-            return element.name.toLowerCase().includes(req.query.busqueda.toLowerCase().trim());
+            if(element.name.toLowerCase() == req.query.busqueda.toLowerCase() || element.category.toLowerCase() == req.query.busqueda.toLowerCase()){
+                return element;
+            }
+            /* return element.name.toLowerCase().includes(req.query.busqueda.toLowerCase().trim()); */
         })
         
         res.render('search',{search,toThousand,title: 'Mascoshop resultados de busqueda'});
