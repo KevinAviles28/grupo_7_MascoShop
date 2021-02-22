@@ -6,8 +6,8 @@ module.exports = [
     
     check('name').notEmpty().withMessage('El nombre de usuario es obligatorio'),
     
-    check('apellido').isAlpha().withMessage('El campo "apellido" es obligatorio'),
-    
+    check('apellido').notEmpty().withMessage('El campo "apellido" es obligatorio'),
+    /* validator.isAlphanumericLocales */
     check('email').isEmail().withMessage('El campo Email tiene que ser un email valido'),
     
     body('email').custom(value =>{/* checkea si el email ya esta registrado */

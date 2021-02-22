@@ -1,3 +1,11 @@
 [
-  
+  {
+    "id": 1,
+    "name": "kevin",
+    "apellido": "aviles",
+    "email": "bejarano.a.kevin@gmail.com",
+    "pass": "$2b$12$cczx3L.ZcpZQc/ZrNWXMc.viPaysjA.rOW6ksVwsZefjLiZHn34Fq",
+    "pais": "Venezuela",
+    "category": "Usuario"
+  }
 ]

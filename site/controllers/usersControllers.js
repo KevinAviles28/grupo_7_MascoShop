@@ -69,10 +69,12 @@ module.exports = {
                 title:'Mascoshop login'
             })
         }else{
-              const{email}=req.body
+              const{email,pass}=req.body
             let result=users_db.find(user=>user.email==email);
-            
+           
+             
             if(result){
+                if(bcrypt.compareSync(pass.trim(),result.pass)){
                 req.session.userNew={      
                     id:result.id,
                     username: result.name,
@@ -83,6 +85,9 @@ module.exports = {
                 }
                 return res.redirect('/')
             }
+        }
+        res.render('login',{error: "Credenciales invalidas"})
+
         }
     },  
     /* perfil */

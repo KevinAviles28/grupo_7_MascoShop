@@ -46,7 +46,11 @@
                 
                 
             </div>
-            
+            <% if (typeof error != 'undefined') { %>
+                <div class="alert alert-danger mt-5">
+                    <span><%= error %> </span>
+                </div>
+            <% } %>
         </form>
         
     </main>

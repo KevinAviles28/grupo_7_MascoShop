@@ -7,29 +7,11 @@ module.exports=[ /* esto es una array que va a estar chequeando si todo es corre
   
   
   check('email').isEmail().withMessage('El campo Email tiene que ser un email valido'),
-  body('email').custom(value =>{/* checkea si el email ingresado es un email ya registrado */
-    let result= users_db.find(user => user.email === value);
-    if(result){
-        return true
-    }else{
-        return false
-    }
-}).withMessage('Tiene que ser un email registrado'),
 
 
   check('pass')
   .notEmpty().withMessage('La contraseña es requerida'),
 
-   body('pass').custom((value,{req})=>{
-    let result=users_db.find(user=>user.email===req.body.email);
-    if(result){
-      if(bcrypt.compareSync(value.trim(),result.pass)){
-        return true
-      }else{
-        return false
-      }
-    }
-  }).withMessage('Contraseña invalida, vuelva a intentarlo') 
-  
+ 
   
 ]
