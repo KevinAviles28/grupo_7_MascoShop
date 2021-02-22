@@ -36,14 +36,21 @@ main.index section a figure img{
 }
 
 main.index section a figure .descuento{
-    width: 200px;
+    width: 75px;
+    height: 75px;
+    padding-top: 10px;
     position: absolute;
     top: 0;
-    right: -40px;
+    right: 0;
+    background-color: #00a3da;
+    border-radius: 50%;
 }
 
-main.index section a figure .descuento img{
-    background-color: rgba(0, 0, 0, 0.0);
+main.index section a figure .descuento span{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    
 }
 
 main.index section a figure h5{

@@ -28,8 +28,8 @@
         <!-- img -->
         <div class="col-12 col-md-6 col-lg-6">
           
-          <div id="carouselExampleControls" class="carousel carousel-ligth slide">
-            <div class="carousel-inner">
+          <div id="carouselExampleControls" class="borde-producto carousel carousel-dark slide">
+            <div class="fondo-producto carousel-inner">
               <div class="carousel-item active">
                 <img src="/images/productos/<%= product.img %> " class="d-block w-100" alt="...">
               </div>
@@ -42,7 +42,6 @@
                 <span class="visually-hidden">Next</span>
               </a>
             </div>
-            <div class="discount"><img src="/images/descuento10.png" alt="" class="w-100"></div>
           </div>
         </div> 
         <!-- img -->
@@ -87,7 +86,7 @@
               <img src="/images/productos/<%= element.img %>" alt="" class="w-100">
               <h5><%= element.name %> </h5>
               <% if(element.discount != 0){ %> 
-                <div class="descuento"><img src="/images/descuento-<%= element.discount %>.png" alt="" class="w-100"></div>
+                <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
                 <% } %>    
               </figure>
               <div class="precio-producto">

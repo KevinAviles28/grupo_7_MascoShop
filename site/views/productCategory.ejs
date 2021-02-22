@@ -26,12 +26,12 @@
               <img src="/images/productos/<%= element.img %> " alt="" class="w-100">
               <h5><%= element.name %> </h5>
               <% if(element.discount != 0){ %> 
-                <div class="descuento"><img src="/images/descuento-<%= element.discount %>.png" alt="" class="w-100"></div>
+                <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
                 <% } %>    
               </figure>
               <div class="precio-producto">
                 <h5 style="color: #f37121;">PRECIO LISTA</h5>
-                <p>$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) </p>
+                <p>$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
               </div>
             </a>
           </section>

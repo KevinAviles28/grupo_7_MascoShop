@@ -14,6 +14,10 @@ main.register .form-check label{
     color: white;
 }
 
+main.register h2{
+    color: white;
+}
+
 @media(min-width:769px){
     main.register form .botones{
         flex-direction: row;

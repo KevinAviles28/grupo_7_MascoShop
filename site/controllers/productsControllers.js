@@ -62,7 +62,7 @@ module.exports = {
         res.render('productEdit',{product});
     },
     processEdit:(req,res)=>{
-        const {category,subcategory,name,precio,stock,discount,description} = req.body;
+        const {category,subcategory,name,precio,stock,discount,description,img} = req.body;
         
         data.forEach(element=>{
             if(element.id == req.params.id){
@@ -74,7 +74,7 @@ module.exports = {
                 element.stock = +stock;
                 element.discount = +discount;
                 element.description = description.trim();
-                element.img = element.img;
+                element.img = img.trim();
             }
             
         });
