@@ -7,11 +7,11 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 module.exports = {
     
     productCart:(req,res)=>{
-        res.render('productCart');
+        res.render('productCart',{title: 'Mascoshop Carrito de compras'});
         
     },
     productAdd:(req,res)=>{
-        res.render('productAdd');
+        res.render('adminProduct/productAdd',{title: 'Mascoshop Add product'});
         
     },
     processProduct:(req,res)=>{
@@ -54,12 +54,12 @@ module.exports = {
             }
         })
         
-        res.render('productDetail',{product,productRelacionados,toThousand});
+        res.render('productDetail',{product,productRelacionados,toThousand,title: 'Mascoshop Detalle de producto'});
     },
     productEdit:(req,res)=>{
         let product = data.find(element => element.id === +req.params.id);
         
-        res.render('productEdit',{product});
+        res.render('adminProduct/productEdit',{product, title: 'Mascoshop Edit'});
     },
     processEdit:(req,res)=>{
         const {category,subcategory,name,precio,stock,discount,description,img} = req.body;
@@ -104,7 +104,7 @@ module.exports = {
         
         let products = data;
         
-        res.render('allProducts',{products,toThousand});
+        res.render('allProducts',{products,toThousand,title: 'Mascoshop Nuestros Productos'});
     },
     productCategory:(req,res)=>{
 
@@ -116,7 +116,7 @@ module.exports = {
             }
         });
 
-        res.render('productCategory',{result,toThousand});
+        res.render('productCategory',{result,toThousand,title: 'Mascoshop Producto por categoria'});
     },
     productSubcategory:(req,res)=>{
 
@@ -128,7 +128,7 @@ module.exports = {
             }
         });
 
-        res.render('productSubcategory',{result,toThousand});
+        res.render('productSubcategory',{result,toThousand,title: 'Mascoshop Producto por categoria'});
     },
     productNav:(req,res)=>{
 
@@ -140,7 +140,7 @@ module.exports = {
             }
         });
 
-        res.render('productNav',{result,toThousand});
+        res.render('productNav',{result,toThousand,title: 'Mascoshop Producto por categoria'});
     },
     productOfertas:(req,res)=>{
         
@@ -152,6 +152,6 @@ module.exports = {
             }
         })
         
-        res.render('productOfertas',{products,toThousand});
+        res.render('productOfertas',{products,toThousand,title: 'Mascoshop Ofertas'});
     }
 }

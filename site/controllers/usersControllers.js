@@ -7,14 +7,14 @@ const {check, validationResult, body} = require('express-validator');
 module.exports = {
     /* pagina registro */
     register:(req,res)=>{
-        res.render('register');
+        res.render('users/register',{title:'Mascoshop registro'});
     },  /* cosa nueva */ /* otra cosa */
     /* proceso de registro */
     processRegister:(req,res)=>{ /* si no esta vacio   osea , si hay errores */
         const errores=validationResult(req);
        /*   res.send(errores.mapped())  */
         if(!errores.isEmpty()){
-            return res.render('register',{
+            return res.render('users/register',{
                 errores : errores.mapped(),/* convierte el valor del array en el valor de errors */
                 old:req.body,/* para que se guarden los datos que escribiste */
                 title:'Mascoshop registro'
@@ -54,7 +54,7 @@ module.exports = {
     },
     /* login */
     login:(req,res)=>{
-        res.render('login',{
+        res.render('users/login',{
             title:'Mascoshop login'
         });
     },
@@ -63,7 +63,7 @@ module.exports = {
         const errores=validationResult(req);
         /*  res.send(errores.mapped())   */
         if(!errores.isEmpty()){
-            return res.render('login',{
+            return res.render('users/login',{
                 errores : errores.mapped(),/* convierte el valor del array en el valor de errors */
                 old:req.body,
                 title:'Mascoshop login'
@@ -86,14 +86,14 @@ module.exports = {
                 return res.redirect('/')
             }
         }
-        res.render('login',{error: "Credenciales invalidas"})
+        res.render('users/login',{error: "Credenciales invalidas"});
 
         }
     },  
     /* perfil */
     perfil:(req,res)=>{
         
-        res.render('perfil');
+        res.render('users/perfil');
     },
     eliminarCuenta:(req,res)=>{
         
@@ -110,7 +110,7 @@ module.exports = {
     }, 
     /* vista de la pagina de editar cuenta */
     editaVista:(req,res)=>{
-        res.render('editPerfil');
+        res.render('users/editPerfil',{title: 'Mascoshop Edit'});
     },
     
     /* formulario de editar cuenta */

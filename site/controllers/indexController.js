@@ -1,4 +1,3 @@
-const fs = require('fs');
 const data = require('../data/dataproducts');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -13,7 +12,7 @@ module.exports={
             }
         })
         
-        res.render('index',{products,toThousand});
+        res.render('index',{products,toThousand,title: 'Mascoshop Home'});
         
     },
     search:(req,res)=>{
@@ -21,11 +20,11 @@ module.exports={
             return element.name.toLowerCase().includes(req.query.busqueda.toLowerCase().trim());
         })
         
-        res.render('search',{search,toThousand});
+        res.render('search',{search,toThousand,title: 'Mascoshop resultados de busqueda'});
     },
     nosotros:(req,res)=>{
         res.render('sobreNosotros',{
-            title:'Sobre nosotros'
+            title:'Mascoshop Sobre nosotros'
         })
     }
 }
