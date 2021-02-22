@@ -42,8 +42,7 @@ main.product-detail .producto .borde-producto{
 }
 
 main.product-detail .producto .borde-producto .fondo-producto{
-    background-color: whitesmoke;
-    
+    background-color: whitesmoke; 
 }
 
 main.product-detail .producto .borde-producto .fondo-producto img{
