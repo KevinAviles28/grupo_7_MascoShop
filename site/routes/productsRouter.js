@@ -3,7 +3,7 @@ var router = express.Router();
 const {productCart,productDetail,productAdd,processProduct,productEdit,processEdit,productDelete,allProducts,productCategory,productSubcategory,productNav,productOfertas} = require('../controllers/productsControllers');
 
 /* middlewares */
-const upload = require('../middlewares/multer');
+const upload = require('../middlewares/multerProduct');
 
 router.get('/productCart',productCart);
 

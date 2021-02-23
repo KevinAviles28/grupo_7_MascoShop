@@ -4,8 +4,9 @@
     "name": "Michel",
     "apellido": "Varela",
     "email": "michelvarela.95@outlook.com",
-    "pass": "$2b$12$KZANavaJJpWkN8OKnF.J/.DjO1nuQ6.EVOZIj8Gc/TfjYC0rWZiVG",
+    "pass": "$2b$12$pNv0.miLXOxJL1MJ/JuQZO3aeMdjzz89sUqTAAK471CX2HQdk8CuS",
     "pais": "Argentina",
-    "category": "Admin"
+    "category": "Usuario",
+    "avatar": "avatar-1614038780347.jpg"
   }
 ]

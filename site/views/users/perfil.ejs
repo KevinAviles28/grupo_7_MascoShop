@@ -5,8 +5,11 @@
   <%- include('../partials/header') %>
   
 <h1 class="my-4 text-white bg-dark border-bottom border-danger">Mi perfil</h1> 
+
 <div class="card text-white bg-dark my-3 ">
     <div class="card-body">
+      
+      <img src="/images/users/<%= userNew.avatar %>" class="imagen-perfil" alt="foto-perfil">
       <p class="card-text border-bottom border-danger">Usuario N° <%= userNew.id %> </p>
       <p class="card-text border-bottom border-danger">Nombre: <%= userNew.username %> </p>
       <p class="card-text border-bottom border-danger">Apellido: <%= userNew.apellido %> </p>

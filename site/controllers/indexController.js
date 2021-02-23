@@ -17,7 +17,7 @@ module.exports={
     },
     search:(req,res)=>{
         const search = data.filter(element=>{
-            if(element.name.toLowerCase() == req.query.busqueda.toLowerCase() || element.category.toLowerCase() == req.query.busqueda.toLowerCase()){
+            if(element.name.toLowerCase().includes(req.query.busqueda.toLowerCase().trim()) || element.category.toLowerCase().includes(req.query.busqueda.toLowerCase().trim())){
                 return element;
             }
             /* return element.name.toLowerCase().includes(req.query.busqueda.toLowerCase().trim()); */

@@ -19,7 +19,7 @@
     
     <main class="register container my-5 py-3">
         <h2>Registro</h2>
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <input type="text" name="name" placeholder="Nombre" class="form-control" value="<%= (typeof old != 'undefined' && old.name) ? old.name : ""%>" >
                 <span class="text-danger"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %>  </span>
@@ -51,6 +51,9 @@
                 <option value="Mexico">México</option>
             </select>
             <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pais) ? errores.pais.msg : "" %>  </span>
+            <div class="mb-3">
+                <input type="file" name="avatar" class="form-control">
+            </div>
             <div class="mb-3">
                 <input type="text" name="codigo" placeholder="Codigo secreto" class="form-control">
                 <span class="text-white bg-dark">"No importa si no completa el codigo secreto, solo es para miembros de la empresa :D"</span>

@@ -42,7 +42,8 @@ module.exports = {
                 email,
                 pass:hashPass,
                 pais,
-                category
+                category,
+                avatar: req.files[0].filename
             }
             
             users_db.push(newUser);
@@ -81,24 +82,30 @@ module.exports = {
                     apellido: result.apellido,
                     email: result.email,
                     pais:result.pais,
-                    category:result.category
+                    category:result.category,
+                    avatar:result.avatar
                 }
                 return res.redirect('/')
             }
         }
-        res.render('users/login',{error: "Credenciales invalidas"});
+        res.render('users/login',{error: "Credenciales invalidas",title: 'Mascoshop'});
 
         }
     },  
     /* perfil */
     perfil:(req,res)=>{
         
-        res.render('users/perfil');
+        res.render('users/perfil',{title: 'Mascoshop Mi perfil'});
     },
     eliminarCuenta:(req,res)=>{
         
         users_db.forEach(user=>{
             if(user.id===Number(req.params.id)){
+
+                if(fs.existsSync(path.join('public','images','users',user.avatar))){
+                    fs.unlinkSync(path.join('public','images','users',user.avatar))
+                }
+
                 aEliminar=users_db.indexOf(user)
                 users_db.splice(aEliminar,1)
             }
