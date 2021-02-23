@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": 1,
+    "name": "Michel",
+    "apellido": "Varela",
+    "email": "michelvarela.95@outlook.com",
+    "pass": "$2b$12$FsTvWg0dzxpe2Nnmn7LhLObFieCKunoH2kEiIk5LzQkX0XQp0JVpe",
+    "pais": "Argentina",
+    "category": "Admin",
+    "avatar": "avatar-1614091475671.png"
+  }
+]
