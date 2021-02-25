@@ -8,7 +8,7 @@ module.exports = {
     /* pagina registro */
     register:(req,res)=>{
         res.render('users/register',{title:'Mascoshop registro'});
-    },  /* cosa nueva */ /* otra cosa */
+    },  
     /* proceso de registro */
     processRegister:(req,res)=>{ /* si no esta vacio   osea , si hay errores */
         const errores=validationResult(req);
@@ -21,19 +21,13 @@ module.exports = {
             })
         }else{
             
-            const{name,apellido,email,passUno,pais,codigo}=req.body;
-            let category;
+            const{name,apellido,email,passUno}=req.body;
             let lastID=0;
             users_db.forEach(user => {
                 if(user.id > lastID){                               
                     lastID = user.id
                 }
             });
-            if(codigo!='aguanteElGrupo7'){
-                category="Usuario"
-            }else{
-                category="Admin"
-            }
             let hashPass=bcrypt.hashSync(passUno,12)
             let newUser={
                 id: +lastID+1,
@@ -41,8 +35,10 @@ module.exports = {
                 apellido,
                 email,
                 pass:hashPass,
-                pais,
-                category,
+                pais:"",
+                localidad:"",
+                telefono:"",
+                category:"Usuario",
                 avatar: req.files[0].filename
             }
             
@@ -81,7 +77,7 @@ module.exports = {
                     username: result.name,
                     apellido: result.apellido,
                     email: result.email,
-                    pais:result.pais,
+                    /* pais:result.pais, */
                     category:result.category,
                     avatar:result.avatar
                 }
@@ -116,28 +112,45 @@ module.exports = {
         
     }, 
     /* vista de la pagina de editar cuenta */
-    editaVista:(req,res)=>{
-        res.render('users/editPerfil',{title: 'Mascoshop Edit'});
+    editaVistaEscencial:(req,res)=>{
+        res.render('users/editPerfilEscencial',{title: 'Mascoshop Edit'});
     },
     
     /* formulario de editar cuenta */
-    editarPerfil:(req,res)=>{
-        const{nombre,apellido,email,pais}=req.body;
+    editarPerfilEscencial:(req,res)=>{
+        const{nombre,apellido,email}=req.body;
         
         users_db.forEach(user => {
             if(user.id === Number(req.params.id)){
                 user.name = nombre.trim(),
                 user.apellido = apellido.trim(),
-                user.email = email.trim(),
-                user.pais=pais.trim()
-                
-                
+                user.email = email.trim()
             }
         });
         
         fs.writeFileSync('./data/users.json',JSON.stringify(users_db,null,2));
         req.session.destroy();
         res.redirect('/users/login');
+    },
+    vistaDeEdicion:(req,res)=>{
+        res.render('users/editPerfil',{title: 'Mascoshop Edit'});
+    },
+    edicionDePerfil:(req,res)=>{
+        const{pais,localidad,direccion,telefono}=req.body;
+        
+        users_db.forEach(user => {
+            if(user.id === Number(req.params.id)){
+                user.pais = pais.trim(),
+                user.localidad = localidad.trim(),
+                user.direccion = direccion.trim(),
+                user.telefono= Number(telefono.trim())
+                
+                /* gola */
+            }
+        });
+        
+        fs.writeFileSync('./data/users.json',JSON.stringify(users_db,null,2));
+        res.redirect('/');
     },
     cerrarSession:(req,res)=>{ /* cerrar sesion */
         req.session.destroy();

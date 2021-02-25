@@ -40,7 +40,7 @@
                 <input type="password" name="passDos" placeholder="Repetir contraseña" class="form-control">
                 <span class="text-danger"><%= (typeof errores != 'undefined' && errores.passDos) ? errores.passDos.msg : "" %>  </span>
             </div>
-            <select class="mb-3 form-select" name="pais" aria-label="Default select example">
+           <!--  <select class="mb-3 form-select" name="pais" aria-label="Default select example">
                 <option selected>Seleccione su país</option>
                 <option value="Argentina">Argentina</option>
                 <option value="Brasil">Brasil</option>
@@ -49,14 +49,9 @@
                 <option value="Venezuela">Venezuela</option>
                 <option value="Peru">Peru</option>
                 <option value="Mexico">México</option>
-            </select>
-            <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pais) ? errores.pais.msg : "" %>  </span>
+            </select> -->
             <div class="mb-3">
                 <input type="file" name="avatar" class="form-control">
-            </div>
-            <div class="mb-3">
-                <input type="text" name="codigo" placeholder="Codigo secreto" class="form-control">
-                <span class="text-white bg-dark">"No importa si no completa el codigo secreto, solo es para miembros de la empresa :D"</span>
             </div>
             
             <div class="botones">

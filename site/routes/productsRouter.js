@@ -4,19 +4,21 @@ const {productCart,productDetail,productAdd,processProduct,productEdit,processEd
 
 /* middlewares */
 const upload = require('../middlewares/multerProduct');
-
+const rutasCheck= require('../middlewares/rutasCheck');
+const adminCheck= require('../middlewares/admincheck');
+const productoValidation=require('../validations/productoValidation');
 router.get('/productCart',productCart);
 
 /* product register */
-router.get('/productAdd',productAdd);
-router.post('/productAdd',upload.any(),processProduct);
+router.get('/productAdd',rutasCheck,adminCheck,productAdd);
+router.post('/productAdd',upload.any(),productoValidation,processProduct);
 /* product register */
 
 router.get('/productDetail/:id',productDetail);/* detalle de productos segun su id */
 
 /* product edit */
-router.get('/productEdit/:id',productEdit);
-router.put('/productEdit/:id',processEdit);
+router.get('/productEdit/:id',rutasCheck,adminCheck,productEdit);
+router.put('/productEdit/:id',productoValidation,processEdit);
 /* product edit */
 
 /* product delete */
@@ -24,7 +26,7 @@ router.delete('/productDelete/:id',productDelete);
 /* product delete */
 
 /* listado de productos totales, por category y subcategory */
-router.get('/allProducts',allProducts)
+router.get('/allProducts',rutasCheck,allProducts)
 router.get('/productCategory/:category',productCategory);
 router.get('/productSubcategory/:subcategory',productSubcategory);
 

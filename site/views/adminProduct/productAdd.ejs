@@ -17,25 +17,33 @@
                         <option value="roedores">Roedores</option>
                         <option value="reptiles">Reptiles</option>
                     </select>
+                    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.category) ? errores.category.msg : "" %>  </span>
                     <select name="subcategory" class="form-select mb-3">
                         <option selected>Sub-categoria</option>
                         <option value="accesorios">Accesorios</option>
                         <option value="alimentos">Alimentos</option>
                     </select>
+                    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.subcategory) ? errores.subcategory.msg : "" %>  </span>
+                    <!-- subcategory -->
                     <div class="mb-3">
                         <input type="text" class="form-control" name="name" placeholder="Nombre del producto">
+                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %>  </span>
                     </div>
                     <div class="mb-3">
                         <input type="text" class="form-control" name="precio" placeholder="Precio">
+                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.precio) ? errores.precio.msg : "" %>  </span>
                     </div>
                     <div class="mb-3">
                         <input type="text" class="form-control" name="stock" placeholder="Stock disponible">
+                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.stock) ? errores.stock.msg : "" %>  </span>
                     </div>
                     <div class="mb-3">
                         <input type="text" class="form-control" name="discount" placeholder="0,15,30,50">
+                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.discount) ? errores.discount.msg : "" %>  </span>
                     </div>
                     <div class="mb-3">
                         <textarea name="description" placeholder="Descripcion"  class="form-control"></textarea>
+                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.description) ? errores.description.msg : "" %>  </span>
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label" style="color: white;">Cargar imagen</label>
