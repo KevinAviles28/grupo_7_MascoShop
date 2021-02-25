@@ -12,8 +12,8 @@
   },
   {
     "id": 2,
-    "category": "gatos",
-    "subcategory": "alimentos",
+    "category": "Categoria",
+    "subcategory": "Sub-categoria",
     "name": "Agility Cats Premium, alimento para gatos",
     "precio": 500,
     "stock": 20,

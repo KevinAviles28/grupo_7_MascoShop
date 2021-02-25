@@ -4,32 +4,27 @@
 <body>
   <%- include('../partials/header') %>
   
-  <h1 class="my-4 text-white bg-dark border-bottom border-danger">Editar Perfil</h1>
-  <form action="/users/edit/<%= userNew.id %>?_method=PUT " method="POST">
+  <h1 class="my-4 text-white bg-dark border-bottom border-danger">Editar Perfil: Datos Escenciales</h1>
+  <p class="text-white bg-dark">Nota: Se le cerrara sesion al guardar los cambios</p>
+  <form action="/users/editEscencial/<%= userNew.id %>?_method=PUT " method="POST">
     <div class="container-fluid">
     <div class="row">
       <div class="col-md-6 col-lg-6">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" placeholder="Pais" name="pais" value="">
-          <label>Pais</label>
+          <input type="text" class="form-control" placeholder="Nombre" name="nombre" value="<%= userNew.username %>">
+          <label >Nombre</label>
         </div>
       </div>
       <div class="col-md-6 col-lg-6">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control"  placeholder="Localidad" name="localidad" value="">
-          <label>Localidad</label>
+          <input type="text" class="form-control"  placeholder="Apellido" name="apellido" value="<%= userNew.apellido %> ">
+          <label >Apellido</label>
         </div>
       </div>
       <div class="col-md-6 col-lg-6">
         <div class="form-floating mb-3">
-          <input type="text"class="form-control" placeholder="Direccion" name="direccion" value="">
-          <label>Direccion</label>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-6">
-        <div class="form-floating mb-3">
-          <input type="text"class="form-control" placeholder="Telefono" name="telefono" value="">
-          <label>Telefono</label>
+          <input type="text"class="form-control" placeholder="Email" name="email" value="<%= userNew.email %> ">
+          <label >Email</label>
         </div>
       </div>
     </div>

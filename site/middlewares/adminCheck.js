@@ -1,8 +1,7 @@
-/* module.exports = (req,res,next)=>{
-    if(req.session.adminNew){
-        res.locals.adminNew = req.session.adminNew
-        
+module.exports = (req,res,next) => {
+    if(req.session.userNew.category==="Admin"){
+        next()
+    }else{
+        res.redirect('/')
     }
-    next()
 }
- */
