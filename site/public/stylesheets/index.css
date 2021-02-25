@@ -120,11 +120,11 @@ main.index section a .precio-producto{
 
 @media(min-width:769px){
 
-    .imagenes-compra a{
+    .imagenes-compra div{
         width: 25%;
     }
 
-    .imagenes-compra a img{
+    .imagenes-compra div img{
         width: 100%;
     }
 }
