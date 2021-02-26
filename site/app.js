@@ -27,9 +27,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({
-  secret:"mascoshop el mejor"
-}));
+/* Agregar al session dos parametros adicionales, resave, saveUnitialized */
+app.use(session({secret: "Mascoshop el mejor", resave: true, saveUninitialized: true}));
+
 app.use(cookieCheck);
 app.use(usuarioCheck);
 
