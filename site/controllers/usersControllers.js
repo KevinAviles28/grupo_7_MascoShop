@@ -59,14 +59,16 @@ module.exports = {
     processLogin:(req,res)=>{
         const errores=validationResult(req);
         /*  res.send(errores.mapped())   */
+
         if(!errores.isEmpty()){
             return res.render('users/login',{
                 errores : errores.mapped(),/* convierte el valor del array en el valor de errors */
                 old:req.body,
                 title:'Mascoshop login'
             })
+            
         }else{
-              const{email,pass}=req.body
+              const{email,pass,recordate}=req.body
             let result=users_db.find(user=>user.email==email);
            
              
@@ -81,7 +83,16 @@ module.exports = {
                     category:result.category,
                     avatar:result.avatar
                 }
-                return res.redirect('/')
+                //Cookie recordar
+
+                if(recordate != "undefined"){
+                        res.cookie("recordar",req.session.userNew,{
+                            maxAge : 1000 * 60 * 60
+                        })
+                    }
+        
+
+                    return res.redirect('/')
             }
         }
         res.render('users/login',{error: "Credenciales invalidas",title: 'Mascoshop'});
@@ -93,6 +104,7 @@ module.exports = {
         
         res.render('users/perfil',{title: 'Mascoshop Mi perfil'});
     },
+
     eliminarCuenta:(req,res)=>{
         
         users_db.forEach(user=>{
@@ -154,6 +166,11 @@ module.exports = {
     },
     cerrarSession:(req,res)=>{ /* cerrar sesion */
         req.session.destroy();
+        if(req.cookies.recordar){
+            res.cookie('recordar','',{
+                maxAge : -1
+            })
+        }
         res.redirect('/')
     }
 }
