@@ -1,13 +1,16 @@
 var express = require('express');
 var router = express.Router();
-const {register,login, processRegister, perfil, processLogin, cerrarSession, eliminarCuenta, editarPerfilEscencial, editaVistaEscencial, vistaDeEdicion, edicionDePerfil} = require('../controllers/usersControllers');
+const {register, login, processRegister, perfil, processLogin, cerrarSession, eliminarCuenta, editarPerfilEscencial, editaVistaEscencial, vistaDeEdicion, edicionDePerfil,} = require('../controllers/usersControllers');
 
 /* middlewares */
 const registerValidation=require('../validations/registerValidation');
 const loginValidation=require('../validations/loginValidation');
 
 const upload = require('../middlewares/multerUser');
-const rutasCheck=require('../middlewares/rutasCheck')
+const rutasCheck=require('../middlewares/rutasCheck');
+
+
+
 
 /* register */
 router.get('/register',register);
@@ -35,6 +38,7 @@ router.delete('/delete/:id',eliminarCuenta);
 
 
 /* cerrar session */
-router.get('/logout',cerrarSession)
+router.get('/logout',cerrarSession);
+
 
 module.exports = router;

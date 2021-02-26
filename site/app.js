@@ -9,6 +9,7 @@ var usuarioCheck=require('./middlewares/usuarioCheck');
 var indexRouter = require('./routes/indexRouter');
 var usersRouter = require('./routes/usersRouter');
 var productsRouter = require('./routes/productsRouter');
+var cookieCheck = require("./middlewares/cookieCheck")
 
 var app = express();
 
@@ -29,8 +30,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret:"mascoshop el mejor"
 }));
+app.use(cookieCheck);
+app.use(usuarioCheck);
 
-app.use(usuarioCheck) 
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
