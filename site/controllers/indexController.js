@@ -1,5 +1,7 @@
-const data = require('../data/dataproducts');
-
+/* const data = require('../data/dataproducts'); */
+const path= require('path');
+const {getProducts, setProducts} = require(path.join('..','data','dataproducts'));
+const data=getProducts();
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports={

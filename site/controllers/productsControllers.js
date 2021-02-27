@@ -1,7 +1,10 @@
 const fs = require('fs');
 const path = require('path');
-const data = require('../data/dataproducts');
+/* const data = require('../data/dataproducts'); */
 const {validationResult} = require('express-validator');
+
+const {getProducts, setProducts} = require(path.join('..','data','dataproducts'));
+const data=getProducts();
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -48,8 +51,8 @@ module.exports = {
             }
             
             data.push(newProduct);
-            fs.writeFileSync('./data/products.json',JSON.stringify(data,null,2),'utf-8');
-            
+           /*  fs.writeFileSync('./data/products.json',JSON.stringify(data,null,2),'utf-8'); */
+            setProducts(data);
             res.redirect('/products/allProducts');
         }
        
@@ -103,8 +106,8 @@ module.exports = {
                 
             });
             
-            fs.writeFileSync('./data/products.json',JSON.stringify(data,null,2),'utf-8');
-            
+          /*   fs.writeFileSync('./data/products.json',JSON.stringify(data,null,2),'utf-8'); */
+            setProducts(data);
             res.redirect('/products/allProducts');
         }
         
@@ -122,8 +125,8 @@ module.exports = {
             }
         });
         
-        fs.writeFileSync('./data/products.json',JSON.stringify(data,null,2),'utf-8');
-        
+       /*  fs.writeFileSync('./data/products.json',JSON.stringify(data,null,2),'utf-8'); */
+        setProducts(data);
         res.redirect('/products/allProducts');
     },
     allProducts:(req,res)=>{

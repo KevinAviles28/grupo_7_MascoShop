@@ -1,9 +1,11 @@
 const fs = require('fs');
 const path=require('path');
-const users_db=JSON.parse(fs.readFileSync(path.join('.','data','users.json'),'utf-8'));
+/* const users_db=JSON.parse(fs.readFileSync(path.join('.','data','users.json'),'utf-8')); */
 const bcrypt=require('bcrypt')  
-const {check, validationResult, body} = require('express-validator');
+const {validationResult} = require('express-validator');
 
+const {getUsers, setUsers} = require(path.join('..','data','users'));
+const users_db=getUsers();
 module.exports = {
     /* pagina registro */
     register:(req,res)=>{
@@ -43,8 +45,9 @@ module.exports = {
             }
             
             users_db.push(newUser);
-            fs.writeFileSync('./data/users.json',JSON.stringify(users_db,null,2))
-            return res.redirect('/users/login') 
+            /* fs.writeFileSync('./data/users.json',JSON.stringify(users_db,null,2))  */
+            setUsers(users_db);
+            return res.redirect('/users/login')  ;
             
         }        
         
@@ -84,7 +87,6 @@ module.exports = {
                     avatar:result.avatar
                 }
                 //Cookie recordar
-
                 if(recordate != "undefined"){
                         res.cookie("recordar",req.session.userNew,{
                             maxAge : 1000 * 60 * 60
@@ -118,8 +120,14 @@ module.exports = {
                 users_db.splice(aEliminar,1)
             }
         });
-        fs.writeFileSync('./data/users.json',JSON.stringify(users_db,null,2))
+      /*   fs.writeFileSync('./data/users.json',JSON.stringify(users_db,null,2)) */
+       setUsers(users_db);
         req.session.destroy();
+        if(req.cookies.recordar){
+            res.cookie('recordar','',{
+                maxAge : -1
+            })
+        }
         res.redirect('/');
         
     }, 
@@ -140,8 +148,14 @@ module.exports = {
             }
         });
         
-        fs.writeFileSync('./data/users.json',JSON.stringify(users_db,null,2));
+       /*  fs.writeFileSync('./data/users.json',JSON.stringify(users_db,null,2)); */
+       setUsers(users_db)
         req.session.destroy();
+        if(req.cookies.recordar){
+            res.cookie('recordar','',{
+                maxAge : -1
+            })
+        }
         res.redirect('/users/login');
     },
     vistaDeEdicion:(req,res)=>{
@@ -161,7 +175,8 @@ module.exports = {
             }
         });
         
-        fs.writeFileSync('./data/users.json',JSON.stringify(users_db,null,2));
+        /* fs.writeFileSync('./data/users.json',JSON.stringify(users_db,null,2)); */
+        setUsers(users_db);
         res.redirect('/');
     },
     cerrarSession:(req,res)=>{ /* cerrar sesion */

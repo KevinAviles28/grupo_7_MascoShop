@@ -20,5 +20,17 @@
     "telefono": "",
     "category": "Usuario",
     "avatar": "avatar-1614227226275.jpg"
+  },
+  {
+    "id": 3,
+    "name": "kevin",
+    "apellido": "aviles",
+    "email": "bejarano.a.kevin@gmail.com",
+    "pass": "$2b$12$G3LewsX85kSC1sW.Vqbt6eJH97Y6Lpe7BUcuZoB6uuTuwKeGdw4kK",
+    "pais": "",
+    "localidad": "",
+    "telefono": "",
+    "category": "Usuario",
+    "avatar": "avatar-1614446169452.jpg"
   }
 ]
