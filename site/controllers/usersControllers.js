@@ -71,7 +71,7 @@ module.exports = {
             })
             
         }else{
-              const{email,pass,recordate}=req.body
+              const{email,pass,recordarme}=req.body
             let result=users_db.find(user=>user.email==email);
            
              
@@ -87,7 +87,7 @@ module.exports = {
                     avatar:result.avatar
                 }
                 //Cookie recordar
-                if(recordate != "undefined"){
+                if(recordarme){
                         res.cookie("recordar",req.session.userNew,{
                             maxAge : 1000 * 60 * 60
                         })
