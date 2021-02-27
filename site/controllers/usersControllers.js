@@ -40,6 +40,7 @@ module.exports = {
                 pais:"",
                 localidad:"",
                 telefono:"",
+                direccion:"",
                 category:"Usuario",
                 avatar: req.files[0].filename
             }
@@ -82,7 +83,6 @@ module.exports = {
                     username: result.name,
                     apellido: result.apellido,
                     email: result.email,
-                    /* pais:result.pais, */
                     category:result.category,
                     avatar:result.avatar
                 }
@@ -103,8 +103,14 @@ module.exports = {
     },  
     /* perfil */
     perfil:(req,res)=>{
-        
-        res.render('users/perfil',{title: 'Mascoshop Mi perfil'});
+        let usuario = users_db.find(element=> element.id == req.params.id);
+
+        /* res.render('perfil',{title: `Oneclick ${usuario.name}`,usuario}); */
+        res.render('users/perfil',{title: 'Mascoshop Mi perfil',
+        usuario
+    });
+
+
     },
 
     eliminarCuenta:(req,res)=>{

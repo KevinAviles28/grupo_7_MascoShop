@@ -23,7 +23,7 @@ router.post('/login',loginValidation,processLogin) ;
 
 
 /* Perfil */
-router.get('/perfil',rutasCheck,perfil);
+router.get('/perfil/:id',rutasCheck,perfil);
 
 /* editar perfil escencial*/
 router.get('/editEscencial',rutasCheck,editaVistaEscencial);
