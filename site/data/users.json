@@ -1,24 +1,3 @@
 [
-  {
-    "id": 1,
-    "name": "Michel",
-    "apellido": "Varela",
-    "email": "michelvarela.95@outlook.com",
-    "pass": "$2b$12$FsTvWg0dzxpe2Nnmn7LhLObFieCKunoH2kEiIk5LzQkX0XQp0JVpe",
-    "pais": "Argentina",
-    "category": "Admin",
-    "avatar": "avatar-1614091475671.png"
-  },
-  {
-    "id": 2,
-    "name": "jonas",
-    "apellido": "sayago",
-    "email": "yonassayago26@gmail.com",
-    "pass": "$2b$12$RL64poarpXdC8j4Hd1hJSeFKXNRFf49xfD/NIpePkzH5z7jndxRKu",
-    "pais": "",
-    "localidad": "",
-    "telefono": "",
-    "category": "Usuario",
-    "avatar": "avatar-1614227226275.jpg"
-  }
+ 
 ]

@@ -29,7 +29,6 @@
             <% if (userNew.category==="Admin") { %>
             <li><a class="dropdown-item" href="/products/productAdd">Agregar productos</a></li>
             <% } %>
-            <li><a class="dropdown-item" href="/products/allProducts">Listado de productos</a></li>
           </ul>
           <% }else{ %>
             <a class="btn btn-primary dropdown-toggle mx-3" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-circle"></i> Mi perfil <!-- nombre de usuario -->
@@ -107,13 +106,13 @@
                   </ul>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/products/allProducts">List Productos</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="/products/productOfertas"><i class="fas fa-tags"></i> Ofertas</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="#footer">Nosotros</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#footer">Preg Frecuentes</a>
                 </li>
               </ul>
             </div>
