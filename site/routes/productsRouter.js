@@ -1,12 +1,14 @@
 var express = require('express');
 var router = express.Router();
-const {productCart,productDetail,productAdd,processProduct,productEdit,processEdit,productDelete,allProducts,productCategory,productSubcategory,productNav,productOfertas} = require('../controllers/productsControllers');
+const path = require('path');
+const {productCart,productDetail,productAdd,processProduct,productEdit,processEdit,productDelete,allProducts,productCategory,productSubcategory,productNav,productOfertas} = require(path.join('..','controllers','productsControllers'));
 
 /* middlewares */
-const upload = require('../middlewares/multerProduct');
-const rutasCheck= require('../middlewares/rutasCheck');
-const adminCheck= require('../middlewares/admincheck');
-const productoValidation=require('../validations/productoValidation');
+const upload = require(path.join('..','middlewares','multerProduct'));
+const rutasCheck= require(path.join('..','middlewares','rutasCheck'));
+const adminCheck= require(path.join('..','middlewares','admincheck'));
+const productoValidation=require(path.join('..','validations','productoValidation'));
+
 router.get('/productCart',productCart);
 
 /* product register */

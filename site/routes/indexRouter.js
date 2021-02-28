@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-const {index,search, nosotros} = require('../controllers/indexController');
+const path = require('path');
+const {index,search, nosotros} = require(path.join('..','controllers','indexController'));
 
 
 /* GET home page. */

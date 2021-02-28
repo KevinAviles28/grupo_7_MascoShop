@@ -1,16 +1,14 @@
 var express = require('express');
 var router = express.Router();
-const {register, login, processRegister, perfil, processLogin, cerrarSession, eliminarCuenta, editarPerfilEscencial, editaVistaEscencial, vistaDeEdicion, edicionDePerfil,} = require('../controllers/usersControllers');
+const path = require('path');
+const {register, login, processRegister, perfil, processLogin, cerrarSession, eliminarCuenta, editarPerfilEscencial, editaVistaEscencial, vistaDeEdicion, edicionDePerfil,} = require(path.join('..','controllers','usersControllers'));
 
 /* middlewares */
-const registerValidation=require('../validations/registerValidation');
-const loginValidation=require('../validations/loginValidation');
+const registerValidation=require(path.join('..','validations','registerValidation'));
+const loginValidation=require(path.join('..','validations','loginValidation'));
 
-const upload = require('../middlewares/multerUser');
-const rutasCheck=require('../middlewares/rutasCheck');
-
-
-
+const upload = require(path.join('..','middlewares','multerUser'));
+const rutasCheck=require(path.join('..','middlewares','rutasCheck'));
 
 /* register */
 router.get('/register',register);
