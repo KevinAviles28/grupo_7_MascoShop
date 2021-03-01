@@ -9,67 +9,59 @@
             <div class="col-12 col-lg-6">
                 <form action="/products/productEdit/<%= product.id %>?_method=PUT" method="POST">
                     <select name="category" class="form-select mb-3">
-                        <% if(product.category != 'Categoria'){ %>
-                            <option selected><%= product.category %></option>
-                            <% }else{ %>
-                                <option selected>Categoria</option>
-                                <% } %>                           
-                                <option value="perros">Perros</option>
-                                <option value="gatos">Gatos</option>
-                                <option value="aves">Aves</option>
-                                <option value="peces">Peces</option>
-                                <option value="roedores">Roedores</option>
-                                <option value="reptiles">Reptiles</option>
-                            </select>
-                            <span class="text-danger"><%= (typeof errores != 'undefined' && errores.category) ? errores.category.msg : "" %>  </span>
-                            <select name="subcategory" class="form-select mb-3">
-                                <% if(product.subcategory != 'Sub-Categoria'){ %>
-                                    <option selected><%= product.subcategory %></option>
-                                    <% }else{ %>
-                                        <option selected>Sub-Categoria</option>
-                                        <% } %>
-                                <option value="accesorios">Accesorios</option>
-                                <option value="alimentos">Alimentos</option>
-                            </select>
-                            <span class="text-danger"><%= (typeof errores != 'undefined' && errores.subcategory) ? errores.subcategory.msg : "" %>  </span>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="name" placeholder="Nombre del producto" value="<%= product.name %>">
-                                <span class="text-danger"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %>  </span>
-                                <label>Name</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="precio" placeholder="Precio" value="<%= product.precio %> ">
-                                <span class="text-danger"><%= (typeof errores != 'undefined' && errores.precio) ? errores.precio.msg : "" %>  </span>
-                                <label>Precio</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="stock" placeholder="Stock disponible" value="<%= product.stock %> ">
-                                <span class="text-danger"><%= (typeof errores != 'undefined' && errores.stock) ? errores.stock.msg : "" %>  </span>
-                                <label>Stock</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="discount" placeholder="0,15,30,50" value="<%= product.discount %> ">
-                                <span class="text-danger"><%= (typeof errores != 'undefined' && errores.discount) ? errores.discount.msg : "" %>  </span>
-                                <label>Descuento 0,15,30,50</label>
-                            </div>
-                            <div class="mb-3">
-                                <label class="mb-3" style="color: white;">Descripción</label>
-                                <textarea name="description" placeholder="Descripcion" class="form-control"><%= product.description %></textarea>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" placeholder="imagen" name="img" value="<%= product.img %> ">
-                                <label>Imagen</label>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <button type="reset" class="btn btn-danger mb-3">Cancelar</button>
-                                <button type="submit" class="btn btn-primary mb-3">Confirmar edicion</button>
-                            </div>
-                        </form>
+                        <option selected>Categoria</option>
+                        <option value="perros">Perros</option>
+                        <option value="gatos">Gatos</option>
+                        <option value="aves">Aves</option>
+                        <option value="peces">Peces</option>
+                        <option value="roedores">Roedores</option>
+                        <option value="reptiles">Reptiles</option>
+                    </select>
+                    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.category) ? errores.category.msg : "" %>  </span>
+                    <select name="subcategory" class="form-select mb-3">
+                        <option selected>Sub-categoria</option>
+                        <option value="accesorios">Accesorios</option>
+                        <option value="alimentos">Alimentos</option>
+                    </select>
+                    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.subcategory) ? errores.subcategory.msg : "" %>  </span>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="name" placeholder="Nombre del producto" value="<%= product.name %>">
+                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %>  </span>
+                        <label>Name</label>
                     </div>
-                    
-                </div>
-            </main>
-            <%- include('../partials/footer') %> 
-            <%- include('../partials/scripts') %> 
-        </body>
-        </html>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="precio" placeholder="Precio" value="<%= product.precio %> ">
+                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.precio) ? errores.precio.msg : "" %>  </span>
+                        <label>Precio</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="stock" placeholder="Stock disponible" value="<%= product.stock %> ">
+                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.stock) ? errores.stock.msg : "" %>  </span>
+                        <label>Stock</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="discount" placeholder="0,15,30,50" value="<%= product.discount %> ">
+                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.discount) ? errores.discount.msg : "" %>  </span>
+                        <label>Descuento 0,15,30,50</label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="mb-3" style="color: white;">Descripción</label>
+                        <textarea name="description" placeholder="Descripcion" class="form-control"><%= product.description %> </textarea>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" placeholder="imagen" name="img" value="<%= product.img %> ">
+                        <label>Imagen</label>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button type="reset" class="btn btn-danger mb-3">Cancelar</button>
+                        <button type="submit" class="btn btn-primary mb-3">Confirmar edicion</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </main>
+    <%- include('../partials/footer') %> 
+    <%- include('../partials/scripts') %> 
+</body>
+</html>
