@@ -61,11 +61,11 @@ module.exports = {
     productDetail:(req,res)=>{
         let product = data.find(element => element.id === +req.params.id);
         
-        let productRelacionados = []
+         
         
-        data.forEach(element=>{
+         let productRelacionados =data.filter(element=>{
             if(product.category == element.category){
-                return productRelacionados.push(element);
+                return element
             }
         })
         
@@ -137,11 +137,11 @@ module.exports = {
     },
     productCategory:(req,res)=>{
 
-        let result = [];
+         
 
-        data.forEach(element=>{
+         let result =data.filter(element=>{
             if(element.category == req.params.category){
-                return result.push(element);
+                return element
             }
         });
 
@@ -149,11 +149,11 @@ module.exports = {
     },
     productSubcategory:(req,res)=>{
 
-        let result = [];
+         
 
-        data.forEach(element=>{
+         let result=data.filter(element=>{
             if(element.subcategory == req.params.subcategory){
-                return result.push(element);
+                return element;
             }
         });
 
@@ -161,38 +161,31 @@ module.exports = {
     },
     productNav:(req,res)=>{
 
-        let result=[];
-
-        data.forEach(element=>{
+        let result= data.filter(element=>{
             if(element.category == req.params.category && element.subcategory == req.params.subcategory){
-                return result.push(element);
+                return element;
             }
-        });
-
+        })
+        
         res.render('productNav',{result,toThousand,title: 'Mascoshop Producto por categoria'});
     },
     productOfertas:(req,res)=>{
         
-        let products = [];
-        
-        data.forEach(element=>{
+        let products= data.filter(element=>{
             if(element.discount != 0){
-                return products.push(element);
+                return element;
             }
         })
-        
         res.render('productOfertas',{products,toThousand,title: 'Mascoshop Ofertas'});
     },
     categoryFooter:(req,res)=>{
 
-        let products = [];
 
-        data.forEach(element=>{
+        let products= data.filter(element=>{
             if(element.category == req.params.category){
-                return products.push(element);
+                return element;
             }
         })
-
-        res.render('categoryFooter',{title: 'Mascoshop', products, toThousand});
+        res.render('categoryFooter',{title: `Mascoshop`, products, toThousand});
     }
 }
