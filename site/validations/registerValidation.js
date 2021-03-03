@@ -39,6 +39,8 @@ module.exports = [
         }else{
             return true;
         }
-    }).withMessage('Por favor seleccione un pais')
+    }).withMessage('Por favor seleccione un pais'),
+
+    check('avatar').notEmpty().withMessage('Este campo es requerido')
     
 ]

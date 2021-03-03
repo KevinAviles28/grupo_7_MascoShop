@@ -53,8 +53,9 @@
             <div class="mb-3">
                 <input type="file" name="avatar" class="form-control">
             </div>
+            <span class="text-danger"><%= (typeof errores != 'undefined' && errores.avatar) ? errores.avatar.msg : "" %></span>
             
-            <div class="botones">
+            <div class="botones my-3">
                 <div class="boton-dos">
                     <button type="submit" class="mb-3 btn btn-primary">Registrarme</button>
                 </div>
