@@ -31,5 +31,20 @@ module.exports={
         res.render('sobreNosotros',{
             title:'Mascoshop Sobre nosotros'
         })
+    },
+    contacto:(req,res) => {
+        res.render("contacto",{
+            title:"contacto"
+        })
+    },
+    mediosDePago:(req,res) => {
+        res.render("mediosDePago",{
+            title:"Medios de Pago"
+        })
+    },
+    sucursales:(req,res) => {
+        res.render("sucursales",{
+            title:"Nuestros locales"
+        })
     }
 }
