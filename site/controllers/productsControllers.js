@@ -182,5 +182,17 @@ module.exports = {
         })
         
         res.render('productOfertas',{products,toThousand,title: 'Mascoshop Ofertas'});
+    },
+    categoryFooter:(req,res)=>{
+
+        let products = [];
+
+        data.forEach(element=>{
+            if(element.category == req.params.category){
+                return products.push(element);
+            }
+        })
+
+        res.render('categoryFooter',{title: 'Mascoshop', products, toThousand});
     }
 }
