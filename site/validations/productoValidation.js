@@ -28,5 +28,11 @@ module.exports=[
 
     check('description').notEmpty().withMessage('El producto debe de tener una descripcion'),
 
-    check('img').notEmpty().withMessage('La imagen del producto debe ser cargada')
+    body('img').custom((value,{req})=>{
+        if(req.files[0].filename){
+            return true;
+        }else{
+            return false;
+        }
+    }).withMessage('Este campo es requerido')
 ]

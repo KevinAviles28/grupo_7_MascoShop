@@ -41,6 +41,12 @@ module.exports = [
         }
     }).withMessage('Por favor seleccione un pais'),
 
-    check('avatar').notEmpty().withMessage('Este campo es requerido')
+    body('avatar').custom((value,{req})=>{
+        if(req.files[0].filename){
+            return true;
+        }else{
+            return false;
+        }
+    }).withMessage('Este campo es requerido')
     
 ]
