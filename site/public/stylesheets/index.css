@@ -32,6 +32,7 @@ main.index section a figure{
 main.index section a figure img{
     height: 80%;
     padding: 20px;
+    object-fit: cover;
     background-color: white;
 }
 
