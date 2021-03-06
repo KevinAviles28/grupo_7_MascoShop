@@ -34,7 +34,7 @@ module.exports={
     },
     contacto:(req,res) => {
         res.render("contacto",{
-            title:"contacto"
+            title:"Contacto"
         })
     },
     mediosDePago:(req,res) => {

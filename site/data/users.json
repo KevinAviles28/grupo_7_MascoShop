@@ -11,5 +11,18 @@
     "direccion": "",
     "category": "Admin",
     "avatar": "avatar-1614731356471.jpeg"
+  },
+  {
+    "id": 2,
+    "name": "Juanito ",
+    "apellido": "Perez",
+    "email": "juanito@gmail.com",
+    "pass": "$2b$12$.I1Ok48VCb0zgi1zdfA7zONgGqwZhYr12vxA/3sEkJq8/53SjljDm",
+    "pais": "",
+    "localidad": "",
+    "telefono": "",
+    "direccion": "",
+    "category": "Usuario",
+    "avatar": "avatar-1614788370601.jpeg"
   }
 ]

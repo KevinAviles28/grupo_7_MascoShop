@@ -2,7 +2,7 @@ const {check,body}=require('express-validator')
 
 module.exports=[
     /* 7 validaciones */
-    body('category').custom(value=>{
+    /* body('category').custom(value=>{
         if(value==='Categoria'){
             return false;
         }else{
@@ -16,7 +16,7 @@ module.exports=[
         }else{
             return true;
         }
-    }).withMessage('Por favor seleccione una sub categoria'),
+    }).withMessage('Por favor seleccione una sub categoria'), */
 
     check('name').notEmpty().withMessage('El nombre del producto es obligatorio'),
 
@@ -27,12 +27,6 @@ module.exports=[
     check('discount').notEmpty().withMessage('Debe tener un descuente de 0,15,30 o 50 %'),
 
     check('description').notEmpty().withMessage('El producto debe de tener una descripcion'),
-
-    body('img').custom((value,{req})=>{
-        if(req.files[0].filename){
-            return true;
-        }else{
-            return false;
-        }
-    }).withMessage('Este campo es requerido')
+/* 
+    check('img').notEmpty().withMessage('La imagen del producto debe ser cargada') */
 ]
