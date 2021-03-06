@@ -48,10 +48,11 @@ module.exports = {
                 discount: +discount,
                 description: description.trim(),
                 img: req.files[0].filename
+                /* img:(req.files[0])?req.files[0].filename:"default-image.png", */
             }
             
             data.push(newProduct);
-            /*  fs.writeFileSync('./data/products.json',JSON.stringify(data,null,2),'utf-8'); */
+        
             setProducts(data);
             res.redirect('/products/allProducts#productos-destacados');
         }
@@ -106,8 +107,7 @@ module.exports = {
                 }
                 
             });
-            
-            /*   fs.writeFileSync('./data/products.json',JSON.stringify(data,null,2),'utf-8'); */
+      
             setProducts(data);
             res.redirect('/products/allProducts#productos-destacados');
         }
@@ -125,8 +125,6 @@ module.exports = {
                 data.splice(idEliminado,1);
             }
         });
-        
-        /*  fs.writeFileSync('./data/products.json',JSON.stringify(data,null,2),'utf-8'); */
         setProducts(data);
         res.redirect('/products/allProducts#productos-destacados');
     },
@@ -137,8 +135,7 @@ module.exports = {
         res.render('allProducts',{products,toThousand,title: 'Mascoshop Nuestros Productos'});
     },
     productCategory:(req,res)=>{
-        
-        let result =data.filter(element=>{
+         let result =data.filter(element=>{
             if(element.category == req.params.category){
                 return element
             }
@@ -147,8 +144,7 @@ module.exports = {
         res.render('productCategory',{result,toThousand,title: 'Mascoshop Producto por categoria'});
     },
     productSubcategory:(req,res)=>{
-        
-        let result=data.filter(element=>{
+         let result=data.filter(element=>{
             if(element.subcategory == req.params.subcategory){
                 return element;
             }
@@ -174,14 +170,5 @@ module.exports = {
             }
         })
         res.render('productOfertas',{products,toThousand,title: 'Mascoshop Ofertas'});
-    },
-    categoryFooter:(req,res)=>{
-        
-        let products= data.filter(element=>{
-            if(element.category == req.params.category){
-                return element;
-            }
-        })
-        res.render('categoryFooter',{title: `Mascoshop`, products, toThousand});
     }
 }
