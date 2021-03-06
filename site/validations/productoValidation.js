@@ -27,6 +27,6 @@ module.exports=[
     check('discount').notEmpty().withMessage('Debe tener un descuente de 0,15,30 o 50 %'),
 
     check('description').notEmpty().withMessage('El producto debe de tener una descripcion'),
-
-    check('img').notEmpty().withMessage('La imagen del producto debe ser cargada')
+/* 
+    check('img').notEmpty().withMessage('La imagen del producto debe ser cargada') */
 ]

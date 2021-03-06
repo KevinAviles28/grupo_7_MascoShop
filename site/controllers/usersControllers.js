@@ -43,6 +43,7 @@ module.exports = {
                 direccion:"",
                 category:"Usuario",
                 avatar: req.files[0].filename
+                /* img:(req.files[0])?req.files[0].filename:"default-image.png" */
             }
             
             users_db.push(newUser);
