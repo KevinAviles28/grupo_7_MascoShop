@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-/* const data = require('../data/dataproducts'); */
 const {validationResult} = require('express-validator');
 
 const {getProducts, setProducts} = require(path.join('..','data','dataproducts'));
