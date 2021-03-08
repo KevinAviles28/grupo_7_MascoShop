@@ -55,4 +55,17 @@ module.exports = (sequelize, dataTypes)=>{
     }
 
     const User = sequelize.define(alias,cols,config);
+
+    User.associate = models=> {
+        Purchase.belongsToMany(models.Product,{
+            as: 'products',/* alias que contiene los productos */
+            through: 'purchases',/* nombre tabla pivot */
+            foreignKey: 'cliente_id',
+            otherKey: 'producto_id',
+            timestamps: true,
+            underscored: true
+        })
+    }
+
+    return User;
 }
