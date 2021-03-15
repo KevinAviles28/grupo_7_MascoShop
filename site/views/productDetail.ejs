@@ -16,8 +16,8 @@
     <div class="ruta-producto my-3">
       <ul>
         <li><a href="/">Volver a la pagina de inicio |</a></li>
-        <li><a href="/products/productCategory/<%= product.category %>"><%= product.category %> <i class="fas fa-arrow-circle-right"></i></a></li>
-        <li><a href="/products/productSubcategory/<%= product.subcategory %>"><%= product.subcategory %> <i class="fas fa-arrow-circle-right"></i></a></li>
+        <li><a href="/products/productCategory/<%= categoria.name %>"><%= categoria.name %> <i class="fas fa-arrow-circle-right"></i></a></li>
+        <li><a href="/products/productSubcategory/<%= subcategoria.name %>"><%= subcategoria.name %> <i class="fas fa-arrow-circle-right"></i></a></li>
         <li><%= product.name %> </li>
       </ul>
     </div>
@@ -31,7 +31,7 @@
           <div id="carouselExampleControls" class="borde-producto carousel carousel-dark slide">
             <div class="fondo-producto carousel-inner">
               <div class="carousel-item active">
-                <img src="/images/productos/<%= product.img %> " class="d-block w-100" alt="...">
+                <img src="/images/productos/<%=product.imagenProducto[0].product_name %>" class="d-block w-100" alt="...">
               </div>
               <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
