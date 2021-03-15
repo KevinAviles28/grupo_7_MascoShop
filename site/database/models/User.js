@@ -22,7 +22,7 @@ module.exports = (sequelize, dataTypes)=>{
             allowNull: false
         },
         pass: {
-            type: dataTypes.STRING(45),
+            type: dataTypes.STRING(100),
             allowNull: false
         },
         pais: {
@@ -41,11 +41,8 @@ module.exports = (sequelize, dataTypes)=>{
             type: dataTypes.INTEGER
         },
         avatar: {
-            type: dataTypes.STRING(45),
+            type: dataTypes.STRING(100),
             allowNull: false
-        },
-        exist: {
-            type: dataTypes.INTEGER
         }
     };
 
@@ -57,11 +54,11 @@ module.exports = (sequelize, dataTypes)=>{
     const User = sequelize.define(alias,cols,config);
 
     User.associate = models=> {
-        Purchase.belongsToMany(models.Product,{
+        User.belongsToMany(models.Product,{
             as: 'products',/* alias que contiene los productos */
             through: 'purchases',/* nombre tabla pivot */
-            foreignKey: 'cliente_id',
-            otherKey: 'producto_id',
+            foreignKey: 'cliente_id',/* fk de la tabla pivot que hace referencia al modelo actual asociado */
+            otherKey: 'producto_id',/* fk de la otra asociacion */
             timestamps: true,
             underscored: true
         })

@@ -1,9 +1,6 @@
-const fs = require('fs');
 const path = require('path');
+const db = require(path.join('..','database','models'));
 const {validationResult} = require('express-validator');
-
-const {getProducts, setProducts} = require(path.join('..','data','dataproducts'));
-const data=getProducts();
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -18,27 +15,22 @@ module.exports = {
         
     },
     processProduct:(req,res)=>{
-        const errores=validationResult(req);
-        /* res.send(errores.mapped()) */   
+
+        const {category,subcategory,name,precio,stock,discount,description} = req.body;
+
+        const errores = validationResult(req);
+
         if(!errores.isEmpty()){
+
             return res.render('adminProduct/productAdd',{ 
                 errores : errores.mapped(), /* convierte el valor del array en el valor de errors */
                 old:req.body,
                 title:'Mascoshop Add product'
-            })
-        }else{
-            const {category,subcategory,name,precio,stock,discount,description} = req.body;
-            
-            let lastId = 0;
-            
-            data.forEach(element=>{
-                if(element.id > lastId){
-                    return lastId = element.id;
-                }
             });
-            
-            const newProduct = {
-                id: +lastId + 1,
+
+        }else{
+
+            db.Product.create({
                 category: category,
                 subcategory: subcategory,
                 name: name.trim(),
@@ -46,30 +38,30 @@ module.exports = {
                 stock: +stock,
                 discount: +discount,
                 description: description.trim(),
-                img: req.files[0].filename
-                /* img:(req.files[0])?req.files[0].filename:"default-image.png", */
-            }
+                img: req.files[0].filename,
+                exist: 1
+            })
+            .then(()=>{
+                res.redirect('/products/allProducts#productos-destacados');
+            })
+            .catch(error => res.send(error));
             
-            data.push(newProduct);
-        
-            setProducts(data);
-            res.redirect('/products/allProducts#productos-destacados');
-        }
-        
-        
+        }    
     },
     productDetail:(req,res)=>{
-        let product = data.find(element => element.id === +req.params.id);
-        
-        
-        
-        let productRelacionados =data.filter(element=>{
-            if(product.category == element.category){
-                return element
+
+        let product = db.Product.findByPk(+req.params.id);
+        let productRelacionados = db.category.findAll({
+            where: {
+                category_id: product.category_id
             }
+        });
+        Promise.all([product,productRelacionados])
+        .then(([product,productRelacionados])=>{
+            return res.render('productDetail',{product,productRelacionados,toThousand,title: 'Mascoshop Detalle de producto'});
         })
         
-        res.render('productDetail',{product,productRelacionados,toThousand,title: 'Mascoshop Detalle de producto'});
+        
     },
     productEdit:(req,res)=>{
         let product = data.find(element => element.id === +req.params.id);
