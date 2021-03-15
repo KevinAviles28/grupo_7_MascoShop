@@ -22,7 +22,7 @@
         <section class="my-3 col-12 col-md-6 col-lg-4 col-xl-3">
           <a href="/products/productDetail/<%= element.id %>">
             <figure>
-              <img src="/images/productos/<%= element.img %> " alt="" class="w-100">
+              <img src="/images/productos/<%= element.imagenProducto[0].product_name %> " alt="" class="w-100">
               <h5><%= element.name %> </h5>
               <% if(element.discount != 0){ %> 
                 <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
