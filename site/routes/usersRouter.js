@@ -17,7 +17,7 @@ router.post('/register',upload.any(),registerValidation,processRegister);
 
 /* login */
 router.get('/login',login);
-router.post('/login',loginValidation,processLogin) ;
+router.post('/login',loginValidation,processLogin);
 
 
 /* Perfil */
