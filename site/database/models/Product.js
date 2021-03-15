@@ -23,7 +23,7 @@ module.exports=(sequelize,dataTypes)=>{
            
         },
         description:{
-            type:dataTypes.STRING(200),
+            type:dataTypes.STRING(300),
             allowNull:false
         },
         cate_sub_id:{
