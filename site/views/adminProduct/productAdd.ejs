@@ -10,18 +10,16 @@
                 <form action="/products/productAdd" method="POST" enctype="multipart/form-data"><!-- viaja a allProducts.ejs -->
                     <select name="category" class="form-select mb-3">
                         <option selected>Categoria</option>
-                        <option value="perros">Perros</option>
-                        <option value="gatos">Gatos</option>
-                        <option value="aves">Aves</option>
-                        <option value="peces">Peces</option>
-                        <option value="roedores">Roedores</option>
-                        <option value="reptiles">Reptiles</option>
+                        <% categoria.forEach(cate => { %>
+                            <option value="<%= cate.id %>"><%= cate.name %></option> 
+                        <% }) %>
                     </select>
                     <span class="text-danger"><%= (typeof errores != 'undefined' && errores.category) ? errores.category.msg : "" %>  </span>
                     <select name="subcategory" class="form-select mb-3">
                         <option selected>Sub-categoria</option>
-                        <option value="accesorios">Accesorios</option>
-                        <option value="alimentos">Alimentos</option>
+                        <% subcategoria.forEach(suba => { %>
+                            <option value="<%= suba.id %> "><%= suba.name %> </option> 
+                        <% }) %>
                     </select>
                     <span class="text-danger"><%= (typeof errores != 'undefined' && errores.subcategory) ? errores.subcategory.msg : "" %>  </span>
                     <!-- subcategory -->

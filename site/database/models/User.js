@@ -38,7 +38,7 @@ module.exports = (sequelize, dataTypes)=>{
             type: dataTypes.STRING(45),
         },
         category: {
-            type: dataTypes.INTEGER
+            type: dataTypes.STRING(45)
         },
         avatar: {
             type: dataTypes.STRING(100),
@@ -53,16 +53,6 @@ module.exports = (sequelize, dataTypes)=>{
 
     const User = sequelize.define(alias,cols,config);
 
-    User.associate = models=> {
-        User.belongsToMany(models.Product,{
-            as: 'products',/* alias que contiene los productos */
-            through: 'purchases',/* nombre tabla pivot */
-            foreignKey: 'cliente_id',/* fk de la tabla pivot que hace referencia al modelo actual asociado */
-            otherKey: 'producto_id',/* fk de la otra asociacion */
-            timestamps: true,
-            underscored: true
-        })
-    }
 
     return User;
 }

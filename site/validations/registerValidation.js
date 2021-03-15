@@ -1,6 +1,6 @@
 const fs=require('fs');
 const {check,body}=require('express-validator')
-const users_db = JSON.parse(fs.readFileSync('./data/users.json','utf-8'))
+/* const users_db = JSON.parse(fs.readFileSync('./data/users.json','utf-8')) */
 
 module.exports = [
     
@@ -10,14 +10,14 @@ module.exports = [
     
     check('email').isEmail().withMessage('El campo Email tiene que ser un email valido'),
     
-    body('email').custom(value =>{/* checkea si el email ya esta registrado */
+    /* body('email').custom(value =>{
         let result= users_db.find(user => user.email === value);
-        if(result){/* si return es igual a true */
+        if(result){
             return false
         }else{
             return true
         }
-    }).withMessage('El email ya esta registrado'),
+    }).withMessage('El email ya esta registrado'), */
     
     check('passUno').isLength({
         min:6,

@@ -19,15 +19,15 @@ module.exports = {
             })
         }else{
             
-            const {name,apellido,email,pass,avatar} = req.body;
+            const {name,apellido,email,passUno,avatar} = req.body;
             
             db.User.create({
                 name: name.trim(),
                 apellido: apellido.trim(),
                 email: email.trim(),
-                pass: bcrypt.hashSync(pass,12),
+                pass: bcrypt.hashSync(passUno,12),
                 avatar: req.files[0].filename,
-                category: 0
+                category: 'Usuario'
             })
             .then(()=>{
                 res.redirect('/users/login');
@@ -50,7 +50,7 @@ module.exports = {
             
         }else{
             
-            const {email,pass} = req.body;
+            const {email,pass,recordarme} = req.body;
             
             db.User.findOne({
                 where: {
@@ -142,7 +142,7 @@ module.exports = {
         })
         .catch(error => console.log(error))
     },
-    remove:(req,res)=>{
+    eliminarCuenta:(req,res)=>{
         
         let user = db.User.findByPk(req.params.id);
         let remove = db.User.destroy({

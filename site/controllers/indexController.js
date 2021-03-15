@@ -5,12 +5,13 @@ const {Op}=require('sequelize')
 module.exports={
     index:(req,res)=>{
         
-        db.Product.findAll({
-            where:{
+        db.Productos.findAll({
+            where:{  
                 discount:{
                     [Op.ne]:0
                 }
-            }
+            },
+            include:[{association:"imagenProducto"}]
         })
         .then(products=>{
             res.render('index',{products,toThousand});
@@ -20,7 +21,7 @@ module.exports={
     },
     search:(req,res)=>{
 
-        db.Product.findAll()
+        db.Productos.findAll()
         .then(result=>{
             const search = result.filter(element=>{
                 if(element.name.toLowerCase().includes(req.query.busqueda.toLowerCase().trim()) /* || element.category.toLowerCase().includes(req.query.busqueda.toLowerCase().trim()) */){

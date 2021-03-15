@@ -22,7 +22,6 @@ module.exports = {
                 subcategoria
             })
         })    
-        res.render('adminProduct/productAdd');
         
     },
     processProduct:(req,res)=>{
