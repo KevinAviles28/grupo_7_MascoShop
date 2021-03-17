@@ -27,7 +27,7 @@ module.exports={
         db.Productos.findAll()
         .then(result=>{
             const search = result.filter(element=>{
-                if(element.name.toLowerCase().includes(req.query.busqueda.toLowerCase().trim()) /* || element.category.toLowerCase().includes(req.query.busqueda.toLowerCase().trim()) */){
+                if(element.name.toLowerCase().includes(req.query.busqueda.toLowerCase().trim()) || element.category.toLowerCase().includes(req.query.busqueda.toLowerCase().trim())){
                     return element;
                 }
             })
