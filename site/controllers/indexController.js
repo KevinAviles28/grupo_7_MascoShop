@@ -9,6 +9,9 @@ module.exports={
             where:{  
                 discount:{
                     [Op.ne]:0
+                },
+                stock:{
+                    [Op.ne]:0
                 }
             },
             include:[{association:"imagenProducto"}]

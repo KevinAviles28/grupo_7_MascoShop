@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
-<%- include('partials/head') %> 
+<%- include('../partials/head') %> 
 <body>
-  <%- include('partials/header') %>
+  <%- include('../partials/header') %>
   
   <main class="index container my-3">
     
@@ -14,16 +14,16 @@
     </div>
     
     
-    <h2>Nuestros productos</h2>
+    <h2>Productos sin stock</h2>
     
     <!-- productos destacados -->
-    <div class="row my-3">
+    <div class="row my-4" id="productos-destacados">
       
       <% products.forEach(element=>{ %> 
         <section class="col-12 col-md-6 col-lg-4 col-xl-3 my-3">
-          <a href="/products/productDetail/<%= element.id %>">
+          <a href="/products/productDetail/<%= element.id %>#product-detail">
             <figure>
-              <img src="/images/productos/<%= element.imagenProducto[0].product_name %> " alt="" class="w-100">
+              <img src="/images/productos/<%= element.imagenProducto[0].product_name %>" alt="" class="w-100">
               <h5><%= element.name %> </h5>
               <% if(element.discount != 0){ %> 
                 <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
@@ -33,7 +33,14 @@
                 <h5 style="color: #f37121;">PRECIO LISTA</h5>
                 <p>$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %> </p>
               </div>
-            </a>
+            </a> 
+              <form action="/products/cambiarStock/<%=element.id%>?_method=PUT" method="POST">
+                <input type="number" min="0" max="999" name="stock" value="<%= element.stock %>" >
+                <button type="submit">Cambiar Stock</button>
+              </form>
+
+            
+            
           </section>
           <% }) %> 
           
@@ -63,9 +70,8 @@
         
       </main>
       
-      
-      <%- include('partials/footer') %>
-      <%- include('partials/scripts') %> 
+      <%- include('../partials/footer') %>
+      <%- include('../partials/scripts') %> 
       
     </body>
     </html>

@@ -27,7 +27,7 @@ module.exports = {
                 email: email.trim(),
                 pass: bcrypt.hashSync(passUno,12),
                 avatar: req.files[0].filename,
-                category: 'Usuario'
+                category: 'Admin'
             })
             .then(()=>{
                 res.redirect('/users/login');

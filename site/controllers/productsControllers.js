@@ -1,8 +1,8 @@
 const path = require('path');
-const fs=require('fs')
+const fs=require('fs');
 const db = require(path.join('..','database','models'));
 const {validationResult} = require('express-validator');
-const {Op}=require('sequelize')
+const {Op}=require('sequelize');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
@@ -80,7 +80,21 @@ module.exports = {
         })
         Promise.all([pedidoCategoria,pedidoSubCategoria,losProductos])/* trae todos los pedidos */
         .then(([categoria,subcategoria,product])=>{
+            let laCategoria;
+            let laSubCategoria;
+            categoria.forEach(cate => {
+                if(product.cateSub.category_id == cate.id){
+                 laCategoria=cate.name
+                }
+            });
+            subcategoria.forEach(sub=>{
+                if(product.cateSub.sub_category_id==sub.id){
+                    laSubCategoria=sub.name
+                }
+            });
             res.render('productDetail',{
+                laCategoria,
+                laSubCategoria,
                 categoria,
                 subcategoria,
                 product,
@@ -204,7 +218,12 @@ module.exports = {
     },
     allProducts:(req,res)=>{
         db.Productos.findAll({
-            include:[{association:"cateSub"},{association:"imagenProducto"}]
+            include:[{association:"cateSub"},{association:"imagenProducto"}],
+            where:{
+                stock:{
+                    [Op.ne]:0
+                }
+            }
         })
         .then(function(products){
             res.render("allProducts",{products:products,toThousand})
@@ -214,22 +233,24 @@ module.exports = {
         res.render('allProducts',{products,toThousand}); */
     },
     productCategory:(req,res)=>{
-        db.Categoria.findOne({
+        db.Categoria.findAll({
             where:{
                 name:req.params.category
             }
         })
         .then((categoria)=>{
-            db.Cate_subs.findOne({
+            db.Cate_subs.findAll({
                 where:{
-                    category_id:categoria.id,
+                    category_id:categoria[0].id
                 }
             }).then((resultado)=>{
                 db.Productos.findAll({
-                    include:[{association:"cateSub"},{association:"imagenProducto"}]
-                },{
+                    include:[{association:"cateSub"},{association:"imagenProducto"}],
                     where:{
-                        cate_sub_id:resultado.id
+                        cate_sub_id:resultado[0].id,
+                        stock:{
+                            [Op.ne]:0
+                        }
                     }
                 }).then((result)=>{
                     res.render('productCategory',{result,toThousand})
@@ -245,22 +266,27 @@ module.exports = {
         res.render('productCategory',{result,toThousand}); */
     },
     productSubcategory:(req,res)=>{
-        db.SubCategoria.findOne({
+        db.SubCategoria.findAll({
             where:{
-                name:req.params.subcategory
+                name:req.params.subcategory/* traeme todos los alimentos o accesorios */
             }
         })
         .then((subcategoria)=>{
-            db.Cate_subs.findOne({
+           /*  res.send(subcategoria) */
+            db.Cate_subs.findAll({
                 where:{
-                    category_id:subcategoria.id,
+                    sub_category_id:subcategoria[0].id/* traeme de la tabla pivoy */
                 }
             }).then((resultado)=>{
+                 res.send(resultado) 
                 db.Productos.findAll({
-                    include:[{association:"cateSub"},{association:"imagenProducto"}]
-                },{
+                    include:[{association:"cateSub"},{association:"imagenProducto"}],
+                    
                     where:{
-                        cate_sub_id:resultado.id
+                        cate_sub_id:resultado[0].id,
+                        stock:{
+                            [Op.ne]:0
+                        }
                     }
                 }).then((result)=>{
                     res.render('productSubcategory',{result,toThousand})
@@ -296,11 +322,15 @@ module.exports = {
         })
         .then((resultado)=>{
             db.Productos.findAll({
-                include:[{association:"cateSub"},{association:"imagenProducto"}]
-            },{
+                include:[{association:"cateSub"},{association:"imagenProducto"}],
+                
                 where:{
-                    cate_sub_id:resultado.id
+                    cate_sub_id:resultado.id,
+                    stock:{
+                        [Op.ne]:0
+                    }
                 }
+            
             }).then((result)=>{
                 res.render('productNav',{result,toThousand})
             })
@@ -317,8 +347,13 @@ module.exports = {
     },
     productOfertas:(req,res)=>{
         db.Productos.findAll({
+           include:[{association:"imagenProducto"}]
+            ,
             where:{
                 discount:{
+                    [Op.ne]:0
+                },
+                stock:{
                     [Op.ne]:0
                 }
             }
@@ -334,5 +369,31 @@ module.exports = {
             }
         })
         res.render('productOfertas',{products,toThousand}); */
+    },
+    productsStock:(req,res)=>{
+        db.Productos.findAll({
+            include:[{association:"imagenProducto"}],
+            where:{
+                stock:0
+            }
+        })
+        .then((products)=>{
+            res.render('adminProduct/editarStock',{
+                products,toThousand
+            })
+        })
+    },
+    cambiarStock:(req,res)=>{
+        let nuevoStock=req.body.stock
+        db.Productos.update({
+            stock:nuevoStock
+        },{
+            where:{
+                id:req.params.id
+            }
+        })
+        .then(()=>{
+            res.redirect("/products/allProducts#productos-destacados")
+        })
     }
 }

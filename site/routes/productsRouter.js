@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const path = require('path');
-const {productCart,productDetail,productAdd,processProduct,productEdit,processEdit,productDelete,allProducts,productCategory,productSubcategory,productNav,productOfertas} = require(path.join('..','controllers','productsControllers'));
+
+const {productCart,productDetail,productAdd,processProduct,productEdit,processEdit,productDelete,allProducts,productCategory,productSubcategory,productNav,productOfertas,productsStock,cambiarStock} = require(path.join('..','controllers','productsControllers'));
 
 /* middlewares */
 const upload = require(path.join('..','middlewares','multerProduct'));
@@ -34,7 +35,8 @@ router.get('/productSubcategory/:subcategory',productSubcategory);
 
 router.get('/productNav/:category/:subcategory',productNav);
 router.get('/productOfertas',productOfertas);
+router.get('/productStock',adminCheck,productsStock);
 
-
+router.put('/cambiarStock/:id',adminCheck,cambiarStock)
 
 module.exports = router;
