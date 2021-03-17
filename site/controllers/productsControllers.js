@@ -321,7 +321,8 @@ module.exports = {
                 discount:{
                     [Op.ne]:0
                 }
-            }
+            },
+            include:[{association:"imagenProducto"}]
         })
         .then(function(products){
             res.render('productOfertas',{
