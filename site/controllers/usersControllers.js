@@ -26,7 +26,7 @@ module.exports = {
                 apellido: apellido.trim(),
                 email: email.trim(),
                 pass: bcrypt.hashSync(passUno,12),
-                avatar: req.files[0].filename,
+                avatar: (req.files[0])?req.files[0].filename:"usuarioDefoult.png",
                 category: 'Admin'
             })
             .then(()=>{
@@ -98,49 +98,33 @@ module.exports = {
         })
         
     },
-    editaVistaEscencial:(req,res)=>{
-        res.render('users/editPerfilEscencial');
-    },
-    editarPerfilEscencial:(req,res)=>{
-        
-        const {nombre,apellido,email} = req.body;
-        
-        db.User.upsert({
-            id: req.params.id,
-            name: nombre.trim(),
-            apellido: apellido.trim(),
-            email: email.trim()
-        })
-        .then(()=>{
-            req.session.destroy();
-            if(req.cookies.recordar){
-                res.cookie('recordar','',{
-                    maxAge : -1
-                })
-            }
-            res.redirect('/users/login');
-        })
-        .catch(error => console.log(error))
-    },
     vistaDeEdicion:(req,res)=>{
-        res.render('users/editPerfil');
+        db.User.findByPk(req.params.id)
+        .then((result)=>{
+            res.render('users/editPerfil',{
+                result
+            });
+        })
+        
     },
     edicionDePerfil:(req,res)=>{
 
         const {pais,localidad,telefono,direccion} = req.body;
-        
-        db.User.upsert({
-            id: req.params.id,
+        db.User.update({
             pais: pais.trim(),
             localidad: localidad.trim(),
             telefono: telefono.trim(),
             direccion: direccion.trim()
-            
+        },{
+            where:{
+                id:req.params.id
+            }
         })
         .then(()=>{
             res.redirect('/');
         })
         .catch(error => console.log(error))
+    
     },
     eliminarCuenta:(req,res)=>{
         

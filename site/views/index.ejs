@@ -61,7 +61,7 @@
         <section class="my-3 col-12 col-md-6 col-lg-4 col-xl-3" id="ofertas">
           <a href="/products/productDetail/<%= element.id %>#product-detail">
             <figure>
-              <img src="/images/productos/<%= element.imagenProducto[0].product_name %>" alt="" class="w-100">
+              <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="" class="w-100">
               <h5><%= element.name %> </h5>
               <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>   
             </figure>

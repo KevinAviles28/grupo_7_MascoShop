@@ -2,7 +2,7 @@ const {check,body}=require('express-validator')
 
 module.exports=[
     /* 7 validaciones */
-    /* body('category').custom(value=>{
+     body('category').custom(value=>{
         if(value==='Categoria'){
             return false;
         }else{
@@ -16,7 +16,7 @@ module.exports=[
         }else{
             return true;
         }
-    }).withMessage('Por favor seleccione una sub categoria'), */
+    }).withMessage('Por favor seleccione una sub categoria'), 
 
     check('name').notEmpty().withMessage('El nombre del producto es obligatorio'),
 
