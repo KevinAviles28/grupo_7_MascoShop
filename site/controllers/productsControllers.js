@@ -147,7 +147,7 @@ module.exports = {
                 discount: discount,
                 description: description.trim(),
                 category_id: category,
-                sub_category_id: subcategory
+                subcategory_id: subcategory
             }, {
                 where: {
                     id: req.params.id
