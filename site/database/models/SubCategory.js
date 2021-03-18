@@ -20,8 +20,7 @@ module.exports = (sequelize,dataTypes)=>{
     }
 
     const SubCategoria = sequelize.define(alias,cols,config);
-
-    
+ 
 
     return SubCategoria;
 }
