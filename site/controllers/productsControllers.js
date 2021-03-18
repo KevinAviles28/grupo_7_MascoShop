@@ -1,339 +1,332 @@
 const path = require('path');
-const fs=require('fs')
-const db = require(path.join('..','database','models'));
-const {validationResult} = require('express-validator');
-const {Op}=require('sequelize')
+const fs = require('fs');
+const db = require(path.join('..', 'database', 'models'));
+const { validationResult } = require('express-validator');
+const { Op } = require('sequelize');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
-    
-    productCart:(req,res)=>{
-        
-        res.render('productCart');
-        
-    },
-    productAdd:(req,res)=>{
-        let pedidoCategoria=db.Categoria.findAll(); 
-        let pedidoSubCategoria=db.SubCategoria.findAll()
-        Promise.all([pedidoCategoria,pedidoSubCategoria])
-        .then(function([categoria,subcategoria]){
-            res.render('adminProduct/productAdd',{
-                categoria,
-                subcategoria
-            })
-        })    
-        
-    },
-    processProduct:(req,res)=>{
 
-        const {category,subcategory,name,precio,stock,discount,description} = req.body;
+    productCart: (req, res) => {
+
+        res.render('productCart');
+
+    },
+    productAdd: (req, res) => {
+        let pedidoCategoria = db.Categoria.findAll();
+        let pedidoSubCategoria = db.SubCategoria.findAll()
+        Promise.all([pedidoCategoria, pedidoSubCategoria])
+            .then(function ([categoria, subcategoria]) {
+                res.render('adminProduct/productAdd', {
+                    categoria,
+                    subcategoria
+                })
+            })
+
+    },
+    processProduct: (req, res) => {
+
+        const { category, subcategory, name, precio, stock, discount, description } = req.body;
 
         const errores = validationResult(req);
 
-        if(!errores.isEmpty()){
+        if (!errores.isEmpty()) {
+            let pedidoCategoria = db.Categoria.findAll()
+            let pedidoSubCategoria = db.SubCategoria.findAll()
+            Promise.all([pedidoCategoria, pedidoSubCategoria])
+                .then(([categoria, subcategoria]) => {
+                    return res.render('adminProduct/productAdd', {
+                        categoria,
+                        subcategoria,
+                        errores: errores.mapped(), /* convierte el valor del array en el valor de errors */
+                        old: req.body
 
-            return res.render('adminProduct/productAdd',{ 
-                errores : errores.mapped(), /* convierte el valor del array en el valor de errors */
-                old:req.body
-                
-            });
+                    })
+                })
+        } else {
+            db.Productos.create({
+                name: name,
+                precio: precio,
+                stock: stock,
+                discount: discount,
+                description: description,
+                category_id: category,
+                subcategory_id: subcategory
+            })
+                .then((resultado) => {
+                    let id = resultado.id
+                    db.ImagenProducto.create({
+                        product_name: (req.files[0]) ? req.files[0].filename : "productoDefoult.png",
+                        product_id: id
+                    })
+                })
+                .then(() => {
+                    res.redirect('/');
+                })
+        }
+    },
+    productDetail: (req, res) => {
 
-        }else{
-            db.Cate_subs.findOne({
-                where:{
-                    category_id:category,
-                    sub_category_id:subcategory 
+        let pedidoCategoria = db.Categoria.findAll();
+        let pedidoSubCategoria = db.SubCategoria.findAll();
+        let losProductos = db.Productos.findByPk(req.params.id, {
+            include: [{ association: "categoria" }, { association: "subcategoria" }, { association: "imagenProducto" }]
+        })
+        Promise.all([pedidoCategoria, pedidoSubCategoria, losProductos])/* trae todos los pedidos */
+            .then(([categoria, subcategoria, product]) => {
+                let laCategoria = [];
+                let laSubCategoria = [];
+                categoria.forEach(cate => {
+                    if (product.category_id == cate.id) {
+                        laCategoria = cate
+                    }
+                });
+                subcategoria.forEach(sub => {
+                    if (product.subcategory_id == sub.id) {
+                        laSubCategoria = sub
+                    }
+                });
+                db.Productos.findAll({
+                    include: [{ association: "categoria" }, { association: "subcategoria" }, { association: "imagenProducto" }],
+                    where: {
+                        category_id: laCategoria.id
+                    }
+                })
+                    .then((productosRelacionados) => {
+                        res.render('productDetail', {
+                            laCategoria,
+                            laSubCategoria,
+                            productosRelacionados,
+                            product,
+                            toThousand
+                        })
+                    })
+            })
+    },
+    productEdit: (req, res) => {
+
+        let pedidoCategoria = db.Categoria.findAll();
+        let pedidoSubCategoria = db.SubCategoria.findAll();
+        let elProducto = db.Productos.findByPk(req.params.id, {
+            include: [{ association: "categoria" }, { association: "subcategoria" }, { association: "imagenProducto" }]
+        })
+        Promise.all([pedidoCategoria, pedidoSubCategoria, elProducto])
+            .then(([categoria, subcategoria, product]) => {
+                res.render('adminProduct/productEdit', {
+                    categoria,
+                    subcategoria,
+                    product
+                })
+            })
+    },
+    processEdit: (req, res) => {
+
+        const { name, precio, stock, discount, description, category, subcategory } = req.body;
+        const errores = validationResult(req);
+        /*   res.send(errores.mapped())  */
+        if (!errores.isEmpty()) {
+            let pedidoCategoria = db.Categoria.findAll()
+            let pedidoSubCategoria = db.SubCategoria.findAll()
+            let pedidoProducto = db.Productos.findByPk(req.params.id)
+            Promise.all([pedidoCategoria, pedidoSubCategoria, pedidoProducto])
+                .then(([categoria, subcategoria, product]) => {
+                    return res.render('adminProduct/productEdit', {
+                        categoria,
+                        subcategoria,
+                        product,
+                        errores: errores.mapped(), /* convierte el valor del array en el valor de errors */
+                        old: req.body
+                    })
+                })
+        } else {
+
+            db.Productos.update({
+                name: name.trim(),
+                price: precio,
+                stock: stock,
+                discount: discount,
+                description: description.trim(),
+                category_id: category,
+                sub_category_id: subcategory
+            }, {
+                where: {
+                    id: req.params.id
                 }
             })
-            .then(function(cateSub){
-                db.Productos.create({/* creo una creo un producto con sus datos */
-                
-                    name:name,
-                    precio:precio,
-                    stock:stock,
-                    discount:discount,
-                    description:description,
-                    cate_sub_id:cateSub.id 
+                .then(() => {
+                    res.redirect("/products/allProducts#productos-destacados")
                 })
-                .then((resultado)=>{/* con el resultado creo una imagen  */
-                    let id=resultado.id
-                    db.ImagenProducto.create({
-                        product_name:(req.files[0])?req.files[0].filename:"productoDefoult.png",
-                        product_id:id
-                    })
-                    .then(function(){
+        }
+    },
+    productDelete: (req, res) => {
+        db.ImagenProducto.findAll({
+            where: {
+                product_id: req.params.id
+            }
+        })
+            .then((imagen) => {
+                let eliminarImagen = db.ImagenProducto.destroy({
+                    where: {
+                        product_id: req.params.id
+                    }
+                })
+                let eliminarProducto = db.Productos.destroy({
+                    where: {
+                        id: req.params.id
+                    }
+                })
+                Promise.all([eliminarImagen, eliminarProducto])
+                    .then((result) => {
+                        imagen.forEach(element => {
+                            if (element.product_name != 'productoDefoult.png') {
+                                fs.unlinkSync('public/images/productos/' + element.product_name)
+                            }
+                        })
                         res.redirect('/');
                     })
-                    
-                })
-                /* res.redirect("/"); */
             })
-            
-        }    
     },
-    productDetail:(req,res)=>{
-
-        let pedidoCategoria=db.Categoria.findAll();
-        let pedidoSubCategoria=db.SubCategoria.findAll();
-        let losProductos=db.Productos.findByPk(req.params.id,{
-            include:[{association:"cateSub"},{association:"imagenProducto"}]
-        })
-        Promise.all([pedidoCategoria,pedidoSubCategoria,losProductos])/* trae todos los pedidos */
-        .then(([categoria,subcategoria,product])=>{
-            res.render('productDetail',{
-                categoria,
-                subcategoria,
-                product,
-                toThousand
-            })
-        })
-        /* let product = db.Product.findByPk(+req.params.id);
-        let productRelacionados = db.category.findAll({
+    allProducts: (req, res) => {
+        db.Productos.findAll({
+            include: [{ association: "imagenProducto" }],
             where: {
-                category_id: product.category_id
-            }
-        });
-        Promise.all([product,productRelacionados])
-        .then(([product,productRelacionados])=>{
-            return res.render('productDetail',{product,productRelacionados,toThousand});
-        }) */
-        
-        
-    },
-    productEdit:(req,res)=>{
-        /* let product = data.find(element => element.id === +req.params.id);
-        
-        res.render('adminProduct/productEdit'); */
-        let pedidoCategoria=db.Categoria.findAll();
-        let pedidoSubCategoria=db.SubCategoria.findAll();
-        let elProducto=db.Productos.findByPk(req.params.id,{
-            include:[{association:"cateSub"},{association:"imagenProducto"}]
-        })
-        Promise.all([pedidoCategoria,pedidoSubCategoria,elProducto])
-        .then(([categoria,subcategoria,product])=>{
-            let valorCategoria;
-            let valorSubcategoria;
-            categoria.forEach(cate => {
-                if(product.cateSub.category_id == cate.id){
-                 valorCategoria=cate.name
+                stock: {
+                    [Op.ne]: 0
                 }
-            });
-            subcategoria.forEach(sub=>{
-                if(product.cateSub.sub_category_id==sub.id){
-                    valorSubcategoria=sub.name
-                }
-            })
-            res.render('adminProduct/productEdit',{
-                categoria,
-                subcategoria,
-                product,
-                valorCategoria,
-                valorSubcategoria
-            })
-        })
-    },
-    processEdit:(req,res)=>{
-        /* let product = data.find(element => element.id === +req.params.id); */
-        
-        /* const {category,subcategory,name,precio,stock,discount,description,img} = req.body; */
-        
-        const errores=validationResult(req);
-        /*   res.send(errores.mapped())  */
-        if(!errores.isEmpty()){
-            return res.render('adminProduct/productEdit',{ 
-                product,
-                errores : errores.mapped(), /* convierte el valor del array en el valor de errors */
-                old:req.body
-                
-            })
-        }else{
-            const{name,precio,stock,discount,description,category,subcategory}=req.body;
-        db.Productos.update({
-            name:name.trim(),
-            price:precio,
-            stock:stock,
-            discount:discount,
-            description:description.trim(),
-            category_id:category,
-            sub_category_id:subcategory
-        },{
-            where:{
-                id:req.params.id
             }
         })
-        .then(()=>{
-            res.redirect("/products/allProducts#productos-destacados")
-        })
-
-            
-           /*  data.forEach(element=>{
-                if(element.id == req.params.id){
-                    element.id = element.id;
-                    element.category = category;
-                    element.subcategory = subcategory;
-                    element.name = name.trim();
-                    element.precio = +precio;
-                    element.stock = +stock;
-                    element.discount = +discount;
-                    element.description = description.trim();
-                    element.img = img.trim();
-                }
-                
-            });
-      
-            setProducts(data);
-            res.redirect('/products/allProducts#productos-destacados');
-        }
-         */
-    }
+            .then(function (products) {
+                res.render("allProducts", { products: products, toThousand })
+            })
     },
-    productDelete:(req,res)=>{
-       /*  data.forEach(element=>{
-            if(element.id == req.params.id){
-                
-                if(fs.existsSync(path.join('public','images','productos',element.img))){
-                    fs.unlinkSync(path.join('public','images','productos',element.img))
-                }
-                
-                let idEliminado = data.indexOf(element);
-                data.splice(idEliminado,1);
-            }
-        });
-        setProducts(data);
-        res.redirect('/products/allProducts#productos-destacados'); */
-    },
-    allProducts:(req,res)=>{
-        db.Productos.findAll({
-            include:[{association:"cateSub"},{association:"imagenProducto"}]
-        })
-        .then(function(products){
-            res.render("allProducts",{products:products,toThousand})
-        })
-       /*  let products = data;
-        
-        res.render('allProducts',{products,toThousand}); */
-    },
-    productCategory:(req,res)=>{
+    productCategory: (req, res) => {
         db.Categoria.findOne({
-            where:{
-                name:req.params.category
+            where: {
+                name: req.params.category
             }
         })
-        .then((categoria)=>{
-            db.Cate_subs.findOne({
-                where:{
-                    category_id:categoria.id,
-                }
-            }).then((resultado)=>{
+            .then((categoria) => {
+                /* res.send(categoria) */
                 db.Productos.findAll({
-                    include:[{association:"cateSub"},{association:"imagenProducto"}]
-                },{
-                    where:{
-                        cate_sub_id:resultado.id
+                    include: [{ association: "imagenProducto" }],
+                    where: {
+                        category_id: categoria.id,
+                        stock: {
+                            [Op.ne]: 0
+                        }
                     }
-                }).then((result)=>{
-                    res.render('productCategory',{result,toThousand})
+                }).then((result) => {
+                    /* res.send(result) */
+                    res.render('productCategory', { result, toThousand })
                 })
             })
-        })
-         /* let result =data.filter(element=>{
-            if(element.category == req.params.category){
-                return element
-            }
-        });
-        
-        res.render('productCategory',{result,toThousand}); */
     },
-    productSubcategory:(req,res)=>{
+    productSubcategory: (req, res) => {
         db.SubCategoria.findOne({
-            where:{
-                name:req.params.subcategory
+            where: {
+                name: req.params.subcategory/* traeme todos los alimentos o accesorios */
             }
         })
-        .then((subcategoria)=>{
-            db.Cate_subs.findOne({
-                where:{
-                    category_id:subcategoria.id,
-                }
-            }).then((resultado)=>{
+            .then((subcategoria) => {
+                /*  res.send(subcategoria) */
                 db.Productos.findAll({
-                    include:[{association:"cateSub"},{association:"imagenProducto"}]
-                },{
-                    where:{
-                        cate_sub_id:resultado.id
+                    include: [{ association: "imagenProducto" }],
+                    where: {
+                        subcategory_id: subcategoria.id,
+                        stock: {
+                            [Op.ne]: 0
+                        }
                     }
-                }).then((result)=>{
-                    res.render('productSubcategory',{result,toThousand})
+                }).then((result) => {
+                    res.render('productSubcategory', { result, toThousand })
                 })
+
             })
-        })
-        /*  let result=data.filter(element=>{
-            if(element.subcategory == req.params.subcategory){
-                return element;
-            }
-        });
-        
-        res.render('productSubcategory',{result,toThousand}); */
     },
-    productNav:(req,res)=>{
-        let pedidoCategoria=db.Categoria.findOne({
-            where:{
-                name:req.params.category
+    productNav: (req, res) => {
+        let pedidoCategoria = db.Categoria.findOne({
+            where: {
+                name: req.params.category
             }
         })
-        let pedidoSubCategoria=db.SubCategoria.findOne({
-            where:{
-                name:req.params.subcategory
+        let pedidoSubCategoria = db.SubCategoria.findOne({
+            where: {
+                name: req.params.subcategory
             }
         })
-        Promise.all([pedidoCategoria,pedidoSubCategoria])
-        .then(([categoria,subcategoria])=>{
-        db.Cate_subs.findOne({
-            where:{
-                category_id:categoria.id,
-                sub_category_id:subcategoria.id
-            }
-        })
-        .then((resultado)=>{
-            db.Productos.findAll({
-                include:[{association:"cateSub"},{association:"imagenProducto"}]
-            },{
-                where:{
-                    cate_sub_id:resultado.id
-                }
-            }).then((result)=>{
-                res.render('productNav',{result,toThousand})
+        Promise.all([pedidoCategoria, pedidoSubCategoria])
+            .then(([categoria, subcategoria]) => {
+                db.Productos.findAll({
+                    include: [{ association: "imagenProducto" }],
+                    where: {
+                        category_id: categoria.id,
+                        subcategory_id: subcategoria.id,
+                        stock: {
+                            [Op.ne]: 0
+                        }
+                    }
+                })
+                    .then((result) => {
+                        res.render('productNav', { result, toThousand })
+                    })
             })
-        })
-    })
-       /*  
-        let result= data.filter(element=>{
-            if(element.category == req.params.category && element.subcategory == req.params.subcategory){
-                return element;
-            }
-        })
-        
-        res.render('productNav',{result,toThousand}); */
     },
-    productOfertas:(req,res)=>{
+    productOfertas: (req, res) => {
         db.Productos.findAll({
-            where:{
-                discount:{
-                    [Op.ne]:0
+            include: [{ association: "imagenProducto" }]
+            ,
+            where: {
+                discount: {
+                    [Op.ne]: 0
+                },
+                stock: {
+                    [Op.ne]: 0
                 }
             },
-            include:[{association:"imagenProducto"}]
+            include: [{ association: "imagenProducto" }]
         })
-        .then(function(products){
-            res.render('productOfertas',{
-                products,toThousand
+            .then(function (products) {
+                res.render('productOfertas', {
+                    products, toThousand
+                })
             })
+    },
+    productsStock: (req, res) => {
+        db.Productos.findAll({
+            include: [{ association: "imagenProducto" }]
+
         })
-       /*  let products= data.filter(element=>{
-            if(element.discount != 0){
-                return element;
-            }
-        })
-        res.render('productOfertas',{products,toThousand}); */
+            .then((products) => {
+                res.render('adminProduct/editarStock', {
+                    products, toThousand
+                })
+            })
+    },
+    cambiarStock: (req, res) => {
+        const errores = validationResult(req);
+        if (!errores.isEmpty()) {
+            db.Productos.findAll({
+                include: [{ association: "imagenProducto" }]
+            }).then((products) => {
+                return res.render('adminProduct/editarStock', {
+                    products,
+                    toThousand,
+                    errores: errores.mapped(), /* convierte el valor del array en el valor de errors */
+                    old: req.body
+                })
+            })
+        } else {
+            let nuevoStock = req.body.stock
+            db.Productos.update({
+                stock: nuevoStock
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+                .then(() => {
+                    res.redirect('/products/productStock')
+                })
+        }
     }
 }

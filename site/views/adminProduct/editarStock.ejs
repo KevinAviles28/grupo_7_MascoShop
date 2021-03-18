@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
-<%- include('partials/head') %> 
+<%- include('../partials/head') %> 
 <body>
-  <%- include('partials/header') %>
+  <%- include('../partials/header') %>
   
   <main class="index container my-3">
     
@@ -12,15 +12,16 @@
       <div><img src="/images/delivery.jpg" alt=""></div>
       <div><img src="/images/consultas.jpg" alt=""></div>
     </div>
-     
-    <h2>Nuestros productos</h2>
+    
+    
+    <h2>Stock de productos</h2>
     
     <!-- productos destacados -->
-    <div class="row my-3">
+    <div class="row my-4" id="productos-destacados">
       
-      <% result.forEach(element=>{ %> 
-        <section class="my-3 col-12 col-md-6 col-lg-4 col-xl-3">
-          <a href="/products/productDetail/<%= element.id %>">
+      <% products.forEach(element=>{ %> 
+        <section class="col-12 col-md-6 col-lg-4 col-xl-3 my-3">
+          <a href="/products/productDetail/<%= element.id %>#product-detail">
             <figure>
               <img src="/images/productos/<%= element.imagenProducto[0].product_name %>" alt="" class="w-100">
               <h5><%= element.name %> </h5>
@@ -32,7 +33,17 @@
                 <h5 style="color: #f37121;">PRECIO LISTA</h5>
                 <p>$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %> </p>
               </div>
-            </a>
+            </a> 
+              <form action="/products/cambiarStock/<%=element.id%>?_method=PUT" method="POST">
+            <div class="position-relative my-2">
+                <input class="me-5 text-center rounded-pill" type="number" min="<%=element.stock %>" max="999" name="stock" value="<%=element.stock %>" >
+                <button type="submit" class="position-absolute top-50 end-0 translate-middle-y rounded-pill">Cambiar Stock</button><br>
+              </div>
+                <span class="text-danger"><%= (typeof errores != 'undefined' && errores.stock) ? errores.stock.msg : "" %>  </span>
+              </form>
+
+            
+            
           </section>
           <% }) %> 
           
@@ -62,9 +73,8 @@
         
       </main>
       
-      
-      <%- include('partials/footer') %>
-      <%- include('partials/scripts') %> 
+      <%- include('../partials/footer') %>
+      <%- include('../partials/scripts') %> 
       
     </body>
     </html>
