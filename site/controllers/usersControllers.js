@@ -1,190 +1,150 @@
+const path = require('path');
 const fs = require('fs');
-const path=require('path');
-/* const users_db=JSON.parse(fs.readFileSync(path.join('.','data','users.json'),'utf-8')); */
-const bcrypt=require('bcrypt')  
+const db = require(path.join('..','database','models'));
+const bcrypt = require('bcrypt')  
 const {validationResult} = require('express-validator');
 
-const {getUsers, setUsers} = require(path.join('..','data','users'));
-const users_db=getUsers();
 module.exports = {
-    /* pagina registro */
     register:(req,res)=>{
-        res.render('users/register',{title:'Mascoshop registro'});
-    },  
-    /* proceso de registro */
-    processRegister:(req,res)=>{ /* si no esta vacio   osea , si hay errores */
+        res.render('users/register');
+    },
+    processRegister:(req,res)=>{
+        
         const errores=validationResult(req);
-       /*   res.send(errores.mapped())  */
+        
         if(!errores.isEmpty()){
             return res.render('users/register',{
                 errores : errores.mapped(),/* convierte el valor del array en el valor de errors */
                 old:req.body,/* para que se guarden los datos que escribiste */
-                title:'Mascoshop registro'
             })
         }else{
             
-            const{name,apellido,email,passUno}=req.body;
-            let lastID=0;
-            users_db.forEach(user => {
-                if(user.id > lastID){                               
-                    lastID = user.id
-                }
-            });
-            let hashPass=bcrypt.hashSync(passUno,12)
-            let newUser={
-                id: +lastID+1,
-                name,
-                apellido,
-                email,
-                pass:hashPass,
-                pais:"",
-                localidad:"",
-                telefono:"",
-                direccion:"",
-                category:"Usuario",
-                avatar: req.files[0].filename
-                /* img:(req.files[0])?req.files[0].filename:"default-image.png" */
-            }
+            const {name,apellido,email,passUno,avatar} = req.body;
             
-            users_db.push(newUser);
-            /* fs.writeFileSync('./data/users.json',JSON.stringify(users_db,null,2))  */
-            setUsers(users_db);
-            return res.redirect('/users/login')  ;
-            
-        }        
-        
+            db.User.create({
+                name: name.trim(),
+                apellido: apellido.trim(),
+                email: email.trim(),
+                pass: bcrypt.hashSync(passUno,12),
+                avatar: (req.files[0])?req.files[0].filename:"usuarioDefoult.png",
+                category: 'Admin'
+            })
+            .then(()=>{
+                res.redirect('/users/login');
+            })
+            .catch(error => console.log(error))
+        }
     },
-    /* login */
     login:(req,res)=>{
-        res.render('users/login',{
-            title:'Mascoshop login'
-        });
+        res.render('users/login');
     },
-    /* proceso login */
     processLogin:(req,res)=>{
+        
         const errores=validationResult(req);
-        /*  res.send(errores.mapped())   */
-
+        
         if(!errores.isEmpty()){
             return res.render('users/login',{
                 errores : errores.mapped(),/* convierte el valor del array en el valor de errors */
-                old:req.body,
-                title:'Mascoshop login'
+                old:req.body
             })
             
         }else{
-              const{email,pass,recordarme}=req.body
-            let result=users_db.find(user=>user.email==email);
-           
-             
-            if(result){
-                if(bcrypt.compareSync(pass.trim(),result.pass)){
-                req.session.userNew={      
-                    id:result.id,
-                    username: result.name,
-                    apellido: result.apellido,
-                    email: result.email,
-                    category:result.category,
-                    avatar:result.avatar
+            
+            const {email,pass,recordarme} = req.body;
+            
+            db.User.findOne({
+                where: {
+                    email
                 }
-                //Cookie recordar
-                if(recordarme){
-                        res.cookie("recordar",req.session.userNew,{
-                            maxAge : 1000 * 60 * 60
-                        })
+            })
+            .then(result=>{
+                
+                if(result){
+                    if(bcrypt.compareSync(pass,result.pass)){
+                        
+                        req.session.userNew={      
+                            id: result.id,
+                            username: result.name,
+                            apellido: result.apellido,
+                            email: result.email,
+                            category: result.category,
+                            avatar: result.avatar
+                        }
+                        
+                        if(recordarme){
+                            res.cookie("recordar",req.session.userNew,{
+                                maxAge : 1000 * 60 * 60
+                            })
+                        }
+                        
+                        return res.redirect('/');
+                        
+                    }else{
+                        return res.render('users/login',{error: 'Credenciales invalidas 2'});
                     }
-        
-
-                    return res.redirect('/')
-            }
-        }
-        res.render('users/login',{error: "Credenciales invalidas",title: 'Mascoshop'});
-
-        }
-    },  
-    /* perfil */
-    perfil:(req,res)=>{
-        let usuario = users_db.find(element=> element.id == req.params.id);
-
-        /* res.render('perfil',{title: `Oneclick ${usuario.name}`,usuario}); */
-        res.render('users/perfil',{title: 'Mascoshop Mi perfil',
-        usuario
-    });
-
-
-    },
-
-    eliminarCuenta:(req,res)=>{
-        
-        users_db.forEach(user=>{
-            if(user.id===Number(req.params.id)){
-
-                if(fs.existsSync(path.join('public','images','users',user.avatar))){
-                    fs.unlinkSync(path.join('public','images','users',user.avatar))
+                }else{
+                    return res.render('users/login',{error: 'Credenciales invalidas 1'});
                 }
-
-                aEliminar=users_db.indexOf(user)
-                users_db.splice(aEliminar,1)
-            }
-        });
-      /*   fs.writeFileSync('./data/users.json',JSON.stringify(users_db,null,2)) */
-       setUsers(users_db);
-        req.session.destroy();
-        if(req.cookies.recordar){
-            res.cookie('recordar','',{
-                maxAge : -1
             })
+            .catch(error => console.log(error))
         }
-        res.redirect('/');
         
-    }, 
-    /* vista de la pagina de editar cuenta */
-    editaVistaEscencial:(req,res)=>{
-        res.render('users/editPerfilEscencial',{title: 'Mascoshop Edit'});
     },
-    
-    /* formulario de editar cuenta */
-    editarPerfilEscencial:(req,res)=>{
-        const{nombre,apellido,email}=req.body;
+    perfil:(req,res)=>{
         
-        users_db.forEach(user => {
-            if(user.id === Number(req.params.id)){
-                user.name = nombre.trim(),
-                user.apellido = apellido.trim(),
-                user.email = email.trim()
-            }
-        });
+        db.User.findByPk(req.params.id)
+        .then(usuario=>{
+            res.render('users/perfil',{usuario});
+        })
         
-       /*  fs.writeFileSync('./data/users.json',JSON.stringify(users_db,null,2)); */
-       setUsers(users_db)
-        req.session.destroy();
-        if(req.cookies.recordar){
-            res.cookie('recordar','',{
-                maxAge : -1
-            })
-        }
-        res.redirect('/users/login');
     },
     vistaDeEdicion:(req,res)=>{
-        res.render('users/editPerfil',{title: 'Mascoshop Edit'});
+        db.User.findByPk(req.params.id)
+        .then((result)=>{
+            res.render('users/editPerfil',{
+                result
+            });
+        })
+        
     },
     edicionDePerfil:(req,res)=>{
-        const{pais,localidad,direccion,telefono}=req.body;
+
+        const {pais,localidad,telefono,direccion} = req.body;
+        db.User.update({
+            pais: pais.trim(),
+            localidad: localidad.trim(),
+            telefono: telefono.trim(),
+            direccion: direccion.trim()
+        },{
+            where:{
+                id:req.params.id
+            }
+        })
+        .then(()=>{
+            res.redirect('/');
+        })
+        .catch(error => console.log(error))
+    
+    },
+    eliminarCuenta:(req,res)=>{
         
-        users_db.forEach(user => {
-            if(user.id === Number(req.params.id)){
-                user.pais = pais.trim(),
-                user.localidad = localidad.trim(),
-                user.direccion = direccion.trim(),
-                user.telefono= Number(telefono.trim())
-                
-                /* gola */
+        let user = db.User.findByPk(req.params.id);
+        let remove = db.User.destroy({
+            where: {
+                id: req.params.id
             }
         });
         
-        /* fs.writeFileSync('./data/users.json',JSON.stringify(users_db,null,2)); */
-        setUsers(users_db);
-        res.redirect('/');
+        Promise.all([user,remove])
+        .then(([user,remove])=>{
+            
+            if(fs.existsSync(path.join('public','images','users',user.avatar))){
+                fs.unlinkSync(path.join('public','images','users',user.avatar))
+            }
+            
+            return res.redirect('/');
+        })
+        .catch(error => console.log(error))
     },
     cerrarSession:(req,res)=>{ /* cerrar sesion */
         req.session.destroy();

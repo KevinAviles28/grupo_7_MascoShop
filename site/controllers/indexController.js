@@ -1,50 +1,62 @@
-/* const data = require('../data/dataproducts'); */
-const path= require('path');
-const {getProducts, setProducts} = require(path.join('..','data','dataproducts'));
-const data=getProducts();
+const path = require('path');
+const db = require(path.join('..','database','models'));
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
+const {Op}=require('sequelize')
 module.exports={
     index:(req,res)=>{
-        let products = [];
         
-        data.forEach(element=>{
-            if(element.discount != 0){
-                return products.push(element);
-            }
+        db.Productos.findAll({
+            where:{  
+                discount:{
+                    [Op.ne]:0
+                },
+                stock:{
+                    [Op.ne]:0
+                }
+            },
+            include:[{association:"imagenProducto"}]
         })
-        
-        res.render('index',{products,toThousand,title: 'Mascoshop Home'});
-        
+        .then(products=>{
+            res.render('index',{products,toThousand});
+        })
+        .catch(error => res.send(error));
+              
     },
     search:(req,res)=>{
-        const search = data.filter(element=>{
-            if(element.name.toLowerCase().includes(req.query.busqueda.toLowerCase().trim()) || element.category.toLowerCase().includes(req.query.busqueda.toLowerCase().trim())){
-                return element;
-            }
-            /* return element.name.toLowerCase().includes(req.query.busqueda.toLowerCase().trim()); */
+
+        db.Productos.findAll({
+            include:[{association:"imagenProducto"},{association:"categoria"},{association:"subcategoria"}]
         })
+        .then(result=>{
+            const search = result.filter(element=>{
+                if(element.name.toLowerCase().includes(req.query.busqueda.toLowerCase().trim()) || element.subcategoria.name.toLowerCase().includes(req.query.busqueda.toLowerCase().trim()) || element.categoria.name.toLowerCase().includes(req.query.busqueda.toLowerCase().trim()) ){
+                    return element;
+                }
+            })
+
+            res.render('search',{search,toThousand});
+        })
+        .catch(error => res.send(error));
         
-        res.render('search',{search,toThousand,title: 'Mascoshop resultados de busqueda'});
     },
     nosotros:(req,res)=>{
         res.render('sobreNosotros',{
-            title:'Mascoshop Sobre nosotros'
+           
         })
     },
     contacto:(req,res) => {
         res.render("contacto",{
-            title:"Contacto"
+            
         })
     },
     mediosDePago:(req,res) => {
         res.render("mediosDePago",{
-            title:"Medios de Pago"
+            
         })
     },
     sucursales:(req,res) => {
         res.render("sucursales",{
-            title:"Nuestros locales"
+           
         })
     }
 }

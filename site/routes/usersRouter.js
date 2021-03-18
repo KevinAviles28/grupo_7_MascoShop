@@ -17,18 +17,17 @@ router.post('/register',upload.any(),registerValidation,processRegister);
 
 /* login */
 router.get('/login',login);
-router.post('/login',loginValidation,processLogin) ;
+router.post('/login',loginValidation,processLogin);
 
 
 /* Perfil */
 router.get('/perfil/:id',rutasCheck,perfil);
 
 /* editar perfil escencial*/
-router.get('/editEscencial',rutasCheck,editaVistaEscencial);
-router.put('/editEscencial/:id',editarPerfilEscencial);
+
 
 /* editar perfil normal*/
-router.get('/edit',rutasCheck,vistaDeEdicion);
+router.get('/edit/:id',rutasCheck,vistaDeEdicion);
 router.put('/edit/:id',edicionDePerfil);
 
 /* eliminar cuenta */
