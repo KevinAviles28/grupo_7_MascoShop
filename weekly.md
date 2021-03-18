@@ -1,3 +1,5 @@
+## DAILY/WEEKLY Sprint 4
+
 ## Tareas Realizadas:
 -Terminamos CRUD productos
 -Prueba de session y validation
@@ -12,7 +14,7 @@
 -Button Se deformaban, Solucionamos viendo codigo, linea por linea y utilizando el inspeccionar del navegador.
 -Conflicto al trabajar sobre un mismo archivo, solucionamos editando el archivo manualmente.
 
-## DAILY/WEEKLY Sprint 4
+
 
 ## Michel
 
@@ -43,3 +45,47 @@
 ### ● Qué vas a hacer hoy cerebro
 -Lo mismo que hacemos todas las noches pinky ! tratar de conquistar al mundo !!
 -Empezar sql
+
+
+## DAILY/WEEKLY Sprint 5
+
+
+## Tareas Realizadas:
+-Base de datos de MYSQL
+-Poblacion base de datos
+-Estructura base de datos
+
+
+
+
+## Impedimentos y Soluciones
+-Sugerencia de cambios en la base de datos, que nos llevo a varios inconvenientes, resuelto aplicando la base aprendida
+
+
+
+## Michel
+
+### ● Qué hizo ayer
+-Estructura de base de datos
+### ● Si se encontró con algún impedimento
+-Problemas en la relacion en la subcategoria y categoria de productos.
+### ● Qué vas a hacer hoy cerebro
+-DORMIR DORMIR DORMIR DORMIR Y LUEGO DORMIR MAS
+
+## Kevin
+
+### ● Qué hizo ayer
+-CRUD de base de datos
+### ● Si se encontró con algún impedimento
+-Errores de sintaxis
+### ● Qué vas a hacer hoy cerebro
+-DORMIR DORMIR DORMIR DORMIR Y LUEGO DORMIR MAS
+
+## Jonas
+
+### ● Qué hizo ayer
+-Avanzar en el playground
+### ● Si se encontró con algún impedimento
+-Error en aplicar validacion en el front
+### ● Qué vas a hacer hoy cerebro
+-DORMIR DORMIR DORMIR DORMIR Y LUEGO DORMIR MAS
