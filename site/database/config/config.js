@@ -1,23 +1,23 @@
 module.exports = {
   "development": {
-    "username": "root",
-    "password": '',
+    "username": process.env.DB_USER,
+    "password": process.env.DB_PASS,
     "database": "mascoshop",
-    "host": "127.0.0.1",
+    "host": process.env.DB_HOST,
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
+    "username": process.env.DB_USER,
     "password": null,
     "database": "database_test",
-    "host": "127.0.0.1",
+    "host": process.env.DB_HOST,
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
+    "username": process.env.DB_USER,
     "password": null,
     "database": "database_production",
-    "host": "127.0.0.1",
+    "host": process.env.DB_HOST,
     "dialect": "mysql"
   }
 }
