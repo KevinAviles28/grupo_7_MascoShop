@@ -1,6 +1,8 @@
 module.exports=(sequelize,dataTypes)=>{
-    const alias="ImagenProducto"
-    const cols={
+
+    const alias = "ImagenProducto"
+
+    const cols = {
         id:{
             type:dataTypes.INTEGER, /* tipo de dato que es */
             primaryKey: true,   /* si es una clave primaria */
@@ -14,11 +16,13 @@ module.exports=(sequelize,dataTypes)=>{
             type:dataTypes.INTEGER
         }
     }
-    const config={
+
+    const config = {
         tableName:'product_images',
         timestamps:false,
     }
-    const ImagenProducto=sequelize.define(alias,cols,config);
+
+    const ImagenProducto = sequelize.define(alias,cols,config);
 
     ImagenProducto.associate=function(models){
         ImagenProducto.belongsTo(models.Productos,{

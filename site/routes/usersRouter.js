@@ -24,11 +24,10 @@ router.post('/login',loginValidation,processLogin);
 router.get('/perfil/:id',rutasCheck,perfil);
 
 /* editar perfil escencial*/
-router.get('/editEscencial',rutasCheck,editaVistaEscencial);
-router.put('/editEscencial/:id',editarPerfilEscencial);
+
 
 /* editar perfil normal*/
-router.get('/edit',rutasCheck,vistaDeEdicion);
+router.get('/edit/:id',rutasCheck,vistaDeEdicion);
 router.put('/edit/:id',edicionDePerfil);
 
 /* eliminar cuenta */

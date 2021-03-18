@@ -9,6 +9,9 @@ module.exports={
             where:{  
                 discount:{
                     [Op.ne]:0
+                },
+                stock:{
+                    [Op.ne]:0
                 }
             },
             include:[{association:"imagenProducto"}]
@@ -21,10 +24,12 @@ module.exports={
     },
     search:(req,res)=>{
 
-        db.Productos.findAll()
+        db.Productos.findAll({
+            include:[{association:"imagenProducto"},{association:"categoria"},{association:"subcategoria"}]
+        })
         .then(result=>{
             const search = result.filter(element=>{
-                if(element.name.toLowerCase().includes(req.query.busqueda.toLowerCase().trim()) /* || element.category.toLowerCase().includes(req.query.busqueda.toLowerCase().trim()) */){
+                if(element.name.toLowerCase().includes(req.query.busqueda.toLowerCase().trim()) || element.subcategoria.name.toLowerCase().includes(req.query.busqueda.toLowerCase().trim()) || element.categoria.name.toLowerCase().includes(req.query.busqueda.toLowerCase().trim()) ){
                     return element;
                 }
             })

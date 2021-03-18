@@ -9,7 +9,11 @@
     -Actualizado Sprint 4
     -Seguir adelantando en lo posible sprint
     -Seguir con las reuniones madrugonas
-    -Seguir manteniendo el mismo nivel de comunicación
+    -Seguir manteniendo el mismo nivel de comunicació
+    -Actualizado Sprint 5
+    -Reuniones semanales
+
+
 
 
 
@@ -22,6 +26,9 @@
     -Ordenar codigo CTRL + A y CTRL + SHIFT + P
     -Actualizado Sprint 4
     -Implementar mejoras en el front
+    -Actualizado Sprint 5
+    -Mejoras en el front
+
 
 
 ## Empezar a hacer:
@@ -32,6 +39,9 @@
     -Undefined
     -Actualizado Sprint 4
     -No dejar de lado el playground,trabajos practicos
+    -Actualizado Sprint 5
+    -Ya hicimos todo
+
     
 
 ## Dejar de hacer:
@@ -41,6 +51,8 @@
     -Subir actualizaciones sin avisar al grupo.
     -Actualizado Sprint 4
     -Undefined
+    -Actualizado Sprint 5
+    -undefined
 
 ## Hacer menos:
     -Undefined;
@@ -48,3 +60,5 @@
     -Dejar de adelantar Sprint.
     -Actualizado Sprint 4
     -Undefined
+    -Actualizado Sprint 5
+    -No sobreesforzarce
