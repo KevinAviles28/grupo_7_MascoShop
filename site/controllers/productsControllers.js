@@ -178,7 +178,7 @@ module.exports = {
                 Promise.all([eliminarImagen, eliminarProducto])
                     .then((result) => {
                         imagen.forEach(element => {
-                            if (element.product_name != 'productoDefoult.png') {
+                            if (element.product_name != 'productoDefault.png') {
                                 fs.unlinkSync('public/images/productos/' + element.product_name)
                             }
                         })
