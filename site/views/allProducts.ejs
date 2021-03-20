@@ -18,56 +18,35 @@
     
     <!-- productos destacados -->
     <div class="row my-4" id="productos-destacados">
-      
-      <% products.forEach(element=>{ %> 
-        <section class="col-12 col-md-6 col-lg-4 col-xl-3 my-3">
-          <a href="/products/productDetail/<%= element.id %>#product-detail">
-            <figure>
-              <img src="/images/productos/<%= element.imagenProducto[0].product_name %>" alt="" class="w-100">
-              <h5><%= element.name %> </h5>
-              <% if(element.discount != 0){ %> 
-                <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
-                <% } %>    
-              </figure>
-              <div class="precio-producto">
-                <h5 style="color: #f37121;">PRECIO LISTA</h5>
-                <p>$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %> </p>
-              </div>
-            </a>
-            <% if (userNew.category==="Admin") { %>
-              <form action="/products/productDelete/<%= element.id %>?_method=DELETE" method="POST" class="d-flex flex-column align-items-center my-3">
-                <button type="submit" class="btn btn-danger">Eliminar producto</button>
-                <a href="/products/productEdit/<%= element.id %>" class="btn btn-success my-3">Editar producto</a>
-              </form>
-            <% } %>
-            
-            
-          </section>
-          <% }) %> 
+
+      <% products.forEach(element=>{ %>
+        <section class="col-12 col-md-6 col-lg-4 col-xl-3 vista-producto">
+          <div class="contenido-producto"><!-- elementos individuales que se veran -->
+            <a href="/products/productDetail/<%= element.id %>#product-detail">
+              <div class="img-content">
+                <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
+                <% if(element.discount != 0){ %> 
+                  <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
+                  <% } %> 
+                </div>         
+                <p><%= element.name %></p>
+                <p class="precio">$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
+                <button class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>
+              </a>
+              <% if (userNew.category==="Admin") { %>
+                <form action="/products/productDelete/<%= element.id %>?_method=DELETE" method="POST">
+                  <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                  <a href="/products/productEdit/<%= element.id %>" class="btn btn-success my-3"><i class="far fa-edit"></i></a>
+                </form>
+              <% } %>			
+            </div>
+          </section> 
+          <% }) %>
           
         </div>
         <!-- productos destacados -->
         
-        <div class="instructivo-compra">
-          <article>
-            <img src="/images/inst-carrito.png" alt="">
-            <p>Agregá a tu carrito los productos que necesitas.</p>
-          </article>
-          <article>
-            <img src="/images/inst-pagos.png" alt="">
-            <p>Elegí el medio de pago que desees y aprovechá nuestras promos.</p>
-          </article>
-          <article>
-            <img src="/images/inst-pedido.png" alt="">
-            <p>Recibí tu pedido o coordiná un punto de retiro.</p>
-          </article> 
-        </div>
-        
-        <div class="publi-footer my-3">
-          <div><img src="/images/publi-footer.jpg" alt=""></div>
-          <div><img src="/images/publi-2-footer.jpg" alt=""></div>
-          <div><img src="/images/publi-3-footer.jpg" alt=""></div> 
-        </div>
+        <%- include('partials/instruct') %> 
         
       </main>
       

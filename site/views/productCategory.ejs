@@ -19,23 +19,23 @@
     <!-- productos destacados -->
     <div class="row my-3">
       
-      <% result.forEach(element=>{ %> 
-        <section class="col-12 col-md-6 col-lg-4 col-xl-3">
-          <a href="/products/productDetail/<%= element.id %>">
-            <figure>
-              <img src="/images/productos/<%= element.imagenProducto[0].product_name %>" alt="" class="w-100">
-              <h5><%= element.name %> </h5>
-              <% if(element.discount != 0){ %> 
-                <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
-                <% } %>    
-              </figure>
-              <div class="precio-producto">
-                <h5 style="color: #f37121;">PRECIO LISTA</h5>
-                <p>$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
-              </div>
-            </a>
-          </section>
-          <% }) %> 
+      <% result.forEach(element=>{ %>
+        <section class="col-12 col-md-6 col-lg-4 col-xl-3 vista-producto">
+          <div class="contenido-producto"><!-- elementos individuales que se veran -->
+            <a href="/products/productDetail/<%= element.id %>#product-detail">
+              <div class="img-content">
+                <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
+                <% if(element.discount != 0){ %> 
+                  <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
+                  <% } %> 
+                </div>         
+                <p><%= element.name %></p>
+                <p class="precio">$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
+                <button class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>
+              </a>			
+            </div>
+          </section> 
+          <% }) %>
           
         </div>
         <!-- productos destacados -->

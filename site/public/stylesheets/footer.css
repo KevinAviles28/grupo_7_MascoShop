@@ -9,17 +9,6 @@ footer h3{
     color: white;
 }
 
-footer .consultas{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-}
-
-footer .consultas textarea{
-    resize: none;
-    height: 200px;
-}
-
 footer .redes-sociales ul li a i{
     font-size: 2rem;
 }
