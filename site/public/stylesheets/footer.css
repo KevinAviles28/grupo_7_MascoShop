@@ -9,6 +9,10 @@ footer h3{
     color: white;
 }
 
+footer ul li a:hover{
+    color: #666;
+}
+
 footer .redes-sociales ul li a i{
     font-size: 2rem;
 }

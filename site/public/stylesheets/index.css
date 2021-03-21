@@ -10,8 +10,8 @@
 main.index h2{
     margin: 20px 0;
     padding: 5px 0;
-    border-bottom: 1px solid var(--colorNaranja);
-    color: var(--colorNaranja);
+    border-bottom: 1px solid #666;
+    color: orange;
     font-size: 1rem;
 }
 
