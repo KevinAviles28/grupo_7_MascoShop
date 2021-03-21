@@ -1,6 +1,5 @@
 @import "generales.css";
 
-.imagenes-compra,
 .instructivo-compra{
     display: flex;
     flex-wrap: wrap;
