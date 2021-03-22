@@ -26,7 +26,7 @@ module.exports = {
                 apellido: apellido.trim(),
                 email: email.trim(),
                 pass: bcrypt.hashSync(passUno,12),
-                avatar: (req.files[0])?req.files[0].filename:"usuarioDefoult.png",
+                avatar: (req.files[0])?req.files[0].filename:"usuarioDefault.png",
                 category: 'Admin'
             })
             .then(()=>{

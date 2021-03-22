@@ -4,43 +4,46 @@
 <body>
   <%- include('../partials/header') %>
   
-  <h1 class="my-4 text-white bg-dark border-bottom border-danger">Editar Perfil</h1>
-  <form action="/users/edit/<%= userNew.id %>?_method=PUT " method="POST">
-    <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-6 col-lg-6">
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" placeholder="Pais" name="pais" value="<%= result.pais %>">
-          <label>Pais</label>
+  <main class="container">
+    <h1 class="my-4 text-white bg-dark border-bottom border-danger">Editar Perfil</h1>
+    <form action="/users/edit/<%= userNew.id %>?_method=PUT " method="POST">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 col-lg-6">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" placeholder="Pais" name="pais" value="<%= result.pais %>">
+              <label>Pais</label>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control"  placeholder="Localidad" name="localidad" value="<%= result.localidad %>">
+              <label>Localidad</label>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6">
+            <div class="form-floating mb-3">
+              <input type="text"class="form-control" placeholder="Direccion" name="direccion" value="<%= result.direccion %>">
+              <label>Direccion</label>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6">
+            <div class="form-floating mb-3">
+              <input type="text"class="form-control" placeholder="Telefono" name="telefono" value="<%= result.telefono %>">
+              <label>Telefono</label>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-6">
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control"  placeholder="Localidad" name="localidad" value="<%= result.localidad %>">
-          <label>Localidad</label>
-        </div>
+      <!-- d-grid gap-2 -->
+      <div class="d-flex justify-content-between my-3 mx-3">
+        <button class="btn btn-success" type="submit">Guardar los cambios</button>
+        <a href="/users/perfil/<%=result.id%> " class="btn btn-danger">Cancelar</a> 
       </div>
-      <div class="col-md-6 col-lg-6">
-        <div class="form-floating mb-3">
-          <input type="text"class="form-control" placeholder="Direccion" name="direccion" value="<%= result.direccion %>">
-          <label>Direccion</label>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-6">
-        <div class="form-floating mb-3">
-          <input type="text"class="form-control" placeholder="Telefono" name="telefono" value="<%= result.telefono %>">
-          <label>Telefono</label>
-        </div>
-      </div>
-    </div>
-  </div>
-    <!-- d-grid gap-2 -->
-    <div class="d-flex justify-content-between my-3 mx-3">
-      <button class="btn btn-success" type="submit">Guardar los cambios</button>
-      <a href="/users/perfil/<%=result.id%> " class="btn btn-danger">Cancelar</a> 
-    </div>
-    
-  </form>
+      
+    </form>
+  </main>
+  
   
   
   <%- include('../partials/footer') %>

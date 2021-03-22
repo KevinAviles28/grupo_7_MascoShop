@@ -93,7 +93,7 @@ CREATE TABLE `product_images` (
 
 LOCK TABLES `product_images` WRITE;
 /*!40000 ALTER TABLE `product_images` DISABLE KEYS */;
-INSERT INTO `product_images` VALUES (1,'img-1616046913272.png',1),(2,'img-1616046976378.png',2),(3,'img-1616047043566.png',3),(4,'img-1616047160261.png',4),(5,'productoDefoult.png',5),(6,'productoDefoult.png',6),(7,'img-1616047505200.png',7),(8,'img-1616047583660.png',8),(9,'img-1616047650639.png',9),(10,'img-1616047926681.png',10),(11,'img-1616048016305.png',11),(12,'img-1616048112200.png',12);
+INSERT INTO `product_images` VALUES (1,'img-1616046913272.png',1),(2,'img-1616046976378.png',2),(3,'img-1616047043566.png',3),(4,'img-1616047160261.png',4),(5,'productoDefault.png',5),(6,'productoDefault.png',6),(7,'img-1616047505200.png',7),(8,'img-1616047583660.png',8),(9,'img-1616047650639.png',9),(10,'img-1616047926681.png',10),(11,'img-1616048016305.png',11),(12,'img-1616048112200.png',12);
 /*!40000 ALTER TABLE `product_images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,7 +213,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Michel','Varela','michelvarela.95@outlook.com','$2b$12$XG9UvM6NDjdMnZcHJg7jtewQd0biqfneteU/sIkBL3q7ddWjvBUIi',NULL,NULL,NULL,NULL,'Admin','usuarioDefoult.png');
+INSERT INTO `users` VALUES (1,'Michel','Varela','michelvarela.95@outlook.com','$2b$12$XG9UvM6NDjdMnZcHJg7jtewQd0biqfneteU/sIkBL3q7ddWjvBUIi',NULL,NULL,NULL,NULL,'Admin','usuarioDefault.png');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

@@ -90,7 +90,8 @@ module.exports = {
                     include: [{ association: "categoria" }, { association: "subcategoria" }, { association: "imagenProducto" }],
                     where: {
                         category_id: laCategoria.id
-                    }
+                    },
+                    limit:8
                 })
                     .then((productosRelacionados) => {
                         res.render('productDetail', {
@@ -178,7 +179,7 @@ module.exports = {
                 Promise.all([eliminarImagen, eliminarProducto])
                     .then((result) => {
                         imagen.forEach(element => {
-                            if (element.product_name != 'productoDefoult.png') {
+                            if (element.product_name != 'productoDefault.png') {
                                 fs.unlinkSync('public/images/productos/' + element.product_name)
                             }
                         })

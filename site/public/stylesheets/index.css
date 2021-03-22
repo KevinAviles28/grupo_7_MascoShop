@@ -1,6 +1,5 @@
 @import "generales.css";
 
-.imagenes-compra,
 .instructivo-compra{
     display: flex;
     flex-wrap: wrap;
@@ -10,64 +9,12 @@
 main.index h2{
     margin: 20px 0;
     padding: 5px 0;
-    border-bottom: 1px solid var(--colorNaranja);
-    color: var(--colorNaranja);
+    border-bottom: 1px solid #666;
+    color: orange;
     font-size: 1rem;
 }
 
 /* productos destacados */
-main.index section a figure{
-    padding: 5px;
-    margin: 0;
-    border: 1px solid var(--ColorGris-oscuro);
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: 350px;
-}
-
-main.index section a figure img{
-    height: 80%;
-    padding: 20px;
-    object-fit: cover;
-    background-color: white;
-}
-
-main.index section a figure .descuento{
-    width: 75px;
-    height: 75px;
-    padding-top: 10px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: #00a3da;
-    border-radius: 50%;
-}
-
-main.index section a figure .descuento span{
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
-    
-}
-
-main.index section a figure h5{
-    text-transform: uppercase;
-}
-
-main.index section a .precio-producto{
-    border: 1px solid var(--ColorGris-oscuro);
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 10px;
-    box-shadow: 0px 10px 10px -6px #000;
-}
-
 
 /* productos destacados */
 
