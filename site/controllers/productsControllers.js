@@ -90,7 +90,8 @@ module.exports = {
                     include: [{ association: "categoria" }, { association: "subcategoria" }, { association: "imagenProducto" }],
                     where: {
                         category_id: laCategoria.id
-                    }
+                    },
+                    limit:8
                 })
                     .then((productosRelacionados) => {
                         res.render('productDetail', {

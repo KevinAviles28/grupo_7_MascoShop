@@ -6,52 +6,45 @@
     <main class="carga-productos container my-5">
         <h2 class="py-3">Formulario edicion de producto: <span style="text-transform: uppercase;"><%= product.name %></span></h2>
         <div class="row">
-            <div class="col-12 col-lg-6">
-                <form action="/products/productEdit/<%= product.id %>?_method=PUT" method="POST">
-                    <select name="category" class="form-select mb-3">
-                        <% categoria.forEach(cate => { %>
-                            <% if (cate.id==product.category_id) { %>
-                                <option value="<%= cate.id %>"selected><%= cate.name %> </option> 
-                            <% }else{ %>
-                            <option value="<%= cate.id %>"><%= cate.name %> </option> 
-                            <% } %> 
+            <div class="col-12 col-md-6">
+                <select name="category" class="form-select mb-3">
+                    <option selected>Categoria</option>
+                    <% categoria.forEach(cate => { %>
+                        <option value="<%= cate.id %> "><%= cate.name %> </option> 
                         <% }) %>
                     </select>
                     <span class="text-danger"><%= (typeof errores != 'undefined' && errores.category) ? errores.category.msg : "" %>  </span>
+                </div>
+                
+                <div class="col-12 col-md-6">
                     <select name="subcategory" class="form-select mb-3">
-                        <% subcategoria.forEach(sub => { %>
-                            <% if (sub.id==product.subcategory_id) { %>
-                                <option value="<%= sub.id %>"selected><%= sub.name %> </option> 
-                            <% }else{ %>
-                                <option value="<%= sub.id %>"><%= sub.name %> </option> 
-                            <% } %> 
-                        <% }) %>
-                    </select>
-                    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.subcategory) ? errores.subcategory.msg : "" %>  </span>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="name" placeholder="Nombre del producto" value="<%= product.name %>">
-                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %>  </span>
-                        <label>Name</label>
+                        <option selected>Sub-categoria</option>
+                        <% subcategoria.forEach(suba => { %>
+                            <option value="<%= suba.id %> "><%= suba.name %> </option> 
+                            <% }) %>
+                        </select>
+                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.subcategory) ? errores.subcategory.msg : "" %></span>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="precio" placeholder="Precio" value="<%= product.precio %> ">
-                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.precio) ? errores.precio.msg : "" %>  </span>
-                        <label>Precio</label>
+
+                    <div class="mb-3 col-12 col-md-3">
+                        <input type="text" class="form-control" name="name" placeholder="Nombre del producto">
+                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %></span>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="stock" placeholder="Stock disponible" value="<%= product.stock %> ">
-                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.stock) ? errores.stock.msg : "" %>  </span>
-                        <label>Stock</label>
+                    <div class="mb-3 col-12 col-md-3">
+                        <input type="number" class="form-control" name="precio" placeholder="Precio">
+                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.precio) ? errores.precio.msg : "" %></span>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="discount" placeholder="0,15,30,50" value="<%= product.discount %> ">
-                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.discount) ? errores.discount.msg : "" %>  </span>
-                        <label>Descuento 0,15,30,50</label>
+                    <div class="mb-3 col-12 col-md-3">
+                        <input type="number" class="form-control" name="stock" placeholder="Stock disponible">
+                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.stock) ? errores.stock.msg : "" %></span>
+                    </div>
+                    <div class="mb-3 col-12 col-md-3">
+                        <input type="number" class="form-control" name="discount" placeholder="Descuento">
+                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.discount) ? errores.discount.msg : "" %></span>
                     </div>
                     <div class="mb-3">
-                        <label class="mb-3" style="color: white;">Descripción</label>
-                        <textarea name="description" placeholder="Descripcion" class="form-control"><%= product.description %> </textarea>
-                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.description) ? errores.description.msg : "" %>  </span>
+                        <textarea name="description" placeholder="Descripcion"  class="form-control"></textarea>
+                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.description) ? errores.description.msg : "" %></span>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" placeholder="imagen" name="img" value="<%= product.img %> ">

@@ -14,7 +14,7 @@
       <% products.forEach(element=>{ %>
         <section class="col-12 col-md-6 col-lg-4 col-xl-3 vista-producto">
           <div class="contenido-producto"><!-- elementos individuales que se veran -->
-            <a href="/products/productDetail/<%= element.id %>#product-detail">
+            
               <div class="img-content">
                 <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
                 <% if(element.discount != 0){ %> 
@@ -28,9 +28,9 @@
                     <input class="text-center rounded-pill form-control mb-3" type="number" min="<%=element.stock %>" max="999" name="stock" value="<%=element.stock %>" >
                     <button type="submit" class="rounded-pill btn btn-warning">Cambiar Stock</button><br>
                   </div>
-                  <span class="text-danger"><%= (typeof errores != 'undefined' && errores.stock) ? errores.stock.msg : "" %>  </span>
+                  <span class="text-danger"><%= (typeof errores != 'undefined' && errores.stock) ? errores.stock.msg : "" %></span>
                 </form>
-              </a>			
+              			
             </div>                 
           </section>
           <% }) %> 

@@ -96,6 +96,21 @@
 	color: orange;
 }
 
+/*  */
+.contenido-producto p{
+	color: #666;
+}
+
+.contenido-producto p.precio{
+	color: #23274c;
+	font-size: 1.5rem
+}
+
+.contenido-producto:hover > p.precio{
+	color: orange;
+}
+/*  */
+
 .contenido-producto:hover{
 	background-color: #23274c;
 }
