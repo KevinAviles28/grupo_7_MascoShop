@@ -12,8 +12,9 @@ module.exports={
                 },
                 stock:{
                     [Op.ne]:0
-                }
+                },
             },
+            limit: 8,
             include:[{association:"imagenProducto"}]
         })
         .then(products=>{

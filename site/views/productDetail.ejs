@@ -6,70 +6,76 @@
   
   <main class="product-detail container my-3">
     
-    <div class="imagenes-compra">
-      <div><img src="/images/md-pago.png" alt=""></div>
-      <div><img src="/images/medios-de-pago.jpg" alt=""></div>
-      <div><img src="/images/delivery.jpg" alt=""></div>
-      <div><img src="/images/consultas.jpg" alt=""></div>
-    </div>
-    
+    <!-- product-detail -->
     <div class="ruta-producto my-3">
       <ul>
-        <li><a href="/">Volver a la pagina de inicio |</a></li>
-        <li><a href="/products/productCategory/<%=laCategoria.name %>"><%=laCategoria.name %> <i class="fas fa-arrow-circle-right"></i></a></li>
-        <li><a href="/products/productSubcategory/<%=laSubCategoria.name %>"><%=laSubCategoria.name %> <i class="fas fa-arrow-circle-right"></i></a></li>
-        <li><%= product.name %> </li>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/products/productCategory/<%= laCategoria.name %>"><%= laCategoria.name %></a></li>
+        <li><a href="/products/productSubcategory/<%= laSubCategoria.name %>"><%= laSubCategoria.name %></a></li>
+        <li><a href="#"><%= product.name %></a></li>
       </ul>
     </div>
     
-    <!-- product detail -->
-    <div class="producto my-3" id="product-detail">
-      <div class="row">
-        <!-- img -->
-        <div class="col-12 col-md-6 col-lg-6">
-          
-          <div id="carouselExampleControls" class="borde-producto carousel carousel-dark slide">
-            <div class="fondo-producto carousel-inner">
-              <div class="carousel-item active">
-                <img src="/images/productos/<%=product.imagenProducto[0].product_name %>" class="d-block w-100" alt="...">
+    <div class="row">
+      <aside class="col-md-2 desplegable-cat">
+        <ul>
+          <h6>Buscar por categoria: </h6>
+          <li><a href="/products/productCategory/perros">Perros</a></li>
+          <li><a href="/products/productCategory/gatos">Gatos</a></li>
+          <li><a href="/products/productCategory/aves">Aves</a></li>
+          <li><a href="/products/productCategory/peces">Peces</a></li>
+          <li><a href="/products/productCategory/roedores">Roedores</a></li>
+          <li><a href="/products/productCategory/reptiles">Reptiles</a></li>
+        </ul>
+      </aside>
+      
+      <section class="col-12 col-md-10">
+        <div class="row">
+          <!-- img -->
+          <div class="col-12 col-md-6"> 
+            <div id="carouselExampleControls" class="borde-producto carousel carousel-ligth slide">
+              <div class="fondo-producto carousel-inner">
+                <div class="carousel-item active">
+                  <img src="/images/productos/<%=product.imagenProducto[0].product_name %>" class="d-block w-100" alt="...">
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </a>
               </div>
-              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </a>
             </div>
+          </div> 
+          <!-- img -->
+          <div class="col-12 col-md-6 detalle-prod">
+            <h3><%= product.name %></h3>
+            <h2>$<%= toThousand(product.precio - parseInt(product.precio * product.discount / 100)) %>
+              <% if(product.discount != 0){ %> 
+              <span> $<%= toThousand(product.precio) %></span>
+              <% } %> 
+            </h2>
+              <% if(product.discount != 0){ %> 
+                <p><%= product.discount %>% OFF</p>
+                <% } %>
+            <p>Stock-Disponible: <%= product.stock %> u.</p>
+            <button class="btn btn-warning mb-3"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>
+            <!-- <div class="pago">
+              <img src="/images/pagos.png" alt="">
+            </div> -->
           </div>
-        </div> 
-        <!-- img -->
-        <article class="my-3 col-12 col-md-6 col-lg-6">
-          <h2><%= product.name %> </h2>
-          <h5>stock disponible: <%= product.stock %> </h5>
-          <% if(product.discount != 0){ %> 
-            <h2><%= product.discount %>% OFF</h2>
-            <% } %> 
-            <h3>$<%= toThousand(product.precio - parseInt(product.precio * product.discount / 100)) %> <span><i class="fas fa-tags"></i>$<%= toThousand(product.precio) %> </span></h3>
-            <form action="" class="text-center">
-              <button class="mb-3 w-100 btn btn-success">Agregar a favoritos <i class="fas fa-star"></i></button>
-              <button class="mb-3 w-100 btn btn-primary">Agregar al carrito <i class="fas fa-shopping-cart"></i></button>
-            </form> 
-          </article>
-          <div class="medios-de-pago my-3">
-            <img src="/images/P-1.png" alt="medios-de-pago">
-            <img src="/images/P-2.png" alt="medios-de-pago">
-            <img src="/images/P-3.png" alt="medios-de-pago">
+          
+          <div class="col-12 my-3 descrip">
+            Descripción:
+            <p><%= product.description %></p>                      
           </div>
-          <div class="descript my-3 col-12">
-            <h2>Descripcion</h2>
-            <p><%= product.description %> </p>
-          </div>
+          
         </div>
-      </div>
+      </section>
     </div>
-    <!-- product detail -->  
+    <!-- product-detail -->  
     
     
     
@@ -78,52 +84,44 @@
     <div class="product-relacionados row my-3">
       
       <h2>Productos relacionados</h2>
-      <% productosRelacionados.forEach(element=>{ %> 
-        <section class="my-3 col-12 col-md-6 col-lg-4 col-xl-3">
-          <a href="/products/productDetail/<%= element.id %>">
-            <figure>
-              <img src="/images/productos/<%= element.imagenProducto[0].product_name %>" alt="" class="w-100">
-              <h5><%= element.name %> </h5>
-              <% if(element.discount != 0){ %> 
-                <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
-                <% } %>    
-              </figure>
-              <div class="precio-producto">
-                <h5 style="color: #f37121;">PRECIO LISTA</h5>
-                <p>$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
+      
+      <div class="carousel">
+        <div class="carousel__contenedor">
+          <button aria-label="Anterior" class="carousel__anterior"><!-- ARIAL-LABEL Para dispositivos de lectura, boton anterior -->
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          
+          <div class="carousel__lista">
+            <% productosRelacionados.forEach(element=>{ %>
+              <div class="carousel__elemento contenido-producto"><!-- elementos individuales que se veran -->
+                <a href="/products/productDetail/<%= element.id %>#product-detail">
+                  <div class="img-content">
+                    <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
+                    <% if(element.discount != 0){ %> 
+                      <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
+                      <% } %> 
+                    </div>         
+                    <p><%= element.name %></p>
+                    <p class="precio">$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
+                    <button class="btn btn-primary">Agregar al carrito</button>
+                  </a>			
+                </div>
+                <% }) %> 
               </div>
-            </a>
-          </section>
-          <% }) %> 
-    
+              
+              <button aria-label="Siguiente" class="carousel__siguiente"><!-- boton siguiente -->
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+            
+          </div>
           
         </div>
         <!-- productos relacionados -->
         
+        <%- include('partials/instruct') %> 
         
-        <div class="instructivo-compra">
-          <article>
-            <img src="/images/inst-carrito.png" alt="">
-            <p>Agregá a tu carrito los productos que necesitas.</p>
-          </article>
-          <article>
-            <img src="/images/inst-pagos.png" alt="">
-            <p>Elegí el medio de pago que desees y aprovechá nuestras promos.</p>
-          </article>
-          <article>
-            <img src="/images/inst-pedido.png" alt="">
-            <p>Recibí tu pedido o coordiná un punto de retiro.</p>
-          </article> 
-        </div>
-        
-        <div class="publi-footer my-3">
-          <div><img src="/images/publi-footer.jpg" alt=""></div>
-          <div><img src="/images/publi-2-footer.jpg" alt=""></div>
-          <div><img src="/images/publi-3-footer.jpg" alt=""></div> 
-        </div>
-      </main>
-      
-      
+      </main> 
       
       <%- include('partials/footer') %>
       <%- include('partials/scripts') %> 

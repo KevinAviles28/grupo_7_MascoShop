@@ -1,0 +1,160 @@
+.carousel__contenedor {
+	position: relative;
+}
+
+.carousel__anterior,
+.carousel__siguiente {
+	position: absolute;
+	display: block;
+	width: 30px;
+	height: 30px;
+	border: none;
+	top: calc(50% - 35px);/* posicionamos el elemento de felchas de anterior y siguiente */
+	cursor: pointer;
+	line-height: 30px;
+	text-align: center;
+	background: none;
+	color: #fff;
+	opacity: 20%;
+}
+
+.carousel__anterior:hover,
+.carousel__siguiente:hover {
+	opacity: 100%;
+}
+
+.carousel__anterior {
+	left: -10px;
+	z-index: 1;
+}
+
+.carousel__siguiente {
+	right: -10px;
+	z-index: 1;
+}
+
+.carousel__lista {
+	overflow: hidden;
+}
+
+.carousel__elemento {
+	text-align: center;
+}
+
+.vista-producto{
+	text-align: center;
+}
+
+.contenido-producto{
+	padding: 10px;
+	background-color: white;
+	margin: 5px;
+	display: flex;
+	flex-direction: column;
+}
+
+.contenido-producto .img-content{
+	width: 250px;
+	height: 250px;
+	position: relative
+}
+
+.contenido-producto .img-content img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.contenido-producto .img-content .descuento{
+    width: 75px;
+    height: 75px;
+    padding-top: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #00a3da;
+    border-radius: 50%;
+}
+
+.contenido-producto .img-content .descuento span{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    
+}
+
+.contenido-producto a p{
+	color: #666;
+}
+
+.contenido-producto a p.precio{
+	color: #23274c;
+	font-size: 1.5rem
+}
+
+.contenido-producto:hover > a p.precio{
+	color: orange;
+}
+
+/*  */
+.contenido-producto p{
+	color: #666;
+}
+
+.contenido-producto p.precio{
+	color: #23274c;
+	font-size: 1.5rem
+}
+
+.contenido-producto:hover > p.precio{
+	color: orange;
+}
+/*  */
+
+.contenido-producto:hover{
+	background-color: #23274c;
+}
+
+/* medias de .vista-producto */
+.vista-producto .contenido-producto .img-content{
+	width: 250px;
+	height: 250px;
+	position: relative
+}
+
+@media(min-width: 321px){
+	.vista-producto .contenido-producto .img-content{
+		width: 320px;
+		height: 320px;
+	}
+}
+
+@media(min-width: 376px){
+	.vista-producto .contenido-producto .img-content{
+		width: 350px;
+		height: 350px;
+	}
+}
+
+@media(min-width: 426px){
+	.vista-producto .contenido-producto .img-content{
+		width: 300px;
+		height: 300px;
+	}
+}
+
+@media(min-width: 769px){
+	.vista-producto .contenido-producto .img-content{
+		width: 265px;
+		height: 265px;
+	}
+}
+
+@media(min-width: 1025px){
+	.vista-producto .contenido-producto .img-content{
+		width: 230px;
+		height: 230px;
+	}
+}
+
+

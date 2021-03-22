@@ -5,45 +5,33 @@
   <%- include('../partials/header') %>
   
   <main class="index container my-3">
-    
-    <div class="imagenes-compra">
-      <div><img src="/images/md-pago.png" alt=""></div>
-      <div><img src="/images/medios-de-pago.jpg" alt=""></div>
-      <div><img src="/images/delivery.jpg" alt=""></div>
-      <div><img src="/images/consultas.jpg" alt=""></div>
-    </div>
-    
-    
+
     <h2>Stock de productos</h2>
     
     <!-- productos destacados -->
     <div class="row my-4" id="productos-destacados">
       
-      <% products.forEach(element=>{ %> 
-        <section class="col-12 col-md-6 col-lg-4 col-xl-3 my-3">
-          <a href="/products/productDetail/<%= element.id %>#product-detail">
-            <figure>
-              <img src="/images/productos/<%= element.imagenProducto[0].product_name %>" alt="" class="w-100">
-              <h5><%= element.name %> </h5>
-              <% if(element.discount != 0){ %> 
-                <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
-                <% } %>    
-              </figure>
-              <div class="precio-producto">
-                <h5 style="color: #f37121;">PRECIO LISTA</h5>
-                <p>$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %> </p>
-              </div>
-            </a> 
-              <form action="/products/cambiarStock/<%=element.id%>?_method=PUT" method="POST">
-            <div class="position-relative my-2">
-                <input class="me-5 text-center rounded-pill" type="number" min="<%=element.stock %>" max="999" name="stock" value="<%=element.stock %>" >
-                <button type="submit" class="position-absolute top-50 end-0 translate-middle-y rounded-pill">Cambiar Stock</button><br>
-              </div>
-                <span class="text-danger"><%= (typeof errores != 'undefined' && errores.stock) ? errores.stock.msg : "" %>  </span>
-              </form>
-
+      <% products.forEach(element=>{ %>
+        <section class="col-12 col-md-6 col-lg-4 col-xl-3 vista-producto">
+          <div class="contenido-producto"><!-- elementos individuales que se veran -->
             
-            
+              <div class="img-content">
+                <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
+                <% if(element.discount != 0){ %> 
+                  <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
+                  <% } %> 
+                </div>         
+                <p><%= element.name %></p>
+                <p class="precio">$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
+                <form action="/products/cambiarStock/<%=element.id%>?_method=PUT" method="POST">
+                  <div class="position-relative my-2">
+                    <input class="text-center rounded-pill form-control mb-3" type="number" min="<%=element.stock %>" max="999" name="stock" value="<%=element.stock %>" >
+                    <button type="submit" class="rounded-pill btn btn-warning">Cambiar Stock</button><br>
+                  </div>
+                  <span class="text-danger"><%= (typeof errores != 'undefined' && errores.stock) ? errores.stock.msg : "" %></span>
+                </form>
+              			
+            </div>                 
           </section>
           <% }) %> 
           

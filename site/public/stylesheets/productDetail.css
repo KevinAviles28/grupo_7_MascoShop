@@ -1,148 +1,91 @@
 @import "generales.css";
 
 /* ruta producto */
-main.product-detail .ruta-producto{
-    border-bottom: 1px solid var(--colorNaranja);
+.ruta-producto{
+    border-bottom: 1px solid #666;
 }
 
-main.product-detail .ruta-producto ul{
+.ruta-producto ul{
     display: flex;
     flex-wrap: wrap;
     padding-inline-start: 0;
-    margin-bottom: 5px;
 }
 
-main.product-detail .ruta-producto ul li{
-    margin: 0 5px;
+.ruta-producto ul li{
+    margin-right: 10px;
 }
 
-main.product-detail .ruta-producto ul li a,
-main.product-detail .ruta-producto ul li{
-    color: var(--colorNaranja);
-    font-size: 0.9rem;
+.ruta-producto ul li a{
+    color: #666;
+    font-size: 0.8rem;
+    border-right: 1px solid #666;
+    padding-right: 5px;
     text-transform: uppercase;
+}
+
+.ruta-producto ul li:last-child > a{
+    border-right: none;
+}
+
+.ruta-producto ul li a:hover{
+    color: orange;
 }
 /* ruta producto */
 
-/* product detail */
-main.product-detail .producto article h3,
-main.product-detail .producto .descript{
+.desplegable-cat h6,
+.detalle-prod,
+.descrip{
     color: white;
 }
 
-main.product-detail .producto article h2,
-main.product-detail .producto article h5{
-    text-transform: uppercase;
-    color: white;
+/* aside */
+aside{
+    display: none;
 }
 
-main.product-detail .producto .borde-producto{
-    border: 1px solid var(--ColorGris-oscuro);
-    padding: 5px
+aside{
+    border-right: 1px solid #666;
 }
 
-main.product-detail .producto .borde-producto .fondo-producto{
-    background-color: whitesmoke; 
+aside ul li a{
+    color: #666;
 }
 
-main.product-detail .producto .borde-producto .fondo-producto img{
-    padding: 20px;
+aside ul li a:hover{
+    color: orange;
 }
-
-main.product-detail .producto article h3 span{
+/* aside */
+.detalle-prod h2{
     font-size: 1.5rem;
+}
+
+.detalle-prod h2 span{
     text-decoration: line-through;
-    margin-left: 20px;
 }
 
-main.product-detail .medios-de-pago{
-    background-color: whitesmoke;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.detalle-prod .pago{
+    border-top: 1px solid #666
 }
 
-main.product-detail .medios-de-pago img{
+.detalle-prod .pago{
+    width: 350px;
+}
+
+.detalle-prod .pago img{
     width: 100%;
 }
 
-main.product-detail .producto .descript h2{
-    border: 1px solid var(--ColorGris-oscuro);
-    border-top: none;
-    padding: 5px;
-}
-
-/* product detail */
-
-main.product-detail .product-relacionados h2{
-    margin: 20px 0;
-    padding: 5px 0;
-    border-bottom: 1px solid var(--colorNaranja);
-    color: var(--colorNaranja);
+.product-relacionados h2{
+    color: orange;
     font-size: 1rem;
+    margin: 10px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #666;
 }
 
-/* productos relacionados */
-main.product-detail .product-relacionados section a figure{
-    padding: 5px;
-    margin: 0;
-    border: 1px solid var(--ColorGris-oscuro);
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: 350px;
-}
-
-main.product-detail .product-relacionados section a figure img{
-    height: 80%;
-    padding: 20px;
-    object-fit: cover;
-    background-color: white;
-}
-
-main.product-detail .product-relacionados section a figure .descuento img{
-    background-color: rgba(0, 0, 0, 0.0);
-}
-
-main.product-detail .product-relacionados section a figure h5{
-    text-transform: uppercase;
-}
-
-main.product-detail .product-relacionados section a figure .descuento{
-    width: 75px;
-    height: 75px;
-    padding-top: 10px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: #00a3da;
-    border-radius: 50%;
-}
-
-main.product-detail .product-relacionados section a figure .descuento span{
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
-}
-
-main.product-detail .product-relacionados section a .precio-producto{
-    border: 1px solid var(--ColorGris-oscuro);
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 10px;
-    box-shadow: 0px 10px 10px -6px #000;
-}
-
-/* productos relacionados */
-
-@media(min-width:426px){
-    main.product-detail .medios-de-pago img{
-        width: 30%;
+@media(min-width: 426px){
+    aside{
+        display: block;
     }
 }
 
