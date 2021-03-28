@@ -28,25 +28,10 @@ module.exports = [
                 return Promise.reject('El email ya esta registrado')
             }
         }) 
-    }),
-    /*  body('email').custom(value =>{
-       db.User.findAll({
-            where:{
-                email:value
-            }
-        })
-        .then((result)=>{
-
-        })
-        
-    }).withMessage('El email ya esta registrado'),  */  
-    
+    }), 
   
     check('passUno').isStrongPassword().withMessage('La contraseña debe de tener al menos 8 caracteres,una mayuscula,una minuscula y un simbolo'),
    
-    
-    
-    
     body('passDos').custom((value,{req})=>{ 
         if(value!==req.body.passUno){/*si el valor del pass2 es ditinto al la contra primera contraseña*/
             return false;

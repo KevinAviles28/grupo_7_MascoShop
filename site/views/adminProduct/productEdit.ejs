@@ -5,6 +5,7 @@
     <%- include('../partials/header') %> 
     <main class="carga-productos container my-5">
         <h2 class="py-3">Formulario edicion de producto: <span style="text-transform: uppercase;"><%= product.name %></span></h2>
+        <form action="/products/productEdit/<%= product.id %>?_method=PUT" method="POST"></form>
         <div class="row">
             <div class="col-12 col-md-6">
                 <select name="category" class="form-select mb-3">
@@ -25,37 +26,37 @@
                         </select>
                         <span class="text-danger"><%= (typeof errores != 'undefined' && errores.subcategory) ? errores.subcategory.msg : "" %></span>
                     </div>
-
+                    
                     <div class="mb-3 col-12 col-md-3">
-                        <input type="text" class="form-control" name="name" placeholder="Nombre del producto">
+                        <input type="text" class="form-control" name="name" placeholder="Nombre del producto" value="<%= product.name %>">
                         <span class="text-danger"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %></span>
                     </div>
                     <div class="mb-3 col-12 col-md-3">
-                        <input type="number" class="form-control" name="precio" placeholder="Precio">
+                        <input type="number" class="form-control" name="precio" placeholder="Precio" value="<%= product.precio %>">
                         <span class="text-danger"><%= (typeof errores != 'undefined' && errores.precio) ? errores.precio.msg : "" %></span>
                     </div>
                     <div class="mb-3 col-12 col-md-3">
-                        <input type="number" class="form-control" name="stock" placeholder="Stock disponible">
+                        <input type="number" class="form-control" name="stock" placeholder="Stock disponible" value="<%= product.stock %>">
                         <span class="text-danger"><%= (typeof errores != 'undefined' && errores.stock) ? errores.stock.msg : "" %></span>
                     </div>
                     <div class="mb-3 col-12 col-md-3">
-                        <input type="number" class="form-control" name="discount" placeholder="Descuento">
+                        <input type="number" class="form-control" name="discount" placeholder="Descuento" value="<%= product.discount %>">
                         <span class="text-danger"><%= (typeof errores != 'undefined' && errores.discount) ? errores.discount.msg : "" %></span>
                     </div>
                     <div class="mb-3">
-                        <textarea name="description" placeholder="Descripcion"  class="form-control"></textarea>
+                        <textarea name="description" placeholder="Descripcion"  class="form-control"><%= product.description %></textarea>
                         <span class="text-danger"><%= (typeof errores != 'undefined' && errores.description) ? errores.description.msg : "" %></span>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" placeholder="imagen" name="img" value="<%= product.img %> ">
+                        <input type="text" class="form-control" placeholder="imagen" name="img" value="<%= product.imagenProducto.product_name %>"><!-- arreglar -->
                         <label>Imagen</label>
                     </div>
                     <div class="d-flex justify-content-between">
                         <button type="/products/allProducts" class="btn btn-danger mb-3">Cancelar</button>
                         <button type="submit" class="btn btn-primary mb-3">Confirmar edicion</button>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
             
         </div>
     </main>

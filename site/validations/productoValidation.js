@@ -27,12 +27,13 @@ module.exports=[
 
     check('stock').notEmpty().withMessage('El stock no puede esta vacio'),
 
-    check('discount').notEmpty().withMessage('Debe tener un descuente de 0,15,30 o 50 %'),
+    check('discount').notEmpty().withMessage('Por favor ingrese un valor de descuento'),
 
     check('description').notEmpty().withMessage('El producto debe de tener una descripcion'),
     check('description').isLength({
         min:20
-    }).withMessage('La descripcion del producto debe de tener al menos 20 caracteres')
-/* 
-    check('img').notEmpty().withMessage('La imagen del producto debe ser cargada') */
+    }).withMessage('La descripcion del producto debe de tener al menos 20 caracteres'),
+
+    check('img').isMimeType(['image/jpg','image/jpeg','image/png','image/gif']).withMessage('La imagen debe tener una extesión de tipo JPG, JPEG, PNG, GIF')
+
 ]
