@@ -1,23 +1,90 @@
 <header class="container-fluid">
-  <div class="row">
+  
+  <nav class="navbar navbar-expand-lg navbar-success bg-success">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><img src="/images/mascoshop_logo.png" alt="" class="w-100"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Perros
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="/products/productNav/perros/alimentos">Alimentos</a></li>
+              <li><a class="dropdown-item" href="/products/productNav/perros/accesorios">Accesorios</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Gatos
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="/products/productNav/gatos/alimentos">Alimentos</a></li>
+              <li><a class="dropdown-item" href="/products/productNav/gatos/accesorios">Accesorios</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Aves
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="/products/productNav/aves/alimentos">Alimentos</a></li>
+              <li><a class="dropdown-item" href="/products/productNav/aves/accesorios">Accesorios</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Peces
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="/products/productNav/peces/alimentos">Alimentos</a></li>
+              <li><a class="dropdown-item" href="/products/productNav/peces/accesorios">Accesorios</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Roedores
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="/products/productNav/roedores/alimentos">Alimentos</a></li>
+              <li><a class="dropdown-item" href="/products/productNav/roedores/accesorios">Accesorios</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Reptiles
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="/products/productNav/reptiles/alimentos">Alimentos</a></li>
+              <li><a class="dropdown-item" href="/products/productNav/reptiles/accesorios">Accesorios</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/products/allProducts">Nuestros Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/products/productOfertas">Ofertas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#footer">Nosotros</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="content-header row">
     
-    <div class="my-3 col-6 col-md-3 col-lg-2"><a href="/"><img src="/images/mascoshop_logo.png" alt="" class="w-100" ></a></div>
-    <div class="txt d-flex align-items-center justify-content-center col-6 col-lg-4 col-xl-4">
-      <span>¡ Todo lo que tu mejor amigo necesita <i class="fas fa-paw"></i> ! </span>
-    </div>
-    <div class="perritos col-3 col-lg-6 col-xl-6 text-center">
-      <img src="/images/header/6275beb2b1ee9e8b6e3165f64bce0893-secuencia-de-perro-corriendo-7-by-vexels.png" alt="">
-      <img src="/images/header/b11541a04df1cd433b41d24302527553-secuencia-de-perro-corriendo-by-vexels.png" alt="">
-      <img src="/images/header/be3eddba5705a321e4f69e930cdabc5b-secuencia-de-perro-corriendo-1-by-vexels.png" alt="">
-      <img src="/images/header/d62201989552ef4beacf49d9b5a7e1a3-secuencia-de-perro-corriendo-4-by-vexels.png" alt="">
-    </div>
-    <div class="buscador col-12">
+    <div class="buscador col-12 mb-3 col-md-7 col-lg-8">
       <form action="/search" method="GET">
         <input class="form-control" type="search" name="busqueda" placeholder="Busca productos, accesorios y alimentos"><button type="submit" class="btn btn-warning"><i class="fas fa-search"></i></button>
       </form>
     </div>
     
-    <div class="boton-user my-3 d-flex justify-content-end">
+    <div class="col-12 col-md-5 col-lg-4 boton-user mb-3 d-flex justify-content-end">
       <div class="dropdown">
         <% if (typeof userNew != 'undefined') { %>
           <a class="btn btn-primary dropdown-toggle mx-3" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-circle"></i> <%= userNew.username %> <!-- nombre de usuario -->
@@ -44,85 +111,11 @@
             <a class="btn btn-success" href="/products/productCart"><i class="fas fa-shopping-bag"></i> Mi carrito</a> 
           </div>
           
-          <nav class="navbar navbar-expand-lg navbar-success bg-success">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="/">Mascoshop</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Perros
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="/products/productNav/perros/alimentos">Alimentos</a></li>
-                      <li><a class="dropdown-item" href="/products/productNav/perros/accesorios">Accesorios</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Gatos
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="/products/productNav/gatos/alimentos">Alimentos</a></li>
-                      <li><a class="dropdown-item" href="/products/productNav/gatos/accesorios">Accesorios</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Aves
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="/products/productNav/aves/alimentos">Alimentos</a></li>
-                      <li><a class="dropdown-item" href="/products/productNav/aves/accesorios">Accesorios</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Peces
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="/products/productNav/peces/alimentos">Alimentos</a></li>
-                      <li><a class="dropdown-item" href="/products/productNav/peces/accesorios">Accesorios</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Roedores
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="/products/productNav/roedores/alimentos">Alimentos</a></li>
-                      <li><a class="dropdown-item" href="/products/productNav/roedores/accesorios">Accesorios</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Reptiles
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="/products/productNav/reptiles/alimentos">Alimentos</a></li>
-                      <li><a class="dropdown-item" href="/products/productNav/reptiles/accesorios">Accesorios</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/products/allProducts">Nuestros Productos</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/products/productOfertas">Ofertas</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#footer">Nosotros</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+          
           
           
         </div>
         
       </header>
       
-     
+      
