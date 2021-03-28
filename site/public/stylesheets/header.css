@@ -13,7 +13,8 @@ header .navbar{
     position: fixed;
     width: 100%;
     left: 0;
-    z-index: 1;
+    top: 0;
+    z-index: 100;
 }
 
 header .navbar-brand{
@@ -25,7 +26,7 @@ header .navbar-toggler-icon{/* icono desplegable bootstrap */
 }
 
 header .content-header{
-    padding-top: 80px;
+    padding-top: 100px;
 }
 
 header .perritos{
@@ -54,6 +55,7 @@ header .buscador form button{
 
 header .boton-user i{
     font-size: 1.1rem;
+    color: white;
 }
 
 header .nav-link:hover{
