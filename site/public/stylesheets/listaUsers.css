@@ -1,0 +1,9 @@
+.user-category{
+    width: 80px;
+    height: 40px;
+    padding: 5px;
+}
+
+.user-category:focus{
+    outline: transparent;
+}
