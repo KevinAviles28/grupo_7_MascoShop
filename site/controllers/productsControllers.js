@@ -56,7 +56,7 @@ module.exports = {
                 .then((resultado) => {
                     let id = resultado.id
                     db.ImagenProducto.create({
-                        product_name: (req.files[0]) ? req.files[0].filename : "productoDefoult.png",
+                        product_name: (req.files[0]) ? req.files[0].filename : "productoDefault.png",
                         product_id: id
                     })
                 })
