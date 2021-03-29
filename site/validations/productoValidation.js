@@ -32,8 +32,8 @@ module.exports=[
     check('description').notEmpty().withMessage('El producto debe de tener una descripcion'),
     check('description').isLength({
         min:20
-    }).withMessage('La descripcion del producto debe de tener al menos 20 caracteres'),
+    }).withMessage('La descripcion del producto debe de tener al menos 20 caracteres')/* ,
 
-    check('img').isMimeType(['image/jpg','image/jpeg','image/png','image/gif']).withMessage('La imagen debe tener una extesión de tipo JPG, JPEG, PNG, GIF')
+    check('img').isMimeType(['image/jpg','image/jpeg','image/png','image/gif']).withMessage('La imagen debe tener una extesión de tipo JPG, JPEG, PNG, GIF') */
 
 ]
