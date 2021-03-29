@@ -9,6 +9,26 @@ header .txt span{
     color: white;
 }
 
+header .navbar{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+
+header .navbar-brand{
+    width: 120px;
+}
+
+header .navbar-toggler-icon{/* icono desplegable bootstrap */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+header .content-header{
+    padding-top: 100px;
+}
+
 header .perritos{
     display: none;
 }
@@ -35,6 +55,15 @@ header .buscador form button{
 
 header .boton-user i{
     font-size: 1.1rem;
+    color: white;
+}
+
+header .nav-link:hover{
+    color: orange;
+}
+
+header .navbar-brand:hover{
+    color: orange;
 }
 /* fin del header */
 
@@ -60,7 +89,7 @@ header .boton-user i{
     header .perritos :last-child{
         display: none;
     }
-
+    
     header .perritos img{
         width: 50px;
     }
@@ -71,15 +100,15 @@ header .boton-user i{
         padding-left: 45px;
         margin-top: 7px;
     }
-
+    
     header .perritos :last-child{
         display: inline-block;
     }
-
+    
     header .perritos img{
         width: 90px;
     }
-
+    
     .banner{
         display: block;
     }
