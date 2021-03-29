@@ -89,3 +89,46 @@
 -Error en aplicar validacion en el front
 ### ● Qué vas a hacer hoy cerebro
 -DORMIR DORMIR DORMIR DORMIR Y LUEGO DORMIR MAS
+
+
+## DAILY/WEEKLY Sprint 6
+
+## Tareas Realizadas:
+-Validaciones Front y Back
+-Validaciones de productos y usuario
+-Cambios en el diseño de la pagina
+-Subimos nuestra pagina por ngrok
+-Agregamos tabla de lista de usuarios
+
+
+## Impedimentos y Soluciones
+-Errores en problemas de impletentar las validaciones front y solucionado con lo visto en clase 
+
+
+
+## Michel
+
+### ● Qué hizo ayer
+-Cambios en el diseño de la pagina, position fixed
+### ● Si se encontró con algún impedimento
+-Script de la imagen
+### ● Qué vas a hacer hoy cerebro
+-Repasar React
+
+## Kevin
+
+### ● Qué hizo ayer
+-Playground
+### ● Si se encontró con algún impedimento
+-Ninguno
+### ● Qué vas a hacer hoy cerebro
+-+++Playground
+
+## Jonas
+
+### ● Qué hizo ayer
+-Validaciones en front-end
+### ● Si se encontró con algún impedimento
+-Problemas en script
+### ● Qué vas a hacer hoy cerebro
+-Playground y ++++React
