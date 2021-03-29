@@ -108,7 +108,7 @@ module.exports = {
         
     },
     edicionDePerfil:(req,res)=>{
-
+        
         const {pais,localidad,telefono,direccion} = req.body;
         db.User.update({
             pais: pais.trim(),
@@ -124,7 +124,7 @@ module.exports = {
             res.redirect('/');
         })
         .catch(error => console.log(error))
-    
+        
     },
     eliminarCuenta:(req,res)=>{
         
@@ -138,8 +138,15 @@ module.exports = {
         Promise.all([user,remove])
         .then(([user,remove])=>{
             
-            if(fs.existsSync(path.join('public','images','users',user.avatar))){
-                fs.unlinkSync(path.join('public','images','users',user.avatar))
+            if(user.avatar != 'usuarioDefault.png') {
+                fs.unlinkSync('public/images/users/' + user.avatar)
+            }
+            
+            req.session.destroy();
+            if(req.cookies.recordar){
+                res.cookie('recordar','',{
+                    maxAge : -1
+                })
             }
             
             return res.redirect('/');
