@@ -25,7 +25,7 @@ module.exports = {
         .catch(error=> console.log(error));
     },
     remove:(req,res)=>{
-        db.User.destroy({
+        /* db.User.destroy({
             where: {
                 id: req.params.id
             }
@@ -33,6 +33,24 @@ module.exports = {
         .then(()=>{
             res.redirect('/admin/lista');
         })
-        .catch(error=> console.log(error));
+        .catch(error=> console.log(error)); */
+
+        let user = db.User.findByPk(req.params.id);
+        let remove = db.User.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        
+        Promise.all([user,remove])
+        .then(([user,remove])=>{
+            
+            if(user.avatar != 'usuarioDefault.png') {
+                fs.unlinkSync('public/images/users/' + user.avatar)
+            }
+            
+            return res.redirect('/admin/lista');
+        })
+        .catch(error => console.log(error))
     }
 }
