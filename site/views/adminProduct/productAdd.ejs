@@ -28,30 +28,31 @@
                         </div>
 
                         <div class="mb-3 col-12 col-md-3">
-                            <input type="text" class="form-control" name="name" placeholder="Nombre del producto">
-                            <span class="text-danger"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %></span>
+                            <input id="nombre" type="text" class="form-control" name="name" placeholder="Nombre del producto">
+                            <span id="nombreErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %></span>
                         </div>
                         <div class="mb-3 col-12 col-md-3">
-                            <input type="number" class="form-control" name="precio" placeholder="Precio">
-                            <span class="text-danger"><%= (typeof errores != 'undefined' && errores.precio) ? errores.precio.msg : "" %></span>
+                            <input id="ps" type="number"
+                            class="form-control" name="precio" placeholder="Precio">
+                            <span id="precioErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.precio) ? errores.precio.msg : "" %></span>
                         </div>
                         <div class="mb-3 col-12 col-md-3">
-                            <input type="number" class="form-control" name="stock" placeholder="Stock disponible">
-                            <span class="text-danger"><%= (typeof errores != 'undefined' && errores.stock) ? errores.stock.msg : "" %></span>
+                            <input id="stock" type="number" class="form-control" name="stock" placeholder="Stock disponible">
+                            <span id="stockErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.stock) ? errores.stock.msg : "" %></span>
                         </div>
                         <div class="mb-3 col-12 col-md-3">
-                            <input type="number" class="form-control" name="discount" placeholder="Descuento">
-                            <span class="text-danger"><%= (typeof errores != 'undefined' && errores.discount) ? errores.discount.msg : "" %></span>
+                            <input id="desc" type="number" class="form-control" name="discount" placeholder="Descuento">
+                            <span id="descErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.discount) ? errores.discount.msg : "" %></span>
                         </div>
                         <div class="mb-3">
-                            <textarea name="description" placeholder="Descripcion"  class="form-control"></textarea>
-                            <span class="text-danger"><%= (typeof errores != 'undefined' && errores.description) ? errores.description.msg : "" %></span>
+                            <textarea id="descr" name="description" placeholder="Descripcion"  class="form-control"></textarea>
+                            <span id="descrErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.description) ? errores.description.msg : "" %></span>
                         </div>
                         <div class="mb-3">
                             
                             <label for="" class="form-label" style="color: white;">Cargar imagen</label>
-                            <input type="file" class="form-control" id="file" name="img">
-                            <span class="text-danger"><%= (typeof errores != 'undefined' && errores.img) ? errores.img.msg : "" %></span>
+                            <input id="img" type="file" class="form-control" id="file" name="img">
+                            <span id="imgErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.img) ? errores.img.msg : "" %></span>
                             
                         </div>
                         <div class="img-container mb-3" id="img-preview"></div>                

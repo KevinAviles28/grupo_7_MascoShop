@@ -12,6 +12,10 @@
     -Seguir manteniendo el mismo nivel de comunicació
     -Actualizado Sprint 5
     -Reuniones semanales
+    -Actualizado Sprint 6
+    -Mas reuniones
+    -Mas mejoras en la estetica de la pagina
+
 
 
 
@@ -28,6 +32,8 @@
     -Implementar mejoras en el front
     -Actualizado Sprint 5
     -Mejoras en el front
+    -Actualizado Sprint 6
+    -+React y APIs
 
 
 
@@ -41,6 +47,10 @@
     -No dejar de lado el playground,trabajos practicos
     -Actualizado Sprint 5
     -Ya hicimos todo
+    -Actualizado Sprint 6
+    -React
+    -APIs
+    -Carrito de compras
 
     
 
@@ -53,6 +63,9 @@
     -Undefined
     -Actualizado Sprint 5
     -undefined
+    -Actualizado Sprint 6
+    -Dejar de poner -undefined
+    -Dejar de no contestar a "Michel"
 
 ## Hacer menos:
     -Undefined;
@@ -62,3 +75,5 @@
     -Undefined
     -Actualizado Sprint 5
     -No sobreesforzarce
+    -Actualizado Sprint 6
+    -Menos 

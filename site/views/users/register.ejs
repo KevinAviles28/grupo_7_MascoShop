@@ -24,29 +24,29 @@
         <form action="" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="mb-3 col-12 col-md-4">
-                    <input type="text" name="name" placeholder="Nombre" class="form-control" value="<%= (typeof old != 'undefined' && old.name) ? old.name : ""%>" >
-                    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %>  </span>
+                    <input type="text" id="name" name="name" placeholder="Nombre" class="form-control" value="<%= (typeof old != 'undefined' && old.name) ? old.name : ""%>" >
+                    <span id="nameErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %>  </span>
                 </div>
                 <div class="mb-3 col-12 col-md-4">
-                    <input type="text" name="apellido" placeholder="Apellido" class="form-control"  value="<%= (typeof old != 'undefined' && old.apellido) ? old.apellido : ""%>" >
-                    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.apellido) ? errores.apellido.msg : "" %>  </span>
+                    <input type="text" id="lastname" name="apellido" placeholder="Apellido" class="form-control"  value="<%= (typeof old != 'undefined' && old.apellido) ? old.apellido : ""%>" >
+                    <span id="lastnameErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.apellido) ? errores.apellido.msg : "" %>  </span>
                 </div>
                 <div class="mb-3 col-12 col-md-4">
-                    <input type="email" name="email" placeholder="Email" class="form-control"  value="<%= (typeof old != 'undefined' && old.email) ? old.email : ""%>" >
-                    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.email) ? errores.email.msg : "" %>  </span>
+                    <input id="email" type="email" name="email" placeholder="Email" class="form-control"  value="<%= (typeof old != 'undefined' && old.email) ? old.email : ""%>" >
+                    <span id="emailErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.email) ? errores.email.msg : "" %>  </span>
                 </div>
                 <div class="mb-3 col-12 col-md-6">
-                    <input type="password" name="passUno" placeholder="Contraseña" class="form-control">
-                    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.passUno) ? errores.passUno.msg : "" %>  </span>
+                    <input id="pass" type="password" name="passUno" placeholder="Contraseña" class="form-control">
+                    <span id="passErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.passUno) ? errores.passUno.msg : "" %>  </span>
                 </div>
-                <div class="mb-3 col-12 col-md-6">
-                    <input type="password" name="passDos" placeholder="Repetir contraseña" class="form-control">
-                    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.passDos) ? errores.passDos.msg : "" %>  </span>
+                <div  class="mb-3 col-12 col-md-6">
+                    <input id="pass2" type="password" name="passDos" placeholder="Repetir contraseña" class="form-control">
+                    <span id="pass2Errors" class="text-danger"><%= (typeof errores != 'undefined' && errores.passDos) ? errores.passDos.msg : "" %>  </span>
                 </div>
                 <div class="mb-3">
-                    <input type="file" name="avatar" class="form-control">
+                    <input type="file" id="avatar" name="avatar" class="form-control">
                 </div>
-                <span class="text-danger"><%= (typeof errores != 'undefined' && errores.avatar) ? errores.avatar.msg : "" %></span>
+                <span id="avatarErrrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.avatar) ? errores.avatar.msg : "" %></span>
                 
                 <div class="botones my-3">
                     <div class="boton-dos">
@@ -58,7 +58,7 @@
                 
             </form>
         </main>
- 
+        
         <%- include('../partials/scripts') %> 
         
     </body>
