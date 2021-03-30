@@ -7,17 +7,15 @@
 
 :root{
     --colorOscuro: #212529;
-    --ColorGris-oscuro: #666666;
-    --colorAzul: #111d5e;
-    --colorRojo: #c70039;
-    --colorNaranja: #f37121;
-    --colorAmarillo: #c0e218;
-    --ColorVerde: #39b54a;
-    --ColorGrisClaro: rgba(255,255,255,.55);
+    --colorAzul: #1a508b;
 }
 
 body{
     background-color: var(--colorOscuro);
+}
+
+ul{
+    padding-inline-start: 0;
 }
 
 li{

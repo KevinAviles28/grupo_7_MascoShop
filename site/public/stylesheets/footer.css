@@ -1,7 +1,7 @@
 @import "generales.css";
 
 footer{
-    background-color: var(--colorNaranja);
+    background-color: #23274c;
     padding-top: 20px;
 }
 
@@ -10,7 +10,7 @@ footer h3{
 }
 
 footer ul li a:hover{
-    color: #666;
+    color: orange;
 }
 
 footer .redes-sociales ul li a i{
@@ -18,7 +18,7 @@ footer .redes-sociales ul li a i{
 }
 
 footer .copy{
-    border: 1px solid white;
+    border-top: 1px solid white;
     padding: 5px;
     color: white;
 }

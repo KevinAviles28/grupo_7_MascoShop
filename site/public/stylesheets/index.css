@@ -14,10 +14,6 @@ main.index h2{
     font-size: 1rem;
 }
 
-/* productos destacados */
-
-/* productos destacados */
-
 .instructivo-compra{
     border-bottom: 1px solid var(--ColorGris-oscuro);
 }
@@ -34,7 +30,7 @@ main.index h2{
 }
 
 .instructivo-compra article p{
-    color: var(--ColorGris-oscuro);
+    color: #666;
     text-align: center;
 }
 

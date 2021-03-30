@@ -5,9 +5,6 @@ const bcrypt = require('bcrypt')
 const {validationResult} = require('express-validator');
 
 module.exports = {
-    register:(req,res)=>{
-        res.render('users/register');
-    },
     processRegister:(req,res)=>{
         
         const errores=validationResult(req);

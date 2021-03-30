@@ -1,5 +1,9 @@
 @import "generales.css";
 
+main.register .login{
+    border-right: 1px solid #666;
+}
+
 main.register form .botones{
     display: flex;
     flex-direction: column; 

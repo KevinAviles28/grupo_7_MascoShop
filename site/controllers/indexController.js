@@ -45,11 +45,6 @@ module.exports={
            
         })
     },
-    contacto:(req,res) => {
-        res.render("contacto",{
-            
-        })
-    },
     mediosDePago:(req,res) => {
         res.render("mediosDePago",{
             

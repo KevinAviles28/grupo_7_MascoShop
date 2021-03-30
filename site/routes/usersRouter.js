@@ -11,7 +11,6 @@ const upload = require(path.join('..','middlewares','multerUser'));
 const rutasCheck=require(path.join('..','middlewares','rutasCheck'));
 
 /* register */
-router.get('/register',register);
 router.post('/register',upload.any(),registerValidation,processRegister);
 
 /* login */

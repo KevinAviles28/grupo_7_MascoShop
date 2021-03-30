@@ -9,55 +9,91 @@
                 <span>¡ Todo lo que tu mejor amigo necesita <i class="fas fa-paw"></i> ! </span>
             </div>
             <div class="perritos col-3 col-lg-6 col-xl-6 text-center">
-                <img src="/images/header/6275beb2b1ee9e8b6e3165f64bce0893-secuencia-de-perro-corriendo-7-by-vexels.png" alt="">
-                <img src="/images/header/b11541a04df1cd433b41d24302527553-secuencia-de-perro-corriendo-by-vexels.png" alt="">
-                <img src="/images/header/be3eddba5705a321e4f69e930cdabc5b-secuencia-de-perro-corriendo-1-by-vexels.png" alt="">
-                <img src="/images/header/d62201989552ef4beacf49d9b5a7e1a3-secuencia-de-perro-corriendo-4-by-vexels.png" alt="">
+                <img src="/images/header/pet_1.png" alt="">
+                <img src="/images/header/pet_2.png" alt="">
+                <img src="/images/header/pet_3.png" alt="">
+                <img src="/images/header/pet_4.png" alt="">
             </div>
         </div>
     </header>
     
     <main class="register container my-5 py-3">
-        <h2>Login</h2>
-        <form action="" method="POST">
-            <div class="mb-3">
-                <input type="email" name="email" placeholder="Email" class="form-control"  value="<%= (typeof old != 'undefined' && old.email) ? old.email : ""%>">
-                <span class="text-danger"><%= (typeof errores != 'undefined' && errores.email) ? errores.email.msg : "" %>  </span>
-            </div>
-            <div class="mb-3">
-                <input type="password" name="pass" placeholder="Contraseña" class="form-control">
-                <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pass) ? errores.pass.msg : "" %>  </span>
-            </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="recordarme">
-                <label class="form-check-label" for="exampleCheck1">Recordarme</label>
-            </div>
+        <div class="row">
             
-            
-            <div class="botones">
-                
-                <div class="boton-dos">
-                    <button type="submit" class="mb-3 btn btn-primary">Iniciar sesion</button>
-                    <a href="/users/register" class="mb-3 btn btn-success">Registrarme</a>
+            <div class="login col-12 col-md-6">
+                <h2 class="mb-3 text-center">Login</h2>
+                <form action="/users/login" method="POST">
+                    <div class="mb-3">
+                        <input type="email" name="email" placeholder="Email" class="form-control"  value="<%= (typeof old != 'undefined' && old.email) ? old.email : ""%>">
+                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.email) ? errores.email.msg : "" %>  </span>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" name="pass" placeholder="Contraseña" class="form-control">
+                        <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pass) ? errores.pass.msg : "" %>  </span>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="recordarme">
+                        <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+                    </div>
+                    <div class="botones">
+                        <div class="boton-dos">
+                            <button type="submit" class="mb-3 btn btn-primary">Iniciar sesion</button>
+                        </div>
+                        <a href="/" class="mb-3 btn btn-danger">Cancelar</a>
+                    </div>
+                    <% if (typeof error != 'undefined') { %>
+                        <div class="alert alert-danger mt-5">
+                            <span><%= error %> </span>
+                        </div>
+                        <% } %>
+                    </form>
                 </div>
                 
-                <a href="/" class="mb-3 btn btn-danger">Cancelar</a>
-                
-                
-                
-            </div>
-            <% if (typeof error != 'undefined') { %>
-                <div class="alert alert-danger mt-5">
-                    <span><%= error %> </span>
+                <div class="col-12 col-md-6">
+                    <h2 class="mb-3 text-center">Registro</h2>
+                    <form action="/users/register" method="POST" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="mb-3">
+                                <input type="text" id="name" name="name" placeholder="Nombre" class="form-control" value="<%= (typeof old != 'undefined' && old.name) ? old.name : ""%>" >
+                                <span id="nameErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %>  </span>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" id="lastname" name="apellido" placeholder="Apellido" class="form-control"  value="<%= (typeof old != 'undefined' && old.apellido) ? old.apellido : ""%>" >
+                                <span id="lastnameErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.apellido) ? errores.apellido.msg : "" %>  </span>
+                            </div>
+                            <div class="mb-3">
+                                <input id="email" type="email" name="email" placeholder="Email" class="form-control"  value="<%= (typeof old != 'undefined' && old.email) ? old.email : ""%>" >
+                                <span id="emailErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.email) ? errores.email.msg : "" %>  </span>
+                            </div>
+                            <div class="mb-3">
+                                <input id="pass" type="password" name="passUno" placeholder="Contraseña" class="form-control">
+                                <span id="passErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.passUno) ? errores.passUno.msg : "" %>  </span>
+                            </div>
+                            <div  class="mb-3">
+                                <input id="pass2" type="password" name="passDos" placeholder="Repetir contraseña" class="form-control">
+                                <span id="pass2Errors" class="text-danger"><%= (typeof errores != 'undefined' && errores.passDos) ? errores.passDos.msg : "" %>  </span>
+                            </div>
+                            <div class="mb-3">
+                                <input type="file" id="avatar" name="avatar" class="form-control">
+                            </div>
+                            <span id="avatarErrrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.avatar) ? errores.avatar.msg : "" %></span>
+                            
+                            <div class="botones my-3">
+                                <div class="boton-dos">
+                                    <button type="submit" class="mb-3 btn btn-primary">Registrarme</button>
+                                </div>
+                                
+                                <a href="/" class="mb-3 btn btn-danger">Cancelar</a>
+                            </div>
+                            
+                        </form>
+                    </div>
                 </div>
-            <% } %>
-        </form>
-        
-    </main>
-    
-    
-    
-    <%- include('../partials/scripts') %> 
-    
-</body>
-</html>
+                
+                
+            </main>
+            
+            <%- include('../partials/scripts') %> 
+            
+        </body>
+        </html>
