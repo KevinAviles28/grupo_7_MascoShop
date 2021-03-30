@@ -25,15 +25,6 @@ module.exports = {
         .catch(error=> console.log(error));
     },
     remove:(req,res)=>{
-        /* db.User.destroy({
-            where: {
-                id: req.params.id
-            }
-        })
-        .then(()=>{
-            res.redirect('/admin/lista');
-        })
-        .catch(error=> console.log(error)); */
 
         let user = db.User.findByPk(req.params.id);
         let remove = db.User.destroy({
