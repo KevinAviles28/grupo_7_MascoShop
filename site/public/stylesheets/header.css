@@ -80,10 +80,11 @@ header .navbar-brand:hover{
 }
 /* fin del banner */
 
-@media(min-width:426px){/* tablet */
+@media(min-width: 768px){/* tablet */
     header .perritos{
-        display: inline-block;
-        margin-top: 33px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding-left: 0;
     }
     
@@ -96,10 +97,9 @@ header .navbar-brand:hover{
     }
 }
 
-@media(min-width:769px){/* desktop */
+@media(min-width: 1024px){/* desktop */
     header .perritos{
         padding-left: 45px;
-        margin-top: 7px;
     }
     
     header .perritos :last-child{
@@ -107,16 +107,10 @@ header .navbar-brand:hover{
     }
     
     header .perritos img{
-        width: 90px;
+        width: 60px;
     }
     
     .banner{
         display: block;
-    }
-}
-
-@media(min-width:1025px){
-    header .perritos{
-        margin-top: 20px;
     }
 }

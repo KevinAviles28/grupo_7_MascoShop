@@ -1,7 +1,7 @@
 @import "generales.css";
 
 footer{
-    background-color: #23274c;
+    background-color: var(--colorAzul);
     padding-top: 20px;
 }
 
