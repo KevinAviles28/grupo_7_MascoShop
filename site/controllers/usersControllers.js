@@ -77,10 +77,10 @@ module.exports = {
                         return res.redirect('/');
                         
                     }else{
-                        return res.render('users/login',{error: 'Credenciales invalidas 2'});
+                        return res.render('users/login',{error: 'Credenciales invalidas'});
                     }
                 }else{
-                    return res.render('users/login',{error: 'Credenciales invalidas 1'});
+                    return res.render('users/login',{error: 'Credenciales invalidas'});
                 }
             })
             .catch(error => console.log(error))
