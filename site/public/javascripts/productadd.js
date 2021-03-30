@@ -13,6 +13,7 @@ window.addEventListener('load', function(){
     $descrErrors=qs("#descrErrors"),
     $img=qs("#img"),
     $imgErrors=qs("#imgErrors"),
+    $imgPreview=qs("#img-preview")
     regExAlpha= /^[a-zA-Z\sñáéíóúü ]*$/,
     regnumber= /^[0-9]{0,100000}$/;
     
@@ -108,7 +109,31 @@ window.addEventListener('load', function(){
             break;
         }
     })
+
     $img.addEventListener('change', 
+    function fileValidation(){
+        let filePath = $img.value, //Capturo el valor del input
+        allowefExtensions = /(.jpg|.jpeg|.png|.gif)$/i //Extensiones permitidas
+        if(!allowefExtensions.exec(filePath)){ //El método exec() ejecuta una busqueda sobre las coincidencias de una expresión regular en una cadena especifica. Devuelve el resultado como array, o null.
+            $imgErrors.innerHTML = 'Carga un archivo de imagen válido, con las extensiones (.jpg - .jpeg - .png - .gif)';
+            $img.value = '';
+            $imgPreview.innerHTML = '';
+            return false;
+        }else{
+            // Image preview
+            console.log($img.files);
+            if($img.files && $img.files[0]){
+                let reader = new FileReader();
+                reader.onload = function(e){
+                    $imgPreview.innerHTML = '<img src="' + e.target.result +'"/>';
+                };
+                reader.readAsDataURL($img.files[0]);
+                $imgErrors.innerHTML = '';
+                $img.classList.remove('is-invalid')
+            }
+        }
+    })
+    /* $img.addEventListener('change', 
     function fileValidation(){
         
         let filePath = $img.value, //Capturo el valor del input
@@ -121,6 +146,6 @@ window.addEventListener('load', function(){
             $imgErrors.innerHTML = '';
             $img.classList.remove('is-invalid')
         }       
-    })
+    }) */
     
 })
