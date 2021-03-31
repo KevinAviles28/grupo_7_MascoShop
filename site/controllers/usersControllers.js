@@ -10,7 +10,7 @@ module.exports = {
         const errores=validationResult(req);
         
         if(!errores.isEmpty()){
-            return res.render('users/register',{
+            return res.render('users/login',{
                 errores : errores.mapped(),/* convierte el valor del array en el valor de errors */
                 old:req.body,/* para que se guarden los datos que escribiste */
             })
@@ -97,7 +97,7 @@ module.exports = {
     },
     vistaDeEdicion:(req,res)=>{
         db.User.findByPk(req.params.id)
-        .then((result)=>{
+        .then(result=>{
             res.render('users/editPerfil',{
                 result
             });

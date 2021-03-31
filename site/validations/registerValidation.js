@@ -1,4 +1,3 @@
-const fs=require('fs');
 const {check,body}=require('express-validator')
 const path=require('path')
 const db = require(path.join('..','database','models'));

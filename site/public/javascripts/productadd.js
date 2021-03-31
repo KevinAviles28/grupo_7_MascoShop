@@ -1,5 +1,3 @@
-
-
 window.addEventListener('load', function(){   
     let $nombre=qs('#nombre'),
     $nombreErrors=qs('#nombreErrors'),
@@ -133,19 +131,5 @@ window.addEventListener('load', function(){
             }
         }
     })
-    /* $img.addEventListener('change', 
-    function fileValidation(){
-        
-        let filePath = $img.value, //Capturo el valor del input
-        allowefExtensions = /(.jpg|.jpeg|.png|.gif|.web)$/i //Extensiones permitidas
-        if(!allowefExtensions.exec(filePath)){ //El método exec() ejecuta una busqueda sobre las coincidencias de una expresión regular en una cadena especifica. Devuelve el resultado como array, o null.
-            $imgErrors.innerHTML = 'Carga un archivo de imagen válido, con las extensiones (.jpg - .jpeg - .png - .gif)';
-            $img.value = '';
-            return false;
-        }else{     
-            $imgErrors.innerHTML = '';
-            $img.classList.remove('is-invalid')
-        }       
-    }) */
     
 })

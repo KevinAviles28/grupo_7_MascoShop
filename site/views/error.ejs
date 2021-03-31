@@ -1,15 +1,3 @@
-<%- include('partials/head') %>
-<main class="container my-3">
-    <div class="alert alert-danger">
-        <h1><%= message %></h1>
-    </div>
-    <div class="alert alert-danger">
-        <h2><%= error.status %></h2>
-    </div>
-    
-    <div class="alert alert-danger">
-        <pre><%= error.stack %></pre>
-    </div>
-</main> 
-
-<%- include('partials/scripts') %> 
+<h1><%= message %></h1>
+<h2><%= error.status %></h2>
+<pre><%= error.stack %></pre>
