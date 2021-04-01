@@ -98,6 +98,7 @@ module.exports = {
     vistaDeEdicion:(req,res)=>{
         db.User.findByPk(req.params.id)
         .then(result=>{
+            /* res.send(result) */
             res.render('users/editPerfil',{
                 result
             });
@@ -106,9 +107,9 @@ module.exports = {
     },
     edicionDePerfil:(req,res)=>{
         
-        const {pais,localidad,telefono,direccion} = req.body;
+        const {provincia,localidad,telefono,direccion} = req.body;
         db.User.update({
-            pais: pais.trim(),
+            provincia: provincia.trim(),
             localidad: localidad.trim(),
             telefono: telefono.trim(),
             direccion: direccion.trim()
@@ -118,7 +119,7 @@ module.exports = {
             }
         })
         .then(()=>{
-            res.redirect('/');
+            res.redirect(`/users/perfil/${req.params.id}`);
         })
         .catch(error => console.log(error))
         

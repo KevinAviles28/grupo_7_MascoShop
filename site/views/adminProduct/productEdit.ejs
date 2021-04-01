@@ -11,7 +11,7 @@
                 <select name="category" class="form-select mb-3">
                     <option selected>Categoria</option>
                     <% categoria.forEach(cate => { %>
-                        <option value="<%= cate.id %> "><%= cate.name %> </option> 
+                        <option value="<%= cate.id %>"><%= cate.name %> </option> 
                         <% }) %>
                     </select>
                     <span class="text-danger"><%= (typeof errores != 'undefined' && errores.category) ? errores.category.msg : "" %>  </span>

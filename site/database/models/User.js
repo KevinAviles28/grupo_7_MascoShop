@@ -25,11 +25,11 @@ module.exports = (sequelize, dataTypes)=>{
             type: dataTypes.STRING(100),
             allowNull: false
         },
-        pais: {
-            type: dataTypes.STRING(45),
+        provincia: {
+            type: dataTypes.STRING(100),
         },
         localidad: {
-            type: dataTypes.STRING(45),
+            type: dataTypes.STRING(100),
         },
         telefono: {
             type: dataTypes.STRING(45),

@@ -195,7 +195,7 @@ CREATE TABLE `users` (
   `apellido` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `pass` varchar(100) NOT NULL,
-  `pais` varchar(45) DEFAULT NULL,
+  `provincia` varchar(100) DEFAULT NULL,
   `localidad` varchar(45) DEFAULT NULL,
   `telefono` varchar(45) DEFAULT NULL,
   `direccion` varchar(45) DEFAULT NULL,
