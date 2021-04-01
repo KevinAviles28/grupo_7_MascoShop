@@ -4,11 +4,11 @@
 <%- include('partials/head') %> 
 
 <body>
-
+  
   <%- include('partials/header') %>
-
-   <!-- Banner -->
-   <div class="banner container-fluid">
+  
+  <!-- Banner -->
+  <div class="banner container-fluid">
     <div  id="carouselExampleIndicators" class="banner carousel carousel-dark slide col-lg-12" data-bs-ride="carousel">
       <ol class="carousel-indicators">
         <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
@@ -41,12 +41,12 @@
     </div>
   </div>
   <!-- Banner -->
-
+  
   <main class="index container my-3">
     
     <h2>Productos destacados</h2>
     
-    <!-- productos destacados -->
+    <!-- productos productosAlCincuenta -->
     <div class="carousel">
       <div class="carousel__contenedor">
         <button aria-label="Anterior" class="carousel__anterior"><!-- ARIAL-LABEL Para dispositivos de lectura, boton anterior -->
@@ -54,36 +54,67 @@
         </button>
         
         <div class="carousel__lista">
-          <% products.forEach(element=>{ %>
-          <div class="carousel__elemento contenido-producto"><!-- elementos individuales que se veran -->
-            <a href="/products/productDetail/<%= element.id %>#product-detail">
-              <div class="img-content">
-                <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
-                <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
-              </div>         
-              <p><%= element.name %></p>
-              <p class="precio">$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
-              <button class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>
-            </a>			
+          <% productosAlCincuenta.forEach(element=>{ %>
+            <div class="carousel__elemento contenido-producto"><!-- elementos individuales que se veran -->
+              <a href="/products/productDetail/<%= element.id %>#product-detail">
+                <div class="img-content">
+                  <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
+                  <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
+                </div>         
+                <p><%= element.name %></p>
+                <p class="precio">$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
+                <button class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>
+              </a>			
+            </div>
+            <% }) %> 
           </div>
-          <% }) %> 
+          
+          <button aria-label="Siguiente" class="carousel__siguiente"><!-- boton siguiente -->
+            <i class="fas fa-chevron-right"></i>
+          </button>
         </div>
         
-        <button aria-label="Siguiente" class="carousel__siguiente"><!-- boton siguiente -->
-          <i class="fas fa-chevron-right"></i>
-        </button>
       </div>
+      <!-- productosAlTreinta -->
       
-    </div>
+      <h2>Productos destacados</h2>
+      
+      <div class="carousel">
+        <div class="carousel__contenedor">
+          <button aria-label="Anterior" class="carousel__anterior anterior1"><!-- ARIAL-LABEL Para dispositivos de lectura, boton anterior -->
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          
+          <div class="carousel__lista1">
+            <% productosAlTreinta.forEach(element=>{ %>
+              <div class="carousel__elemento contenido-producto"><!-- elementos individuales que se veran -->
+                <a href="/products/productDetail/<%= element.id %>#product-detail">
+                  <div class="img-content">
+                    <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
+                    <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
+                  </div>         
+                  <p><%= element.name %></p>
+                  <p class="precio">$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
+                  <button class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>
+                </a>			
+              </div>
+              <% }) %> 
+            </div>
+            
+            <button aria-label="Siguiente" class="carousel__siguiente siguiente1"><!-- boton siguiente -->
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+          
+        </div>
+        
+        <%- include('partials/instruct') %> 
+        
+      </main>
       <!-- productos destacados -->
       
-      <%- include('partials/instruct') %> 
+      <%- include('partials/footer') %>
+      <%- include('partials/scripts') %> 
       
-    </main>
-    <!-- productos destacados -->
-    
-    <%- include('partials/footer') %>
-    <%- include('partials/scripts') %> 
-    
-  </body>
-  </html>
+    </body>
+    </html>

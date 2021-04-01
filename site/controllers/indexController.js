@@ -5,10 +5,10 @@ const {Op}=require('sequelize')
 module.exports={
     index:(req,res)=>{
         
-        db.Productos.findAll({
+        let productosAlCincuenta = db.Productos.findAll({
             where:{  
                 discount:{
-                    [Op.ne]:0
+                    [Op.eq]:50
                 },
                 stock:{
                     [Op.ne]:0
@@ -17,8 +17,23 @@ module.exports={
             limit: 8,
             include:[{association:"imagenProducto"}]
         })
-        .then(products=>{
-            res.render('index',{products,toThousand});
+
+        let productosAlTreinta = db.Productos.findAll({
+            where:{  
+                discount:{
+                    [Op.eq]:30
+                },
+                stock:{
+                    [Op.ne]:0
+                },
+            },
+            limit: 8,
+            include:[{association:"imagenProducto"}]
+        })
+
+        Promise.all([productosAlCincuenta,productosAlTreinta])
+        .then(([productosAlCincuenta,productosAlTreinta])=>{
+            res.render('index',{productosAlCincuenta,productosAlTreinta,toThousand});
         })
         .catch(error => res.send(error));
               
