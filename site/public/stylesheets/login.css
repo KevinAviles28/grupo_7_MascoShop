@@ -21,7 +21,11 @@ main.register .form-check label{
 main.register h2{
     color: white;
 }
-
+#pass1{
+    color:black;
+    font-size: 25px;
+    
+}
 @media(min-width:769px){
     main.register form .botones{
         flex-direction: row;

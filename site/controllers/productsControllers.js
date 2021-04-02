@@ -91,7 +91,7 @@ module.exports = {
                 where: {
                     category_id: laCategoria.id
                 },
-                limit:8
+                limit:8,
             })
             .then((productosRelacionados) => {
                 res.render('productDetail', {

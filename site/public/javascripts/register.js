@@ -3,6 +3,32 @@ let qs = function(elemento){
 }
 
 window.addEventListener('load', function(){   
+
+    let boton1=document.querySelector('#pass1');
+    let passwordLogin=document.querySelector('#passwordLogin');
+
+    function mostrarLaContraseña(password,boton){
+        if(password.type=="password"){
+            password.type="text";
+            boton.classList.remove("fa-eye")
+            boton.classList.add("fa-eye-slash");
+        }else{
+        password.type = "password";
+        boton.classList.remove("fa-eye-slash");
+        boton.classList.add("fa-eye");
+        }
+    }
+    boton1.addEventListener('click',function(){
+        mostrarLaContraseña(passwordLogin,boton1)
+    })
+        
+    
+
+
+
+
+
+
     let $inputName=qs('#name'),
     $nameErrors=qs('#nameErrors'),
     $inputLastname=qs('#lastname'),

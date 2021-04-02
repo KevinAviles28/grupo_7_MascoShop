@@ -90,20 +90,26 @@
           </button>
           
           <div class="carousel__lista">
+           
             <% productosRelacionados.forEach(element=>{ %>
-              <div class="carousel__elemento contenido-producto"><!-- elementos individuales que se veran -->
-                <a href="/products/productDetail/<%= element.id %>#product-detail">
-                  <div class="img-content">
-                    <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
-                    <% if(element.discount != 0){ %> 
-                      <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
-                      <% } %> 
-                    </div>         
-                    <p><%= element.name %></p>
-                    <p class="precio">$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
-                    <button class="btn btn-primary">Agregar al carrito</button>
-                  </a>			
-                </div>
+              <% if (element.id==product.id) { %>
+              <% return null%>  
+              <% }else{%>
+                <div class="carousel__elemento contenido-producto"><!-- elementos individuales que se veran -->
+                  <a href="/products/productDetail/<%= element.id %>#product-detail">
+                    <div class="img-content">
+                      <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
+                      <% if(element.discount != 0){ %> 
+                        <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
+                        <% } %> 
+                      </div>         
+                      <p><%= element.name %></p>
+                      <p class="precio">$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
+                      <button class="btn btn-primary">Agregar al carrito</button>
+                    </a>			
+                  </div>
+             <% } %>
+             
                 <% }) %> 
               </div>
               
