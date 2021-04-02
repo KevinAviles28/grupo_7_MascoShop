@@ -1,5 +1,17 @@
 @import "generales.css";
 
+.icono-contrasenia-login{
+    position: relative;
+}
+
+.icono-contrasenia-login i{
+    position: absolute;
+    top: -3px;
+    right: 0;
+    color:#666;
+    font-size: 20px;
+}
+
 main.register .login{
     border-right: 1px solid #666;
 }
@@ -21,11 +33,7 @@ main.register .form-check label{
 main.register h2{
     color: white;
 }
-#pass1{
-    color:black;
-    font-size: 25px;
-    
-}
+
 @media(min-width:769px){
     main.register form .botones{
         flex-direction: row;
