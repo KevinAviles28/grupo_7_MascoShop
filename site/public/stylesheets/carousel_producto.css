@@ -31,6 +31,9 @@
 .glider .contenido-producto h3{
     font-size: 1rem;
     color: #666;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .glider .contenido-producto a{
@@ -74,9 +77,6 @@
 	background-color: white;
 	padding: 20px;
 	margin: 0 10px;
-	white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
 }
 
 .nuestros-productos:hover{
@@ -91,6 +91,9 @@
 .nuestros-productos .lista-productos h3{
 	font-size: 1rem;
     color: #666;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .nuestros-productos .lista-productos a{
