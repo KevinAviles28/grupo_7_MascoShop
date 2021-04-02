@@ -12,19 +12,19 @@
     <div class="row my-3">
       
       <% result.forEach(element=>{ %>
-        <section class="col-12 col-md-6 col-lg-4 col-xl-3 vista-producto">
-          <div class="contenido-producto"><!-- elementos individuales que se veran -->
+        <section class="col-12 col-md-6 col-lg-4 col-xl-3 my-3 nuestros-productos">
+          <div class="lista-productos"><!-- elementos individuales que se veran -->
             <a href="/products/productDetail/<%= element.id %>#product-detail">
-              <div class="img-content">
+              <div class="image-contain">
                 <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
                 <% if(element.discount != 0){ %> 
-                  <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
+                  <div class="discount"><%= element.discount %>%</div>
                   <% } %> 
-                </div>         
-                <p><%= element.name %></p>
-                <p class="precio">$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
-                <button class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>
-              </a>			
+                </div>
+                <h3><%= element.name %></h3>
+                <p>$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
+              </a>
+              <button class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>			
             </div>
           </section> 
           <% }) %>

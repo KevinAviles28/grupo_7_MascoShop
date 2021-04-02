@@ -47,66 +47,50 @@
     <h2>Productos destacados</h2>
     
     <!-- productos productosAlCincuenta -->
-    <div class="carousel">
-      <div class="carousel__contenedor">
-        <button aria-label="Anterior" class="carousel__anterior"><!-- ARIAL-LABEL Para dispositivos de lectura, boton anterior -->
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        
-        <div class="carousel__lista">
-          <% productosAlCincuenta.forEach(element=>{ %>
-            <div class="carousel__elemento contenido-producto"><!-- elementos individuales que se veran -->
-              <a href="/products/productDetail/<%= element.id %>#product-detail">
-                <div class="img-content">
-                  <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
-                  <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
-                </div>         
-                <p><%= element.name %></p>
-                <p class="precio">$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
-                <button class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>
-              </a>			
+    <div class="glider-contain">
+			<div class="glider">
+        <% productosAlCincuenta.forEach(element=>{ %>
+				<div class="contenido-producto">
+          <a href="/products/productDetail/<%= element.id %>#product-detail">
+            <div class="image-contain">
+              <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
+              <div class="discount"><%= element.discount %>%</div>
             </div>
-            <% }) %> 
-          </div>
-          
-          <button aria-label="Siguiente" class="carousel__siguiente"><!-- boton siguiente -->
-            <i class="fas fa-chevron-right"></i>
-          </button>
-        </div>
-        
+            <h3><%= element.name %></h3>
+            <p>$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
+          </a>
+					<button class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>
+				</div>
+        <% }) %> 
       </div>
+			
+			<button aria-label="Previous" class="glider-prev">«</button><!-- boton izquierdo -->
+			<button aria-label="Next" class="glider-next">»</button><!-- boton derecho -->
+		</div>
       <!-- productosAlTreinta -->
       
       <h2>Productos destacados</h2>
       
-      <div class="carousel">
-        <div class="carousel__contenedor">
-          <button aria-label="Anterior" class="carousel__anterior anterior1"><!-- ARIAL-LABEL Para dispositivos de lectura, boton anterior -->
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          
-          <div class="carousel__lista1">
-            <% productosAlTreinta.forEach(element=>{ %>
-              <div class="carousel__elemento contenido-producto"><!-- elementos individuales que se veran -->
-                <a href="/products/productDetail/<%= element.id %>#product-detail">
-                  <div class="img-content">
-                    <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
-                    <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
-                  </div>         
-                  <p><%= element.name %></p>
-                  <p class="precio">$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
-                  <button class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>
-                </a>			
+      <div class="glider-contain">
+        <div class="glider1">
+          <% productosAlTreinta.forEach(element=>{ %>
+          <div class="contenido-producto">
+            <a href="/products/productDetail/<%= element.id %>#product-detail">
+              <div class="image-contain">
+                <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
+                <div class="discount"><%= element.discount %>%</div>
               </div>
-              <% }) %> 
-            </div>
-            
-            <button aria-label="Siguiente" class="carousel__siguiente siguiente1"><!-- boton siguiente -->
-              <i class="fas fa-chevron-right"></i>
-            </button>
+              <h3><%= element.name %></h3>
+              <p>$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
+            </a>
+            <button class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>
           </div>
-          
+          <% }) %> 
         </div>
+        
+        <button aria-label="Previous" class="glider-prev prev1">«</button><!-- boton izquierdo -->
+        <button aria-label="Next" class="glider-next next1">»</button><!-- boton derecho -->
+      </div>
         
         <%- include('partials/instruct') %> 
         

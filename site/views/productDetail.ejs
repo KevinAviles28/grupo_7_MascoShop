@@ -54,75 +54,69 @@
             <h3><%= product.name %></h3>
             <h2>$<%= toThousand(product.precio - parseInt(product.precio * product.discount / 100)) %>
               <% if(product.discount != 0){ %> 
-              <span> $<%= toThousand(product.precio) %></span>
-              <% } %> 
-            </h2>
+                <span> $<%= toThousand(product.precio) %></span>
+                <% } %> 
+              </h2>
               <% if(product.discount != 0){ %> 
                 <p><%= product.discount %>% OFF</p>
                 <% } %>
-            <p>Stock-Disponible: <%= product.stock %> u.</p>
-            <button class="btn btn-warning mb-3"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>
-            <!-- <div class="pago">
-              <img src="/images/pagos.png" alt="">
-            </div> -->
-          </div>
-          
-          <div class="col-12 my-3 descrip">
-            Descripción:
-            <p><%= product.description %></p>                      
-          </div>
-          
-        </div>
-      </section>
-    </div>
-    <!-- product-detail -->  
-    
-    <!-- product relacionados -->
-    
-    <div class="product-relacionados row my-3">
-      
-      <h2>Productos relacionados</h2>
-      
-      <div class="carousel">
-        <div class="carousel__contenedor">
-          <button aria-label="Anterior" class="carousel__anterior"><!-- ARIAL-LABEL Para dispositivos de lectura, boton anterior -->
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          
-          <div class="carousel__lista">
-            <% productosRelacionados.forEach(element=>{ %>
-              <div class="carousel__elemento contenido-producto"><!-- elementos individuales que se veran -->
-                <a href="/products/productDetail/<%= element.id %>#product-detail">
-                  <div class="img-content">
-                    <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
-                    <% if(element.discount != 0){ %> 
-                      <div class="descuento"><span><i class="fas fa-tags"></i><br> <%= element.discount %>%</span></div>
-                      <% } %> 
-                    </div>         
-                    <p><%= element.name %></p>
-                    <p class="precio">$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
-                    <button class="btn btn-primary">Agregar al carrito</button>
-                  </a>			
-                </div>
-                <% }) %> 
+                <p>Stock-Disponible: <%= product.stock %> u.</p>
+                <button class="btn btn-warning mb-3"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>
+                <!-- <div class="pago">
+                  <img src="/images/pagos.png" alt="">
+                </div> -->
               </div>
               
-              <button aria-label="Siguiente" class="carousel__siguiente"><!-- boton siguiente -->
-                <i class="fas fa-chevron-right"></i>
-              </button>
+              <div class="col-12 my-3 descrip">
+                Descripción:
+                <p><%= product.description %></p>                      
+              </div>
+              
             </div>
-            
-          </div>
-          
+          </section>
         </div>
-        <!-- productos relacionados -->
+        <!-- product-detail -->  
         
-        <%- include('partials/instruct') %> 
+        <!-- product relacionados -->
         
-      </main> 
-      
-      <%- include('partials/footer') %>
-      <%- include('partials/scripts') %> 
-      
-    </body>
-    </html>
+        <div class="product-relacionados row my-3">
+          
+          <h2>Productos relacionados</h2>
+          
+          <!--  -->
+          <div class="glider-contain">
+            <div class="glider">
+              <% productosRelacionados.forEach(element=>{ %>
+                <div class="contenido-producto">
+                  <a href="/products/productDetail/<%= element.id %>#product-detail">
+                    <div class="image-contain">
+                      <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
+                      <% if(element.discount != 0){ %> 
+                        <div class="discount"><%= element.discount %>%</div>
+                        <% } %> 
+                      </div>
+                      <h3><%= element.name %></h3>
+                      <p>$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
+                    </a>
+                    <button class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>
+                  </div>
+                  <% }) %> 
+                </div>
+                
+                <button aria-label="Previous" class="glider-prev">«</button><!-- boton izquierdo -->
+                <button aria-label="Next" class="glider-next">»</button><!-- boton derecho -->
+              </div>
+              <!--  -->
+              
+            </div>
+            <!-- productos relacionados -->
+            
+            <%- include('partials/instruct') %> 
+            
+          </main> 
+          
+          <%- include('partials/footer') %>
+          <%- include('partials/scripts') %> 
+          
+        </body>
+        </html>
