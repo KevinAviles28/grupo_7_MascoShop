@@ -87,36 +87,40 @@
           <div class="glider-contain">
             <div class="glider">
               <% productosRelacionados.forEach(element=>{ %>
-                <div class="contenido-producto">
-                  <a href="/products/productDetail/<%= element.id %>#product-detail">
-                    <div class="image-contain">
-                      <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
-                      <% if(element.discount != 0){ %> 
-                        <div class="discount"><%= element.discount %>%</div>
-                        <% } %> 
+                <% if(element.id == product.id){ %>
+                  <% return null %> 
+                  <% }else{ %>
+                    <% } %>   
+                    <div class="contenido-producto">
+                      <a href="/products/productDetail/<%= element.id %>#product-detail">
+                        <div class="image-contain">
+                          <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
+                          <% if(element.discount != 0){ %> 
+                            <div class="discount"><%= element.discount %>%</div>
+                            <% } %> 
+                          </div>
+                          <h3><%= element.name %></h3>
+                          <p>$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
+                        </a>
+                        <button class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>
                       </div>
-                      <h3><%= element.name %></h3>
-                      <p>$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
-                    </a>
-                    <button class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>
+                      <% }) %> 
+                    </div>
+                    
+                    <button aria-label="Previous" class="glider-prev">«</button><!-- boton izquierdo -->
+                    <button aria-label="Next" class="glider-next">»</button><!-- boton derecho -->
                   </div>
-                  <% }) %> 
+                  <!--  -->
+                  
                 </div>
+                <!-- productos relacionados -->
                 
-                <button aria-label="Previous" class="glider-prev">«</button><!-- boton izquierdo -->
-                <button aria-label="Next" class="glider-next">»</button><!-- boton derecho -->
-              </div>
-              <!--  -->
+                <%- include('partials/instruct') %> 
+                
+              </main> 
               
-            </div>
-            <!-- productos relacionados -->
-            
-            <%- include('partials/instruct') %> 
-            
-          </main> 
-          
-          <%- include('partials/footer') %>
-          <%- include('partials/scripts') %> 
-          
-        </body>
-        </html>
+              <%- include('partials/footer') %>
+              <%- include('partials/scripts') %> 
+              
+            </body>
+            </html>
