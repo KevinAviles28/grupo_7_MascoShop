@@ -1,8 +1,9 @@
 @import "generales.css";
 body.modoClaro{
-    background-color: white;
+    background-color: #57c96e;
 
 }
-body.modoClaro .glider .contenido-producto{
-    border:1px solid var(--colorAzul)
+
+body.modoClaro main.index h2{
+    color: #23274c;
 }
