@@ -98,6 +98,11 @@
               <li><a class="dropdown-item" href="/products/productStock">Editar Stock</a></li>
               <% } %>
               <li><a class="dropdown-item" href="/users/logout">Cerrar sesion</a></li>
+              <li><a class="dropdown-item" style="border-top: 1px solid #c4ccc6;">Themes:</a></li>
+              
+              <li class="dropdown-item" id="temaPreterminado"><i class="fas fa-th-large" style="color: #1a508b"></i> Preterminado</li>
+              <li class="dropdown-item" id="temaOscuro"><i class="fas fa-th-large" style="color: #212529;"></i> Tema oscuro</li>
+              <li class="dropdown-item" id="temaClaro"><i class="fas fa-th-large" style="color: #c4ccc6;"></i> Tema claro</li>
             </ul>
             <% }else{ %>
               <a class="btn btn-primary dropdown-toggle mx-3" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-circle"></i> Mi perfil <!-- nombre de usuario -->
@@ -105,21 +110,18 @@
               
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <li><a class="dropdown-item" href="/users/login">Iniciar sesion</a></li>
-                <li>Cambiar de tema
-                  <ul>
-                    <li class="btn" id="temaPreterminado"><i class="fab fa-battle-net"></i>Preterminado</li>
-                    <li class="btn" id="temaOscuro"><i class="fas fa-moon"></i>Tema oscuro</li>
-                    <li class="btn" id="temaClaro"><i class="fas fa-sun"></i>Tema claro</li>
-                  </ul>
-                </li>
+                <li><a class="dropdown-item" style="border-top: 1px solid #c4ccc6;">Themes:</a></li>
+                
+                <li class="dropdown-item" id="temaPreterminado"><i class="fas fa-th-large" style="color: #1a508b"></i> Preterminado</li>
+                <li class="dropdown-item" id="temaOscuro"><i class="fas fa-th-large" style="color: #212529;"></i> Tema oscuro</li>
+                <li class="dropdown-item" id="temaClaro"><i class="fas fa-th-large" style="color: #c4ccc6;"></i> Tema claro</li>
+                
+                
               </ul>
               <% } %> 
             </div>
             <a class="btn btn-success" href="/products/productCart"><i class="fas fa-shopping-bag"></i> Mi carrito</a> 
           </div>
-          
-          
-          
           
         </div>
         
