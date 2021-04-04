@@ -61,7 +61,7 @@ module.exports = {
                 })
             })
             .then(() => {
-                res.redirect('/');
+                res.redirect('/products/allProducts');
             })
         }
     },
@@ -183,7 +183,7 @@ module.exports = {
                         fs.unlinkSync('public/images/productos/' + element.product_name)
                     }
                 })
-                res.redirect('/');
+                res.redirect('/products/allProducts');
             })
         })
     },
