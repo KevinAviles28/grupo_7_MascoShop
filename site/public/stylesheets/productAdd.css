@@ -14,7 +14,7 @@ main.carga-productos form textarea{
     max-height: 100%;
 }
 
-.carga-productos form .img-container {
+.carga-productos form .img-container{
     width: 100%;
     height: 200px;
     border: thin solid gray ;

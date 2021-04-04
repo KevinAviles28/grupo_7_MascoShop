@@ -1,9 +1,44 @@
 @import "generales.css";
 body.modoClaro{
-    background-color: #57c96e;
+    background-color: #289672;
 
 }
 
-body.modoClaro main.index h2{
-    color: #23274c;
+body.modoClaro main.index h2,
+body.modoClaro .product-relacionados h2,
+body.modoClaro .ruta-producto ul li a,
+body.modoClaro aside ul li a,
+body.modoClaro .instructivo-compra article p{
+    color: white;
 }
+
+body.modoClaro .carga-productos form .img-container{
+    border: 1px solid white;
+}
+
+body.modoClaro .ruta-producto ul li a:hover,
+body.modoClaro aside ul li a:hover{
+    color: orange;
+}
+
+body.modoClaro header,
+body.modoClaro header .navbar,
+body.modoClaro footer{
+    background-color: #1e6f5c;
+}
+
+body.modoClaro .glider .contenido-producto:hover,
+body.modoClaro .nuestros-productos:hover{
+	background-color: #e6dd3b;
+}
+
+body.modoClaro .nuestros-productos .lista-productos:hover > a p,
+body.modoClaro .nuestros-productos .lista-productos:hover > p,
+body.modoClaro .glider .contenido-producto:hover > a p{
+	color: #1e6f5c;
+}
+
+
+
+
+
