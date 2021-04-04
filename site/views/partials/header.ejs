@@ -91,7 +91,6 @@
           
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <li><a class="dropdown-item" href="/users/perfil/<%=userNew.id %> ">Mi Perfil</a></li>
-            
             <% if (userNew.category==="Admin") { %>
               <li><a class="dropdown-item" href="/products/productAdd">Agregar productos</a></li>
               <li><a class="dropdown-item" href="/admin/lista">Lista de usuarios</a></li>
@@ -112,9 +111,9 @@
                 <li><a class="dropdown-item" href="/users/login">Iniciar sesion</a></li>
                 <li><a class="dropdown-item" style="border-top: 1px solid #c4ccc6;">Themes:</a></li>
                 
-                <li class="dropdown-item" id="temaPreterminado"><i class="fas fa-th-large" style="color: #1a508b"></i> Preterminado</li>
-                <li class="dropdown-item" id="temaOscuro"><i class="fas fa-th-large" style="color: #212529;"></i> Tema oscuro</li>
-                <li class="dropdown-item" id="temaClaro"><i class="fas fa-th-large" style="color: #c4ccc6;"></i> Tema claro</li>
+                <li class="dropdown-item btn" id="temaPreterminado"><i class="fas fa-th-large" style="color: #1a508b"></i> Preterminado</li>
+                <li class="dropdown-item btn" id="temaOscuro"><i class="fas fa-th-large" style="color: #212529;"></i> Tema oscuro</li>
+                <li class="dropdown-item btn" id="temaClaro"><i class="fas fa-th-large" style="color: #1e6f5c;"></i> Tema claro</li>
                 
                 
               </ul>
