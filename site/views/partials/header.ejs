@@ -91,13 +91,6 @@
           
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <li><a class="dropdown-item" href="/users/perfil/<%=userNew.id %> ">Mi Perfil</a></li>
-            <li>Cambiar de tema
-              <ul>
-                <li class="btn" id="temaPreterminado"><i class="fab fa-battle-net"></i>Preterminado</li>
-                <li class="btn" id="temaOscuro"><i class="fas fa-moon"></i>Tema oscuro</li>
-                <li class="btn" id="temaClaro"><i class="fas fa-sun"></i>Tema claro</li>
-              </ul>
-            </li>
             <% if (userNew.category==="Admin") { %>
               <li><a class="dropdown-item" href="/products/productAdd">Agregar productos</a></li>
               <li><a class="dropdown-item" href="/admin/lista">Lista de usuarios</a></li>
