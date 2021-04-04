@@ -58,6 +58,9 @@ header .boton-user i{
     font-size: 1.1rem;
     color: white;
 }
+header .boton-user ul li ul li i{
+    color:black
+}
 
 header .nav-link:hover{
     color: orange;
@@ -66,6 +69,11 @@ header .nav-link:hover{
 header .navbar-brand:hover{
     color: orange;
 }
+header .fondoDark span i{
+    font-size: 25px;
+    /* color: black; */
+}
+
 /* fin del header */
 
 /* banner */

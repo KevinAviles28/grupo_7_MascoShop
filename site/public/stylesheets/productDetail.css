@@ -83,7 +83,7 @@ aside ul li a:hover{
     border-bottom: 1px solid #666;
 }
 
-@media(min-width: 426px){
+@media(min-width: 768px){
     aside{
         display: block;
     }
