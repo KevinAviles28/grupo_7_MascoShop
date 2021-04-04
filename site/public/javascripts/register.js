@@ -4,9 +4,15 @@ let qs = function(elemento){
 
 window.addEventListener('load', function(){   
 
-    let boton1=document.querySelector('#pass1');
+    let boton1=document.querySelector('#boton1');
     let passwordLogin=document.querySelector('#passwordLogin');
+    
+    let boton2=document.querySelector('#boton2');
+    let passwordRegister=document.querySelector('#pass');
 
+    let boton3=document.querySelector('#boton3');
+    let passwordRegister2=document.querySelector('#pass2');
+ 
     function mostrarLaContraseña(password,boton){
         if(password.type=="password"){
             password.type="text";
@@ -20,10 +26,13 @@ window.addEventListener('load', function(){
     }
     boton1.addEventListener('click',function(){
         mostrarLaContraseña(passwordLogin,boton1)
-    })
-        
-    
-
+    });  
+     boton2.addEventListener('click',function(){
+        mostrarLaContraseña(passwordRegister,boton2)
+    });
+    boton3.addEventListener('click',function(){
+        mostrarLaContraseña(passwordRegister2,boton3)
+    });  
 
 
 
@@ -44,7 +53,7 @@ window.addEventListener('load', function(){
     regExAlpha= /^[a-zA-Z\sñáéíóúü ]*$/,
     regExDNI= /^[0-9]{7,8}$/,
     regExEmail= /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i,
-    regExPass= /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/;
+    regExPass= /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}$/;
     
     
     
@@ -109,7 +118,7 @@ window.addEventListener('load', function(){
             $pass.classList.add('is-invalid')
             break;
             case !regExPass.test($pass.value):
-            $passErrors.innerHTML = 'La contraseña debe tener: entre 6 o 12 caracteres, al menos una mayúscula, una minúscula y un número';
+            $passErrors.innerHTML = 'La contraseña debe tener: entre 8 o 12 caracteres, al menos una mayúscula, una minúscula, un número y un símbolo';
             $pass.classList.add('is-invalid')
             break
             default:

@@ -1,0 +1,5 @@
+@import "generales.css";
+body.modoOscuro header{
+    background-color: black;
+
+}

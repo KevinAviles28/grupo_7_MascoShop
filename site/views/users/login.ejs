@@ -29,8 +29,7 @@
                     </div>
                     <div class="mb-3 icono-contrasenia-login">
                         <input type="password" id="passwordLogin" name="pass" placeholder="Contraseña" class="form-control" >
-                        <i class="fas fa-eye btn" id="pass1"></i>
-                        
+                        <i class="fas fa-eye btn" id="boton1"></i>
                         <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pass) ? errores.pass.msg : "" %>  </span>
                     </div>
                     <div class="mb-3 form-check">
@@ -67,12 +66,14 @@
                                 <input id="email" type="email" name="email" placeholder="Email" class="form-control"  value="<%= (typeof old != 'undefined' && old.email) ? old.email : ""%>" >
                                 <span id="emailErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.email) ? errores.email.msg : "" %>  </span>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 icono-contrasenia-registro">
                                 <input id="pass" type="password" name="passUno" placeholder="Contraseña" class="form-control">
+                                <i class="fas fa-eye btn" id="boton2"></i>
                                 <span id="passErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.passUno) ? errores.passUno.msg : "" %>  </span>
                             </div>
-                            <div  class="mb-3">
+                            <div  class="mb-3 icono-contrasenia-registro2">
                                 <input id="pass2" type="password" name="passDos" placeholder="Repetir contraseña" class="form-control">
+                                <i class="fas fa-eye btn" id="boton3"></i>
                                 <span id="pass2Errors" class="text-danger"><%= (typeof errores != 'undefined' && errores.passDos) ? errores.passDos.msg : "" %>  </span>
                             </div>
                             <div class="mb-3">

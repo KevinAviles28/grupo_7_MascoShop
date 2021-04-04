@@ -1,4 +1,4 @@
-<header class="container-fluid">
+<header class="container-fluid elHeader">
   
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
@@ -79,11 +79,10 @@
   <div class="content-header row">
     
     <div class="buscador col-12 mb-3 col-md-7 col-lg-8">
-      <form action="/search" method="GET">
-        <input class="form-control" type="search" name="busqueda" placeholder="Busca productos, accesorios y alimentos"><button type="submit" class="btn btn-warning"><i class="fas fa-search"></i></button>
+      <form action="/search" method="GET" id="searchForm">
+        <input class="form-control" id="inputBusqueda" type="search" name="busqueda" placeholder="Busca productos, accesorios y alimentos"><button type="submit" class="btn btn-warning" id="botonBusqueda"><i class="fas fa-search"></i></button>
       </form>
     </div>
-    
     <div class="col-12 col-md-5 col-lg-4 boton-user mb-3 d-flex justify-content-end">
       <div class="dropdown">
         <% if (typeof userNew != 'undefined') { %>
@@ -92,6 +91,7 @@
           
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <li><a class="dropdown-item" href="/users/perfil/<%=userNew.id %> ">Mi Perfil</a></li>
+            
             <% if (userNew.category==="Admin") { %>
               <li><a class="dropdown-item" href="/products/productAdd">Agregar productos</a></li>
               <li><a class="dropdown-item" href="/admin/lista">Lista de usuarios</a></li>
@@ -105,6 +105,13 @@
               
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <li><a class="dropdown-item" href="/users/login">Iniciar sesion</a></li>
+                <li>Cambiar de tema
+                  <ul>
+                    <li class="btn" id="temaPreterminado"><i class="fab fa-battle-net"></i>Preterminado</li>
+                    <li class="btn" id="temaOscuro"><i class="fas fa-moon"></i>Tema oscuro</li>
+                    <li class="btn" id="temaClaro"><i class="fas fa-sun"></i>Tema claro</li>
+                  </ul>
+                </li>
               </ul>
               <% } %> 
             </div>

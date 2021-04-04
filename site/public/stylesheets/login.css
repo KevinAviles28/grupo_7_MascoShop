@@ -11,7 +11,28 @@
     color:#666;
     font-size: 20px;
 }
+.icono-contrasenia-registro{
+    position: relative;
+}
 
+.icono-contrasenia-registro i{
+    position: absolute;
+    top: -3px;
+    right: 33px;
+    color:#666;
+    font-size: 20px;
+}
+.icono-contrasenia-registro2{
+    position: relative;
+}
+
+.icono-contrasenia-registro2 i{
+    position: absolute;
+    top: -3px;
+    right: 33px;
+    color:#666;
+    font-size: 20px;
+}  
 main.register .login{
     border-right: 1px solid #666;
 }

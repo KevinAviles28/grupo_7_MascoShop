@@ -29,7 +29,7 @@ module.exports = [
         }) 
     }), 
   
-    check('passUno').isStrongPassword().withMessage('La contraseña debe de tener al menos 8 caracteres,una mayuscula,una minuscula y un simbolo'),
+    check('passUno').isStrongPassword().withMessage('La contraseña debe de tener al menos 8 caracteres,una mayuscula,una minuscula,un número y un símbolo'),
    
     body('passDos').custom((value,{req})=>{ 
         if(value!==req.body.passUno){/*si el valor del pass2 es ditinto a la primera contraseña*/
