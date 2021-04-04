@@ -1,5 +1,72 @@
 @import "generales.css";
+/* body */
+body.modoOscuro {
+    background-color: #161716;
+}
+/* fin del body */
+body.modoOscuro main.index h2{
+    color:#027bfc ;
+}
+
+/* carousel-productos */
+body.modoOscuro .glider .contenido-producto{
+    background-color: rgb(29, 28, 28);
+}
+body.modoOscuro .glider .contenido-producto:hover{
+	background-color: #e36e1b;
+}
+body.modoOscuro .glider .contenido-producto h3{
+    color: white;
+}
+body.modoOscuro .glider .contenido-producto a p{
+    color: white;
+}
+body.modoOscuro .glider .contenido-producto:hover > a p{
+	color: var(--colorAzul);
+}
+/* fin carousel-productos */
+
+
+/* nuestros-productos */
+body.modoOscuro .nuestros-productos{
+    background-color: rgb(29, 28, 28);
+}    
+body.modoOscuro .nuestros-productos:hover{
+	background-color: rgb(29, 28, 28);
+}
+body.modoOscuro .nuestros-productos .lista-productos h3{
+    color:white
+}
+body.modoOscuro .nuestros-productos .lista-productos a p,
+body.modoOscuro .nuestros-productos .lista-productos p{
+    color: white;
+}
+body.modoOscuro .nuestros-productos .lista-productos:hover > a p,
+body.modoOscuro .nuestros-productos .lista-productos:hover > p{
+	color: #d40902;
+}
+/* fin de nuestros-productos */
+
+/* header */
 body.modoOscuro header{
-    background-color: black;
+    background-color: rgb(51, 51, 51);
 
 }
+body.modoOscuro header .navbar{
+    background-color: #121212 ;
+    box-shadow: 0px 10px 10px -6px black;
+}
+/* fin del header */
+
+/* login */
+body.modoOscuro .headerLogin{
+    background-color: rgb(51, 51, 51);
+}
+
+
+/* footer */
+body.modoOscuro footer{
+    background-color: rgb(51, 51, 51);
+}
+
+/* fin del footer */
