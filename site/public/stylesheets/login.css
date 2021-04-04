@@ -54,6 +54,9 @@ main.register .form-check label{
 main.register h2{
     color: white;
 }
+main ul li#temas{
+    color: white;
+}
 
 @media(min-width:769px){
     main.register form .botones{
