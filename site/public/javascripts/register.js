@@ -34,10 +34,6 @@ window.addEventListener('load', function(){
         mostrarLaContraseña(passwordRegister2,boton3)
     });  
 
-
-
-
-
     let $inputName=qs('#name'),
     $nameErrors=qs('#nameErrors'),
     $inputLastname=qs('#lastname'),
