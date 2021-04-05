@@ -47,11 +47,11 @@ module.exports = {
             
         }else{
             
-            const {email,pass,recordarme} = req.body;
+            const {emailLog,pass,recordarme} = req.body;
             
             db.User.findOne({
                 where: {
-                    email
+                    email: emailLog
                 }
             })
             .then(result=>{
