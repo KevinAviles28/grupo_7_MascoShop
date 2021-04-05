@@ -1,14 +1,15 @@
 @import "generales.css";
-/* body */
+
 body.modoOscuro {
     background-color: #161716;
 }
-/* fin del body */
-body.modoOscuro main.index h2{
+
+body.modoOscuro main.index h2,
+body.modoOscuro .product-relacionados h2{
     color:#027bfc ;
 }
 
-/* carousel-productos */
+
 body.modoOscuro .glider .contenido-producto,
 body.modoOscuro .nuestros-productos{
     background-color: rgb(29, 28, 28);
@@ -22,11 +23,6 @@ body.modoOscuro .glider .contenido-producto a p{
     color: white;
 }
 
-/* fin carousel-productos */
-
-
-/* nuestros-productos */
-
 body.modoOscuro .nuestros-productos .lista-productos a p,
 body.modoOscuro .nuestros-productos .lista-productos p,
 body.modoOscuro .nuestros-productos .lista-productos h3{
@@ -37,9 +33,6 @@ body.modoOscuro .nuestros-productos .lista-productos:hover > p,
 body.modoOscuro .glider .contenido-producto:hover > a p{
 	color: #eeff00;
 }
-/* fin de nuestros-productos */
-
-/* header */
 body.modoOscuro header,
 body.modoOscuro .headerLogin,
 body.modoOscuro footer{
@@ -51,23 +44,8 @@ body.modoOscuro header .navbar{
     box-shadow: 0px 10px 10px -6px black;
 }
 
-/* fin del header */
 
-/* productoDetail */
-
-body.modoOscuro .product-relacionados h2{
-    color:#027bfc;
-}
-
-/* fin productoDetail */
-
-/* login */
 
 body.modoOscuro main ul li#temas{
     color:#0252a8;
 }
-
-/* footer */
-
-
-/* fin del footer */
