@@ -70,10 +70,9 @@ header .nav-link:hover{
 header .navbar-brand:hover{
     color: orange;
 }
-header .fondoDark span i{
+/* header .fondoDark span i{
     font-size: 25px;
-    /* color: black; */
-}
+} */
 
 /* fin del header */
 
