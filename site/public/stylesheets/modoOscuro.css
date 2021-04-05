@@ -48,7 +48,6 @@ body.modoOscuro footer{
 }
 body.modoOscuro header .navbar{
     background-color: #121212 ;
-    box-shadow: 0px 10px 10px -6px black;
 }
 
 /* fin del header */
