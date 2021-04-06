@@ -7,17 +7,22 @@ const {validationResult} = require('express-validator');
 module.exports = {
     processRegister:(req,res)=>{
         
+        
         const errores=validationResult(req);
         
         if(!errores.isEmpty()){
+            if(req.files[0]){
+                fs.unlinkSync('public/images/users/'+req.files[0].filename)
+            }
             return res.render('users/login',{
                 errores : errores.mapped(),/* convierte el valor del array en el valor de errors */
                 old:req.body,/* para que se guarden los datos que escribiste */
+                
             })
         }else{
             
-            const {name,apellido,email,passUno,avatar} = req.body;
             
+            const {name,apellido,email,passUno,avatar} = req.body;    
             db.User.create({
                 name: name.trim(),
                 apellido: apellido.trim(),
