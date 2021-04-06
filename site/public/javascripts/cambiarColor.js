@@ -22,7 +22,6 @@
         localStorage.clear();//elimina todos los localStorage
         localStorage.setItem('cambioDeModo',elBody.className)//agrega un localStorage con el valor de la clase que acabo de agregar
         
-        
     });
     temaPreterminado.addEventListener('click',function(){
         quitarClases();
