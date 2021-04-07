@@ -35,6 +35,9 @@ module.exports = {
             let pedidoSubCategoria = db.SubCategoria.findAll()
             Promise.all([pedidoCategoria, pedidoSubCategoria])
             .then(([categoria, subcategoria]) => {
+                if(req.files[0]){
+                    fs.unlinkSync('public/images/productos/' +req.files[0].filename)
+                }
                 return res.render('adminProduct/productAdd', {
                     categoria,
                     subcategoria,
@@ -331,3 +334,4 @@ module.exports = {
         }
     }
 }
+

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cambio de contraseña</h1>
+
+    <p>Nombre de usuario: <%=result.name%> </p>
+    <p>Email de usuario: <%= result.email %> </p>
+
+    <h2>Nueva contraseña</h2>
+<form action="/users/nuevaContrasenia/<%=result.id  %>" method="POST">
+    <input type="password" name="nuevaContasenia" placeholder="Escriba su contraseña">
+    <button class="btn-primary" type="submit">Enviar</button>
+</form>
+</body>
+</html>

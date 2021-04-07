@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const path = require('path');
-const {register, login, processRegister, perfil, processLogin, cerrarSession, eliminarCuenta,vistaDeEdicion, edicionDePerfil} = require(path.join('..','controllers','usersControllers'));
+
+const {register, login, processRegister, perfil, processLogin, cerrarSession, eliminarCuenta,vistaDeEdicion, edicionDePerfil,vistaRecuperacionContraseña, recuperacionContraseña, vistaCambioContraseña, cambioContraseña} = require(path.join('..','controllers','usersControllers'));
 
 /* middlewares */
 const registerValidation=require(path.join('..','validations','registerValidation'));
@@ -29,5 +30,11 @@ router.delete('/delete/:id',eliminarCuenta);
 
 /* cerrar session */
 router.get('/logout',cerrarSession);
+
+/* prueba de email */
+router.get('/contraNueva',vistaRecuperacionContraseña)
+router.post('/contraNueva',recuperacionContraseña)
+router.get('/nuevaContrasenia/:id',vistaCambioContraseña)
+router.post('/nuevaContrasenia/:id',cambioContraseña)
 
 module.exports = router;
