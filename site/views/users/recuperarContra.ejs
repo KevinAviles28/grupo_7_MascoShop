@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %> 
+<body>
+  <%- include('../partials/header') %>
+  <main>
+<form action="/users/contraNueva" method="POST">
+    <h1>Recuperar Tu contraseña</h1>
+<div>
+    <p>Coloque su email para poder cambiar su contraseña</p>
+    <input type="text" name="emailRecuperacion">
+    <button class="btn btn-danger mx-3" type="submit">Recuperar contraseña</button>
+</div>
+
+</form>  
+</main>
+  
+  
+  <%- include('../partials/footer') %>
+  <%- include('../partials/scripts') %> 
+  
+</body>
+</html>
