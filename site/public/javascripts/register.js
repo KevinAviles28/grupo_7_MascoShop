@@ -3,38 +3,46 @@ let qs = function(elemento){
 }
 
 window.addEventListener('load', function(){   
-
+    
     let boton1=document.querySelector('#boton1');
-    let passwordLogin=document.querySelector('#passwordLogin');
+    let passwordLogin=document.querySelector('#loginpass');
     
     let boton2=document.querySelector('#boton2');
     let passwordRegister=document.querySelector('#pass');
-
+    
     let boton3=document.querySelector('#boton3');
     let passwordRegister2=document.querySelector('#pass2');
- 
+    
     function mostrarLaContraseña(password,boton){
         if(password.type=="password"){
             password.type="text";
             boton.classList.remove("fa-eye")
             boton.classList.add("fa-eye-slash");
         }else{
-        password.type = "password";
-        boton.classList.remove("fa-eye-slash");
-        boton.classList.add("fa-eye");
+            password.type = "password";
+            boton.classList.remove("fa-eye-slash");
+            boton.classList.add("fa-eye");
         }
     }
     boton1.addEventListener('click',function(){
         mostrarLaContraseña(passwordLogin,boton1)
     });  
-     boton2.addEventListener('click',function(){
+    boton2.addEventListener('click',function(){
         mostrarLaContraseña(passwordRegister,boton2)
     });
     boton3.addEventListener('click',function(){
         mostrarLaContraseña(passwordRegister2,boton3)
     });  
-
+    
     let $inputName=qs('#name'),
+    $loginEmail=qs("#loginEmail"),
+    $loginEmailErrors=qs("#loginEmailErrors"),
+    $loginpass=qs("#loginpass"),
+    $loginpassErrors=qs("#loginpassErrors"),
+    $formRegister=qs("#formRegister"),
+    $submitErrors=qs("#submitErrors"),
+    $formLogin=qs("#formLogin"),
+    $submitErrorsLogin=qs("#submitErrorsLogin"),
     $nameErrors=qs('#nameErrors'),
     $inputLastname=qs('#lastname'),
     $lastnameErrors=qs('#lastnameErrors'),
@@ -155,4 +163,81 @@ window.addEventListener('load', function(){
             $avatar.classList.remove('is-invalid')
         }       
     })
+    $formRegister.addEventListener('submit',function(event){
+        let error = false;
+        event.preventDefault()
+        console.log($formRegister.elements)
+        let elementosForm = this.elements
+        
+        for (let index = 0; index < elementosForm.length-1; index++) {
+            if(elementosForm[index].value == ""){
+                elementosForm[index].classList.add('is-invalid');
+                $submitErrors.innerHTML = "Los campos señalados son obligatorios";
+                error = true;
+            }
+        }
+        if(!error){
+            console.log('Todo bien');
+            $formRegister.submit()
+        }
+        
+    })
+    
+    
+    /* LOGIN VALIDACION FRONT */
+    
+    $loginEmail.addEventListener('blur', function() {
+        switch (true) {
+            case !$loginEmail.value.trim():
+            $loginEmailErrors.innerHTML = 'El campo email es obligatorio';
+            $loginEmail.classList.add('is-invalid')
+            break;
+            case !regExEmail.test($loginEmail.value):
+            $loginEmailErrors.innerHTML = 'Debe ingresar un email válido';
+            $loginEmail.classList.add('is-invalid')
+            break
+            default:
+            $loginEmail.classList.remove('is-invalid');
+            $loginEmail.classList.add('is-valid');
+            $loginEmailErrors.innerHTML = ''
+            break;
+        }
+    })
+    $loginpass.addEventListener('blur', function() {
+        switch (true) {
+            case !$loginpass.value.trim():
+            $loginpassErrors.innerHTML = 'El campo contraseña es obligatorio';
+            $loginpass.classList.add('is-invalid')
+            break;
+            case !regExPass.test($loginpass.value):
+            $loginpassErrors.innerHTML = 'La contraseña debe tener: entre 8 o 12 caracteres, al menos una mayúscula, una minúscula, un número y un símbolo';
+            $loginpass.classList.add('is-invalid')
+            break
+            default:
+            $loginpass.classList.remove('is-invalid');
+            $loginpass.classList.add('is-valid');
+            $loginpassErrors.innerHTML = ''
+            break;
+        }
+    })
+    $formLogin.addEventListener('submit',function(event){
+        let error = false;
+        event.preventDefault()
+        console.log($formLogin.elements)
+        let elementosForm = this.elements
+        
+        for (let index = 0; index < elementosForm.length-1; index++) {
+            if(elementosForm[index].value == ""){
+                elementosForm[index].classList.add('is-invalid');
+                $submitErrorsLogin.innerHTML = "Los campos señalados son obligatorios";
+                error = true;
+            }
+        }
+        if(!error){
+            console.log('Todo bien');
+            $formLogin.submit()
+        }
+        
+    })
+    
 })

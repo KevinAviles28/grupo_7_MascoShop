@@ -7,7 +7,7 @@
 .icono-contrasenia-login i{
     position: absolute;
     top: -3px;
-    right: 0;
+    right: 33px;
     color:#666;
     font-size: 20px;
 }
@@ -45,6 +45,7 @@ main.register form .botones{
 main.register .boton-dos{
     display: flex;
     flex-direction: column;
+
 }
 
 main.register .form-check label{
