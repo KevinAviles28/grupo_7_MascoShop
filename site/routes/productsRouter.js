@@ -29,7 +29,7 @@ router.delete('/productDelete/:id',productDelete);
 /* product delete */
 
 /* listado de productos totales, por category y subcategory */
-router.get('/allProducts',rutasCheck,allProducts)
+router.get('/allProducts',allProducts)
 router.get('/productCategory/:category',productCategory);
 router.get('/productSubcategory/:subcategory',productSubcategory);
 

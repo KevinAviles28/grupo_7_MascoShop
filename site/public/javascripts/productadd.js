@@ -1,3 +1,7 @@
+let qs = function(elemento){
+    return document.querySelector(elemento)
+}
+
 window.addEventListener('load', function(){   
     let $nombre=qs('#nombre'),
     $nombreErrors=qs('#nombreErrors'),

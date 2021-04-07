@@ -1,3 +1,7 @@
+let qs = function(elemento){
+    return document.querySelector(elemento)
+}
+
 window.addEventListener('load',()=>{
     
     let $prov = qs('#prov'),
@@ -24,7 +28,7 @@ window.addEventListener('load',()=>{
             })
         })
     })
-       
+    
 })
 
 

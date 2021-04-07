@@ -38,6 +38,10 @@
                         <i class="fas fa-eye btn" id="boton1"></i>
                         <span id="loginpassErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.pass) ? errores.pass.msg : "" %></span>
                     </div>
+                    <span class="text-danger" id="submitErrorsLogin"></span>
+                    <div class="olvide-contrasenia my-3">
+                        <span>¿Olvidaste tu contraseña? </span><a href="/users/contraNueva">Haz click aqui</a>
+                    </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1" name="recordarme">
                         <label class="form-check-label" for="exampleCheck1">Recordarme</label>
@@ -45,7 +49,6 @@
                     <div class="botones">
                         <div class="boton-dos">
                             <button type="submit" class="mb-3 btn btn-primary">Iniciar sesion</button>
-                            <span class="text-danger" id="submitErrorsLogin"></span>
                         </div>
                         <a href="/" class="mb-3 btn btn-danger">Cancelar</a>
                     </div>
@@ -55,8 +58,7 @@
                         </div>
                         <% } %>
                     </form>
-                   <!--  <form action=""></form> -->
-                    <a href="/users/contraNueva" class="text-danger">¿Olvidaste tu contraseña?, <br> has click aqui para que te enviemos un email para recuperar tu cuenta </a>
+                    
                 </div>
                 
                 <div class="col-12 col-md-6">
@@ -89,11 +91,11 @@
                                 <input type="file" id="avatar" name="avatar" class="form-control">
                             </div>
                             <span id="avatarErrrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.avatar) ? errores.avatar.msg : "" %></span>
+                            <span class="text-danger"  id="submitErrors"></span>
                             
                             <div class="botones my-3">
                                 <div class="boton-dos">
                                     <button type="submit" class="mb-3 btn btn-primary">Registrarme</button>
-                                    <span class="text-danger"  id="submitErrors"></span>
                                 </div>
                                 
                                 <a href="/" class="mb-3 btn btn-danger">Cancelar</a>
@@ -106,7 +108,8 @@
                 
             </main>
             
-            <%- include('../partials/scripts') %> 
+            <%- include('../partials/scripts') %>
+            <script src="/javascripts/register.js"></script> 
             
         </body>
         </html>
