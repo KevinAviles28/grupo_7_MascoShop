@@ -125,7 +125,6 @@ module.exports = {
     },
     processEdit: (req, res) => {
         
-        const { name, precio, stock, discount, description, category, subcategory } = req.body;
         const errores = validationResult(req);
         /*   res.send(errores.mapped())  */
         if (!errores.isEmpty()) {
@@ -143,10 +142,10 @@ module.exports = {
                 })
             })
         } else {
-            
+            const {name, precio, stock, discount, description, category, subcategory} = req.body;
             db.Productos.update({
                 name: name.trim(),
-                price: precio,
+                precio: precio,
                 stock: stock,
                 discount: discount,
                 description: description.trim(),

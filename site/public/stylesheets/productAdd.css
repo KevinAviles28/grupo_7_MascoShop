@@ -6,7 +6,7 @@ main.carga-productos h2{
 
 main.carga-productos form textarea{
     resize: none;
-    height: 200px;
+    height: 240px;
 }
 
 .carga-productos form img{
