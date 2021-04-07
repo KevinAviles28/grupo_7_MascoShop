@@ -30,31 +30,31 @@
                     <div class="form-floating mb-3 col-12 col-md-3">
                         <input type="text" class="form-control" name="name" value="<%= product.name %>">
                         <span class="text-danger"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %></span>
-                        <label for="">Nombre</label>
+                        <label for="" class="mx-2">Nombre</label>
                     </div>
                     <div class="form-floating mb-3 col-12 col-md-3">
                         <input type="number" class="form-control" name="precio" value="<%= product.precio %>">
                         <span class="text-danger"><%= (typeof errores != 'undefined' && errores.precio) ? errores.precio.msg : "" %></span>
-                        <label for="">Precio</label>
+                        <label for="" class="mx-2">Precio</label>
                     </div>
                     <div class="form-floating mb-3 col-12 col-md-3">
                         <input type="number" class="form-control" name="stock" value="<%= product.stock %>">
                         <span class="text-danger"><%= (typeof errores != 'undefined' && errores.stock) ? errores.stock.msg : "" %></span>
-                        <label for="">Stock</label>
+                        <label for="" class="mx-2">Stock</label>
                     </div>
                     <div class="form-floating mb-3 col-12 col-md-3">
                         <input type="number" class="form-control" name="discount" placeholder="Descuento" value="<%= product.discount %>">
                         <span class="text-danger"><%= (typeof errores != 'undefined' && errores.discount) ? errores.discount.msg : "" %></span>
-                        <label for="">Descuento</label>
+                        <label for="" class="mx-2">Descuento</label>
                     </div>
                     <div class="form-floating mb-3">
                         <textarea name="description" placeholder="Descripcion"  class="form-control"><%= product.description %></textarea>
                         <span class="text-danger"><%= (typeof errores != 'undefined' && errores.description) ? errores.description.msg : "" %></span>
-                        <label for="">Descripcion</label>
+                        <label for="" class="mx-2">Descripcion</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" placeholder="imagen" name="img" value="<%= product.imagenProducto.product_name %>"><!-- arreglar -->
-                        <label>Imagen</label>
+                        <input type="text" class="form-control" placeholder="imagen" name="img" value="<%= product.imagenProducto[0].product_name %>"><!-- arreglar -->
+                        <label class="mx-2">Imagen</label>
                     </div>
                     <div class="d-flex justify-content-between">
                         <a href="/products/allProducts" class="btn btn-danger mb-3">Cancelar</a>
