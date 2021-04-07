@@ -26,33 +26,10 @@
               </a>
               <button class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>
               <% if (userNew.category==="Admin") { %>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-danger mx-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  <i class="far fa-trash-alt"></i>
-                </button>
-                
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro de eliminar el producto?</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        Se borraran todos los datos del producto
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancelar</button>
-                        <form action="/products/productDelete/<%= element.id %>?_method=DELETE" method="POST">
-                          <button type="submit" class="btn btn-danger">Si, deseo eliminar este producto</button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!--  -->
-                <a href="/products/productEdit/<%= element.id %>" class="btn btn-success my-3"><i class="far fa-edit"></i></a>
+                <form action="/products/productDelete/<%= element.id %>?_method=DELETE" method="POST">
+                  <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                  <a href="/products/productEdit/<%= element.id %>" class="btn btn-success my-3"><i class="far fa-edit"></i></a>
+                </form>
                 <% } %>			
               </div>
             </section> 
