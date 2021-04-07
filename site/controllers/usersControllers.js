@@ -3,21 +3,32 @@ const fs = require('fs');
 const db = require(path.join('..','database','models'));
 const bcrypt = require('bcrypt')  
 const {validationResult} = require('express-validator');
+const nodemailer=require('nodemailer');
+
+
+
+
+/* cambio().catch(console.error); */
 
 module.exports = {
     processRegister:(req,res)=>{
         
+        
         const errores=validationResult(req);
         
         if(!errores.isEmpty()){
+            if(req.files[0]){
+                fs.unlinkSync('public/images/users/'+req.files[0].filename)
+            }
             return res.render('users/login',{
                 errores : errores.mapped(),/* convierte el valor del array en el valor de errors */
                 old:req.body,/* para que se guarden los datos que escribiste */
+                
             })
         }else{
             
-            const {name,apellido,email,passUno,avatar} = req.body;
             
+            const {name,apellido,email,passUno,avatar} = req.body;    
             db.User.create({
                 name: name.trim(),
                 apellido: apellido.trim(),
@@ -159,6 +170,69 @@ module.exports = {
             })
         }
         res.redirect('/')
+    },
+    vistaRecuperacionContraseña:(req,res)=>{
+        res.render('users/recuperarContra')
+    },
+    recuperacionContraseña:/* async */(req,res)=>{
+        let transporter = nodemailer.createTransport({
+            host: "smtp.gmail.com",
+            port: 465,
+            secure: true, // true for 465, false for other ports
+            auth: {
+              user: 'mascoshopdevelop@gmail.com', // generated ethereal user
+              pass: 'pdmqsofkuirkhorr', // generated ethereal password
+            },
+            tls:{
+                rejectUnauthorized:false
+            }
+          });
+
+        db.User.findOne({
+            where:{
+                email:req.body.emailRecuperacion
+            }
+        }).then(async function(result){
+            let verificationLink=`http://localhost:3000/users/nuevaContrasenia/${result.id}`;
+            /* cambio(result,verificationLink) */
+            
+              const info =await transporter.sendMail({
+                    from: '"Recuperacion de contrseña " <mascoshopdevelop@gmail.com>', // sender address
+                    to: `${result.email}`, // list of receivers
+                    subject: 'Recuperacion de contraseña', // Subject line
+                    html: `<h1>Recupero de contraseña</h1>
+                     <br>
+                     <p>Para recuperar la contraseaña haga click en este link </p>
+                     <a href="${verificationLink}">Recuperar Contraseña</a>`
+                  });
+                  console.log(info.messageID)
+            
+            res.redirect('/users/login')
+        }).catch(console.error);
+        
+    },
+    vistaCambioContraseña:(req,res)=>{
+        db.User.findByPk(req.params.id)
+        .then(result=>{
+            /* res.send(result) */
+            res.render(`users/cambioContraseña`,{
+                result
+            });
+        })
+    },
+    cambioContraseña:(req,res)=>{
+      const {nuevaContasenia}=req.body
+      let haseo=bcrypt.hashSync(nuevaContasenia,12)
+        db.User.update({
+          pass:haseo
+      },{
+          where:{
+              id:req.params.id
+          }
+      })
+      .then((result)=>{
+            res.redirect('/users/login')
+      })
     }
 }
 
