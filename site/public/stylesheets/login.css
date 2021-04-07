@@ -59,6 +59,25 @@ main ul li#temas{
     color: white;
 }
 
+.olvide-contrasenia{
+    color: white;
+    font-size: 0.9rem;
+}
+
+.olvide-contrasenia a{
+    text-decoration: underline;
+}
+
+.olvide-contrasenia a:hover{
+    color: orange;
+}
+
+/* vista-recupero-contrasenia */
+.vista-recupero-contrasenia h2,
+.vista-recupero-contrasenia p{
+    color: white;
+}
+
 @media(min-width:769px){
     main.register form .botones{
         flex-direction: row;

@@ -5,29 +5,50 @@
   <%- include('partials/header') %>
   
   <main class="index container my-3">
-
-    <h2>Nuestros productos</h2>
+    
+    <div class="ruta-producto my-3">
+      <ul>
+        <li><a href="/">Volver a la página de inicio</a></li>
+        <li><a href="/products/productCategory/<%= categoria %>">Lista de productos de <%= categoria %></a></li>
+      </ul>
+    </div>
     
     <!-- productos destacados -->
-    <div class="row my-3 d-flex justify-content-center">
+    <div class="row my-3">
       
-      <% result.forEach(element=>{ %>
-        <section class="col-12 col-md-6 col-lg-4 col-xl-3 my-3 nuestros-productos">
-          <div class="lista-productos"><!-- elementos individuales que se veran -->
-            <a href="/products/productDetail/<%= element.id %>#product-detail">
-              <div class="image-contain">
-                <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
-                <% if(element.discount != 0){ %> 
-                  <div class="discount"><%= element.discount %>%</div>
-                  <% } %> 
+      <aside class="col-md-2 desplegable-cat">
+        <ul>
+          <h6>Buscar por categoria: </h6>
+          <li><a href="/products/productCategory/perros">Perros</a></li>
+          <li><a href="/products/productCategory/gatos">Gatos</a></li>
+          <li><a href="/products/productCategory/aves">Aves</a></li>
+          <li><a href="/products/productCategory/peces">Peces</a></li>
+          <li><a href="/products/productCategory/roedores">Roedores</a></li>
+          <li><a href="/products/productCategory/reptiles">Reptiles</a></li>
+        </ul>
+      </aside>
+      
+      <div class="col-12 col-md-10">
+        <div class="row d-flex justify-content-center">
+          <% result.forEach(element=>{ %>
+            <section class="col-12 col-md-6 col-lg-4 col-xl-3 my-3 nuestros-productos">
+              <div class="lista-productos"><!-- elementos individuales que se veran -->
+                <a href="/products/productDetail/<%= element.id %>#product-detail">
+                  <div class="image-contain">
+                    <img src="/images/productos/<%=element.imagenProducto[0].product_name%>" alt="">
+                    <% if(element.discount != 0){ %> 
+                      <div class="discount"><%= element.discount %>%</div>
+                      <% } %> 
+                    </div>
+                    <h3><%= element.name %></h3>
+                    <p>$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
+                  </a>
+                  <button class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>			
                 </div>
-                <h3><%= element.name %></h3>
-                <p>$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
-              </a>
-              <button class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>			
+              </section> 
+              <% }) %>
             </div>
-          </section> 
-          <% }) %>
+          </div>
           
         </div>
         <!-- productos destacados -->

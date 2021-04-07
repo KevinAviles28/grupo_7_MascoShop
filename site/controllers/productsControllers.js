@@ -209,7 +209,6 @@ module.exports = {
             }
         })
         .then((categoria) => {
-            /* res.send(categoria) */
             db.Productos.findAll({
                 include: [{ association: "imagenProducto" }],
                 where: {
@@ -219,8 +218,7 @@ module.exports = {
                     }
                 }
             }).then((result) => {
-                /* res.send(result) */
-                res.render('productCategory', { result, toThousand })
+                res.render('productCategory', { result,categoria: categoria.name, toThousand })
             })
         })
     },
@@ -231,7 +229,6 @@ module.exports = {
             }
         })
         .then((subcategoria) => {
-            /*  res.send(subcategoria) */
             db.Productos.findAll({
                 include: [{ association: "imagenProducto" }],
                 where: {
@@ -241,7 +238,7 @@ module.exports = {
                     }
                 }
             }).then((result) => {
-                res.render('productSubcategory', { result, toThousand })
+                res.render('productSubcategory', { result,subcategoria: subcategoria.name,toThousand })
             })
             
         })
@@ -270,7 +267,7 @@ module.exports = {
                 }
             })
             .then((result) => {
-                res.render('productNav', { result, toThousand })
+                res.render('productNav', { result,subcategoria: subcategoria.name, toThousand })
             })
         })
     },
