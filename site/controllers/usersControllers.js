@@ -233,6 +233,34 @@ module.exports = {
       .then((result)=>{
             res.redirect('/users/login')
       })
+    },
+    vistaCambioImagen:(req,res)=>{
+        db.User.findByPk(req.params.id)
+        .then((result)=>{
+            /* res.send(result) */
+            res.render('users/cambiarImagen',{
+                result
+            })
+        })
+    },
+    cambioImagen:(req,res)=>{
+        res.send(req.body) 
+        db.User.findByPk(req.params.id)
+        .then((user)=>{
+            if(user.avatar != 'usuarioDefault.png') {
+                fs.unlinkSync('public/images/users/' + user.avatar)
+            }
+        })
+        db.User.update({
+            avatar:req.files[0].filename
+        },{
+            where:{
+                id:req.params.id
+            }
+        })
+        .then((result)=>{
+            res.redirect(`/users/perfil/${req.params.id}`)
+        })
     }
 }
 
