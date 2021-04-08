@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<%- include('../partials/head') %> 
 <body>
+  <%- include('../partials/header') %>
     <h1>Cambio de contraseña</h1>
 
     <p>Nombre de usuario: <%=result.name%> </p>
@@ -17,5 +19,7 @@
     <input type="password" name="nuevaContasenia" placeholder="Escriba su contraseña">
     <button class="btn-primary" type="submit">Enviar</button>
 </form>
+<%- include('../partials/footer') %>
+<%- include('../partials/scripts') %> 
 </body>
 </html>

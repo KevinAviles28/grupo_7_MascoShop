@@ -13,6 +13,10 @@ window.addEventListener('load',()=>{
     fetch(`${urlBase}provincias`)
     .then(response=> response.json())
     .then(result=>{
+        result.provincias.sort((prev,next)=>{
+            return prev.id - next.id
+        })
+
         result.provincias.forEach(provincia=>{
             $prov.innerHTML += `<option value="${provincia.nombre}">${provincia.nombre}</option>`
         })
@@ -22,6 +26,7 @@ window.addEventListener('load',()=>{
         fetch(`${urlBase}localidades?max=1000&provincia=${$prov.value}`)/* con value tomo el valor de la etiqueta $prov */
         .then(response=> response.json())
         .then(result=>{
+
             $localidad.innerHTML = ''
             result.localidades.forEach(localidad=>{
                 $localidad.innerHTML += `<option value="${localidad.nombre}">${localidad.nombre}</option>`
