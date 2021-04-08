@@ -62,10 +62,10 @@ module.exports = {
                     product_name: (req.files[0]) ? req.files[0].filename : "productoDefault.png",
                     product_id: id
                 })
-            })
-            .then(() => {
-                res.redirect('/products/allProducts');
-            })
+                .then(() => {
+                    res.redirect('/products/allProducts');
+                })
+            }).catch(error=> console.log(error))
         }
     },
     productDetail: (req, res) => {
