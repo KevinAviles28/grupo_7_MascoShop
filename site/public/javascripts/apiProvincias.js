@@ -1,3 +1,7 @@
+let qs = function(elemento){
+    return document.querySelector(elemento)
+}
+
 window.addEventListener('load',()=>{
     
     let $prov = qs('#prov'),
@@ -10,7 +14,7 @@ window.addEventListener('load',()=>{
     .then(response=> response.json())
     .then(result=>{
         result.provincias.forEach(provincia=>{
-            $prov.innerHTML += `<option value="${provincia.id}">${provincia.nombre}</option>`
+            $prov.innerHTML += `<option value="${provincia.nombre}">${provincia.nombre}</option>`
         })
     })
     
@@ -24,7 +28,7 @@ window.addEventListener('load',()=>{
             })
         })
     })
-       
+    
 })
 
 

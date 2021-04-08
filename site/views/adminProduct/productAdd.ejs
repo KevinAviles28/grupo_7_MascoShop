@@ -26,7 +26,7 @@
                             </select>
                             <span class="text-danger"><%= (typeof errores != 'undefined' && errores.subcategory) ? errores.subcategory.msg : "" %></span>
                         </div>
-
+                        
                         <div class="mb-3 col-12 col-md-3">
                             <input id="nombre" type="text" class="form-control" name="name" placeholder="Nombre del producto" value="<%= (typeof old != 'undefined' && old.name) ? old.name : ""%>">
                             <span id="nombreErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %></span>
@@ -51,21 +51,22 @@
                             <!-- <label for="" class="form-label" style="color: white;">Cargar imagen</label> -->
                             <input id="img" type="file" class="form-control" name="img">
                             <span id="imgErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.img) ? errores.img.msg : "" %></span>
-
+                            
                             <div class="img-container mb-3" id="img-preview"></div> 
                         </div>
-                                       
                         
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <button type="reset" class="btn btn-danger mb-3">Cancelar</button>
-                            <button type="submit" class="btn btn-primary mb-3">Confirmar carga</button>
-                        </div>
+                        
                     </div>
-                </form>
-                
-            </main>
-            <%- include('../partials/footer') %> 
-            <%- include('../partials/scripts') %> 
-        </body>
-        </html>
+                    <div class="d-flex justify-content-between">
+                        <button type="reset" class="btn btn-danger mb-3">Cancelar</button>
+                        <button type="submit" class="btn btn-primary mb-3">Confirmar carga</button>
+                    </div>
+                </div>
+            </form>
+            
+        </main>
+        <%- include('../partials/footer') %> 
+        <%- include('../partials/scripts') %>
+        <script src="/javascripts/productadd.js"></script> 
+    </body>
+    </html>

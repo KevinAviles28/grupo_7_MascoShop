@@ -1,5 +1,6 @@
 const path = require('path');
 const db = require(path.join('..','database','models'));
+const { Op } = require('sequelize');
 
 module.exports = {
     lista:(req,res)=>{
