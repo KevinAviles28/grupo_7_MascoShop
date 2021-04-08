@@ -15,7 +15,7 @@
     </div>
     <h2>cambio imagen</h2>
 
-<form action="/users/elcambioDeImagen/<%=result.id %>?_method=PUT" method="POST" >
+<form action="/users/elcambioDeImagen/<%=result.id %>?_method=PUT" method="POST" enctype="multipart/form-data" >
     <input type="file" id="nuevaImagen" name="avatar">
     <input type="text" name="caos">
     <button class="btn-primary" type="submit">Cambiar Imagen</button>

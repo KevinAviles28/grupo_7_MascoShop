@@ -244,7 +244,7 @@ module.exports = {
         })
     },
     cambioImagen:(req,res)=>{
-        res.send(req.body) 
+        /* res.send(req.files) */
         db.User.findByPk(req.params.id)
         .then((user)=>{
             if(user.avatar != 'usuarioDefault.png') {
