@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %> 
+<body>
+  <%- include('../partials/header') %>
+    <h1>Cambio de Imagen</h1>
+
+    <p>Nombre de usuario: <%=result.name%> </p>
+    <p>Email de usuario: <%= result.email %> </p>
+
+    <h2>Imagen actual</h2>
+    <div id="previsualizacion">
+        <h1>nombre de la imagen actual:<%= result.avatar %>  </h1>
+        <img src="/images/users/<%=result.avatar %>" alt=""id="imagenActual">
+    </div>
+    <h2>cambio imagen</h2>
+
+<form action="/users/elcambioDeImagen/<%=result.id %>?_method=PUT" method="POST" enctype="multipart/form-data" >
+    <input type="file" id="nuevaImagen" name="avatar">
+    <input type="text" name="caos">
+    <button class="btn-primary" type="submit">Cambiar Imagen</button>
+</form>
+
+<%- include('../partials/footer') %>
+<%- include('../partials/scripts') %> 
+</body>
+</html>
