@@ -14,7 +14,7 @@ window.addEventListener('load',()=>{
     .then(response=> response.json())
     .then(result=>{
         result.provincias.forEach(provincia=>{
-            $prov.innerHTML += `<option value="${provincia.id}">${provincia.nombre}</option>`
+            $prov.innerHTML += `<option value="${provincia.nombre}">${provincia.nombre}</option>`
         })
     })
     
