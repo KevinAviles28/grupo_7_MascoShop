@@ -266,12 +266,6 @@ module.exports = {
        }
      
     },
-    vistaCambioImagen:(req,res)=>{
-        db.User.findByPk(req.params.id)
-        .then((result)=>{
-            res.redirect('/users/login')
-        })
-    },
     cambioImagen:(req,res)=>{
 
         db.User.findByPk(req.params.id)
