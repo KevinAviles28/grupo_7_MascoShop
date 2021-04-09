@@ -28,24 +28,23 @@
                         </div>
                         
                         <div class="mb-3 col-12 col-md-3">
-                            <input id="nombre" type="text" class="form-control" name="name" placeholder="Nombre del producto">
+                            <input id="nombre" type="text" class="form-control" name="name" placeholder="Nombre del producto" value="<%= (typeof old != 'undefined' && old.name) ? old.name : ""%>">
                             <span id="nombreErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.name) ? errores.name.msg : "" %></span>
                         </div>
                         <div class="mb-3 col-12 col-md-3">
-                            <input id="ps" type="number"
-                            class="form-control" name="precio" placeholder="Precio">
+                            <input id="ps" type="number" class="form-control" name="precio" placeholder="Precio" value="<%= (typeof old != 'undefined' && old.precio) ? old.precio : ""%>">
                             <span id="precioErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.precio) ? errores.precio.msg : "" %></span>
                         </div>
                         <div class="mb-3 col-12 col-md-3">
-                            <input id="stock" type="number" class="form-control" name="stock" placeholder="Stock disponible">
+                            <input id="stock" type="number" class="form-control" name="stock" placeholder="Stock disponible" value="<%= (typeof old != 'undefined' && old.stock) ? old.stock : ""%>">
                             <span id="stockErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.stock) ? errores.stock.msg : "" %></span>
                         </div>
                         <div class="mb-3 col-12 col-md-3">
-                            <input id="desc" type="number" class="form-control" name="discount" placeholder="Descuento">
+                            <input id="desc" type="number" class="form-control" name="discount" placeholder="Descuento" value="<%= (typeof old != 'undefined' && old.discount) ? old.discount : ""%>">
                             <span id="descErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.discount) ? errores.discount.msg : "" %></span>
                         </div>
                         <div class="mb-3 col-12 col-md-6">
-                            <textarea id="descr" name="description" placeholder="Descripcion"  class="form-control"></textarea>
+                            <textarea id="descr" name="description" placeholder="Descripcion"  class="form-control textarea" value="<%= (typeof old != 'undefined' && old.descroption) ? old.descroption : ""%>"></textarea>
                             <span id="descrErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.description) ? errores.description.msg : "" %></span>
                         </div>
                         <div class="mb-3 col-12 col-md-6">

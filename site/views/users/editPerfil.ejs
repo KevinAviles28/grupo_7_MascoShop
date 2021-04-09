@@ -5,7 +5,24 @@
   <%- include('../partials/header') %>
   
   <main class="container">
-    <h1 class="my-4 text-white bg-dark border-bottom border-warning">Editar Perfil</h1>
+    <h1 class="my-3 text-white bg-dark border-bottom border-warning">Editar Perfil</h1>
+    
+    <div class="container-fluid">
+      <!-- previsualizacion -->
+      <div id="previsualizacion">
+        <img src="/images/users/<%=result.avatar %>" alt="" id="imagenActual" class="imagen-perfil">
+      </div>
+      <!--  -->
+      <form action="/users/elcambioDeImagen/<%=result.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <div class="row">
+          <div class="col-md-6 mt-3">
+            <input type="file" id="nuevaImagen" name="avatar" class="form-control">
+            <button class="btn btn-primary my-3" type="submit">Cambiar Imagen</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    
     <form action="/users/edit/<%= userNew.id %>?_method=PUT " method="POST">
       <div class="container-fluid">
         <div class="row">
@@ -59,7 +76,7 @@
           
           <%- include('../partials/footer') %>
           <%- include('../partials/scripts') %>
-          
+          <script src="/javascripts/cambiarElAvatar.js"></script>
           <script src="/javascripts/apiProvincias.js"></script> 
           
         </body>
