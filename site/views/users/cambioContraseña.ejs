@@ -8,21 +8,36 @@
 </head>
 <%- include('../partials/head') %> 
 <body>
-  <%- include('../partials/header') %>
-    <h1>Cambio de contraseña</h1>
-
-    <p>Nombre de usuario: <%=result.name%> </p>
-    <p>Email de usuario: <%= result.email %> </p>
-
-    <h2>Nueva contraseña</h2>
-<form action="/users/nuevaContrasenia/<%=result.id%>?_method=PUT" method="POST">
-    <input type="password" id="contraseniaNueva"  name="nuevaContasenia" placeholder="Escriba su contraseña">
-    <i class="fas fa-eye btn" id="botonDeCambio"></i>
-    <span id="contraNuevaError" class="text-danger"><%= (typeof errores != 'undefined' && errores.nuevaContasenia) ? errores.nuevaContasenia.msg : "" %></span>
-    <button class="btn-primary" type="submit">Enviar</button>
-</form>
-<%- include('../partials/footer') %>
-<%- include('../partials/scripts') %> 
-<script src="/javascripts/passwordVerification.js"></script>
+    <%- include('../partials/header') %>
+    <main class="vista-recupero-contrasenia container my-3">
+        <div class="row">
+            <div class="col-12 col-md-7 col-lg-5">
+                <h2>Cambio de contraseña</h2>
+                
+                <p>Nombre de usuario: <%=result.name%></p>
+                <p>Email de usuario: <%= result.email %></p>
+                
+                <h4>Nueva contraseña</h4>
+                <form action="/users/nuevaContrasenia/<%=result.id%>?_method=PUT" method="POST">
+                    <div class="row">
+                        <div class="col-8 cambio-contrasenia">
+                            <input type="password" id="contraseniaNueva" name="nuevaContasenia" placeholder="Inrese su contraseña" class="form-control">
+                            <i class="fas fa-eye btn" id="botonDeCambio"></i>
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-primary" type="submit">Enviar</button>
+                        </div>
+                    </div>
+                    
+                    <span id="contraNuevaError" class="text-danger"><%= (typeof errores != 'undefined' && errores.nuevaContasenia) ? errores.nuevaContasenia.msg : "" %></span>
+                    
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <%- include('../partials/footer') %>
+    <%- include('../partials/scripts') %> 
+    <script src="/javascripts/passwordVerification.js"></script>
 </body>
 </html>
