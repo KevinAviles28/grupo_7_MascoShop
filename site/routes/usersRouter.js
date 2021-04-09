@@ -1,11 +1,13 @@
 var express = require('express');
 var router = express.Router();
 const path = require('path');
-const {register, login, processRegister, perfil, processLogin, cerrarSession, eliminarCuenta,vistaDeEdicion, edicionDePerfil,vistaRecuperacionContraseña, recuperacionContraseña, vistaCambioContraseña, cambioContraseña,vistaCambioImagen, cambioImagen} = require(path.join('..','controllers','usersControllers'));
+const {login, processRegister, perfil, processLogin, cerrarSession, eliminarCuenta,vistaDeEdicion, edicionDePerfil,vistaRecuperacionContraseña, recuperacionContraseña, vistaCambioContraseña, cambioContraseña, cambioImagen} = require(path.join('..','controllers','usersControllers'));
 
 /* middlewares */
 const registerValidation=require(path.join('..','validations','registerValidation'));
 const loginValidation=require(path.join('..','validations','loginValidation'));
+const contraseniaValidation=require(path.join('..','validations','validationNewContra'));
+const emailValidation=require(path.join('..','validations','validationEmail'));
 
 const upload = require(path.join('..','middlewares','multerUser'));
 const rutasCheck=require(path.join('..','middlewares','rutasCheck'));
@@ -32,12 +34,11 @@ router.get('/logout',cerrarSession);
 
 /* prueba de email */
 router.get('/contraNueva',vistaRecuperacionContraseña);
-router.post('/contraNueva',recuperacionContraseña);
+router.post('/contraNueva',emailValidation,recuperacionContraseña);
 router.get('/nuevaContrasenia/:id',vistaCambioContraseña);
-router.put('/nuevaContrasenia/:id',cambioContraseña);
+router.put('/nuevaContrasenia/:id',contraseniaValidation,cambioContraseña);
 
 /* cambio de imagen */
-router.get('/elcambioDeImagen/:id',vistaCambioImagen);
 router.put('/elcambioDeImagen/:id',upload.any(),cambioImagen);
 
 module.exports = router;

@@ -90,7 +90,7 @@
                             <div class="mb-3">
                                 <input type="file" id="avatar" name="avatar" class="form-control">
                             </div>
-                            <span id="avatarErrrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.avatar) ? errores.avatar.msg : "" %></span>
+                            <span id="avatarErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.avatar) ? errores.avatar.msg : "" %></span>
                             <span class="text-danger"  id="submitErrors"></span>
                             
                             <div class="botones my-3">
@@ -104,7 +104,6 @@
                         </form>
                     </div>
                 </div>
-                
                 
             </main>
             

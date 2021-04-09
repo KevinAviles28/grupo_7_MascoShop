@@ -21,7 +21,7 @@ router.get('/productDetail/:id',productDetail);/* detalle de productos segun su 
 
 /* product edit */
 router.get('/productEdit/:id',rutasCheck,adminCheck,productEdit);
-router.put('/productEdit/:id',productoValidation,processEdit);
+router.put('/productEdit/:id',upload.any(),productoValidation,processEdit);
 /* product edit */
 
 /* product delete */
