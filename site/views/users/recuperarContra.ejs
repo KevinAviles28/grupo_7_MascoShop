@@ -9,10 +9,12 @@
     <div class="row">
       <div class="col-12 col-md-7 col-lg-5">
         <h2>Recupera tú contraseña</h2>
-        <p>Ingrese su email para cambiar la contraseña</p>
-        
+        <p>Ingrese  su email para cambiar la contraseña</p>
+      
         <form action="/users/contraNueva" method="POST">
-          <input type="text" name="emailRecuperacion" class="form-control mb-3">
+          <input type="text" id="emailDeRecuperacion" name="emailRecuperacion" class="form-control mb-3">
+          <span id="emailRecuperacionError" class="text-danger"><%= (typeof errores != 'undefined' && errores.emailRecuperacion) ? errores.emailRecuperacion.msg : "" %></span>
+          <br>
           <button class="btn btn-success" type="submit">Recuperar</button>
         </form> 
       </div>
@@ -21,6 +23,7 @@
   
   <%- include('../partials/footer') %>
   <%- include('../partials/scripts') %> 
+  <script src="/javascripts/emailVerification.js"></script>
   
 </body>
 </html>

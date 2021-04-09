@@ -142,22 +142,46 @@ module.exports = {
                 })
             })
         } else {
-            const {name, precio, stock, discount, description, category, subcategory} = req.body;
-            db.Productos.update({
-                name: name.trim(),
-                precio: precio,
-                stock: stock,
-                discount: discount,
-                description: description.trim(),
-                category_id: category,
-                subcategory_id: subcategory
-            }, {
-                where: {
-                    id: req.params.id
+            const {name, precio, stock, discount, description, category, subcategory, img} = req.body;
+            let elParams=req.params.id;
+
+            db.ImagenProducto.findAll({
+                where:{
+                    product_id:elParams
                 }
             })
-            .then(() => {
-                res.redirect("/products/allProducts#productos-destacados")
+            .then((imagen)=>{
+                let actualizacionProducto= db.Productos.update({
+                    name: name.trim(),
+                    precio: precio,
+                    stock: stock,
+                    discount: discount,
+                    description: description.trim(),
+                    category_id: category,
+                    subcategory_id: subcategory
+                }, {
+                    where: {
+                        id: elParams
+                    }
+                })
+                let actualizacionImagenProducto=db.ImagenProducto.update({
+                    product_name: req.files[0].filename
+                    
+                },{
+                    where:{
+                        id:elParams
+                    }
+                })
+                
+                Promise.all([actualizacionProducto,actualizacionImagenProducto])
+                .then((result)=>{
+                    imagen.forEach(element => {
+                        if (element.product_name != 'productoDefault.png') {
+                            fs.unlinkSync('public/images/productos/' + element.product_name)
+                        }
+                    })
+                    res.redirect("/products/allProducts#productos-destacados")
+                })
             })
         }
     },
