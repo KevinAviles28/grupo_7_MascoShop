@@ -74,8 +74,20 @@ main ul li#temas{
 
 /* vista-recupero-contrasenia */
 .vista-recupero-contrasenia h2,
+.vista-recupero-contrasenia h4,
 .vista-recupero-contrasenia p{
     color: white;
+}
+
+.vista-recupero-contrasenia .cambio-contrasenia{
+    position: relative;
+}
+
+.vista-recupero-contrasenia .cambio-contrasenia i{
+    position: absolute;
+    color: #666;
+    top: 0;
+    right: 33px;
 }
 
 @media(min-width:769px){
