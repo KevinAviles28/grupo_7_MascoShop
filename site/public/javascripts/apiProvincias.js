@@ -28,6 +28,15 @@ window.addEventListener('load',()=>{
         .then(result=>{
 
             $localidad.innerHTML = ''
+
+            result.localidades.sort((prev, next) =>
+                    prev.nombre > next.nombre
+                        ? 1
+                        : prev.nombre < next.nombre
+                        ? -1
+                        : 0
+                );
+
             result.localidades.forEach(localidad=>{
                 $localidad.innerHTML += `<option value="${localidad.nombre}">${localidad.nombre}</option>`
             })
