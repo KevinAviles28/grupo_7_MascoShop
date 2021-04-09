@@ -175,40 +175,56 @@ module.exports = {
         res.render('users/recuperarContra')
     },
     recuperacionContraseña:/* async */(req,res)=>{
-        let transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            port: 465,
-            secure: true, // true for 465, false for other ports
-            auth: {
-              user: 'mascoshopdevelop@gmail.com', // generated ethereal user
-              pass: 'pdmqsofkuirkhorr', // generated ethereal password
-            },
-            tls:{
-                rejectUnauthorized:false
-            }
-          });
+        const errores=validationResult(req);
+        if(!errores.isEmpty()){
+            /* res.send(req.body) */
+            return res.render('users/recuperarContra',{
+                errores : errores.mapped(),/* convierte el valor del array en el valor de errors */
+                old:req.body
+                
+            })
+        }else{
+           /*  res.send(req.body) */
+            let transporter = nodemailer.createTransport({
+                host: "smtp.gmail.com",
+                port: 465,
+                secure: true, // true for 465, false for other ports
+                auth: {
+                  user: 'mascoshopdevelop@gmail.com', // generated ethereal user
+                  pass: 'pdmqsofkuirkhorr', // generated ethereal password
+                },
+                tls:{
+                    rejectUnauthorized:false
+                }
+              });
+    
+            db.User.findOne({
+                where:{
+                    email:req.body.emailRecuperacion
+                }
+            }).then(async function(result){
+                let verificationLink=`http://localhost:3000/users/nuevaContrasenia/${result.id}`;
+                /* cambio(result,verificationLink) */
+                
+                  const info =await transporter.sendMail({
+                        from: '"Mascoshop" <mascoshopdevelop@gmail.com>', // sender address
+                        to: `${result.email}`, // list of receivers
+                        subject: 'Recuperacion de contraseña', // Subject line
+                        html: `<h1>Recuperacion de tu contraseña</h1>
+                         <br>
+                         <p>Si tu nombre de usuario no es ${result.name}, no tienes que hacer nada </p>
+                         <p>Para recuperar la contraseaña haga click en este link </p>
+                         <a href="${verificationLink}">Recuperar Contraseña</a>`
+                      });
+                      console.log(info.messageID)
+                
+                res.render('users/emailEnviado',{
 
-        db.User.findOne({
-            where:{
-                email:req.body.emailRecuperacion
-            }
-        }).then(async function(result){
-            let verificationLink=`http://localhost:3000/users/nuevaContrasenia/${result.id}`;
-            /* cambio(result,verificationLink) */
-            
-              const info =await transporter.sendMail({
-                    from: '"Recuperacion de contrseña " <mascoshopdevelop@gmail.com>', // sender address
-                    to: `${result.email}`, // list of receivers
-                    subject: 'Recuperacion de contraseña', // Subject line
-                    html: `<h1>Recupero de contraseña</h1>
-                     <br>
-                     <p>Para recuperar la contraseaña haga click en este link </p>
-                     <a href="${verificationLink}">Recuperar Contraseña</a>`
-                  });
-                  console.log(info.messageID)
-            
-            res.redirect('/users/login')
-        }).catch(console.error);
+                });
+            }).catch(console.error);
+        }
+
+        
         
     },
     vistaCambioContraseña:(req,res)=>{
@@ -221,18 +237,33 @@ module.exports = {
         })
     },
     cambioContraseña:(req,res)=>{
-      const {nuevaContasenia}=req.body
-      let haseo=bcrypt.hashSync(nuevaContasenia,12)
-        db.User.update({
-          pass:haseo
-      },{
-          where:{
-              id:req.params.id
-          }
-      })
-      .then((result)=>{
-            res.redirect('/users/login')
-      })
+        const errores=validationResult(req);
+
+       if(!errores.isEmpty()){
+           db.User.findByPk(req.params.id)
+           .then((result)=>{
+            return res.render('users/cambioContraseña',{
+                errores : errores.mapped(),/* convierte el valor del array en el valor de errors */
+                old:req.body,
+                result
+            })
+           })
+        
+       } else{
+        const {nuevaContasenia}=req.body
+        let haseo=bcrypt.hashSync(nuevaContasenia,12)
+          db.User.update({
+            pass:haseo
+        },{
+            where:{
+                id:req.params.id
+            }
+        })
+        .then((result)=>{
+              res.redirect('/users/login')
+        })
+       }
+     
     },
     vistaCambioImagen:(req,res)=>{
         db.User.findByPk(req.params.id)

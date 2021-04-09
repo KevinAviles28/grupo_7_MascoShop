@@ -17,7 +17,8 @@
 
 <form action="/users/elcambioDeImagen/<%=result.id %>?_method=PUT" method="POST" enctype="multipart/form-data" >
     <input type="file" id="nuevaImagen" name="avatar">
-    <input type="text" name="caos">
+    <span id="nuevaImagenAvatar" class="text-danger"></span>
+    
     <button class="btn-primary" type="submit">Cambiar Imagen</button>
 </form>
 

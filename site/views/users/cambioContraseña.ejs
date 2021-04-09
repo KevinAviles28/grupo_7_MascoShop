@@ -15,11 +15,14 @@
     <p>Email de usuario: <%= result.email %> </p>
 
     <h2>Nueva contraseña</h2>
-<form action="/users/nuevaContrasenia/<%=result.id  %>" method="POST">
-    <input type="password" name="nuevaContasenia" placeholder="Escriba su contraseña">
+<form action="/users/nuevaContrasenia/<%=result.id%>?_method=PUT" method="POST">
+    <input type="password" id="contraseniaNueva"  name="nuevaContasenia" placeholder="Escriba su contraseña">
+    <i class="fas fa-eye btn" id="botonDeCambio"></i>
+    <span id="contraNuevaError" class="text-danger"><%= (typeof errores != 'undefined' && errores.nuevaContasenia) ? errores.nuevaContasenia.msg : "" %></span>
     <button class="btn-primary" type="submit">Enviar</button>
 </form>
 <%- include('../partials/footer') %>
 <%- include('../partials/scripts') %> 
+<script src="/javascripts/passwordVerification.js"></script>
 </body>
 </html>

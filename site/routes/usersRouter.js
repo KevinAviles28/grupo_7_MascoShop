@@ -6,6 +6,8 @@ const {register, login, processRegister, perfil, processLogin, cerrarSession, el
 /* middlewares */
 const registerValidation=require(path.join('..','validations','registerValidation'));
 const loginValidation=require(path.join('..','validations','loginValidation'));
+const contraseniaValidation=require(path.join('..','validations','validationNewContra'));
+const emailValidation=require(path.join('..','validations','validationEmail'));
 
 const upload = require(path.join('..','middlewares','multerUser'));
 const rutasCheck=require(path.join('..','middlewares','rutasCheck'));
@@ -32,9 +34,9 @@ router.get('/logout',cerrarSession);
 
 /* prueba de email */
 router.get('/contraNueva',vistaRecuperacionContraseña);
-router.post('/contraNueva',recuperacionContraseña);
+router.post('/contraNueva',emailValidation,recuperacionContraseña);
 router.get('/nuevaContrasenia/:id',vistaCambioContraseña);
-router.put('/nuevaContrasenia/:id',cambioContraseña);
+router.put('/nuevaContrasenia/:id',contraseniaValidation,cambioContraseña);
 
 /* cambio de imagen */
 router.get('/elcambioDeImagen/:id',vistaCambioImagen);

@@ -5,7 +5,7 @@
     <%- include('../partials/header') %> 
     <main class="carga-productos container my-5">
         <h2 class="py-3">Formulario edicion de producto: <span style="text-transform: uppercase;"><%= product.name %></span></h2>
-        <form action="/products/productEdit/<%= product.id %>?_method=PUT" method="POST">
+        <form action="/products/productEdit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
         <div class="row">
             <div class="col-12 col-md-6">
                 <select name="category" class="form-select mb-3">
@@ -13,8 +13,9 @@
                     <% categoria.forEach(cate => { %>
                         <% if (cate.id==product.category_id) { %>
                             <option value="<%= cate.id %>" selected><%= cate.name %> </option>  
-                        <% } %>
+                        <% }else{ %>
                         <option value="<%= cate.id %>"><%= cate.name %> </option> 
+                        <% } %> 
                         <% }) %>
                     </select>
                     <span class="text-danger"><%= (typeof errores != 'undefined' && errores.category) ? errores.category.msg : "" %>  </span>
@@ -26,8 +27,9 @@
                         <% subcategoria.forEach(suba => { %>
                             <% if (suba.id==product.subcategory_id) { %>
                                 <option value="<%= suba.id %>" selected><%= suba.name %> </option>  
-                            <% } %>
+                            <% }else{ %>
                             <option value="<%= suba.id %> "><%= suba.name %> </option> 
+                            <% } %>
                             <% }) %>
                         </select>
                         <span class="text-danger"><%= (typeof errores != 'undefined' && errores.subcategory) ? errores.subcategory.msg : "" %></span>
@@ -59,8 +61,11 @@
                         <label for="" class="mx-2">Descripcion</label>
                     </div>
                     <div class="mb-3 col-12 col-md-6">
-                        <input type="file" class="form-control" placeholder="imagen" name="img" value="<%= product.imagenProducto.product_name %>"><!-- arreglar -->
-                        <div class="img-container mb-3" id="img-preview"></div> 
+                        <input id="nuevaImagenProducto" type="file" class="form-control" placeholder="imagen" name="img" value="<%= product.imagenProducto.product_name %>"><!-- arreglar -->
+                        <span id="nuevaImgErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.img) ? errores.img.msg : "" %></span>
+                        <div class="img-container mb-3" id="imgPreviewEdit">
+                            <img src="/images/productos/<%= product.imagenProducto[0].product_name %>" alt=""id="imagenProductoActual">
+                        </div> 
                     </div>
                     <div class="d-flex justify-content-between">
                         <a href="/products/allProducts" class="btn btn-danger mb-3">Cancelar</a>
@@ -73,5 +78,6 @@
     </main>
     <%- include('../partials/footer') %> 
     <%- include('../partials/scripts') %> 
+    <script src="/javascripts/productoEdit.js"></script>
 </body>
 </html>
