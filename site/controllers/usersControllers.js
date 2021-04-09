@@ -119,6 +119,7 @@ module.exports = {
     edicionDePerfil:(req,res)=>{
         
         const {provincia,localidad,telefono,direccion} = req.body;
+        
         db.User.update({
             provincia: provincia.trim(),
             localidad: localidad.trim(),
@@ -268,28 +269,26 @@ module.exports = {
     vistaCambioImagen:(req,res)=>{
         db.User.findByPk(req.params.id)
         .then((result)=>{
-            /* res.send(result) */
-            res.render('users/cambiarImagen',{
-                result
-            })
+            res.redirect('/users/login')
         })
     },
     cambioImagen:(req,res)=>{
-        /* res.send(req.files) */
+
         db.User.findByPk(req.params.id)
         .then((user)=>{
             if(user.avatar != 'usuarioDefault.png') {
                 fs.unlinkSync('public/images/users/' + user.avatar)
             }
         })
+
         db.User.update({
-            avatar:req.files[0].filename
+            avatar: req.files[0].filename
         },{
             where:{
-                id:req.params.id
+                id: req.params.id
             }
         })
-        .then((result)=>{
+        .then(()=>{
             res.redirect(`/users/perfil/${req.params.id}`)
         })
     }

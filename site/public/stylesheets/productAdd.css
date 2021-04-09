@@ -4,7 +4,7 @@ main.carga-productos h2{
     color: white;
 }
 
-main.carga-productos form textarea{
+main.carga-productos form .textarea{
     resize: none;
     height: 240px;
 }
