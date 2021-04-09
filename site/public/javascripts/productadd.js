@@ -13,6 +13,10 @@ window.addEventListener('load', function(){
     $descErrors=qs("#descErrors"),
     $descr=qs("#descr"),
     $descrErrors=qs("#descrErrors"),
+    $categoryAdd=qs("#categoryAdd"),
+    $categoryAddErrors=qs("#categoryAddErrors"),
+    $subcategoryAdd=qs("#subcategoryAdd"),
+    $subcategoryAddErrors=qs("#subcategoryAddErrors"),
     $img=qs("#img"),
     $imgErrors=qs("#imgErrors"),
     $imgPreview=qs("#img-preview")
@@ -135,5 +139,25 @@ window.addEventListener('load', function(){
             }
         }
     })
+    $categoryAdd.addEventListener('blur', function(){
+        if(!$categoryAdd.value.trim()){
+             $categoryAddErrors.innerHTML = 'Campo requerido';
+             $categoryAdd.classList.add('is-invalid')
+         }else {
+             $categoryAdd.classList.remove('is-invalid');
+             $categoryAdd.classList.add('is-valid');
+             $categoryAddErrors.innerHTML = ''
+         }
+     })
+     $subcategoryAdd.addEventListener('blur', function(){
+        if(!$subcategoryAdd.value.trim()){
+             $subcategoryAddErrors.innerHTML = 'Campo requerido';
+             $subcategoryAdd.classList.add('is-invalid')
+         }else {
+             $subcategoryAdd.classList.remove('is-invalid');
+             $subcategoryAdd.classList.add('is-valid');
+             $subcategoryAddErrors.innerHTML = ''
+         }
+     })
     
 })
