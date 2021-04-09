@@ -19,7 +19,9 @@ nuevaImagen.addEventListener('change',
                 imagenActual.style.display = 'none';
                 let reader = new FileReader();
                 reader.onload = function(e){
-                    laPrevisualizacion.innerHTML = '<img src="' + e.target.result +'"/>';
+                    laPrevisualizacion.innerHTML = '<img src="' + e.target.result +'" style="width: 200px; height: 200px; object-fit: cover"/>'
+                    ;
+
                 };
                 reader.readAsDataURL(nuevaImagen.files[0]);
                 erroresAvatar.innerHTML = '';
