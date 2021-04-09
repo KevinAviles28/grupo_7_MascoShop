@@ -119,6 +119,7 @@ module.exports = {
     edicionDePerfil:(req,res)=>{
         
         const {provincia,localidad,telefono,direccion} = req.body;
+        
         db.User.update({
             provincia: provincia.trim(),
             localidad: localidad.trim(),
@@ -180,14 +181,14 @@ module.exports = {
             port: 465,
             secure: true, // true for 465, false for other ports
             auth: {
-              user: 'mascoshopdevelop@gmail.com', // generated ethereal user
-              pass: 'pdmqsofkuirkhorr', // generated ethereal password
+                user: 'mascoshopdevelop@gmail.com', // generated ethereal user
+                pass: 'pdmqsofkuirkhorr', // generated ethereal password
             },
             tls:{
                 rejectUnauthorized:false
             }
-          });
-
+        });
+        
         db.User.findOne({
             where:{
                 email:req.body.emailRecuperacion
@@ -196,16 +197,16 @@ module.exports = {
             let verificationLink=`http://localhost:3000/users/nuevaContrasenia/${result.id}`;
             /* cambio(result,verificationLink) */
             
-              const info =await transporter.sendMail({
-                    from: '"Recuperacion de contrseña " <mascoshopdevelop@gmail.com>', // sender address
-                    to: `${result.email}`, // list of receivers
-                    subject: 'Recuperacion de contraseña', // Subject line
-                    html: `<h1>Recupero de contraseña</h1>
-                     <br>
-                     <p>Para recuperar la contraseaña haga click en este link </p>
-                     <a href="${verificationLink}">Recuperar Contraseña</a>`
-                  });
-                  console.log(info.messageID)
+            const info =await transporter.sendMail({
+                from: '"Recuperacion de contrseña " <mascoshopdevelop@gmail.com>', // sender address
+                to: `${result.email}`, // list of receivers
+                subject: 'Recuperacion de contraseña', // Subject line
+                html: `<h1>Recupero de contraseña</h1>
+                <br>
+                <p>Para recuperar la contraseaña haga click en este link </p>
+                <a href="${verificationLink}">Recuperar Contraseña</a>`
+            });
+            console.log(info.messageID)
             
             res.redirect('/users/login')
         }).catch(console.error);
@@ -221,44 +222,36 @@ module.exports = {
         })
     },
     cambioContraseña:(req,res)=>{
-      const {nuevaContasenia}=req.body
-      let haseo=bcrypt.hashSync(nuevaContasenia,12)
+        const {nuevaContasenia}=req.body
+        let haseo=bcrypt.hashSync(nuevaContasenia,12)
         db.User.update({
-          pass:haseo
-      },{
-          where:{
-              id:req.params.id
-          }
-      })
-      .then((result)=>{
-            res.redirect('/users/login')
-      })
-    },
-    vistaCambioImagen:(req,res)=>{
-        db.User.findByPk(req.params.id)
-        .then((result)=>{
-            /* res.send(result) */
-            res.render('users/cambiarImagen',{
-                result
-            })
-        })
-    },
-    cambioImagen:(req,res)=>{
-        /* res.send(req.files) */
-        db.User.findByPk(req.params.id)
-        .then((user)=>{
-            if(user.avatar != 'usuarioDefault.png') {
-                fs.unlinkSync('public/images/users/' + user.avatar)
-            }
-        })
-        db.User.update({
-            avatar:req.files[0].filename
+            pass:haseo
         },{
             where:{
                 id:req.params.id
             }
         })
         .then((result)=>{
+            res.redirect('/users/login')
+        })
+    },
+    cambioImagen:(req,res)=>{
+
+        db.User.findByPk(req.params.id)
+        .then((user)=>{
+            if(user.avatar != 'usuarioDefault.png') {
+                fs.unlinkSync('public/images/users/' + user.avatar)
+            }
+        })
+
+        db.User.update({
+            avatar: req.files[0].filename
+        },{
+            where:{
+                id: req.params.id
+            }
+        })
+        .then(()=>{
             res.redirect(`/users/perfil/${req.params.id}`)
         })
     }

@@ -54,7 +54,7 @@
                         <label for="" class="mx-2">Descuento</label>
                     </div>
                     <div class="form-floating mb-3 col-12 col-md-6">
-                        <textarea name="description" placeholder="Descripcion"  class="form-control"><%= product.description %></textarea>
+                        <textarea name="description" placeholder="Descripcion"  class="form-control textarea"><%= product.description %></textarea>
                         <span class="text-danger"><%= (typeof errores != 'undefined' && errores.description) ? errores.description.msg : "" %></span>
                         <label for="" class="mx-2">Descripcion</label>
                     </div>

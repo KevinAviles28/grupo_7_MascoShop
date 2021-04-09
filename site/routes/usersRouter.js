@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const path = require('path');
-const {register, login, processRegister, perfil, processLogin, cerrarSession, eliminarCuenta,vistaDeEdicion, edicionDePerfil,vistaRecuperacionContraseña, recuperacionContraseña, vistaCambioContraseña, cambioContraseña,vistaCambioImagen, cambioImagen} = require(path.join('..','controllers','usersControllers'));
+const {login, processRegister, perfil, processLogin, cerrarSession, eliminarCuenta,vistaDeEdicion, edicionDePerfil,vistaRecuperacionContraseña, recuperacionContraseña, vistaCambioContraseña, cambioContraseña, cambioImagen} = require(path.join('..','controllers','usersControllers'));
 
 /* middlewares */
 const registerValidation=require(path.join('..','validations','registerValidation'));
@@ -37,7 +37,6 @@ router.get('/nuevaContrasenia/:id',vistaCambioContraseña);
 router.put('/nuevaContrasenia/:id',cambioContraseña);
 
 /* cambio de imagen */
-router.get('/elcambioDeImagen/:id',vistaCambioImagen);
 router.put('/elcambioDeImagen/:id',upload.any(),cambioImagen);
 
 module.exports = router;
