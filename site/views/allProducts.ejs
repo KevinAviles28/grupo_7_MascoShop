@@ -43,30 +43,22 @@
                     <h3><%= element.name %></h3>
                     <p>$<%= toThousand(element.precio - parseInt(element.precio * element.discount / 100)) %></p>
                   </a>
-                  <button class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>
-                  <% if(typeof userNew != 'undefined'){ %> 
-                    <% if (userNew.category==="Admin") { %>
-                      <form action="/products/productDelete/<%= element.id %>?_method=DELETE" method="POST">
-                        <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                        <a href="/products/productEdit/<%= element.id %>" class="btn btn-success my-3"><i class="far fa-edit"></i></a>
-                      </form>
-                      <% } %>	
-                      <% } %> 		
-                    </div>
-                  </section> 
-                  <% }) %>
+                  <button class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Agregar al carrito</button>		
                 </div>
-                
-              
+              </section> 
+              <% }) %>
             </div>
-            <!-- productos destacados -->
             
-            <%- include('partials/instruct') %> 
             
-          </main>
+          </div>
+          <!-- productos destacados -->
           
-          <%- include('partials/footer') %>
-          <%- include('partials/scripts') %>
+          <%- include('partials/instruct') %> 
           
-        </body>
-        </html>
+        </main>
+        
+        <%- include('partials/footer') %>
+        <%- include('partials/scripts') %>
+        
+      </body>
+      </html>
