@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %> 
+<body>
+    <%- include('../partials/header') %> 
+    <main class="container my-3 lista-productos">
+        <div class="table-responsive">
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">View Img</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio original</th>
+                        <th scope="col">Precio con descuento</th>
+                        <th scope="col">Descuento</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Sub-categoria</th>
+                        <th scope="col">#</th>
+                        <th scope="col">#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% products.forEach(producto=>{ %> 
+                        <tr>
+                            <th scope="row"><%= producto.id %></th>
+                            <td class="imagen-de-lista">
+                                <img src="/images/productos/<%=producto.imagenProducto[0].product_name %>" alt="">
+                            </td>
+                            <td><%= producto.name %></td>
+                            <td>$<%= toThousand(producto.precio) %></td>
+                            <td>$<%= toThousand(producto.precio - parseInt(producto.precio * producto.discount / 100)) %></td>
+                            <td><%= producto.discount %></td>
+                            <td><%= producto.stock %></td>
+                            <td><%= producto.description != 'undefined' ? 'Si' : 'No' %></td>
+                            <td><%= producto.categoria.name %></td>
+                            <td><%= producto.subcategoria.name %></td>
+                            <td>
+                                <a href="/admin/productEdit/<%= producto.id %>" class="btn btn-success"><i class="far fa-edit"></i></a>
+                            </td>
+                            <td>
+                                <!-- original -->
+                                <form action="/admin/productDelete/<%= producto.id %>?_method=DELETE" method="POST">
+                                    <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                                    
+                                </form>
+                                <!-- original -->
+                            </td>
+                        </tr>
+                        <% }) %> 
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <%- include('../partials/footer') %>
+        <%- include('../partials/scripts') %> 
+    </body>
+    </html>
