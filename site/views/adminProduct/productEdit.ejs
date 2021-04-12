@@ -5,7 +5,7 @@
     <%- include('../partials/header') %> 
     <main class="carga-productos container my-5">
         <h2 class="py-3">Formulario edicion de producto: <span style="text-transform: uppercase;"><%= product.name %></span></h2>
-        <form action="/products/productEdit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form action="/admin/productEdit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
         <div class="row">
             <div class="col-12 col-md-6">
                 <select name="category" class="form-select mb-3">
@@ -61,10 +61,10 @@
                         <label for="" class="mx-2">Descripcion</label>
                     </div>
                     <div class="mb-3 col-12 col-md-6">
-                        <input id="nuevaImagenProducto" type="file" class="form-control" placeholder="imagen" name="img" value="<%= product.imagenProducto.product_name %>"><!-- arreglar -->
+                        <input id="nuevaImagenProducto" type="file" class="form-control" placeholder="imagen" name="img" ><!-- arreglar -->
                         <span id="nuevaImgErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.img) ? errores.img.msg : "" %></span>
                         <div class="img-container mb-3" id="imgPreviewEdit">
-                            <img src="/images/productos/<%= product.imagenProducto[0].product_name %>" alt=""id="imagenProductoActual">
+                            <img src="/images/productos/<%= product.imagenProducto[0].product_name %>" alt=""id="imagenProductoActual" name="imagenNueva">
                         </div> 
                     </div>
                     <div class="d-flex justify-content-between">

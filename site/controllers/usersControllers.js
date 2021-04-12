@@ -267,24 +267,33 @@ module.exports = {
      
     },
     cambioImagen:(req,res)=>{
-
-        db.User.findByPk(req.params.id)
-        .then((user)=>{
-            if(user.avatar != 'usuarioDefault.png') {
-                fs.unlinkSync('public/images/users/' + user.avatar)
-            }
-        })
-
-        db.User.update({
-            avatar: req.files[0].filename
-        },{
-            where:{
-                id: req.params.id
-            }
-        })
-        .then(()=>{
-            res.redirect(`/users/perfil/${req.params.id}`)
-        })
+        if(!req.files[0]){
+            db.User.findByPk(req.params.id)
+            .then((result)=>{
+                return res.render('users/editPerfil',{
+                    result
+                })
+            })
+        }else{
+            db.User.findByPk(req.params.id)
+            .then((user)=>{
+                if(user.avatar != 'usuarioDefault.png') {
+                    fs.unlinkSync('public/images/users/' + user.avatar)
+                }
+            })
+    
+            db.User.update({
+                avatar: req.files[0].filename
+            },{
+                where:{
+                    id: req.params.id
+                }
+            })
+            .then(()=>{
+                res.redirect(`/users/perfil/${req.params.id}`)
+            })
+        }
+        
     }
 }
 
