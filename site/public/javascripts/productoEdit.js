@@ -3,18 +3,7 @@ window.addEventListener('load',function(){
     let imagenProductoActual=document.querySelector('#imagenProductoActual');
     let $nuevaImgErrors=document.querySelector('#nuevaImgErrors')
     let $imagenPreview=document.querySelector('#imgPreviewEdit');
-    /* imagenProductoNuevo.addEventListener('change',function fileValidation(){
-        if(imagenProductoNuevo.files && imagenProductoNuevo.files[0]){
-            imagenProductoActual.style.display = 'none';
-            let reader = new FileReader();
-            
-            reader.onload = function(e){
-                $imagenPreview.innerHTML = '<img src="' + e.target.result +'"/>';
-            };
-            reader.readAsDataURL(imagenProductoNuevo.files[0]);
     
-        }
-    }) */
     imagenProductoNuevo.addEventListener('change', 
     function fileValidation(){
         let filePath = imagenProductoNuevo.value, //Capturo el valor del input

@@ -93,7 +93,7 @@ CREATE TABLE `product_images` (
 
 LOCK TABLES `product_images` WRITE;
 /*!40000 ALTER TABLE `product_images` DISABLE KEYS */;
-INSERT INTO `product_images` VALUES (1,'img-1616046913272.png',1),(2,'img-1616046976378.png',2),(3,'img-1616047043566.png',3),(4,'img-1616047160261.png',4),(5,'productoDefault.png',5),(6,'productoDefault.png',6),(7,'img-1616047505200.png',7),(8,'img-1616047583660.png',8),(9,'img-1616047650639.png',9),(10,'img-1616047926681.png',10),(11,'img-1616048016305.png',11),(12,'img-1617945360202.png',12),(13,'img-1617941268705.png',13),(14,'img-1617941339522.jpg',14),(15,'img-1617941440969.png',15),(16,'img-1617941554585.png',16),(17,'img-1617941609480.png',17),(18,'img-1617941816327.jpeg',18),(19,'img-1617941897658.jpeg',19),(20,'productoDefault.png',20),(21,'img-1617942188683.jpg',21),(22,'img-1617942336557.png',22),(23,'img-1617942556777.jpeg',23),(24,'img-1617942767185.png',24);
+INSERT INTO `product_images` VALUES (1,'img-1617983042027.png',1),(2,'img-1616046976378.png',2),(3,'img-1616047043566.png',3),(4,'img-1616047160261.png',4),(5,'productoDefault.png',5),(6,'productoDefault.png',6),(7,'img-1616047505200.png',7),(8,'img-1616047583660.png',8),(9,'img-1616047650639.png',9),(10,'img-1616047926681.png',10),(11,'img-1616048016305.png',11),(12,'img-1617945360202.png',12),(13,'img-1617941268705.png',13),(14,'img-1617941339522.jpg',14),(15,'img-1617941440969.png',15),(16,'img-1617941554585.png',16),(17,'img-1617941609480.png',17),(18,'img-1617941816327.jpeg',18),(19,'img-1617941897658.jpeg',19),(20,'productoDefault.png',20),(21,'img-1617942188683.jpg',21),(22,'img-1617942336557.png',22),(23,'img-1617942556777.jpeg',23),(24,'img-1617942767185.png',24);
 /*!40000 ALTER TABLE `product_images` ENABLE KEYS */;
 UNLOCK TABLES;
 
