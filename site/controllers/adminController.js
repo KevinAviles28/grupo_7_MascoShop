@@ -2,6 +2,9 @@ const path = require('path');
 const db = require(path.join('..','database','models'));
 const { Op } = require('sequelize');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const {validationResult}=require('express-validator');
+const fs=require('fs')
+
 
 module.exports = {
     lista:(req,res)=>{
@@ -82,7 +85,9 @@ module.exports = {
         if (!errores.isEmpty()) {
             let pedidoCategoria = db.Categoria.findAll()
             let pedidoSubCategoria = db.SubCategoria.findAll()
-            let pedidoProducto = db.Productos.findByPk(req.params.id)
+            let pedidoProducto = db.Productos.findByPk(req.params.id,{
+                include: [{ association: "categoria" }, { association: "subcategoria" }, { association: "imagenProducto" }]
+            })
             Promise.all([pedidoCategoria, pedidoSubCategoria, pedidoProducto])
             .then(([categoria, subcategoria, product]) => {
                 return res.render('adminProduct/productEdit', {
@@ -96,14 +101,27 @@ module.exports = {
         } else {
             const {name, precio, stock, discount, description, category, subcategory, img} = req.body;
             let elParams=req.params.id;
-            
-            db.ImagenProducto.findAll({
-                where:{
-                    product_id:elParams
-                }
-            })
-            .then((imagen)=>{
-                let actualizacionProducto= db.Productos.update({
+            if(req.files[0]){
+               let eliminarImagenAnterior= db.ImagenProducto.findAll({
+                   where:{
+                       product_id:elParams
+                   }
+               });
+              let cambioImagen= db.ImagenProducto.update({
+                product_name:req.files[0].filename
+               },{
+                   where:{
+                       id:elParams
+                   }
+               });
+               Promise.all([eliminarImagenAnterior,cambioImagen])
+               .then(([deleteImagen,updateImages])=>{
+                deleteImagen.forEach(element => {
+                    if (element.product_name != 'productoDefault.png') {
+                        fs.unlinkSync('public/images/productos/' + element.product_name)
+                    }
+                })
+                db.Productos.update({
                     name: name.trim(),
                     precio: precio,
                     stock: stock,
@@ -111,61 +129,62 @@ module.exports = {
                     description: description.trim(),
                     category_id: category,
                     subcategory_id: subcategory
-                }, {
-                    where: {
-                        id: elParams
-                    }
-                })
-                let actualizacionImagenProducto=db.ImagenProducto.update({
-                    product_name: req.files[0].filename
-                    
                 },{
                     where:{
                         id:elParams
                     }
                 })
-                
-                Promise.all([actualizacionProducto,actualizacionImagenProducto])
-                .then((result)=>{
-                    imagen.forEach(element => {
-                        if (element.product_name != 'productoDefault.png') {
-                            fs.unlinkSync('public/images/productos/' + element.product_name)
-                        }
-                    })
+                .then(()=>{
                     res.redirect("/products/allProducts#productos-destacados")
                 })
-            })
+               })
+            }else{
+                db.Productos.update({
+                    name: name.trim(),
+                    precio: precio,
+                    stock: stock,
+                    discount: discount,
+                    description: description.trim(),
+                    category_id: category,
+                    subcategory_id: subcategory
+                },{
+                    where:{
+                        id:elParams
+                    }
+                })
+                .then(()=>{
+                    res.redirect("/products/allProducts#productos-destacados")
+                })
+            }
         }
     },
     productDelete: (req, res) => {
-
-        db.ImagenProducto.findOne({
-            where: {
-                product_id: req.params.id
+        /* res.send(req.params) */
+        let elParams=req.params.id;
+        let eliminarImagenDirectorio= db.ImagenProducto.findAll({
+            where:{
+                product_id:elParams
             }
-        })
-        .then((imagen) => {
-
-            if(imagen.product_name != 'usuarioDefault.png'){
-                fs.unlinkSync('public/images/productos/' + imagen.product_name)
+        });
+       let elimiarImagenDB= db.ImagenProducto.destroy({
+            where:{
+                id:elParams
             }
-
+        });
+        Promise.all([eliminarImagenDirectorio,elimiarImagenDB])
+        .then(([deleteImagen,updateImages])=>{
+         deleteImagen.forEach(element => {
+             if (element.product_name != 'productoDefault.png') {
+                 fs.unlinkSync('public/images/productos/' + element.product_name)
+             }
+         })
         })
-
-        db.ImagenProducto.destroy({
-            where: {
-                product_id: req.params.id
-            }
-        })
-
-        db.Productos.destroy({
-            where: {
-                id: req.params.id
-            }
-        })
-        .then(()=>{
+         db.Productos.destroy({
+             where:{
+                 id:elParams
+             }
+         }).then(()=>{
             res.redirect('/admin/listaProducts');
-        })
-        .catch(error=> console.log(error))
+         })
     }
 }
