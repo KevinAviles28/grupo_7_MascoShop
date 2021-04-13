@@ -102,42 +102,43 @@ module.exports = {
             const {name, precio, stock, discount, description, category, subcategory, img} = req.body;
             let elParams=req.params.id;
             if(req.files[0]){
-               let eliminarImagenAnterior= db.ImagenProducto.findAll({
-                   where:{
-                       product_id:elParams
-                   }
-               });
-              let cambioImagen= db.ImagenProducto.update({
-                product_name:req.files[0].filename
-               },{
-                   where:{
-                       id:elParams
-                   }
-               });
-               Promise.all([eliminarImagenAnterior,cambioImagen])
-               .then(([deleteImagen,updateImages])=>{
-                deleteImagen.forEach(element => {
-                    if (element.product_name != 'productoDefault.png') {
-                        fs.unlinkSync('public/images/productos/' + element.product_name)
+                db.ImagenProducto.findAll({
+                    where:{
+                        product_id:elParams   
                     }
                 })
-                db.Productos.update({
-                    name: name.trim(),
-                    precio: precio,
-                    stock: stock,
-                    discount: discount,
-                    description: description.trim(),
-                    category_id: category,
-                    subcategory_id: subcategory
+                .then(eliminarImagenDirectorio=>{
+                    eliminarImagenDirectorio.forEach(element=>{
+                        if(element.product_name!='productoDefault.png'){
+                            fs.unlinkSync('public/images/productos/'+ element.product_name)
+                        }
+                    })
+                })
+                db.ImagenProducto.update({
+                    product_name:req.files[0].filename
                 },{
                     where:{
                         id:elParams
                     }
                 })
                 .then(()=>{
-                    res.redirect("/products/allProducts#productos-destacados")
+                    db.Productos.update({
+                        name: name.trim(),
+                        precio: precio,
+                        stock: stock,
+                        discount: discount,
+                        description: description.trim(),
+                        category_id: category,
+                        subcategory_id: subcategory
+                    },{
+                        where:{
+                            id:elParams
+                        }
+                    })
+                    .then(()=>{
+                        res.redirect("/products/allProducts#productos-destacados")
+                    })
                 })
-               })
             }else{
                 db.Productos.update({
                     name: name.trim(),
@@ -161,30 +162,26 @@ module.exports = {
     productDelete: (req, res) => {
         /* res.send(req.params) */
         let elParams=req.params.id;
-        let eliminarImagenDirectorio= db.ImagenProducto.findAll({
+        db.ImagenProducto.findAll({
             where:{
                 product_id:elParams
             }
-        });
-       let elimiarImagenDB= db.ImagenProducto.destroy({
-            where:{
-                id:elParams
-            }
-        });
-        Promise.all([eliminarImagenDirectorio,elimiarImagenDB])
-        .then(([deleteImagen,updateImages])=>{
-         deleteImagen.forEach(element => {
-             if (element.product_name != 'productoDefault.png') {
-                 fs.unlinkSync('public/images/productos/' + element.product_name)
-             }
-         })
         })
-         db.Productos.destroy({
-             where:{
-                 id:elParams
-             }
-         }).then(()=>{
-            res.redirect('/admin/listaProducts');
-         })
+        .then(eliminarImagenDirectorio=>{
+            eliminarImagenDirectorio.forEach(element=>{
+                if(element.product_name!='productoDefault.png'){
+                    fs.unlinkSync('public/images/productos/'+element.product_name)
+                }
+            })
+        })
+        db.ImagenProducto.destroy({where:{id:elParams}})
+        .then(()=>{
+            db.Productos.destroy({where:{id:elParams}})
+            .then(()=>{
+                res.redirect('/admin/listaProducts')
+            })
+        })
+
+        
     }
 }

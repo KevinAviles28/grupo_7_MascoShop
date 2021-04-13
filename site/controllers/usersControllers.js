@@ -137,31 +137,27 @@ module.exports = {
         
     },
     eliminarCuenta:(req,res)=>{
-        
-        let user = db.User.findByPk(req.params.id);
-        let remove = db.User.destroy({
-            where: {
-                id: req.params.id
+        db.User.findByPk(req.params.id)
+        .then(user=>{
+            if(user.avatar!='usuarioDefault.png'){
+                fs.unlinkSync('public/images/users/'+user.avatar)
             }
-        });
-        
-        Promise.all([user,remove])
-        .then(([user,remove])=>{
-            
-            if(user.avatar != 'usuarioDefault.png') {
-                fs.unlinkSync('public/images/users/' + user.avatar)
+        })
+        db.User.destroy({
+            where:{
+                id:req.params.id
             }
-            
+        })
+        .then(()=>{
             req.session.destroy();
             if(req.cookies.recordar){
                 res.cookie('recordar','',{
-                    maxAge : -1
+                    maxAge:-1
                 })
             }
-            
             return res.redirect('/');
         })
-        .catch(error => console.log(error))
+       
     },
     cerrarSession:(req,res)=>{ /* cerrar sesion */
         req.session.destroy();
@@ -191,8 +187,8 @@ module.exports = {
                 port: 465,
                 secure: true, // true for 465, false for other ports
                 auth: {
-                  user: 'mascoshopdevelop@gmail.com', // generated ethereal user
-                  pass: 'pdmqsofkuirkhorr', // generated ethereal password
+                  user:process.env.EMAIL , // generated ethereal user
+                  pass: process.env.PASS, // generated ethereal password
                 },
                 tls:{
                     rejectUnauthorized:false
