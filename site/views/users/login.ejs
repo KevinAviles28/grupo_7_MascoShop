@@ -88,8 +88,43 @@
                                 <span id="pass2Errors" class="text-danger"><%= (typeof errores != 'undefined' && errores.passDos) ? errores.passDos.msg : "" %></span>
                             </div>
                             <div class="mb-3">
-                                <input type="file" id="avatar" name="avatar" class="form-control">
+                               <!--  <input type="file" id="avatar" name="avatar" class="form-control"> -->
+
+                               <button id="elBontm" type="button" class="btn btn-danger mx-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Elegir avatar
+                              </button>
+                              <div id="inputAvatar"></div>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLabel">Seleccione un avatar!</h5>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container-fluid">
+                                            <div class="d-flex flex-wrap"  ><!-- estilos a cambiar -->
+                                                <% imagenes.forEach(element => { %>
+                                                    <a id="aImagen" href="#"><img id="imagenPredefinada" src="/images/users/<%= element.imagenAnimal %>" alt="<%= element.imagenAnimal %>"></a>       
+                                                <% }) %>
+                                          
+                                         
+                                          
+                                        </div>
+                                        </div>
+                                        <div id="textoImagen"></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancelar</button>
+                                            <button id="eleccion" type="button" class="btn btn-primary" data-bs-dismiss="modal">Elegir este Avatar!</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+
                             </div>
+                            <input id="ImagenElegidaxD" name="img" class="form-control" type="text">
                             <span id="avatarErrors" class="text-danger"><%= (typeof errores != 'undefined' && errores.avatar) ? errores.avatar.msg : "" %></span>
                             <span class="text-danger"  id="submitErrors"></span>
                             
@@ -108,6 +143,7 @@
             </main>
             
             <%- include('../partials/scripts') %>
+            <script src="/javascripts/seleccionarAvatar.js"></script>
             <script src="/javascripts/register.js"></script> 
             
         </body>

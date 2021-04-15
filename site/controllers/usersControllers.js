@@ -27,14 +27,13 @@ module.exports = {
             })
         }else{
             
-            
-            const {name,apellido,email,passUno,avatar} = req.body;    
+            const {name,apellido,email,passUno,avatar,img} = req.body;    
             db.User.create({
                 name: name.trim(),
                 apellido: apellido.trim(),
                 email: email.trim(),
                 pass: bcrypt.hashSync(passUno,12),
-                avatar: (req.files[0])?req.files[0].filename:"usuarioDefault.png",
+                avatar: /* (req.files[0])?req.files[0].filename:"usuarioDefault.png" */img,
                 category: 'User'
             })
             .then(()=>{
@@ -44,7 +43,13 @@ module.exports = {
         }
     },
     login:(req,res)=>{
-        res.render('users/login');
+        db.ImagenPredefinada.findAll()
+        .then(imagenes=>{
+            res.render('users/login',{
+                imagenes
+            });
+        })
+        
     },
     processLogin:(req,res)=>{
         
