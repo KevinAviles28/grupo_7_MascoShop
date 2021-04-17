@@ -42,9 +42,8 @@
                             </td>
                             <td>
                                 <!-- original -->
-                                <form action="/admin/productDelete/<%= producto.id %>?_method=DELETE" method="POST">
+                                <form action="/admin/productDelete/<%= producto.id %>?_method=DELETE" method="POST" class="eliminar-producto">
                                     <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                                    
                                 </form>
                                 <!-- original -->
                             </td>
@@ -55,6 +54,8 @@
             </div>
         </main>
         <%- include('../partials/footer') %>
-        <%- include('../partials/scripts') %> 
+        <%- include('../partials/scripts') %>
+        <script src="/javascripts/alerta.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script> 
     </body>
     </html>
